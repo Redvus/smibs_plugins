@@ -1,0 +1,52 @@
+/*=============================================
+=                   Search                   =
+=============================================*/
+
+.post-preview {
+	margin-bottom: $marginVert;
+	border-bottom: $border_thin solid $secondary;
+
+	&__top {
+
+		a {
+
+			h3 {
+				border-bottom: none;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// &__content {
+
+	// }
+
+	&__bottom {
+		margin-top: calc(#{$marginVert} / 2);
+	}
+
+	&__date {
+		display: inline-block;
+		background-color: $secondary;
+		color: $fourth;
+		font-size: $font-size-small;
+		padding: calc(#{$marginVert} / 5) calc(#{$marginVert} / 2);
+		// margin-right: $marginVert / 2;
+	}
+
+	&__link {
+		height: 100%;
+		display: inline-block;
+		background-color: $primary;
+		// color: $fourth;
+		font-size: $font-size-small;
+		padding: calc(#{$marginVert} / 5) calc(#{$marginVert} / 2);
+		// margin-right: $marginVert / 2;
+
+		&:hover {
+			background-color: $navBackground;
+		}
+	}
+}
+
+/*============  End of Search  =============*/

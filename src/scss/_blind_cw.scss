@@ -1,0 +1,586 @@
+.blind {
+
+    /*----------  Blind Images Color C/W  ----------*/
+    &-cw {
+
+        &>.wrapper {
+            background-color: $blindBackgroundCW;
+            color: $blindColorCW;
+
+            &>.header {
+                background-color: $blindColorCW;
+
+                &>.header__nav {
+                    background-color: lighten($blindBackgroundCW, 20%);
+
+                    &>.header__bottom {
+                        background-color: lighten($blindBackgroundCW, 20%);
+
+                        .nav-main {
+
+                            li {
+
+                                a {
+                                    color: $blindColorCW;
+                                }
+
+                                &:hover {
+                                    background-color: lighten($blindBackgroundCW, 20%);
+                                }
+                            }
+
+                            &__children {
+
+                                ul.submenu {
+                                    background-color: $blindColorCW;
+
+                                    a {
+                                        color: $blindBackgroundCW;
+
+                                        &:hover {
+                                            color: $blindColorCW;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.header__top {
+                        background-color: lighten($blindBackgroundCW, 25%);
+
+                        &>.header__social {
+
+                            ul {
+
+                                li {
+
+
+                                    i {
+                                        color: $blindColorCW;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>input {
+                            color: $blindBackgroundCW;
+
+                            &::-webkit-input-placeholder {
+                                /* WebKit browsers */
+                                color: $blindBackgroundCW;
+                            }
+
+                            &::-moz-placeholder {
+                                /* Mozilla Firefox 4 to 18 */
+                                color: $blindBackgroundCW;
+                                opacity: 1;
+                            }
+
+                            &::-moz-placeholder {
+                                /* Mozilla Firefox 19+ */
+                                color: $blindBackgroundCW;
+                                opacity: 1;
+                            }
+
+                            &::-ms-input-placeholder {
+                                /* Internet Explorer 10+ */
+                                color: $blindBackgroundCW;
+                            }
+                        }
+                    }
+                }
+
+                &>.header__blind {
+                    background-color: $blindBackgroundCW;
+
+                    & > i {
+                        color: $blindColorCW;
+                    }
+                }
+            }
+
+            &>.sidebar {
+                background-color: lighten($blindBackgroundCW, 20%);
+
+                &-static {
+                    background-color: lighten($blindBackgroundCW, 20%);
+                }
+
+                &>.sidebar__buttons {
+                    background-color: $blindBackgroundCW;
+
+                    &>a {
+                        background-color: lighten($blindBackgroundCW, 25%);
+                        border-color: $blindColorCW;
+
+                        span {
+                            color: $blindColorCW;
+                        }
+
+                        picture {
+
+                            img {
+                                filter: grayscale(1) invert(0);
+                            }
+                        }
+                    }
+                }
+
+                &>.sidebar__banners {
+
+                    a {
+
+                        picture {
+                            img {
+                                filter: grayscale(1);
+                            }
+                        }
+                    }
+                }
+
+                &>.sidebar-logo {
+
+                    svg {
+
+                        path {
+                            fill: $blindColorCW;
+                        }
+                    }
+
+                    img {
+                        filter: grayscale(1) invert(0);
+                    }
+                }
+
+                &>.sidebar-login {
+                    background-color: $blindBackgroundCW;
+
+                    &>.sidebar-login__top {
+
+                        &>.sidebar-login__form {
+
+                            &>.sidebar-login__block {
+
+                                input {
+                                    color: $blindColorCW;
+                                    border-color: $blindColorCW;
+                                    background-color: lighten($blindBackgroundCW, 20%);
+
+                                    &:focus,
+                                    &:visited {
+                                        color: $blindColorCW;
+                                        background-color: lighten($blindBackgroundCW, 20%);
+                                        border-color: $blindColorCW;
+                                        outline: none;
+                                    }
+
+                                    &:focus::-webkit-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-moz-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-ms-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &::-webkit-input-placeholder {
+                                        /* WebKit browsers */
+                                        color: rgba($blindColorCW, 0.7);
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 4 to 18 */
+                                        color: rgba($blindColorCW, 0.7);
+                                        opacity: 1;
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 19+ */
+                                        color: rgba($blindColorCW, 0.7);
+                                        opacity: 1;
+                                    }
+
+                                    &::-ms-input-placeholder {
+                                        /* Internet Explorer 10+ */
+                                        color: rgba($blindColorCW, 0.7);
+                                    }
+                                }
+                            }
+
+                            &>.sidebar-login__button {
+                                color: $blindColorCW;
+                                border-color: $blindColorCW;
+                                background-color: lighten($blindBackgroundCW, 20%);
+                            }
+                        }
+                    }
+
+                    &>.sidebar-login__bottom {
+
+                        li {
+
+                            a, i {
+                                color: $blindColorCW;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &>.main-content {
+
+                img {
+                    filter: grayscale(1) contrast(1.2) brightness(1.1);
+                }
+
+                &>.main-content__inside {
+
+                    &>.main-content__hero {
+
+                        &>.main-content__intro {
+                            background-color: $blindColorCW;
+                        }
+
+                        &>.main-content__anniversary {
+                            background-color: lighten($blindBackgroundCW, 20%);
+
+                            &>.bx-viewport {
+
+                                .main-content__anniversary {
+                                    background-color: lighten($blindBackgroundCW, 20%);
+                                }
+                            }
+
+                            .main-content__anniversary-slide {
+
+                                .main-content__anniversary-middle {
+                                    background-color: $blindBackgroundCW;
+                                }
+
+                                .main-content__anniversary-data {
+                                    background-color: $blindBackgroundCW;
+
+
+                                    span {
+                                        color: $blindColorCW;
+                                    }
+                                }
+
+                                .main-content__anniversary-birthday {
+
+                                    span, p {
+                                        color: $blindColorCW;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__read,
+                    &>.main-content__news,
+                    &>.main-content__calendar,
+                    &>.main-content__partners {
+
+                        &>.main-content__news-block {
+
+                            &>.main-content__subheader {
+                                border-color: $blindColorCW;
+                            }
+
+                            ul {
+
+                                &>.main-content__news-single {
+
+                                    &>.news-single__title {
+                                        background-color: lighten($blindBackgroundCW, 20%);
+                                    }
+
+                                    &>.news-single__text {
+                                        background-color: lighten($blindBackgroundCW, 30%);
+                                    }
+
+                                    &>.news-single__footer {
+
+                                        &>.news-single__date {
+                                            background-color: lighten($blindBackgroundCW, 25%);
+                                            color: $blindColorCW;
+                                        }
+
+                                        &>.news-single__link {
+                                            background-color: lighten($blindBackgroundCW, 20%);
+                                        }
+                                    }
+                                }
+                            }
+
+                            &>.main-content__subheader--link {
+
+                                a {
+
+                                    &:after {
+                                        color: $blindColorCW;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>.main-content__subheader {
+                            border-color: $blindColorCW;
+                        }
+
+                        &>.main-content__subheader--link {
+
+                            a {
+
+                                &:after {
+                                    color: $blindColorCW;
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__calendar {
+
+                        &>.main-content__calendar-month {
+
+                            ul {
+
+                                &>.main-content__calendar-date {
+                                    border-color: $blindColorCW;
+
+
+                                    &>.calendar-date__data {
+                                        border-color: $blindColorCW;
+
+                                        &>.calendar-date__data-num {
+                                            border-color: $blindColorCW;
+                                            background-color: $blindBackgroundCW;
+
+                                            span {
+                                                color: $blindColorCW;
+                                            }
+                                        }
+                                    }
+
+                                    &>.calendar-date__events {
+                                        border-color: $blindColorCW;
+
+                                        &>.calendar-date__data-month {
+                                            border-color: $blindColorCW;
+                                            background-color: lighten($blindBackgroundCW, 20%);
+
+                                            span {
+                                                color: $blindColorCW;
+                                            }
+                                        }
+
+                                        &>.calendar-date__data-week {
+                                            background-color: $blindBackgroundCW;
+
+                                            span {
+                                                color: $blindColorCW;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__text {
+
+                        &>.read-content__link {
+                            color: $blindColorCW;
+                            background-color: lighten($blindBackgroundCW, 30%);
+                            border-color: $blindColorCW;
+                        }
+                    }
+
+                    &>.main-content__inside-content {
+
+                        &>.main-content__guest {
+
+                            &>.main-content__guest-message {
+                                color: $blindColorCW;
+                                background-color: lighten($blindBackgroundCW, 20%);
+
+                                &:before {
+                                    border-right-color: lighten($blindBackgroundCW, 20%);
+                                }
+                            }
+
+                            &>.main-content__guest-person {
+
+                                &>.main-content__guest-date {
+
+                                    span {
+                                        color: $blindColorCW;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>.main-content__inside-form {
+
+                            &>.form-ajax {
+
+                                input[type='text'],
+                                input[type='email'],
+                                input[type='number'],
+                                input[type='password'],
+                                textarea {
+                                    color: $blindColorCW;
+                                    border-color: $blindColorCW !important;
+
+                                    &:focus,
+                                    &:visited {
+                                        color: $blindColorCW;
+                                        background-color: lighten($blindBackgroundCW, 20%);
+                                        border-color: $blindColorCW;
+                                    }
+
+                                    &:focus::-webkit-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-moz-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-ms-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &::-webkit-input-placeholder {
+                                        /* WebKit browsers */
+                                        color: $blindColorCW;
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 4 to 18 */
+                                        color: $blindColorCW;
+                                        opacity: 1;
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 19+ */
+                                        color: $blindColorCW;
+                                        opacity: 1;
+                                    }
+
+                                    &::-ms-input-placeholder {
+                                        /* Internet Explorer 10+ */
+                                        color: $blindColorCW;
+                                    }
+                                }
+
+                                &>.form-ajax__input {
+
+                                    &>.form-ajax__input-rating {
+
+                                        &>.form-ajax__input-description {
+                                            color: $blindColorCW !important;
+                                        }
+                                    }
+                                }
+
+                                &>.form-ajax__agreement {
+
+                                    a {
+                                        color: $blindColorCW !important;
+                                    }
+                                }
+
+                                &>.form-ajax__button {
+
+                                    &>.submit-form {
+                                        color: $blindColorCW;
+                                        background-color: lighten($blindBackgroundCW, 20%);
+                                        border-color: $blindColorCW;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__link {
+
+                        &>.main-content__link-block {
+                            color: $blindColorCW;
+                            background-color: lighten($blindBackgroundCW, 20%);
+                        }
+                    }
+                }
+
+                &>.main-content__breadcrumbs {
+
+                    li {
+
+                        a {
+                            color: lighten($blindBackgroundCW, 30%);
+                        }
+                    }
+                }
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                color: $blindColorCW;
+                border-color: $blindColorCW;
+            }
+        }
+
+        p, strong {
+            color: $blindColorCW;
+        }
+
+        &>.footer {
+            background-color: $blindBackgroundCW;
+
+            &>.footer__down-block {
+                background-color: lighten($blindBackgroundCW, 20%);
+            }
+
+            &>.footer__line {
+
+                &>span {
+                    border-color: lighten($blindBackgroundCW, 20%);
+                }
+            }
+
+            >.footer__logo {
+
+                svg {
+
+                    path {
+                        fill: $blindColorCW;
+                    }
+                }
+            }
+
+            a {
+                color: $blindColorCW;
+
+                svg {
+
+                    path {
+                        fill: $blindColorCW;
+                    }
+                }
+            }
+        }
+    }
+}

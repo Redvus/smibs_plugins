@@ -1,0 +1,529 @@
+/*==============================
+=            Footer            =
+==============================*/
+$footer-grid: (columns: 1, gutter: 5rem);
+
+.footer {
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: $footerBackground;
+    bottom: 0;
+    color: $fourth;
+    z-index: 10;
+    overflow: hidden;
+
+    &__top-block {
+        width: 100%;
+        height: 10rem;
+        display: flex;
+        flex-direction: row;
+        font-size: $font-size-small;
+        padding: calc(#{$marginVert} / 2) 0;
+    }
+
+    &__part {
+        width: $footerPartWidth;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &:last-child {
+            border: none;
+        }
+
+        a {
+            color: $primary;
+            font-weight: normal;
+
+            &:hover {
+                color: $fourth;
+            }
+        }
+    }
+
+    &__logo {
+
+
+        a {
+            width: calc(100% - 4rem);
+            height: 100%;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        svg {
+            width: 80%;
+            height: 80%;
+
+            path {
+                fill: $fourth;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    &__phone {
+        flex-direction: column;
+    }
+
+    &__contact {
+        width: calc(100% / 7);
+    }
+
+    &__adress {
+        width: calc(100% / 5);
+
+        p {
+            margin: 0;
+        }
+
+        &--mobile {
+            text-align: center;
+        }
+    }
+
+    // &__info {
+
+    // }
+
+    &__social {
+
+        ul {
+            width: 100%;
+            //height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            li {
+                min-width: 15%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: calc(#{$marginVert} / 4);
+
+                i {
+                    font-size: $font-size-large + 0.2;
+                }
+
+                svg {
+                    height: $font-size-base;
+
+                    path {
+                        fill: $primary;
+                    }
+                }
+
+                &:hover {
+
+                    svg {
+
+                        path {
+                            fill: $fourth;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__down-block {
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        // padding: 0;
+        // bottom: 0;
+        // border-top: 1px solid #fff;
+        background-color: $footerDownBlock;
+        font-size: $font-size-small - 0.2;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__copyright {
+        width: calc((100% / 3) - (#{$marginVert} * 2));
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 $marginVert;
+    }
+
+    &__counters {
+        width: calc(100% / 3);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-metrika {
+            width: 88px;
+            height: 31px;
+            display: inline-block;
+            //background-color: $primary;
+            margin-right: calc(#{$marginVert} / 2);
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__author {
+        width: calc((100% / 3) - (#{$marginVert} * 2));
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 $marginVert;
+        text-align: right;
+
+        a {
+            color: $primary;
+
+            &:hover {
+                color: $fourth;
+            }
+        }
+    }
+
+    &__line {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        // top: 0;
+        // left: 0;
+        z-index: -1;
+
+        >span {
+            width: $footerPartWidth;
+            height: 100%;
+            position: relative;
+            float: left;
+            border-right: 1px solid $footerLineColor;
+        }
+    }
+
+    &--mobile {
+        display: none;
+        visibility: hidden;
+    }
+
+    @include grid-media($XXLarge) {
+
+        &__adress {
+
+            &--desktop {
+                display: block;
+                visibility: visible;
+            }
+
+            &--mobile {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    @include grid-media($XLarge) {
+
+        &__adress {
+
+            &--desktop {
+                display: block;
+                visibility: visible;
+            }
+
+            &--mobile {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    @include grid-media($Large) {
+
+        &__adress {
+
+            &--desktop {
+                display: block;
+                visibility: visible;
+            }
+
+            &--mobile {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    @include grid-media($Medium) {
+
+        &__adress {
+
+            &--desktop {
+                display: block;
+                visibility: visible;
+            }
+
+            &--mobile {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    @include grid-media($XSmall) {
+        height: inherit;
+        z-index: 1;
+
+        &__part {
+            width: calc(100% - (#{$paddingMobile} * 2));
+            border-bottom: 1px solid $footerLineColor;
+            padding: $paddingMobile;
+
+            &:last-child {
+                border: none;
+            }
+        }
+
+        &__top-block {
+            height: inherit;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        &__logo,
+        &__phone,
+        &__mail {
+            display: none;
+            visibility: hidden;
+        }
+
+        &__line {
+            display: none;
+            visibility: hidden;
+
+            >span {
+                width: $headerPartWidthMobile;
+            }
+        }
+
+        &__adress {
+
+            &--desktop {
+                display: none;
+                visibility: hidden;
+            }
+
+            &--mobile {
+                display: block;
+                visibility: visible;
+            }
+        }
+
+        &__info {
+            text-align: center;
+
+            a {
+                font-size: $font-size-small;
+            }
+        }
+
+        &__down-block {
+            height: inherit;
+            display: block;
+        }
+
+        &__copyright,
+        &__author {
+            width: calc(100% - (#{$paddingMobile} * 2));
+            padding: $paddingMobile;
+            text-align: center;
+            justify-content: center;
+        }
+
+        &__counters {
+            display: none;
+            visibility: hidden;
+        }
+
+        &--mobile {
+            display: flex;
+            visibility: visible;
+        }
+    }
+
+    @include grid-media($Small) {
+        height: inherit;
+        z-index: 1;
+
+        &__part {
+            width: calc(100% - (#{$paddingMobile} * 2));
+            border-bottom: 1px solid $footerLineColor;
+            padding: $paddingMobile;
+
+            &:last-child {
+                border: none;
+            }
+        }
+
+        &__top-block {
+            height: inherit;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        &__logo,
+        &__phone,
+        &__mail {
+            display: none;
+            visibility: hidden;
+        }
+
+        &__line {
+            display: none;
+            visibility: hidden;
+
+            >span {
+                width: $headerPartWidthMobile;
+            }
+        }
+
+        &__adress {
+
+            &--desktop {
+                display: none;
+                visibility: hidden;
+            }
+
+            &--mobile {
+                display: block;
+                visibility: visible;
+            }
+        }
+
+        &__info {
+            text-align: center;
+
+            a {
+                font-size: $font-size-small;
+            }
+        }
+
+        &__down-block {
+            height: inherit;
+            display: block;
+        }
+
+        &__copyright,
+        &__author {
+            width: calc(100% - (#{$paddingMobile} * 2));
+            padding: $paddingMobile;
+            text-align: center;
+        }
+
+        &__counters {
+            display: none;
+            visibility: hidden;
+        }
+
+        &--mobile {
+            display: flex;
+            visibility: visible;
+        }
+    }
+}
+
+/*=====  End of Footer  ======*/
+
+/*==================================================
+=                   Sharing Text                   =
+==================================================*/
+
+.sharing {
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    padding: 0.2rem 0.5rem;
+    z-index: 500;
+    transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+    background-color: $secondary;
+    @include border-top-radius(0.3rem);
+    @include border-bottom-radius(0.3rem);
+    transform: translate(-2rem, -0.5rem);
+
+    &--shown {
+        visibility: visible;
+        transform: translate(-2rem, 0);
+    }
+
+    &__buttons {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        z-index: 10;
+    }
+
+    button {
+        border-radius: 0;
+        border: 0;
+        display: block;
+        padding: 0.3rem 0.5rem;
+        cursor: pointer;
+        outline: 0;
+        transition: background-color 0.2s;
+        margin: 0;
+        background-color: transparent;
+
+        i {
+            color: $primary;
+            font-size: $font-size-large;
+        }
+
+        &:hover {
+
+            i {
+                color: $fourth;
+            }
+        }
+    }
+
+    &__copy {
+        display: flex;
+        align-items: center;
+        padding: 0.3rem;
+        font-size: $font-size-small;
+        color: $primary;
+    }
+
+    &__triangle {
+        background-color: $secondary;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translate3d(-50%, 100%, 0) rotate(45deg);
+    }
+}
+
+/*============  End of Sharing Text  =============*/

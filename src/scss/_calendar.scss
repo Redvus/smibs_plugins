@@ -1,0 +1,182 @@
+/*===================================================
+=                   BannerTop Page                   =
+===================================================*/
+
+.calendar-date {
+
+
+	&__data {
+		width: calc(3rem - #{$border_thin});
+		height: 100%;
+		display: block;
+		float: left;
+		border-right: $border_thin solid $secondary;
+
+		&-num {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// border-bottom: $border_thin solid $secondary;
+			background-color: $secondary;
+
+			span {
+				font-family: $heading-font;
+				font-size: $font-size-large + 0.5;
+				color: $layoutBackground;
+			}
+		}
+
+		&-month {
+			width: 100%;
+			height: calc(50% - #{$border_thin});
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// border-bottom: $border_thin solid $secondary;
+			// padding-left: 0.5rem;
+			background-color: $primary;
+
+			span {
+				font-size: $font-size-base;
+				color: $secondary;
+			}
+		}
+
+		&-week {
+			width: 100%;
+			height: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// padding-left: 0.5rem;
+			background-color: $navBackground;
+
+			span {
+				font-size: $font-size-base;
+				color: $secondary;
+			}
+		}
+
+		&--current {
+			background-color: $secondary;
+			border-color: $primary;
+
+			span {
+				color: $primary;
+			}
+		}
+
+		&--active {
+			border-color: $footerDownBlock;
+
+			.calendar-date__data-num {
+				background-color: $footerDownBlock;
+			}
+		}
+
+		@include grid-media($Small) {
+
+			&-month,
+			&-week {
+
+				span {
+					font-size: $font-size-small;
+				}
+			}
+		}
+	}
+
+	&__events {
+		width: calc(100% - 3rem - #{$border_thin});
+		height: 100%;
+		display: block;
+		float: left;
+
+		&--current {
+			background-color: $primary;
+			border-color: $secondary;
+		}
+	}
+
+	@include grid-media($XXLarge) {
+
+		&__data {
+			width: calc(5rem - #{$border_thin});
+
+			&-num {
+
+				span {
+					font-size: $font-size-large + 1;
+				}
+			}
+
+			&-month,
+			&-week {
+
+				span {
+					font-size: $font-size-large;
+				}
+			}
+		}
+
+		&__events {
+			width: calc(100% - 5rem - #{$border_thin});
+		}
+	}
+
+	@include grid-media($XLarge) {
+
+		&__data {
+			width: calc(4rem - #{$border_thin});
+
+			&-num {
+
+				span {
+					font-size: $font-size-large + 0.5;
+				}
+			}
+
+			&-month,
+			&-week {
+
+				span {
+					font-size: $font-size-base;
+				}
+			}
+		}
+
+		&__events {
+			width: calc(100% - 4rem - #{$border_thin});
+		}
+	}
+
+	@include grid-media($Large) {
+
+		&__data {
+			width: calc(3rem - #{$border_thin});
+
+			&-num {
+
+				span {
+					font-size: $font-size-large + 0.5;
+				}
+			}
+
+			&-month,
+			&-week {
+
+				span {
+					font-size: $font-size-base;
+				}
+			}
+		}
+
+		&__events {
+			width: calc(100% - 3rem - #{$border_thin});
+		}
+	}
+}
+
+/*============  End of BannerTop Page  =============*/

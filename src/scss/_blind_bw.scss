@@ -1,0 +1,592 @@
+.blind {
+
+    /*----------  Blind Images Color B/W  ----------*/
+    &-bw {
+
+        &>.wrapper {
+            background-color: $blindBackgroundBW;
+            color: $blindColorBW;
+
+            &>.header {
+                background-color: $blindColorBW;
+
+                &>.header__nav {
+                    background-color: lighten($blindBackgroundBW, 20%);
+
+                    &>.header__bottom {
+                        background-color: lighten($blindBackgroundBW, 20%);
+
+                        .nav-main {
+
+                            li {
+
+                                a {
+                                    color: $blindBackgroundWB;
+                                }
+
+                                &:hover {
+                                    background-color: lighten($blindBackgroundBW, 20%);
+                                }
+                            }
+
+                            &__children {
+
+                                ul.submenu {
+                                    background-color: $blindColorWB;
+                                }
+                            }
+                        }
+                    }
+
+                    &>.header__top {
+                        background-color: lighten($blindBackgroundBW, 25%);
+
+                        &>.header__social {
+
+                            ul {
+
+                                li {
+
+
+                                    i {
+                                        color: $blindColorBW;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>input {
+                            color: $blindBackgroundBW;
+
+                            &::-webkit-input-placeholder {
+                                /* WebKit browsers */
+                                color: $blindBackgroundBW;
+                            }
+
+                            &::-moz-placeholder {
+                                /* Mozilla Firefox 4 to 18 */
+                                color: $blindBackgroundBW;
+                                opacity: 1;
+                            }
+
+                            &::-moz-placeholder {
+                                /* Mozilla Firefox 19+ */
+                                color: $blindBackgroundBW;
+                                opacity: 1;
+                            }
+
+                            &::-ms-input-placeholder {
+                                /* Internet Explorer 10+ */
+                                color: $blindBackgroundBW;
+                            }
+                        }
+                    }
+                }
+
+                &>.header__blind {
+                    background-color: $blindBackgroundBW;
+                }
+            }
+
+            &>.sidebar {
+                background-color: lighten($blindBackgroundBW, 20%);
+
+                &-static {
+                    background-color: lighten($blindBackgroundBW, 20%);
+                }
+
+                &>.sidebar__buttons {
+                    background-color: $blindBackgroundBW;
+
+                    &>a {
+                        background-color: lighten($blindBackgroundBW, 25%);
+                        border-color: $blindColorBW;
+
+                        span {
+                            color: $blindColorBW;
+                        }
+
+                        picture {
+
+                            img {
+                                filter: grayscale(1) invert(1);
+                            }
+                        }
+                    }
+                }
+
+                &>.sidebar__banners {
+
+                    a {
+
+                        picture {
+                            img {
+                                filter: grayscale(1);
+                            }
+                        }
+                    }
+                }
+
+                &>.sidebar-logo {
+
+                    svg {
+
+                        path {
+                            fill: $blindColorBW;
+                        }
+                    }
+
+                    img {
+                        filter: grayscale(1) invert(1);
+                    }
+                }
+
+                &>.sidebar-login {
+                    background-color: $blindBackgroundBW;
+
+                    &>.sidebar-login__top {
+
+                        &>.sidebar-login__form {
+
+                            &>.sidebar-login__block {
+
+                                input {
+                                    color: $blindColorBW;
+                                    border-color: $blindColorBW;
+                                    background-color: lighten($blindBackgroundBW, 20%);
+
+                                    &:focus,
+                                    &:visited {
+                                        color: $blindColorBW;
+                                        background-color: lighten($blindBackgroundBW, 20%);
+                                        border-color: $blindColorBW;
+                                        outline: none;
+                                    }
+
+                                    &:focus::-webkit-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-moz-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-ms-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &::-webkit-input-placeholder {
+                                        /* WebKit browsers */
+                                        color: rgba($blindColorBW, 0.7);
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 4 to 18 */
+                                        color: rgba($blindColorBW, 0.7);
+                                        opacity: 1;
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 19+ */
+                                        color: rgba($blindColorBW, 0.7);
+                                        opacity: 1;
+                                    }
+
+                                    &::-ms-input-placeholder {
+                                        /* Internet Explorer 10+ */
+                                        color: rgba($blindColorBW, 0.7);
+                                    }
+                                }
+                            }
+
+                            &>.sidebar-login__button {
+                                color: $blindColorBW;
+                                border-color: $blindColorBW;
+                                background-color: lighten($blindBackgroundBW, 20%);
+                            }
+                        }
+                    }
+
+                    &>.sidebar-login__bottom {
+
+                        li {
+
+                            a, i {
+                                color: $blindColorBW;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &>.main-content {
+
+                img {
+                    filter: grayscale(1) contrast(1.2) brightness(1.1);
+                }
+
+                &>.main-content__inside {
+
+                    &>.main-content__hero {
+
+                        &>.main-content__intro {
+                            background-color: $blindColorBW;
+                        }
+
+                        &>.main-content__anniversary {
+                            background-color: lighten($blindBackgroundBW, 20%);
+
+                            &>.bx-viewport {
+
+                                .main-content__anniversary {
+                                    background-color: lighten($blindBackgroundBW, 20%);
+                                }
+                            }
+
+                            .main-content__anniversary-slide {
+
+                                .main-content__anniversary-middle {
+                                    background-color: $blindBackgroundBW;
+                                }
+
+                                .main-content__anniversary-data {
+                                    background-color: $blindBackgroundBW;
+
+
+                                    span {
+                                        color: $blindColorBW;
+                                    }
+                                }
+
+                                .main-content__anniversary-birthday {
+
+                                    span, p {
+                                        color: $blindColorBW;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__read,
+                    &>.main-content__news,
+                    &>.main-content__calendar,
+                    &>.main-content__partners {
+
+                        &>.main-content__news-block {
+
+                            &>.main-content__subheader {
+                                border-color: $blindColorBW;
+                            }
+
+                            ul {
+
+                                &>.main-content__news-single {
+
+                                    &>.news-single__title {
+                                        background-color: lighten($blindBackgroundBW, 20%);
+                                    }
+
+                                    &>.news-single__text {
+                                        background-color: lighten($blindBackgroundBW, 30%);
+                                    }
+
+                                    &>.news-single__footer {
+
+                                        &>.news-single__date {
+                                            background-color: lighten($blindBackgroundBW, 25%);
+                                            color: $blindColorBW;
+                                        }
+
+                                        &>.news-single__link {
+                                            background-color: lighten($blindBackgroundBW, 20%);
+                                        }
+                                    }
+                                }
+                            }
+
+                            &>.main-content__subheader--link {
+
+                                a {
+
+                                    &:after {
+                                        color: $blindColorBW;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>.main-content__subheader {
+                            border-color: $blindColorBW;
+                        }
+
+                        &>.main-content__subheader--link {
+
+                            a {
+
+                                &:after {
+                                    color: $blindColorBW;
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__calendar {
+
+                        &>.main-content__calendar-month {
+
+                            ul {
+
+                                &>.main-content__calendar-date {
+                                    border-color: $blindColorBW;
+
+
+                                    &>.calendar-date__data {
+                                        border-color: $blindColorBW;
+
+                                        &>.calendar-date__data-num {
+                                            border-color: $blindColorBW;
+                                            background-color: $blindBackgroundBW;
+
+                                            span {
+                                                color: $blindColorBW;
+                                            }
+                                        }
+                                    }
+
+                                    &>.calendar-date__events {
+                                        border-color: $blindColorBW;
+
+                                        &>.calendar-date__data-month {
+                                            border-color: $blindColorBW;
+                                            background-color: lighten($blindBackgroundBW, 20%);
+
+                                            span {
+                                                color: $blindColorBW;
+                                            }
+                                        }
+
+                                        &>.calendar-date__data-week {
+                                            background-color: $blindBackgroundBW;
+
+                                            span {
+                                                color: $blindColorBW;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__text {
+
+                        &>.read-content__link {
+                            color: $blindColorBW;
+                            background-color: lighten($blindBackgroundBW, 20%);
+                            border-color: $blindColorBW;
+                        }
+                    }
+
+                    &>.main-content__inside-content {
+
+                        &>.main-content__guest {
+
+                            &>.main-content__guest-message {
+                                color: $blindColorBW;
+                                background-color: lighten($blindBackgroundBW, 20%);
+
+                                &:before {
+                                    border-right-color: lighten($blindBackgroundBW, 20%);
+                                }
+                            }
+
+                            &>.main-content__guest-person {
+
+                                &>.main-content__guest-date {
+
+                                    span {
+                                        color: $blindColorBW;
+                                    }
+                                }
+                            }
+                        }
+
+                        &>.main-content__inside-form {
+
+                            &>.form-ajax {
+
+                                input[type='text'],
+                                input[type='email'],
+                                input[type='number'],
+                                input[type='password'],
+                                textarea {
+                                    color: $blindColorBW;
+                                    border-color: $blindColorBW !important;
+
+                                    &:focus,
+                                    &:visited {
+                                        color: $blindColorBW;
+                                        background-color: lighten($blindBackgroundBW, 20%);
+                                        border-color: $blindColorBW;
+                                    }
+
+                                    &:focus::-webkit-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-moz-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &:focus::-ms-input-placeholder {
+                                        opacity: 0;
+                                        transition: all 0.3s;
+                                    }
+
+                                    &::-webkit-input-placeholder {
+                                        /* WebKit browsers */
+                                        color: $blindColorBW;
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 4 to 18 */
+                                        color: $blindColorBW;
+                                        opacity: 1;
+                                    }
+
+                                    &::-moz-placeholder {
+                                        /* Mozilla Firefox 19+ */
+                                        color: $blindColorBW;
+                                        opacity: 1;
+                                    }
+
+                                    &::-ms-input-placeholder {
+                                        /* Internet Explorer 10+ */
+                                        color: $blindColorBW;
+                                    }
+                                }
+
+                                &>.form-ajax__input {
+
+                                    &>.form-ajax__input-rating {
+
+                                        &>.form-ajax__input-description {
+                                            color: $blindColorBW !important;
+                                        }
+                                    }
+                                }
+
+                                &>.form-ajax__agreement {
+
+                                    a {
+                                        color: $blindColorBW !important;
+                                    }
+                                }
+
+                                &>.form-ajax__button {
+
+                                    &>.submit-form {
+                                        color: $blindColorBW;
+                                        background-color: lighten($blindBackgroundBW, 20%);
+                                        border-color: $blindColorBW;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.main-content__link {
+
+                        &>.main-content__link-block {
+                            color: $blindColorBW;
+                            background-color: lighten($blindBackgroundBW, 20%);
+                        }
+                    }
+                }
+
+                &>.main-content__breadcrumbs {
+
+                    li {
+
+                        a {
+                            color: lighten($blindBackgroundBW, 50%);
+                        }
+                    }
+                }
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                color: $blindColorBW;
+                border-color: $blindColorBW;
+            }
+        }
+
+        p, strong {
+            color: $fourth;
+        }
+
+        &>.footer {
+            background-color: $blindBackgroundBW;
+
+            &>.footer__down-block {
+                background-color: lighten($blindBackgroundBW, 20%);
+            }
+
+            &>.footer__line {
+
+                &>span {
+                    border-color: lighten($blindBackgroundBW, 20%);
+                }
+            }
+
+            &>.footer__logo {
+
+                svg {
+
+                    path {
+                        fill: $blindColorBW;
+                    }
+                }
+            }
+
+            a {
+                color: $blindColorBW;
+
+                svg {
+
+                    path {
+                        fill: $blindColorBW;
+                    }
+                }
+
+            }
+
+            &>.footer__social {
+
+                ul {
+
+                    li {
+
+                        svg {
+
+                            path {
+                                fill: $blindColorBW;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,198 @@
+.main-content {
+
+    &__top {
+        margin-bottom: 1rem;
+    }
+}
+
+#bannerTop {
+    width: 100%;
+    min-height: 7vmax;
+    height: 7vmax;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(90deg, #ea6511 0%, #e5362c 50%, #be1825 100%);
+
+    &Right {
+        width: initial;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -0.05rem;
+        //background-color: #fff;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: right;
+            object-fit: cover;
+        }
+    }
+
+    &Lenta {
+        width: auto;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 16vmax;
+        z-index: 2;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    &Slogan {
+        width: 16.5vmax;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 3;
+
+        &Top {
+            width: auto;
+            height: 1.84vmax;
+            display: block;
+            position: relative;
+            margin-bottom: 0.15rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-position: center;
+                object-fit: cover;
+            }
+        }
+
+        &Bottom {
+            width: auto;
+            height: 2vmax;
+            display: block;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-position: center;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &Years {
+        width: 15vmax;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        left: 6vmax;
+        z-index: 5;
+    }
+
+    &1945, &Defis, &2025 {
+        width: auto;
+        height: 2.2vmax;
+        display: block;
+        position: relative;
+        margin-bottom: 0.15rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    &Defis {
+        width: auto;
+        height: 0.4vmax;
+        display: block;
+        position: relative;
+        margin-bottom: 0.15rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    &Center {
+        width: 15vmax;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        left: 24vmax;
+        z-index: 5;
+    }
+
+    &80 {
+        width: auto;
+        height: 2.8vmax;
+        display: block;
+        position: relative;
+        margin-bottom: 0.15rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    &Victory {
+        width: auto;
+        height: 2.5vmax;
+        display: block;
+        position: relative;
+        margin: 0.2rem 0 0 0.7vmax;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    &Img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+}

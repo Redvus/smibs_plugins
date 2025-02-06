@@ -1,0 +1,614 @@
+
+/*===============================
+=            Sidebar            =
+===============================*/
+
+.sidebar {
+    // @include grid-column(2, $main-grid);
+	width: calc(((100% / 12) * 2) + (#{$headerBlindWidth} / 2));
+    min-height: 100vh;
+	display: block;
+	float: left;
+    background-color: $primary;
+	position: relative;
+	z-index: 9992;
+
+	&-static {
+		// @include grid-column(2, $main-grid);
+		width: calc(((100% / 12) * 2) + (#{$headerBlindWidth} / 2));
+		height: 100vh;
+		display: block;
+		background-color: $primary;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9991;
+	}
+
+	&-logo {
+		width: calc(100% - (#{$marginVert} * 2));
+		min-height: calc(#{$headerHeightDesktop} + 3);
+		position: relative;
+		float: left;
+		padding-top: $marginVert;
+		margin-bottom: calc(#{$marginVert} / 2);
+		margin-left: $marginVert;
+		text-align: center;
+
+		a {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		svg {
+			width: 100%;
+			height: auto;
+			display: block;
+			position: relative;
+			// top: 50%;
+			// left: 50%;
+			// transform: translate(-50%, -50%);
+
+			path {
+				fill: $secondary;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		&--page {
+
+			svg {
+				width: auto;
+				height: 60%;
+			}
+		}
+
+		p {
+			font-size: $font-size-small;
+			color: $secondary;
+		}
+	}
+
+	&-login {
+		width: calc(100% - (#{$marginVert} * 2));
+		min-height: 2rem;
+		display: block;
+		float: left;
+		position: relative;
+		left: calc(#{$marginVert} / 2);
+		background-color: $sidebarButtonsBackground;
+		padding: calc(#{$marginVert} / 2);
+		margin-bottom: calc(#{$marginVert} / 2);
+
+		h5 {
+			width: 100%;
+			margin-bottom: calc(#{$marginVert} / 4);
+			text-align: center;
+		}
+
+		&__top {
+			width: 100%;
+			min-height: 2rem;
+			display: block;
+			position: relative;
+			float: left;
+			margin-bottom: calc(#{$marginVert} / 4);
+		}
+
+		&__bottom {
+			width: 100%;
+			min-height: 2rem;
+			display: block;
+			position: relative;
+			float: left;
+
+			li.sidebar-login__part {
+				// width: calc(100% / 5);
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				text-align: right;
+				margin-right: calc(#{$marginVert} / 2);
+
+				a {
+					font-size: $font-size-small;
+					color: $secondary;
+				}
+
+				i {
+					color: $secondary;
+					margin-right: calc(#{$marginVert} / 4);
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&--3 {
+					width: calc(100% / 3);
+				}
+
+				&--2 {
+					width: calc(100% / 2);
+				}
+
+				&:hover {
+
+					a, i {
+						color: $layoutBackground;
+					}
+				}
+			}
+		}
+
+		&__block {
+			width: calc(100% - (#{$marginVert} * 2));
+			height: $marginVert * 2;
+			display: block;
+			position: relative;
+		}
+
+		&__form {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			position: relative;
+
+			&-input {
+				width: calc(100% - (#{$border_thin} * 2) - (#{$marginVert} / 2));
+				height: 2rem - ($border_thin * 2);
+				display: block;
+				position: relative;
+				float: left;
+				border: $border_thin solid $secondary;
+				border-bottom: none;
+				padding: 0 calc(#{$marginVert} / 4);
+				// margin-bottom: $marginVert / 4;
+				background-color: $primary;
+				color: $formInputColor;
+				transition: all 0.3s;
+
+				&:focus,
+				&:visited {
+					color: $formInputColor;
+					background-color: $fourth;
+					border-color: $formInputColor;
+					outline: none;
+				}
+
+				&:focus::-webkit-input-placeholder {
+					opacity: 0;
+					transition: all 0.3s;
+				}
+
+				&:focus::-moz-placeholder {
+					opacity: 0;
+					transition: all 0.3s;
+				}
+
+				&:focus::-ms-input-placeholder {
+					opacity: 0;
+					transition: all 0.3s;
+				}
+
+				&::-webkit-input-placeholder {
+					/* WebKit browsers */
+					color: rgba($formInputColor, 0.7);
+				}
+
+				&::-moz-placeholder {
+					/* Mozilla Firefox 4 to 18 */
+					color: rgba($formInputColor, 0.7);
+					opacity: 1;
+				}
+
+				&::-moz-placeholder {
+					/* Mozilla Firefox 19+ */
+					color: rgba($formInputColor, 0.7);
+					opacity: 1;
+				}
+
+				&::-ms-input-placeholder {
+					/* Internet Explorer 10+ */
+					color: rgba($formInputColor, 0.7);
+				}
+			}
+
+			[type="password"] {
+				border-bottom: $border_thin solid $secondary;
+			}
+		}
+
+		&__button {
+			width: calc(#{$marginVert} * 2);
+			height: calc((#{$marginVert} * 2) - #{$border_thin});
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: $secondary;
+			margin-left: calc(#{$marginVert} / 4);
+			border-top-left-radius: calc(#{$border_normal} * 2);
+			border-bottom-left-radius: calc(#{$border_normal} * 2);
+			border-top-right-radius: calc(#{$border_normal} * 2);
+			border-bottom-right-radius: calc(#{$border_normal} * 2);
+
+			a {
+				color: $primary;
+			}
+
+			&:hover {
+
+				a {
+					color: $fourth;
+				}
+			}
+
+			&--enter {
+				outline: none;
+				border: none;
+				color: $primary;
+				font-size: $font-size-base;
+				cursor: pointer;
+
+				&:hover {
+					color: $fourth;
+				}
+			}
+		}
+
+		&__name {
+			width: calc(100% - (#{$marginVert} * 2) - (#{$marginVert} / 2));
+			min-height: calc(#{$marginVert} * 2);
+			display: block;
+			float: left;
+			position: relative;
+			margin-right: calc(#{$marginVert} / 2);
+
+			& > span {
+				font-size: $font-size-large;
+				font-family: $heading-font;
+				color: $secondary;
+				line-height: 1;
+			}
+		}
+	}
+
+	&__buttons {
+		width: calc(100% - (#{$marginVert} * 2));
+		min-height: 10vh;
+		display: block;
+		position: relative;
+		float: left;
+		left: calc(#{$marginVert} / 2);
+		background-color: $sidebarButtonsBackground;
+		padding: calc(#{$marginVert} / 2);
+		text-align: center;
+		margin-bottom: calc(#{$marginVert} / 2);
+
+		h5 {
+			margin-bottom: calc(#{$marginVert} / 4);
+		}
+
+		a {
+			width: calc(100% - (#{$border_thin} * 2) - ((#{$marginVert} / 3) * 2));
+			height: calc(#{$marginVert} * 2);
+			display: block;
+			float: left;
+			position: relative;
+			background-color: $primary;
+			text-align: center;
+			font-size: $font-size-small;
+			color: $secondary;
+			margin-bottom: calc(#{$marginVert} / 2);
+			padding: calc(#{$marginVert} / 5) calc(#{$marginVert} / 3);
+			border: $border_thin solid $secondary;
+			border-top-left-radius: calc(#{$border_normal} * 2);
+			border-bottom-left-radius: calc(#{$border_normal} * 2);
+			border-top-right-radius: calc(#{$border_normal} * 2);
+			border-bottom-right-radius: calc(#{$border_normal} * 2);
+			transition: all $base-duration;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			span {
+				width: calc(100% - (#{$marginVert} * 2) - 1rem);
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				text-align: left;
+				// text-transform: uppercase;
+				padding: 0 0 0 1rem;
+				margin: 0;
+				line-height: 1.2;
+			}
+
+			picture {
+				width: calc(#{$marginVert}  * 2);
+				height: calc(#{$marginVert}  * 2);
+				display: block;
+				float: left;
+				position: relative;
+
+				img {
+					width: 100%;
+					height: auto;
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				// 	object-fit: cover;
+				// 	object-position: center;
+				}
+			}
+
+			&.sidebar__buttons--ellibrary {
+				height: calc(#{$marginVert} * 2);
+
+				& > span {
+					width: calc(100% - (#{$marginVert} * 2) - 1rem);
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					text-align: left;
+					// text-transform: uppercase;
+					padding: 0 0 0 1rem;
+					margin: 0;
+					line-height: 1.2;
+					// transform: translate(-50%, -50%);
+				}
+
+				& > picture {
+					width: calc(#{$marginVert} * 2);
+					height: calc(#{$marginVert} * 2);
+					display: block;
+					float: left;
+					position: relative;
+
+					img {
+						width: 100%;
+						height: auto;
+						display: block;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					// 	object-fit: cover;
+					// 	object-position: center;
+					}
+				}
+			}
+
+			&.sidebar__buttons--link {
+				width: 100%;
+				height: inherit;
+				display: block;
+				float: left;
+				position: relative;
+				text-align: center;
+				font-size: $font-size-small;
+				color: $secondary;
+				margin-bottom: 0;
+				padding: 0;
+				background-color: transparent;
+				border: none;
+				transition: all $base-duration;
+
+				h5 {
+					margin: 0;
+					padding: 0;
+				}
+
+				&:after {
+					content:"\f061";
+					font-family: 'fontawesome';
+					font-size: $font-size-h2;
+					color: $secondary;
+					position: absolute;
+					margin-left: calc(#{$marginVert} / 3);
+					top: 0;
+					right: 0;
+					transform: translate(-25%, -35%);
+					transition: all $base-duration;
+					opacity: 0;
+				}
+			}
+
+			&:hover {
+				background-color: $layoutBackground;
+				// color: $primary;
+				box-shadow: $border_normal $border_normal $border_normal $secondary;
+
+				&.sidebar__buttons--link {
+					background-color: transparent;
+					box-shadow: none;
+
+					&:after {
+						transform: translate(0, -35%);
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__banners {
+		width: calc(100% - #{$marginVert});
+		min-height: 10vh;
+		display: block;
+		position: relative;
+		float: left;
+		// left: $marginVert / 2;
+		// background-color: $sidebarButtonsBackground;
+		padding: 0 calc(#{$marginVert} / 2);
+		text-align: center;
+		margin-bottom: calc(#{$marginVert} / 2);
+
+		a {
+			width: 100%;
+			min-height: calc(#{$marginVert} * 2);
+			display: block;
+			float: left;
+			position: relative;
+			margin-bottom: 1rem;
+
+			picture {
+				width: 100%;
+				height: 100%;
+				display: block;
+
+				img {
+					width: 100%;
+					height: auto;
+					display: block;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+		}
+	}
+
+	@include grid-media($XXLarge) {
+
+		&__buttons {
+
+			a {
+				font-size: $font-size-large;
+				height: $marginVert * 3;
+
+				span {
+					width: calc(100% - (#{$marginVert} * 3) - 1rem);
+					padding: 0 0 0 1rem;
+				}
+
+				picture {
+					width: $marginVert * 3;
+					height: $marginVert * 3;
+				}
+
+				&.sidebar__buttons--ellibrary {
+					height: $marginVert * 3;
+
+					> span {
+						width: calc(100% - (#{$marginVert} * 3) - 1rem);
+						padding: 0 0 0 1rem;
+					}
+
+					> picture {
+						width: $marginVert * 3;
+						height: $marginVert * 3;
+					}
+				}
+			}
+		}
+	}
+
+	@include grid-media($XLarge) {
+
+		&__buttons {
+
+			a {
+				font-size: $font-size-base;
+				height: $marginVert * 2.5;
+
+				span {
+					width: calc(100% - (#{$marginVert} * 2.5) - 1rem);
+					padding: 0 0 0 1rem;
+				}
+
+				picture {
+					width: $marginVert * 2.5;
+					height: $marginVert * 2.5;
+				}
+
+				&.sidebar__buttons--ellibrary {
+					height: $marginVert * 2.5;
+
+					> span {
+						width: calc(100% - (#{$marginVert} * 2.5) - 1rem);
+						padding: 0 0 0 1rem;
+					}
+
+					> picture {
+						width: $marginVert * 2.5;
+						height: $marginVert * 2.5;
+					}
+				}
+			}
+		}
+	}
+
+	// @include grid-media($Large) {
+
+	// 	&__buttons {
+
+	// 		a {
+	// 			font-size: $font-size-small;
+	// 		}
+	// 	}
+	// }
+
+	@include grid-media($Medium) {
+
+		&__buttons {
+
+			a {
+
+				span {
+					width: calc(100% - (#{$marginVert} * 1.5) - 0.5rem);
+					padding-left: 0.5rem;
+				}
+
+				picture {
+					width: $marginVert  * 1.5;
+				}
+			}
+		}
+	}
+
+	@include grid-media($XSmall) {
+		display: none;
+		visibility: hidden;
+
+		&-static {
+			display: none;
+			visibility: hidden;
+		}
+	}
+
+	@include grid-media($Small) {
+		display: none;
+		visibility: hidden;
+
+		&-static {
+			display: none;
+			visibility: hidden;
+		}
+	}
+}
+
+/*=====  End of Sidebar  ======*/
+
+/*============================================
+=                   Widget                   =
+============================================*/
+
+.widget {
+
+	&__selectTag {
+		font-size: $font-size-large !important;
+	}
+}
+
+/*============  End of Widget  =============*/

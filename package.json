@@ -1,0 +1,23 @@
+{
+  "name": "smibs plugins",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "gsap": "^3.12.5",
+    "vite": "^5.2.0",
+    "vite-plugin-inject-css-to-js": "^1.1.1"
+  },
+  "dependencies": {
+    "bourbon": "^7.3.0",
+    "minibarjs": "^0.5.1",
+    "sag-bourbon-neat": "^2.1.1",
+    "sass": "^1.77.1",
+    "three": "^0.165.0"
+  }
+}

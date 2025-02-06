@@ -1,0 +1,87 @@
+/*======================================
+=            Permission 18+            =
+======================================*/
+
+.permission {
+
+
+	&-cookie {
+		width: calc(((100% / 12) * 10) - (#{$headerBlindWidth} * 3));
+		min-height: 5rem;
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		padding: 1rem calc(#{$headerBlindWidth} * 2) 1rem calc(#{$headerBlindWidth} / 2);
+		right: 0;
+		bottom: 0;
+		background-color: $fourth;
+		box-shadow: 0 -0.1rem 0.1rem rgba($third, 0.2);
+		z-index: 99999;
+
+		&__text {
+
+			p {
+				font-size: $font-size-small;
+			}
+
+			a {
+				font-weight: 600;
+
+				&:hover {
+					color: lighten($primary, 10%);
+				}
+			}
+		}
+
+		&__button {
+			width: $headerBlindWidth;
+			height: 3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 2rem;
+			right: calc(#{$headerBlindWidth} / 2);
+			background-color: $secondary;
+			color: $fourth;
+			cursor: pointer;
+			transition: background 0.3s;
+
+			&:hover {
+				background-color: darken($secondary, 5%);
+			}
+		}
+	}
+
+	&-visible {
+		display: block;
+		visibility: visible;
+	}
+
+	&-hidden {
+		display: none;
+		visibility: hidden;
+	}
+
+	@include grid-media($XSmall) {
+
+		&-cookie {
+			width: calc(100% - 2rem);
+			padding: 1rem;
+
+			&__text {
+				height: 80%;
+			}
+
+			&__button {
+				width: 100%;
+				top: initial;
+				right: initial;
+				left: 0;
+				position: relative;
+			}
+		}
+	}
+}
+
+/*=====  End of Permission 18+  ======*/
