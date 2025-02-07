@@ -1,9 +1,9 @@
 .main-content {
 
     &__top {
-        idth: 100%;
-        //min-height: 7vmax;
-        //height: 7vmax;
+        width: 100%;
+        min-height: 7vmax;
+        height: 7vmax;
         margin-bottom: 2rem;
     }
 }
@@ -199,7 +199,7 @@
         }
     }
 
-    @include grid-media($XSmall) {
+    @media screen and (max-width: 1024px) {
         height: 20vmin;
         background: #fff;
 
@@ -207,11 +207,6 @@
             right: 28vmin;
             z-index: 8;
         }
-
-        //&Years {
-        //    width: 100%;
-        //    left: 0;
-        //}
 
         &1945M {
             width: auto;
@@ -246,7 +241,7 @@
                 object-fit: cover;
             }
         }
-        
+
         &Right,
         &Slogan,
         &Defis,
@@ -258,4 +253,64 @@
             visibility: hidden;
         }
     }
+
+    //@include grid-media($XSmall) {
+    //    height: 20vmin;
+    //    background: #fff;
+    //
+    //    &Lenta {
+    //        right: 28vmin;
+    //        z-index: 8;
+    //    }
+    //
+    //    //&Years {
+    //    //    width: 100%;
+    //    //    left: 0;
+    //    //}
+    //
+    //    &1945M {
+    //        width: auto;
+    //        height: 14vmin;
+    //        display: block;
+    //        position: relative;
+    //        left: 5vmin;
+    //        z-index: 5;
+    //
+    //        img {
+    //            width: 100%;
+    //            height: 100%;
+    //            display: block;
+    //            object-position: center;
+    //            object-fit: cover;
+    //        }
+    //    }
+    //
+    //    &2025M {
+    //        width: auto;
+    //        height: 14vmin;
+    //        display: block;
+    //        position: relative;
+    //        left: 21vmin;
+    //        z-index: 10;
+    //
+    //        img {
+    //            width: 100%;
+    //            height: 100%;
+    //            display: block;
+    //            object-position: center;
+    //            object-fit: cover;
+    //        }
+    //    }
+    //
+    //    &Right,
+    //    &Slogan,
+    //    &Defis,
+    //    &Center,
+    //    &1945,
+    //    &2025,
+    //    &Years {
+    //        display: none;
+    //        visibility: hidden;
+    //    }
+    //}
 }
