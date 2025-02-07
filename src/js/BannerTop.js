@@ -1,15 +1,26 @@
+import { gsap } from "gsap";
+
 class BannerTop {
 
     constructor() {
         this.initLayout();
+        if (document.body.clientWidth > 570 || screen.width > 570) {
+            this.initAnim();
+        }
+
+        if (document.body.clientWidth < 570 || screen.width < 570) {
+            this.initMobile();
+            this.initAnimMobile();
+        }
+
         // this.initDev();
-        // this.initAnim();
     }
 
     initLayout() {
-        this.mainContentInside = document.querySelector('.main-content__inside');
-        this.mainContentTop = document.createElement('div');
-        this.mainContentTop.className = 'main-content__top';
+        // this.mainContentInside = document.querySelector('.main-content__inside');
+        // this.mainContentTop = document.createElement('div');
+        // this.mainContentTop.className = 'main-content__top';
+        this.mainContentTop = document.querySelector('.main-content__top');
 
         this.bannerTop = document.createElement('div');
         this.bannerTop.id = 'bannerTop';
@@ -84,7 +95,7 @@ class BannerTop {
         `;
 
         // Appends
-        this.mainContentInside.insertBefore(this.mainContentTop, this.mainContentInside.firstChild);
+        // this.mainContentInside.insertBefore(this.mainContentTop, this.mainContentInside.firstChild);
         this.mainContentTop.appendChild(this.bannerTop);
         this.bannerTop.appendChild(this.bannerTopRight);
         this.bannerTop.appendChild(this.bannerTopLenta);
@@ -100,17 +111,96 @@ class BannerTop {
         this.bannerTopCenter.appendChild(this.bannerTopVictory);
     }
 
+    initAnim() {
+        let tl = gsap.timeline({
+            delay: 0.6
+        });
+
+        tl
+            .from(this.bannerTop, {
+                duration: 1,
+                autoAlpha: 0
+            })
+            .from([this.bannerTopLenta, this.bannerTopRight], {
+                delay: -0.6,
+                duration: 0.6,
+                autoAlpha: 0,
+                stagger: 0.2
+            })
+            .from([this.bannerTopSloganTop, this.bannerTopSloganBottom], {
+                delay: -0.4,
+                duration: 0.3,
+                x: '7%',
+                autoAlpha: 0,
+                stagger: 0.2
+            })
+            .from([this.bannerTop2025, this.bannerTopDefis, this.bannerTop1945], {
+                delay: -0.2,
+                duration: 0.3,
+                x: '-10%',
+                autoAlpha: 0,
+                stagger: 0.2
+            })
+            .from([this.bannerTop80, this.bannerTopVictory], {
+                delay: -0.2,
+                duration: 0.3,
+                x: '10%',
+                autoAlpha: 0,
+                stagger: 0.2
+            })
+        ;
+    }
+
+    initMobile() {
+        this.bannerTop1945M = document.createElement('picture');
+        this.bannerTop2025M = document.createElement('picture');
+        this.bannerTop1945M.id = 'bannerTop1945M';
+        this.bannerTop2025M.id = 'bannerTop2025M';
+
+        this.bannerTop1945M.innerHTML = `
+            <img src="assets/images/80victory/bannerTop1945M.svg">
+        `;
+
+        this.bannerTop2025M.innerHTML = `
+            <img src="assets/images/80victory/bannerTop2025M.svg">
+        `;
+
+        this.bannerTop.appendChild(this.bannerTop1945M);
+        this.bannerTop.appendChild(this.bannerTop2025M);
+    }
+
+    initAnimMobile() {
+        let tl = gsap.timeline({
+            delay: 0.6
+        });
+
+        tl
+            .from(this.bannerTop, {
+                duration: 1,
+                autoAlpha: 0
+            })
+            .from(this.bannerTop1945M, {
+                delay: -0.5,
+                duration: 0.6,
+                x: '-10%',
+                autoAlpha: 0
+            })
+            .from(this.bannerTop2025M, {
+                delay: -0.5,
+                duration: 0.6,
+                x: '10%',
+                autoAlpha: 0
+            })
+        ;
+    }
+
     initDev() {
         this.bannerTopImg = document.createElement('picture');
         this.bannerTopImg.id = 'bannerTopImg';
         this.bannerTopImg.innerHTML = `
-            <img src="assets/images/80victory/bannerTopImg.jpg">
+            <img src="assets/images/80victory/bannerTopM.jpg">
         `;
         this.mainContentTop.appendChild(this.bannerTopImg);
-    }
-
-    initAnim() {
-
     }
 }
 
