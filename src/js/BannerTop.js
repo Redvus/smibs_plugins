@@ -4,11 +4,11 @@ class BannerTop {
 
     constructor() {
         this.initLayout();
-        if (document.body.clientWidth > 570 || screen.width > 570) {
+        if (document.body.clientWidth > 767 || screen.width > 767) {
             this.initAnim();
         }
 
-        if (document.body.clientWidth < 570 || screen.width < 570) {
+        if (document.body.clientWidth < 767 || screen.width < 767) {
             this.initMobile();
             this.initAnimMobile();
         }

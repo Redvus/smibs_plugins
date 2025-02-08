@@ -1,5 +1,5 @@
 import '/scss/main.scss';
-// import '/main.css';
+import '/main.css';
 import { Anniversary2025 } from "./Anniversary2025";
 import {BannerTop} from "./BannerTop.js";
 
