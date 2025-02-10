@@ -40,7 +40,7 @@ export default defineConfig({
                     }
 
                     // if (/\.(woff|woff2)$/.test(name ?? '')) {
-                    //     return 'fonts/[name]/[name][extname]';
+                    //     return 'webfonts/[name]/[name][extname]';
                     // }
 
                     // default value

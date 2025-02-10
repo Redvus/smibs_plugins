@@ -1,0 +1,28 @@
+/*================================
+=            Colors            =
+================================*/
+
+$primary  : #feba8b;  // Оранжевый
+$secondary: #830800;  // Бордовый
+$third    : #000;     // Темный var1: #1E252B
+$fourth   : #fff;
+$five     : #7a97ab;
+
+
+/*----------  Blind Color  ----------*/
+$blindBackgroundBW: $third;
+$blindColorBW: $fourth;
+
+$blindBackgroundWB: $fourth;
+$blindColorWB: $third;
+
+$blindBackgroundCW: #0099CC;
+$blindColorCW: $third;
+
+$blindBackgroundYB: #FFCC33;
+$blindColorYB: $third;
+
+$error : $third;
+$success : $fourth;
+
+/*=====  End of Colors  ======*/
