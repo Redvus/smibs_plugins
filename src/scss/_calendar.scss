@@ -1,16 +1,31 @@
-/*===================================================
-=                   BannerTop Page                   =
-===================================================*/
+.main-content {
 
-.calendar-date {
+	&__calendar {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+	}
+}
 
+.calendar {
 
-	&__data {
-		width: calc(3rem - #{$border_thin});
+	&__month {
+		width: calc(40% - #{$border_thin} - (#{$marginVert} * 2));
 		height: 100%;
-		display: block;
-		float: left;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 		border-right: $border_thin solid $secondary;
+		margin-right: $marginVert;
+		padding-right: $marginVert;
+
+		&_date {
+			width: calc(100% / 7);
+			height: 3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
 		&-num {
 			width: 100%;
@@ -89,10 +104,16 @@
 	}
 
 	&__events {
-		width: calc(100% - 3rem - #{$border_thin});
+		width: 60%;
 		height: 100%;
+		min-height: 10vh;
 		display: block;
 		float: left;
+		//padding-left: $marginVert;
+
+		p {
+			margin-top: 0;
+		}
 
 		&--current {
 			background-color: $primary;
@@ -100,83 +121,83 @@
 		}
 	}
 
-	@include grid-media($XXLarge) {
-
-		&__data {
-			width: calc(5rem - #{$border_thin});
-
-			&-num {
-
-				span {
-					font-size: $font-size-large + 1;
-				}
-			}
-
-			&-month,
-			&-week {
-
-				span {
-					font-size: $font-size-large;
-				}
-			}
-		}
-
-		&__events {
-			width: calc(100% - 5rem - #{$border_thin});
-		}
-	}
-
-	@include grid-media($XLarge) {
-
-		&__data {
-			width: calc(4rem - #{$border_thin});
-
-			&-num {
-
-				span {
-					font-size: $font-size-large + 0.5;
-				}
-			}
-
-			&-month,
-			&-week {
-
-				span {
-					font-size: $font-size-base;
-				}
-			}
-		}
-
-		&__events {
-			width: calc(100% - 4rem - #{$border_thin});
-		}
-	}
-
-	@include grid-media($Large) {
-
-		&__data {
-			width: calc(3rem - #{$border_thin});
-
-			&-num {
-
-				span {
-					font-size: $font-size-large + 0.5;
-				}
-			}
-
-			&-month,
-			&-week {
-
-				span {
-					font-size: $font-size-base;
-				}
-			}
-		}
-
-		&__events {
-			width: calc(100% - 3rem - #{$border_thin});
-		}
-	}
+	//@include grid-media($XXLarge) {
+	//
+	//	&__data {
+	//		width: calc(5rem - #{$border_thin});
+	//
+	//		&-num {
+	//
+	//			span {
+	//				font-size: $font-size-large + 1;
+	//			}
+	//		}
+	//
+	//		&-month,
+	//		&-week {
+	//
+	//			span {
+	//				font-size: $font-size-large;
+	//			}
+	//		}
+	//	}
+	//
+	//	&__events {
+	//		width: calc(100% - 5rem - #{$border_thin});
+	//	}
+	//}
+	//
+	//@include grid-media($XLarge) {
+	//
+	//	&__data {
+	//		width: calc(4rem - #{$border_thin});
+	//
+	//		&-num {
+	//
+	//			span {
+	//				font-size: $font-size-large + 0.5;
+	//			}
+	//		}
+	//
+	//		&-month,
+	//		&-week {
+	//
+	//			span {
+	//				font-size: $font-size-base;
+	//			}
+	//		}
+	//	}
+	//
+	//	&__events {
+	//		width: calc(100% - 4rem - #{$border_thin});
+	//	}
+	//}
+	//
+	//@include grid-media($Large) {
+	//
+	//	&__data {
+	//		width: calc(3rem - #{$border_thin});
+	//
+	//		&-num {
+	//
+	//			span {
+	//				font-size: $font-size-large + 0.5;
+	//			}
+	//		}
+	//
+	//		&-month,
+	//		&-week {
+	//
+	//			span {
+	//				font-size: $font-size-base;
+	//			}
+	//		}
+	//	}
+	//
+	//	&__events {
+	//		width: calc(100% - 3rem - #{$border_thin});
+	//	}
+	//}
 }
 
 /*============  End of BannerTop Page  =============*/
