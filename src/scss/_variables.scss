@@ -32,6 +32,7 @@ $navLinkColor      : $secondary;
 $navLinkColorActive: lighten($secondary, 15%);
 
 $marginVert: 2rem;
+$padding: 1rem;
 $navLinkPadding: calc(#{$marginVert} / 3);
 
 $navBackgroundMobile : $primary;
