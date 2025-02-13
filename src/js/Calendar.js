@@ -3,6 +3,8 @@ import {gsap} from "gsap";
 class Calendar {
     constructor() {
         this.initLayoutDev();
+        this.initEventDev();
+
         this.objectsTabs();
         this.initFilter();
     }
@@ -29,6 +31,14 @@ class Calendar {
         let max = 5;
         this.calendarInsideRandom = Math.floor(Math.random() * (max - min + 1) + min);
 
+        //Appends
+        this.mainContentInside.appendChild(this.mainContentSubheader);
+        this.mainContentInside.appendChild(this.calendar);
+        this.calendar.appendChild(this.calendarMonth);
+        this.calendar.appendChild(this.calendarEvents);
+    }
+
+    initEventDev() {
         // for (let i = 0; i < 31; i++) {
         //     this.calendarDay = document.createElement('li');
         //     this.calendarDay.className = 'calendar__month_date';
@@ -63,6 +73,78 @@ class Calendar {
         //     }
         // }
 
+        // for (let i = 0; i < 31; i++) {
+        //     this.calendarDay = document.createElement('li');
+        //     this.calendarDay.className = 'calendar__month_date';
+        //     this.calendarDay.id = `calendarDate_${i}`;
+        //     this.calendarDay.innerHTML = `<span>${i + 1}</span>`;
+        //     // this.calendarDay.style.userSelect = 'none';
+        //     // this.calendarDay.style.pointerEvents = 'none';
+        //     this.calendarMonth.appendChild(this.calendarDay);
+        //
+        //     if (this.calendarDay.id === 'calendarDate_0') {
+        //         this.calendarDay.className = 'calendar__month_date is-visible';
+        //         this.calendarDay.setAttribute('data-id', 'tab_0');
+        //         this.calendarEvent = document.createElement('div');
+        //         this.calendarEvent.id = 'tab_0';
+        //         this.calendarEvent.className = 'calendar__events_inside';
+        //
+        //         for (let i = 0; i < 5; i++) {
+        //             this.calendarEventSingle = document.createElement('li');
+        //             this.calendarEventSingle.className = 'calendar__events_single';
+        //             this.calendarEventSingle.id = 'calendarEvent_1' + `${i + 1}`;
+        //
+        //             this.calendarEventSingle.innerHTML = `
+        //                 <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №1${i + 1}</h4>
+        //                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+        //             `;
+        //
+        //             this.calendarEvent.appendChild(this.calendarEventSingle);
+        //             this.calendarEvents.appendChild(this.calendarEvent);
+        //         }
+        //     } else if (this.calendarDay.id === 'calendarDate_1') {
+        //         this.calendarDay.className = 'calendar__month_date';
+        //         this.calendarDay.setAttribute('data-id', 'tab_1');
+        //         this.calendarEvent = document.createElement('div');
+        //         this.calendarEvent.id = 'tab_1';
+        //         this.calendarEvent.className = 'calendar__events_inside';
+        //
+        //         for (let i = 0; i < 5; i++) {
+        //             this.calendarEventSingle = document.createElement('li');
+        //             this.calendarEventSingle.className = 'calendar__events_single';
+        //             this.calendarEventSingle.id = 'calendarEvent_2' + `${i + 1}`;
+        //
+        //             this.calendarEventSingle.innerHTML = `
+        //                 <h4><span>1${i}:${(i + 2) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №2${i + 1}</h4>
+        //                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate.?</p>
+        //             `;
+        //
+        //             this.calendarEvent.appendChild(this.calendarEventSingle);
+        //             this.calendarEvents.appendChild(this.calendarEvent);
+        //         }
+        //     } else if (this.calendarDay.id === 'calendarDate_2') {
+        //         this.calendarDay.className = 'calendar__month_date';
+        //         this.calendarDay.setAttribute('data-id', 'tab_2');
+        //         this.calendarEvent = document.createElement('div');
+        //         this.calendarEvent.id = 'tab_2';
+        //         this.calendarEvent.className = 'calendar__events_inside';
+        //
+        //         for (let i = 0; i < 4; i++) {
+        //             this.calendarEventSingle = document.createElement('li');
+        //             this.calendarEventSingle.className = 'calendar__events_single';
+        //             this.calendarEventSingle.id = 'calendarEvent_3' + `${i + 1}`;
+        //
+        //             this.calendarEventSingle.innerHTML = `
+        //                 <h4><span>1${i}:${(i + 2) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №3${i + 1}</h4>
+        //                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate.?</p>
+        //             `;
+        //
+        //             this.calendarEvent.appendChild(this.calendarEventSingle);
+        //             this.calendarEvents.appendChild(this.calendarEvent);
+        //         }
+        //     }
+        // }
+
         for (let i = 0; i < 31; i++) {
             this.calendarDay = document.createElement('li');
             this.calendarDay.className = 'calendar__month_date';
@@ -79,19 +161,30 @@ class Calendar {
                 this.calendarEvent.id = 'tab_0';
                 this.calendarEvent.className = 'calendar__events_inside';
 
-                for (let i = 0; i < 5; i++) {
-                    this.calendarEventSingle = document.createElement('li');
-                    this.calendarEventSingle.className = 'calendar__events_single';
-                    this.calendarEventSingle.id = 'calendarEvent_1' + `${i + 1}`;
-
-                    this.calendarEventSingle.innerHTML = `
-                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №1${i + 1}</h4>
+                this.calendarEvent.innerHTML = `
+                    <li class="calendar__events_single" data-lib="library_2">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №2</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-                    `;
+                    </li>
+                    <li class="calendar__events_single" data-lib="library_15">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №15</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                    <li class="calendar__events_single" data-lib="library_23">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                    <li class="calendar__events_single" data-lib="library_32">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №32</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                `;
 
-                    this.calendarEvent.appendChild(this.calendarEventSingle);
-                    this.calendarEvents.appendChild(this.calendarEvent);
+                const calendarEventSingle = document.querySelectorAll('.calendar__events_single');
+                for (let j = 0; j < calendarEventSingle.length; j++) {
+                    calendarEventSingle[j].setAttribute('id', 'library_1')
                 }
+
             } else if (this.calendarDay.id === 'calendarDate_1') {
                 this.calendarDay.className = 'calendar__month_date';
                 this.calendarDay.setAttribute('data-id', 'tab_1');
@@ -99,19 +192,17 @@ class Calendar {
                 this.calendarEvent.id = 'tab_1';
                 this.calendarEvent.className = 'calendar__events_inside';
 
-                for (let i = 0; i < 5; i++) {
-                    this.calendarEventSingle = document.createElement('li');
-                    this.calendarEventSingle.className = 'calendar__events_single';
-                    this.calendarEventSingle.id = 'calendarEvent_2' + `${i + 1}`;
+                this.calendarEvent.innerHTML = `
+                    <li class="calendar__events_single" data-lib="library_23">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                    <li class="calendar__events_single" data-lib="library_32">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №32</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                `;
 
-                    this.calendarEventSingle.innerHTML = `
-                        <h4><span>1${i}:${(i + 2) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №2${i + 1}</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate.?</p>
-                    `;
-
-                    this.calendarEvent.appendChild(this.calendarEventSingle);
-                    this.calendarEvents.appendChild(this.calendarEvent);
-                }
             } else if (this.calendarDay.id === 'calendarDate_2') {
                 this.calendarDay.className = 'calendar__month_date';
                 this.calendarDay.setAttribute('data-id', 'tab_2');
@@ -119,27 +210,16 @@ class Calendar {
                 this.calendarEvent.id = 'tab_2';
                 this.calendarEvent.className = 'calendar__events_inside';
 
-                for (let i = 0; i < 4; i++) {
-                    this.calendarEventSingle = document.createElement('li');
-                    this.calendarEventSingle.className = 'calendar__events_single';
-                    this.calendarEventSingle.id = 'calendarEvent_3' + `${i + 1}`;
-
-                    this.calendarEventSingle.innerHTML = `
-                        <h4><span>1${i}:${(i + 2) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №3${i + 1}</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate.?</p>
-                    `;
-
-                    this.calendarEvent.appendChild(this.calendarEventSingle);
-                    this.calendarEvents.appendChild(this.calendarEvent);
-                }
+                this.calendarEvent.innerHTML = `
+                    <li class="calendar__events_single" data-lib="library_32">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №32</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                `;
             }
-        }
 
-        //Appends
-        this.mainContentInside.appendChild(this.mainContentSubheader);
-        this.mainContentInside.appendChild(this.calendar);
-        this.calendar.appendChild(this.calendarMonth);
-        this.calendar.appendChild(this.calendarEvents);
+            this.calendarEvents.appendChild(this.calendarEvent);
+        }
     }
 
     objectsTabs() {
@@ -197,13 +277,11 @@ class Calendar {
         this.calendarFilterChoice = document.createElement('select');
         this.calendarFilterChoice.classList = 'main-content__calendar_select';
         this.calendarFilterChoice.id = 'calendarSelectLibrary';
-        this.calendarFilterChoice.setAttribute('name', 'calendarSelectLibrary');
+        // this.calendarFilterChoice.setAttribute('name', 'calendarSelectLibrary');
         this.calendarFilterChoice.innerHTML = `
             <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
-            <option value="library_3" data-filter=="library_3">Библиотека №3</option>
-            <option value="library_15" data-filter=="library_15">Библиотека №15</option>
-            <option value="library_23" data-filter=="library_23">Библиотека №23</option>
-            <option value="library_32" data-filter=="library_32">Библиотека №32</option>
+            <option value="library_23" data-filter="library_23">Библиотека №23</option>
+            <option value="library_32" data-filter="library_32">Библиотека №32</option>
         `;
         this.calendarFilterChoiceArrow = document.createElement('div');
         this.calendarFilterChoiceArrow.classList = 'fa-solid fa-chevron-down main-content__calendar_arrow';
@@ -221,22 +299,53 @@ class Calendar {
             calendarMonthDates = document.querySelectorAll('.calendar__month_date'),
             calendarEventsAll = document.querySelectorAll('.calendar__events'),
             calendarEventsInside = document.querySelectorAll('.calendar__events_inside'),
+            calendarSelectLibrary = document.getElementById('calendarSelectLibrary'),
             calendarEventSingle = document.querySelectorAll('.calendar__events_single'),
-            calendarSelectLibrary = document.getElementById('calendarSelectLibrary')
+            calendarFilters = document.querySelectorAll('option[data-filter]')
         ;
 
-        calendarSelectLibrary.addEventListener('change', () => {
-            if (calendarSelectLibrary.value === 'library_15') {
-                // calendarEventsInside.forEach((el) => {
-                    calendarEventSingle.forEach(event => {
-                        if (!event.textContent.includes('Библиотека №13')) {
-                            event.style.display = 'none';
-                            event.style.visibility = 'hidden';
-                            // if (!event) {
-                            //     console.log(event.id)
-                            // }
-                        }
-                    })
+        // let filters = document.querySelectorAll('');
+
+
+        // for (let filter of filters) {
+        //     filter.addEventListener('change', (e) => {
+                // e.preventDefault();
+
+                // let libId = filter.getAttribute('data-filter');
+                // let libCat = document.querySelectorAll('.calendar__events_single');
+                //
+                // libCat.forEach((lib) => {
+                //     if (libId === 'choiceLibrary') {
+                //         c.classList.remove('.is-hide');
+                //     } else {
+                //         if (lib.getAttribute('data-lib') !== libId) {
+                //             lib.classList.add('is-hide');
+                //             // lib.style.display = 'none';
+                //             // lib.style.visibility = 'hidden';
+                //         } else {
+                //             lib.classList.remove('is-hide');
+                //             // lib.style.display = 'block';
+                //             // lib.style.visibility = 'visible';
+                //         }
+                //     }
+                // })
+                // console.log(e)
+            // });
+        // }
+
+            // if (calendarSelectLibrary.value === 'library_23') {
+            //     // calendarEventsInside.forEach((el) => {
+            //         calendarEventFilter.forEach(event => {
+            //             const eventClass = document.getElementsByClassName('library_23');
+            //             if (!eventClass) {
+            //                 // event.style.display = 'none';
+            //                 // event.style.visibility = 'hidden';
+            //                 // if (!event) {
+            //                 //     console.log(event.id)
+            //                 // }
+            //             }
+            //             console.log(eventClass)
+            //         })
                 // })
                 // calendarMonthDates.forEach(date => {
                 //     if (date.id === 'tab_1') {
@@ -244,13 +353,43 @@ class Calendar {
                 //         // console.log(date.id)
                 //     }
                 // })
-            } else if (calendarSelectLibrary.value === 'library_23') {
+            // }
+        // })
+
+        calendarSelectLibrary.addEventListener("change", () => {
+            if (calendarSelectLibrary.value === 'choiceLibrary') {
                 calendarEventsInside.forEach((el) => {
                     calendarEventSingle.forEach(elem => {
-                        if (!elem.textContent.includes('Библиотека №23')) {
+                        if (elem.getAttribute('data-lib') !== 'choiceLibrary') {
+                            elem.style.display = 'block';
+                            elem.style.visibility = 'visible';
+                            // calendarMonthDates.forEach(col => {
+                            //     col.style.backgroundColor = 'black'
+                            // })
+                        }
+                    })
+                })
+            } else if(calendarSelectLibrary.value === 'library_23') {
+                calendarEventsInside.forEach((el) => {
+                    calendarEventSingle.forEach(elem => {
+                        if (elem.getAttribute('data-lib') !== 'library_23') {
                             elem.style.display = 'none';
                             elem.style.visibility = 'hidden';
-
+                        } else {
+                            elem.style.display = 'block';
+                            elem.style.visibility = 'visible';
+                        }
+                    })
+                })
+            } else if(calendarSelectLibrary.value === 'library_32') {
+                calendarEventsInside.forEach((el) => {
+                    calendarEventSingle.forEach(elem => {
+                        if (elem.getAttribute('data-lib') !== 'library_32') {
+                            elem.style.display = 'none';
+                            elem.style.visibility = 'hidden';
+                        } else {
+                            elem.style.display = 'block';
+                            elem.style.visibility = 'visible';
                         }
                     })
                 })

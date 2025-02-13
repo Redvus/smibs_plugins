@@ -261,3 +261,8 @@
 .is-visible {
 	background-color: darken($primary, 10%);
 }
+
+.is-hide {
+	display: none;
+	visibility: hidden;
+}
