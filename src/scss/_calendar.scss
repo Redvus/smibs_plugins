@@ -258,8 +258,14 @@
 
 /*============  End of BannerTop Page  =============*/
 
-.is-visible {
+.is-show {
+	color: $fourth;
 	background-color: darken($primary, 10%);
+}
+
+.is-active {
+	color: $fourth;
+	background-color: $secondary;
 }
 
 .is-hide {

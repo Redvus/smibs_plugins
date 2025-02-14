@@ -50,7 +50,7 @@ class Calendar {
         //
         //     if (this.calendarDay.id === `calendarDate_${i}`) {
         //         if (this.calendarDay.id === `calendarDate_${0}`) {
-        //             this.calendarDay.className = 'calendar__month_date is-visible';
+        //             this.calendarDay.className = 'calendar__month_date is-show';
         //         }
         //         this.calendarDay.setAttribute('data-id', `tab_${i + 1}`);
         //         this.calendarEvent = document.createElement('div');
@@ -83,7 +83,7 @@ class Calendar {
         //     this.calendarMonth.appendChild(this.calendarDay);
         //
         //     if (this.calendarDay.id === 'calendarDate_0') {
-        //         this.calendarDay.className = 'calendar__month_date is-visible';
+        //         this.calendarDay.className = 'calendar__month_date is-show';
         //         this.calendarDay.setAttribute('data-id', 'tab_0');
         //         this.calendarEvent = document.createElement('div');
         //         this.calendarEvent.id = 'tab_0';
@@ -155,7 +155,7 @@ class Calendar {
             this.calendarMonth.appendChild(this.calendarDay);
 
             if (this.calendarDay.id === 'calendarDate_0') {
-                this.calendarDay.className = 'calendar__month_date is-visible';
+                this.calendarDay.className = 'calendar__month_date is-show';
                 this.calendarDay.setAttribute('data-id', 'tab_0');
                 this.calendarEvent = document.createElement('div');
                 this.calendarEvent.id = 'tab_0';
@@ -229,8 +229,8 @@ class Calendar {
 
         for (let i = 0; i < this.tabMenuTrigger.length; i++) {
             this.tabMenuTrigger[i].addEventListener('click', () => {
-                document.getElementsByClassName('is-visible')[0].classList.remove('is-visible');
-                this.tabMenuTrigger[i].classList.add('is-visible');
+                document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+                this.tabMenuTrigger[i].classList.add('is-show');
                 this.arrayTabs = Array.prototype.slice.call(this.tabMenuTrigger);
                 this.index = this.arrayTabs.indexOf(this);
 
@@ -309,69 +309,67 @@ class Calendar {
 
         // for (let filter of filters) {
         //     filter.addEventListener('change', (e) => {
-                // e.preventDefault();
+        // e.preventDefault();
 
-                // let libId = filter.getAttribute('data-filter');
-                // let libCat = document.querySelectorAll('.calendar__events_single');
-                //
-                // libCat.forEach((lib) => {
-                //     if (libId === 'choiceLibrary') {
-                //         c.classList.remove('.is-hide');
-                //     } else {
-                //         if (lib.getAttribute('data-lib') !== libId) {
-                //             lib.classList.add('is-hide');
-                //             // lib.style.display = 'none';
-                //             // lib.style.visibility = 'hidden';
-                //         } else {
-                //             lib.classList.remove('is-hide');
-                //             // lib.style.display = 'block';
-                //             // lib.style.visibility = 'visible';
-                //         }
-                //     }
-                // })
-                // console.log(e)
-            // });
+        // let libId = filter.getAttribute('data-filter');
+        // let libCat = document.querySelectorAll('.calendar__events_single');
+        //
+        // libCat.forEach((lib) => {
+        //     if (libId === 'choiceLibrary') {
+        //         c.classList.remove('.is-hide');
+        //     } else {
+        //         if (lib.getAttribute('data-lib') !== libId) {
+        //             lib.classList.add('is-hide');
+        //             // lib.style.display = 'none';
+        //             // lib.style.visibility = 'hidden';
+        //         } else {
+        //             lib.classList.remove('is-hide');
+        //             // lib.style.display = 'block';
+        //             // lib.style.visibility = 'visible';
+        //         }
+        //     }
+        // })
+        // console.log(e)
+        // });
         // }
 
-            // if (calendarSelectLibrary.value === 'library_23') {
-            //     // calendarEventsInside.forEach((el) => {
-            //         calendarEventFilter.forEach(event => {
-            //             const eventClass = document.getElementsByClassName('library_23');
-            //             if (!eventClass) {
-            //                 // event.style.display = 'none';
-            //                 // event.style.visibility = 'hidden';
-            //                 // if (!event) {
-            //                 //     console.log(event.id)
-            //                 // }
-            //             }
-            //             console.log(eventClass)
-            //         })
-                // })
-                // calendarMonthDates.forEach(date => {
-                //     if (date.id === 'tab_1') {
-                //         date.parent.style.display = 'none';
-                //         // console.log(date.id)
-                //     }
-                // })
-            // }
+        // if (calendarSelectLibrary.value === 'library_23') {
+        //     // calendarEventsInside.forEach((el) => {
+        //         calendarEventFilter.forEach(event => {
+        //             const eventClass = document.getElementsByClassName('library_23');
+        //             if (!eventClass) {
+        //                 // event.style.display = 'none';
+        //                 // event.style.visibility = 'hidden';
+        //                 // if (!event) {
+        //                 //     console.log(event.id)
+        //                 // }
+        //             }
+        //             console.log(eventClass)
+        //         })
+        // })
+        // calendarMonthDates.forEach(date => {
+        //     if (date.id === 'tab_1') {
+        //         date.parent.style.display = 'none';
+        //         // console.log(date.id)
+        //     }
+        // })
+        // }
         // })
 
         calendarSelectLibrary.addEventListener("change", () => {
             if (calendarSelectLibrary.value === 'choiceLibrary') {
-                calendarEventsInside.forEach((el) => {
-                    calendarEventSingle.forEach(elem => {
+                calendarEventSingle.forEach(elem => {
+                    calendarMonthDates.forEach((dates) => {
                         if (elem.getAttribute('data-lib') !== 'choiceLibrary') {
                             elem.style.display = 'block';
                             elem.style.visibility = 'visible';
-                            // calendarMonthDates.forEach(col => {
-                            //     col.style.backgroundColor = 'black'
-                            // })
+                            dates.classList.remove('is-active')
                         }
                     })
                 })
-            } else if(calendarSelectLibrary.value === 'library_23') {
-                calendarEventsInside.forEach((el) => {
-                    calendarEventSingle.forEach(elem => {
+            } else if (calendarSelectLibrary.value === 'library_23') {
+                calendarEventSingle.forEach(elem => {
+                    calendarMonthDates.forEach((dates) => {
                         if (elem.getAttribute('data-lib') !== 'library_23') {
                             elem.style.display = 'none';
                             elem.style.visibility = 'hidden';
@@ -379,17 +377,38 @@ class Calendar {
                             elem.style.display = 'block';
                             elem.style.visibility = 'visible';
                         }
+
+                        if (elem.getAttribute('data-lib') === 'library_23') {
+                            if (elem.parentNode.id === dates.getAttribute('data-id')) {
+                                dates.classList += ' is-active'
+                                // if(dates.classList.contains('is-active')) {
+                                //     dates.addEventListener('click', () => {
+                                //         dates.classList.remove('is-active')
+                                //     })
+                                // }
+                            } else if(elem.parentNode.id !== dates.getAttribute('data-id')) {
+                                dates.style.opacity = '0.5'
+                            }
+                        }
                     })
+
+
                 })
-            } else if(calendarSelectLibrary.value === 'library_32') {
-                calendarEventsInside.forEach((el) => {
-                    calendarEventSingle.forEach(elem => {
+            } else if (calendarSelectLibrary.value === 'library_32') {
+                calendarEventSingle.forEach(elem => {
+                    calendarMonthDates.forEach(dates => {
                         if (elem.getAttribute('data-lib') !== 'library_32') {
                             elem.style.display = 'none';
                             elem.style.visibility = 'hidden';
                         } else {
                             elem.style.display = 'block';
                             elem.style.visibility = 'visible';
+                        }
+
+                        if (elem.getAttribute('data-lib') === 'library_32') {
+                            if (elem.parentNode.id === dates.getAttribute('data-id')) {
+                                dates.classList += ' is-active'
+                            }
                         }
                     })
                 })
