@@ -216,6 +216,19 @@ class Calendar {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                     </li>
                 `;
+            } else if (this.calendarDay.id === 'calendarDate_3') {
+                this.calendarDay.className = 'calendar__month_date';
+                this.calendarDay.setAttribute('data-id', 'tab_3');
+                this.calendarEvent = document.createElement('div');
+                this.calendarEvent.id = 'tab_3';
+                this.calendarEvent.className = 'calendar__events_inside';
+
+                this.calendarEvent.innerHTML = `
+                    <li class="calendar__events_single" data-lib="library_23">
+                        <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                    </li>
+                `;
             }
 
             this.calendarEvents.appendChild(this.calendarEvent);
@@ -363,7 +376,7 @@ class Calendar {
                         if (elem.getAttribute('data-lib') !== 'choiceLibrary') {
                             elem.style.display = 'block';
                             elem.style.visibility = 'visible';
-                            dates.classList.remove('is-active')
+                            dates.classList.remove('is-active');
                         }
                     })
                 })
@@ -386,13 +399,13 @@ class Calendar {
                                 //         dates.classList.remove('is-active')
                                 //     })
                                 // }
-                            } else if(elem.parentNode.id !== dates.getAttribute('data-id')) {
-                                dates.style.opacity = '0.5'
                             }
+
+                            // else if(!dates.getAttribute('data-id')) {
+                            //     elem.classList.remove('is-active')
+                            // }
                         }
                     })
-
-
                 })
             } else if (calendarSelectLibrary.value === 'library_32') {
                 calendarEventSingle.forEach(elem => {
