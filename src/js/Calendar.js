@@ -392,18 +392,12 @@ class Calendar {
                         }
 
                         if (elem.getAttribute('data-lib') === 'library_23') {
+                            dates.classList.remove('is-active');
                             if (elem.parentNode.id === dates.getAttribute('data-id')) {
-                                dates.classList += ' is-active'
-                                // if(dates.classList.contains('is-active')) {
-                                //     dates.addEventListener('click', () => {
-                                //         dates.classList.remove('is-active')
-                                //     })
-                                // }
+                                setTimeout(() => {
+                                    dates.classList += ' is-active'
+                                }, 20)
                             }
-
-                            // else if(!dates.getAttribute('data-id')) {
-                            //     elem.classList.remove('is-active')
-                            // }
                         }
                     })
                 })
@@ -419,8 +413,11 @@ class Calendar {
                         }
 
                         if (elem.getAttribute('data-lib') === 'library_32') {
+                            dates.classList.remove('is-active')
                             if (elem.parentNode.id === dates.getAttribute('data-id')) {
-                                dates.classList += ' is-active'
+                                setTimeout(() => {
+                                    dates.classList += ' is-active'
+                                }, 20)
                             }
                         }
                     })

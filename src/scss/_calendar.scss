@@ -261,13 +261,7 @@
 .is-show {
 	color: $fourth;
 	//background-color: darken($primary, 10%);
-	background-color: lighten($secondary, 7%);
-
-
-		> .is-active {
-			background-color: lighten($secondary, 7%) !important;
-		}
-
+	background-color: lighten($secondary, 10%) !important;
 }
 
 .is-active {
