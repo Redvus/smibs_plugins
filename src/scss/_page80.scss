@@ -1,0 +1,162 @@
+#mainContent80Victory {
+    min-height: calc(100vmax * 1.3);
+    position: relative;
+    background-color: #ececed;
+}
+
+#imageMother {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    z-index: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-position: top;
+        object-fit: cover;
+    }
+}
+
+#imageLogo {
+    width: auto;
+    height: 15vmax;
+    display: block;
+    position: absolute;
+    top: 5rem;
+    left: 25vmax;
+    z-index: 1;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-position: top;
+        object-fit: cover;
+    }
+}
+
+#imageLentaVictory {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 53vmax;
+    left: 0;
+    z-index: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-position: top;
+        object-fit: cover;
+    }
+}
+
+#v80BrandBook {
+    width: 22vmax;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 50vmax;
+    right: 4rem;
+    z-index: 5;
+}
+
+#v80BrandBookImage {
+    width: 22vmax;
+    height: auto;
+    display: block;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-position: top;
+        object-fit: cover;
+    }
+
+    &:hover {
+        box-shadow: 0 0 1rem rgba($secondary, 0.3);
+    }
+}
+
+#v80BrandBooktext {
+    p {
+        font-size: 1.1vmax;
+        line-height: 1.2;
+        //text-align: right;
+        color: $third;
+    }
+}
+
+#v80TextTop {
+    width: 45%;
+    display: block;
+    position: absolute;
+    top: 8rem;
+    right: 4rem;
+    z-index: 3;
+
+    p {
+        font-size: 1.1vmax;
+        line-height: 1.2;
+        text-align: right;
+        color: $third;
+
+        strong {
+            color: $third;
+        }
+    }
+}
+
+.footer {
+
+    &__top {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: absolute;
+        bottom: 7rem;
+        right: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-position: bottom;
+            object-fit: cover;
+        }
+
+        &_bottom {
+            width: 100%;
+            height: 7rem;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            svg {
+                width: 100%;
+                //height: 7rem;
+                display: block;
+                position: absolute;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: relative;
+                object-position: top;
+                object-fit: fill;
+            }
+        }
+    }
+}

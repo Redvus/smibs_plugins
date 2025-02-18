@@ -42,9 +42,9 @@ class Plugins {
         this.mainContentInside = document.createElement('div');
         this.mainContentInside.className = 'main-content__inside';
 
-        this.footer = document.createElement('div');
-        this.footer.className = 'footer';
-        this.footerTopBlock = document.createElement('div');
+        // this.footer = document.createElement('div');
+        // this.footer.className = 'footer';
+        // this.footerTopBlock = document.createElement('div');
 
         //Appends
         // this.body.appendChild(this.footer);
