@@ -1,10 +1,10 @@
-#mainContent80Victory {
+#v80MainContent {
     min-height: calc(100vmax * 1.3);
     position: relative;
     background-color: #ececed;
 }
 
-#imageMother {
+#v80ImageMother {
     width: 100%;
     height: auto;
     display: block;
@@ -22,7 +22,7 @@
     }
 }
 
-#imageLogo {
+#v80ImageLogo {
     width: auto;
     height: 15vmax;
     display: block;
@@ -40,19 +40,21 @@
     }
 }
 
-#imageLentaVictory {
+#v80ImageLentaVictory {
     width: 100%;
     height: auto;
     display: block;
     position: absolute;
     top: 53vmax;
     left: 0;
+    overflow: hidden;
     z-index: 0;
 
     img {
         width: 100%;
         height: 100%;
         display: block;
+        position: relative;
         object-position: top;
         object-fit: cover;
     }
@@ -87,7 +89,7 @@
     }
 }
 
-#v80BrandBooktext {
+#v80BrandBookText {
     p {
         font-size: 1.1vmax;
         line-height: 1.2;
@@ -113,6 +115,52 @@
         strong {
             color: $third;
         }
+
+        a {
+            strong {
+                color: $secondary;
+            }
+        }
+    }
+}
+
+#v80TextMiddle {
+    width: 55%;
+    display: block;
+    position: absolute;
+    top: 65.6vmax;
+    left: 4rem;
+    z-index: 3;
+
+    p {
+        font-size: 1.1vmax;
+        line-height: 1.2;
+        text-align: left;
+        color: $third;
+
+        strong {
+            color: $secondary;
+        }
+    }
+}
+
+#v80TextBottom {
+    width: 40%;
+    display: block;
+    position: absolute;
+    top: 81.5vmax;
+    left: 4rem;
+    z-index: 3;
+
+    p {
+        font-size: 1.1vmax;
+        line-height: 1.2;
+        text-align: left;
+        color: $third;
+
+        strong {
+            color: $secondary;
+        }
     }
 }
 
@@ -125,11 +173,13 @@
         position: absolute;
         bottom: 7rem;
         right: 0;
+        overflow: hidden;
 
         img {
             width: 100%;
             height: 100%;
             display: block;
+            position: relative;
             object-position: bottom;
             object-fit: cover;
         }
@@ -158,5 +208,215 @@
                 object-fit: fill;
             }
         }
+    }
+}
+
+@include grid-media($Medium) {
+
+    #mainContent80Victory {
+        min-height: calc(100vmax * 1.75);
+    }
+
+    #imageLogo {
+        left: 40vmax;
+    }
+
+    #v80TextTop {
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    #v80BrandBook {
+        width: 32vmax;
+        top: 63vmax;
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    #v80BrandBookImage {
+        width: 100%;
+    }
+
+    #imageLentaVictory {
+        top: 66vmax;
+    }
+
+    #v80TextMiddle {
+        top: 85.7vmax;
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    #v80TextBottom {
+        top: 108vmax;
+
+        p {
+            font-size: 1rem;
+        }
+    }
+}
+
+@include grid-media($XSmallV) {
+
+    #v80MainContent {
+        min-height: calc(100vmax * 1.37);
+
+        p {
+            font-size: $font-size-small !important;
+        }
+    }
+
+    #v80TextTop {
+        width: 42%;
+        top: 7rem;
+        right: 2rem;
+
+        img {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: $font-size-small;
+        }
+    }
+
+    #v80BrandBook {
+        top: 70vmin;
+        right: 2rem;
+    }
+
+    #v80TextMiddle {
+        top: 82vmin;
+    }
+
+    #v80TextBottom {
+        top: 107vmin;
+    }
+
+    #v80TextBottom {
+        width: 39%;
+    }
+
+    .footer {
+
+        &__top {
+            bottom: 0;
+            z-index: 10;
+
+            &_bottom {
+                height: 18vmin;
+            }
+        }
+    }
+}
+
+@include grid-media($Small) {
+
+    #v80MainContent {
+        min-height: 100vmin;
+    }
+
+    .footer {
+
+        &__top {
+            //position: relative;
+            bottom: 0;
+            z-index: 10;
+
+            &_bottom {
+                height: 45vmin;
+                position: relative;
+            }
+
+            img {
+                width: 150%;
+                left: -50%;
+            }
+        }
+    }
+
+    #v80mainContentTop {
+        width: 100%;
+        height: 73vmin;
+        display: block;
+        position: relative;
+        top: 5rem;
+        left: 0;
+        z-index: 5;
+    }
+
+    #v80ImageMother {
+        top: 0;
+    }
+
+    #v80ImageLogo {
+        height: 48vmin;
+        top: 0;
+        left: initial;
+        right: 3rem;
+    }
+
+    #v80ImageLentaVictory {
+        top: 52vmin;
+        z-index: 5;
+
+        img {
+            width: 140%;
+            left: -20%;
+            transform: rotate(-6deg);
+        }
+    }
+
+    #v80MainContentInside {
+        width: calc(100% - 2rem);
+        position: relative;
+        top: 5.8vmin;
+        padding: 0 1rem 37vmin;
+        background-color: #ececed;
+        z-index: 1;
+
+        p {
+            font-size: 1rem;
+            text-align: left;
+            line-height: 1.4 !important;
+
+            strong {
+                color: $secondary;
+            }
+        }
+    }
+
+    #v80TextTop {
+        width: 100%;
+        position: relative;
+        top: initial;
+        right: initial;
+    }
+
+    #v80BrandBook {
+        width: 100%;
+        position: relative;
+        top: initial;
+        right: initial;
+        margin-top: 2rem;
+    }
+
+    #v80BrandBookImage {
+        width: 100%;
+    }
+
+    #v80TextMiddle,
+    #v80TextBottom {
+        width: 100%;
+        position: relative;
+        top: initial;
+        left: initial;
+        margin-top: 2rem;
     }
 }
