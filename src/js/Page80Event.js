@@ -2,6 +2,7 @@ class Page80Event {
     constructor() {
         this.initLayout();
         this.initContent();
+        this.initAppends();
     }
 
     initLayout() {
@@ -66,6 +67,13 @@ class Page80Event {
             <img src="/assets/images/80victory/Page80/png/v80LentaVictory.png" />
         `;
 
+        // Slogan
+        this.v80Slogan = document.createElement('picture');
+        this.v80Slogan.id = 'v80Slogan';
+        this.v80Slogan.innerHTML = `
+            <img src="/assets/images/80victory/Page80/png/v80Slogan.png" />
+        `;
+
         // Brandbook
         this.brandBook = document.createElement('div');
         this.brandBook.id = 'v80BrandBook';
@@ -126,12 +134,14 @@ class Page80Event {
             
             <p>Предстоящий год станет данью уважения к ратному подвигу всех, кто сражался за Родину в разные периоды истории, а также нынешним героям – участникам спецоперации. Год защитника Отечества 2025 – это не просто календарная дата, а символ национального единства и патриотизма. Это выражение глубокой признательности тем, кто защищал и продолжает защищать суверенитет и безопасность нашей страны.</p>
         `;
+    }
 
+    initAppends() {
         // Appends
         if (document.body.clientWidth > 570 || screen.width > 570) {
             this.wrapper.appendChild(this.mainContent);
             this.mainContent.appendChild(this.imageMain);
-            this.mainContent.appendChild(this.imageLogo);
+            // this.mainContent.appendChild(this.imageLogo);
             this.mainContent.appendChild(this.imageLentaVictory);
 
             this.mainContent.appendChild(this.v80TextTop);
@@ -141,24 +151,31 @@ class Page80Event {
             this.mainContent.appendChild(this.brandBook);
             this.brandBook.appendChild(this.imageBrandBook);
             this.brandBook.appendChild(this.brandBookText);
+            this.brandBook.appendChild(this.v80Slogan);
 
             this.mainContent.appendChild(this.footerTop);
             this.mainContent.appendChild(this.footerTopBottom);
+
+        } else if (document.body.clientWidth > 1024 || screen.width > 1024) {
+            this.brandBook.removeChild(this.v80Slogan);
 
         } else if (document.body.clientWidth < 570 || screen.width < 570) {
             this.wrapper.removeChild(this.mainContent);
             this.wrapper.appendChild(this.mainContentTop);
             this.wrapper.appendChild(this.mainContentInside);
             this.mainContentTop.appendChild(this.imageMain);
-            this.mainContentTop.appendChild(this.imageLogo);
+            // this.mainContentTop.appendChild(this.imageLogo);
             this.mainContentTop.appendChild(this.imageLentaVictory);
 
             this.mainContentInside.appendChild(this.v80TextTop);
             this.mainContentInside.appendChild(this.v80TextMiddle);
+
             this.mainContentInside.appendChild(this.brandBook);
             this.brandBook.appendChild(this.imageBrandBook);
             this.brandBook.appendChild(this.brandBookText);
+
             this.mainContentInside.appendChild(this.v80TextBottom);
+            this.v80TextBottom.appendChild(this.v80Slogan);
 
             this.wrapper.appendChild(this.footerTop);
             this.wrapper.appendChild(this.footerTopBottom);
