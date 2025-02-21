@@ -165,7 +165,7 @@
     width: 40%;
     display: block;
     position: absolute;
-    top: 81.5vmax;
+    top: 85vmax;
     left: 4rem;
     z-index: 3;
 
@@ -310,7 +310,7 @@
     }
 
     #v80TextBottom {
-        top: 88vmax;
+        top: 94vmax;
 
         p {
             font-size: 1.2vmax;
@@ -378,7 +378,7 @@
     }
 
     #v80TextBottom {
-        top: 107vmax;
+        top: 115vmax;
 
         p {
             font-size: $font-size-base;
@@ -432,7 +432,7 @@
     }
 
     #v80TextBottom {
-        top: 116vmin;
+        top: 125vmin;
     }
 
     #v80TextBottom {
@@ -499,7 +499,7 @@
     }
 
     #v80ImageLentaVictory {
-        top: 52vmin;
+        top: 49vmin;
         z-index: 5;
 
         img {
@@ -512,7 +512,7 @@
     #v80MainContentInside {
         width: calc(100% - 2rem);
         position: relative;
-        top: 5.8vmin;
+        top: 5rem;
         padding: 0 1rem 37vmin;
         background-color: #ececed;
         z-index: 1;
@@ -533,6 +533,10 @@
         position: relative;
         top: initial;
         right: initial;
+
+        img {
+            margin-bottom: 3rem;
+        }
     }
 
     #v80BrandBook {

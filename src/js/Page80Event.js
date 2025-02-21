@@ -110,6 +110,8 @@ class Page80Event {
         this.v80TextMiddle = document.createElement('div');
         this.v80TextMiddle.id = 'v80TextMiddle';
         this.v80TextMiddle.innerHTML = `
+            <p>21 июля 2023 года Владимир Путин подписал Указ «О&nbsp;подготовке и&nbsp;проведении празднования 80-й годовщины Победы в&nbsp;Великой Отечественной войне 1941–1945&nbsp;годов». Затем был сформирован оргкомитет "Победа".</p>
+            
             <p>2025-й год в России объявлен «Годом защитника Отечества». Предложение было принято по инициативе Президента РФ Владимира Владимировича Путина на заседании Госсовета, посвящённом вопросам поддержки семей в Российской Федерации в Кремле.
             </p>
             
@@ -126,8 +128,6 @@ class Page80Event {
         this.v80TextBottom = document.createElement('div');
         this.v80TextBottom.id = 'v80TextBottom';
         this.v80TextBottom.innerHTML = `
-            <p>21 июля 2023 года Владимир Путин подписал Указ «О&nbsp;подготовке и&nbsp;проведении празднования 80-й годовщины Победы в&nbsp;Великой Отечественной войне 1941–1945&nbsp;годов». Затем был сформирован оргкомитет "Победа".</p>
-            
             <h3>План основных мероприятий по проведению Года Защитника Отечества</h3>
         
             <p>Все основные культурно-массовые мероприятия, поддерживаемые государством в этом году будут носить патриотический характер. На федеральном и региональном уровне будут организованы проекты, посвящённые сохранению исторической памяти и увековечению подвига советского народа в Великой Отечественной войне. Кроме того, в России пройдут два фестиваля: «Салют Победы» и «Вместе мы – Россия», а также акции «Георгиевская ленточка», «Бессмертный полк» и «Диктант Победы».</p>
@@ -161,13 +161,13 @@ class Page80Event {
 
         } else if (document.body.clientWidth < 570 || screen.width < 570) {
             this.wrapper.removeChild(this.mainContent);
-            this.wrapper.appendChild(this.mainContentTop);
+            // this.wrapper.appendChild(this.mainContentTop);
             this.wrapper.appendChild(this.mainContentInside);
-            this.mainContentTop.appendChild(this.imageMain);
+            // this.mainContentTop.appendChild(this.imageMain);
             // this.mainContentTop.appendChild(this.imageLogo);
-            this.mainContentTop.appendChild(this.imageLentaVictory);
 
             this.mainContentInside.appendChild(this.v80TextTop);
+            this.v80TextTop.appendChild(this.imageLentaVictory);
             this.mainContentInside.appendChild(this.v80TextMiddle);
 
             this.mainContentInside.appendChild(this.brandBook);
