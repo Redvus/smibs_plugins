@@ -17,10 +17,11 @@ class BannerTop {
     }
 
     initLayout() {
-        // this.mainContentInside = document.querySelector('.main-content__inside');
-        // this.mainContentTop = document.createElement('div');
-        // this.mainContentTop.className = 'main-content__top';
-        this.mainContentTop = document.querySelector('.main-content__top');
+        this.mainContent = document.querySelector('.main-content');
+        this.mainContentInside = document.querySelector('.main-content__inside');
+        this.mainContentTop = document.createElement('div');
+        this.mainContentTop.className = 'main-content__top';
+        // this.mainContentTop = document.querySelector('.main-content__top');
 
         this.bannerTop = document.createElement('div');
         this.bannerTop.id = 'bannerTop';
@@ -96,6 +97,7 @@ class BannerTop {
 
         // Appends
         // this.mainContentInside.insertBefore(this.mainContentTop, this.mainContentInside.firstChild);
+        this.mainContentInside.appendChild(this.mainContentTop);
         this.mainContentTop.appendChild(this.bannerTop);
         this.bannerTop.appendChild(this.bannerTopRight);
         this.bannerTop.appendChild(this.bannerTopLenta);
