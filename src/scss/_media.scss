@@ -3,26 +3,26 @@
 =============================*/
 
 $main-grid: (
-	columns: 12,
-	gutter: 0
+        columns: 12,
+        gutter: 0
 );
 
 $second-grid: (
-	columns: 12,
-	gutter: 2rem
+        columns: 12,
+        gutter: 2rem
 );
 
 $third-grid: (
-	columns: 12,
-	gutter: 1rem
+        columns: 12,
+        gutter: 1rem
 );
 
 $imac27 : 2559px;
 $imac21 : 1920px;
 $cinema : 1680px;
-$laptop : 1440px;
-$pad_g : 1024px;
-$pad_v : 810px;
+$laptop : 1439px;
+$pad_g : 1079px;
+$pad_v : 811px;
 $mobile : 570px;
 
 $XXLarge: (media: "(min-width: #{$imac27})");
