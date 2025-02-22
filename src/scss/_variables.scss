@@ -210,51 +210,6 @@ $inputHeight: 2rem;
 =            Layout            =
 ==============================*/
 
-// %scrollbar_body {
-//     &::-webkit-scrollbar-track {
-//         background-color: transparent;
-//     }
-
-//     &::-webkit-scrollbar {
-//         width: 6px;
-//         background: transparent;
-
-//         // &::window-inactive {
-
-//         // }
-
-//     }
-
-//     &::-webkit-scrollbar-thumb {
-//         background-color: lighten($secondary, 60%);
-
-//         &:window-inactive {
-//             background-color: #fff;
-//         }
-//     }
-// }
-
-// %scrollbar_sidebar {
-//     &::-webkit-scrollbar-track {
-//         background-color: transparent;
-//     }
-
-//     &::-webkit-scrollbar {
-//         width: 4px;
-//         background: transparent;
-
-//     }
-
-//     &::-webkit-scrollbar-thumb {
-//         background-color: lighten($secondary, 70%);
-//         //border: 2px solid #555555;
-
-//         &:window-inactive {
-//             opacity: 0;
-//         }
-//     }
-// }
-
 %px {
     font: {
         family: $primary-font;
