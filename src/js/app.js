@@ -1,9 +1,11 @@
 import '/scss/main.scss';
 import '/main.css';
+import {Event_NY2025} from "./Event_NY2025.js";
 
 class Plugins {
     constructor() {
         this.initLayout();
+        new Event_NY2025();
     }
 
     initLayout() {
