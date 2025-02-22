@@ -4,7 +4,7 @@ class Event_08_03_25 {
 
     constructor() {
         this.initLayout();
-        this.initAnimation();
+        // this.initAnimation();
         this.initDev();
     }
 
@@ -164,12 +164,6 @@ class Event_08_03_25 {
         ;
     }
 
-    initDev() {
-        this.anniversaryDay.style.opacity = 1;
-        this.anniversaryDay.style.visibility = 'visible';
-        this.anniversaryDay.style.zIndex = 9999;
-    }
-
     initHide(delay) {
         let tl = new gsap.timeline({
             delay: delay,
@@ -188,6 +182,12 @@ class Event_08_03_25 {
                 ease: 'power1'
             })
         ;
+    }
+
+    initDev() {
+        this.anniversaryDay.style.opacity = 1;
+        this.anniversaryDay.style.visibility = 'visible';
+        this.anniversaryDay.style.zIndex = 9999;
     }
 }
 
