@@ -9,30 +9,49 @@
 		display: flex;
 		flex-direction: row;
 
+		&_month {
+			width: calc(40% - #{$border_thin} - (#{$marginVert} * 2));
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			border-right: $border_thin solid $secondary;
+			margin-right: $marginVert;
+			padding-right: $marginVert;
+		}
+
 		&_filter {
 			min-width: 13rem;
-			height: 2rem;
+			//height: 2.2rem;
 			display: flex;
-			flex-direction: row;
-			position: absolute;
+			flex-direction: column;
+			position: relative;
 			bottom: 0;
 			right: 0;
+			margin-bottom: 1rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 
 		&_select {
 			width: 100%;
-			height: 100%;
+			height: 2.2rem;
 			display: block;
-			position: absolute;
+			position: relative;
 			z-index: 0;
 			top: 0;
 			right: 0;
-			padding: 0 calc(#{$marginVert} / 2);
-			text-align: right;
-			color: $secondary;
-			border-top: $border_thin solid $secondary;
-			border-left: $border_thin solid $secondary;
-			border-right: $border_thin solid $secondary;
+			margin-bottom: 1rem;
+
+			select {
+				width: 100%;
+				height: 100%;
+				padding: 0 calc(#{$marginVert} / 2);
+				text-align: right;
+				color: $secondary;
+				border: $border_thin solid $secondary;
+			}
 
 			option {
 				color: $secondary;
@@ -56,14 +75,12 @@
 .calendar {
 
 	&__month {
-		width: calc(40% - #{$border_thin} - (#{$marginVert} * 2));
-		height: 100%;
+		width: 100%;
+		//height: 100%;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		border-right: $border_thin solid $secondary;
-		margin-right: $marginVert;
-		padding-right: $marginVert;
+		margin-bottom: $marginVert;
 
 		&_date {
 			width: calc((100% / 7) - 0.2rem);

@@ -1,7 +1,5 @@
 import '/main.css';
-import '/scss/main.scss';
-import { Anniversary2025 } from "./Anniversary2025";
-import {BannerTop} from "./BannerTop.js";
+import '/scss/app.scss';
 import {Calendar} from "./Calendar.js";
 
 class Plugins {
