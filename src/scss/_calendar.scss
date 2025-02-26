@@ -284,6 +284,8 @@
 .is-active {
 	color: $fourth;
 	background-color: $secondary;
+	opacity: 1 !important;
+	pointer-events: auto !important;
 }
 
 .is-hide {

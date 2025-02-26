@@ -13,6 +13,7 @@ class Calendar {
         this.initFilterAppends();
 
         this.initFilter();
+        // this.initFilterDev();
     }
 
     // Common Layout
@@ -307,8 +308,6 @@ class Calendar {
         this.filterChoiceLibrary.classList = 'main-content__calendar_select';
         this.filterChoiceLibrarySelect.id = 'calendarSelectLibrary';
 
-        // this.filterLibraryValue = ['choiceLibrary', 'library_23', 'library_32'];
-        // this.filterLibraryName = ['Выберите филиал', 'Библиотека №23', 'Библиотека №32'];
         this.filterLibraryOptions = [
             {
                 text: 'Выберите филиал',
@@ -486,68 +485,59 @@ class Calendar {
     initFilter() {
         const
             calendarMonthDates = document.querySelectorAll('.calendar__month_date'),
-            calendarEventsAll = document.querySelectorAll('.calendar__events'),
-            calendarEventsInside = document.querySelectorAll('.calendar__events_inside'),
             calendarSelectLibrary = document.getElementById('calendarSelectLibrary'),
-            calendarEventSingle = document.querySelectorAll('.calendar__events_single'),
-            calendarFilters = document.querySelectorAll('option[data-filter]')
+            calendarEventSingleDev = document.querySelectorAll('.calendar__events_single')
         ;
 
         calendarSelectLibrary.addEventListener("change", () => {
-            if (calendarSelectLibrary.value === 'choiceLibrary') {
-                calendarEventSingle.forEach(elem => {
-                    calendarMonthDates.forEach((dates) => {
-                        if (elem.getAttribute('data-lib') !== 'choiceLibrary') {
-                            elem.style.display = 'block';
-                            elem.style.visibility = 'visible';
-                            dates.classList.remove('is-active');
-                        }
-                    })
-                })
-            } else if (calendarSelectLibrary.value === 'library_23') {
-                calendarEventSingle.forEach(elem => {
-                    calendarMonthDates.forEach((dates) => {
-                        if (elem.getAttribute('data-lib') !== 'library_23') {
-                            elem.style.display = 'none';
-                            elem.style.visibility = 'hidden';
-                        } else {
-                            elem.style.display = 'block';
-                            elem.style.visibility = 'visible';
-                        }
-
-                        if (elem.getAttribute('data-lib') === 'library_23') {
-                            dates.classList.remove('is-active');
-                            if (elem.parentNode.id === dates.getAttribute('data-id')) {
-                                setTimeout(() => {
-                                    dates.classList += ' is-active'
-                                }, 20)
+            for (let i = 0; i < this.filterLibraryOptions.length; i++) {
+                if (calendarSelectLibrary.value === this.filterLibraryOptions[i].value) {
+                    calendarEventSingleDev.forEach(el => {
+                        calendarMonthDates.forEach((dates, pos) => {
+                            if (el.getAttribute('data-lib') !== this.filterLibraryOptions[i].value) {
+                                el.style.display = 'none';
+                                el.style.visibility = 'hidden';
+                            } else {
+                                el.style.display = 'block';
+                                el.style.visibility = 'visible';
                             }
-                        }
-                    })
-                })
-            } else if (calendarSelectLibrary.value === 'library_32') {
-                calendarEventSingle.forEach(elem => {
-                    calendarMonthDates.forEach(dates => {
-                        if (elem.getAttribute('data-lib') !== 'library_32') {
-                            elem.style.display = 'none';
-                            elem.style.visibility = 'hidden';
-                        } else {
-                            elem.style.display = 'block';
-                            elem.style.visibility = 'visible';
-                        }
 
-                        if (elem.getAttribute('data-lib') === 'library_32') {
-                            dates.classList.remove('is-active')
-                            if (elem.parentNode.id === dates.getAttribute('data-id')) {
-                                setTimeout(() => {
-                                    dates.classList += ' is-active'
-                                }, 20)
+                            if (el.getAttribute('data-lib') === this.filterLibraryOptions[i].value) {
+                                dates.classList.remove('is-active');
+                                if (el.parentNode.id === dates.getAttribute('data-id')) {
+                                    setTimeout(() => {
+                                        dates.classList += ' is-active';
+                                    }, 20)
+                                } else if (el.parentNode.id !== dates.getAttribute('data-id')) {
+                                    setTimeout(() => {
+                                        dates.style.opacity = '0.5';
+                                        dates.style.userSelect = 'none';
+                                        dates.style.pointerEvents = 'none';
+                                    }, 20)
+                                }
                             }
-                        }
+                        })
                     })
-                })
+                } else if (calendarSelectLibrary.value === this.filterLibraryOptions[0].value) {
+                    calendarEventSingleDev.forEach(elem => {
+                        calendarMonthDates.forEach((dates) => {
+                            if (elem.getAttribute('data-lib') !== this.filterLibraryOptions[0].value) {
+                                elem.style.display = 'block';
+                                elem.style.visibility = 'visible';
+                                dates.classList.remove('is-active');
+                                dates.style.userSelect = 'auto';
+                                dates.style.pointerEvents = 'auto';
+                                dates.style.opacity = '1';
+                            }
+                        })
+                    })
+                }
             }
         })
+    }
+
+    initFilterDev() {
+
     }
 }
 
