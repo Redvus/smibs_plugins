@@ -1,4 +1,8 @@
 import {gsap} from "gsap";
+import {FilterTerms} from "./FilterTerms.js";
+import {FilterLibrary} from "./FilterLibrary.js";
+import {FilterEntrance} from "./FilterEntrance.js";
+import {FilterAge} from "./FilterAge.js";
 
 class Calendar {
     constructor() {
@@ -6,14 +10,10 @@ class Calendar {
         this.initEventDev();
         this.objectsTabs();
 
-        this.initFilterLibrary();
-        this.initFilterEntrance();
-        this.initFilterTerms();
-        this.initFilterAge();
-        this.initFilterAppends();
-
-        this.initFilter();
-        // this.initFilterDev();
+        new FilterLibrary();
+        new FilterTerms();
+        // new FilterEntrance();
+        // new FilterAge();
     }
 
     // Common Layout
@@ -34,6 +34,9 @@ class Calendar {
         this.calendarMonthList.className = 'calendar__month';
         this.calendarMonthList.id = 'objectsTab';
 
+        this.calendarFilter = document.createElement('div');
+        this.calendarFilter.classList = 'main-content__calendar_filter';
+
         this.calendarEvents = document.createElement('ul');
         this.calendarEvents.className = 'calendar__events';
 
@@ -48,6 +51,7 @@ class Calendar {
         this.calendar.appendChild(this.calendarMonth);
         this.calendar.appendChild(this.calendarEvents);
         this.calendarMonth.appendChild(this.calendarMonthList);
+        this.calendarMonth.appendChild(this.calendarFilter);
     }
 
     initEventDev() {
@@ -174,15 +178,15 @@ class Calendar {
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
-                    <li class="calendar__events_single" data-lib="library_2">
+                    <li class="calendar__events_single" data-lib="library_2" data-terms="termsLecture">
                         <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №2</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                     </li>
-                    <li class="calendar__events_single" data-lib="library_15">
+                    <li class="calendar__events_single" data-lib="library_15" data-terms="termsExhibition">
                         <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №15</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                     </li>
-                    <li class="calendar__events_single" data-lib="library_23">
+                    <li class="calendar__events_single" data-lib="library_23"  data-terms="termsLecture">
                         <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                     </li>
@@ -223,7 +227,7 @@ class Calendar {
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
-                    <li class="calendar__events_single" data-lib="library_32">
+                    <li class="calendar__events_single" data-lib="library_32" data-terms="termsExhibition">
                         <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №32</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                     </li>
@@ -236,7 +240,7 @@ class Calendar {
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
-                    <li class="calendar__events_single" data-lib="library_23">
+                    <li class="calendar__events_single" data-lib="library_23" data-terms="termsExhibition">
                         <h4><span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                     </li>
@@ -294,250 +298,6 @@ class Calendar {
             });
             // flag = 1
         }
-    }
-
-
-    // Filter Layout
-    initFilterLibrary() {
-        this.calendarFilter = document.createElement('div');
-        this.calendarFilter = document.createElement('div');
-        this.calendarFilter.classList = 'main-content__calendar_filter';
-
-        this.filterChoiceLibrary = document.createElement('div');
-        this.filterChoiceLibrarySelect = document.createElement('select');
-        this.filterChoiceLibrary.classList = 'main-content__calendar_select';
-        this.filterChoiceLibrarySelect.id = 'calendarSelectLibrary';
-
-        this.filterLibraryOptions = [
-            {
-                text: 'Выберите филиал',
-                value: 'choiceLibrary'
-            },
-            {
-                text: 'Библиотека №23',
-                value: 'library_23'
-            },
-            {
-                text: 'Библиотека №32',
-                value: 'library_32'
-            },
-        ];
-
-        this.filterLibraryOptions.forEach(option =>
-            this.filterChoiceLibrarySelect.options.add(
-                new Option(option.text, option.value, option.selected)
-            )
-        );
-
-        // this.filterChoiceLibrary.innerHTML = `
-        //     <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
-        //     <option value="library_23" data-filter="library_23">Библиотека №23</option>
-        //     <option value="library_32" data-filter="library_32">Библиотека №32</option>
-        // `;
-
-        this.filterChoiceLibraryArrow = document.createElement('div');
-        this.filterChoiceLibraryArrow.classList = 'fa-solid fa-chevron-down main-content__calendar_arrow';
-    }
-
-    initFilterEntrance() {
-        this.filterChoiceEntrance = document.createElement('div');
-        this.filterChoiceEntranceSelect = document.createElement('select');
-        this.filterChoiceEntrance.classList = 'main-content__calendar_select';
-        this.filterChoiceEntranceSelect.id = 'calendarSelectEntrance';
-
-        // this.filterLibraryValue = ['choiceLibrary', 'library_23', 'library_32'];
-        // this.filterLibraryName = ['Выберите филиал', 'Библиотека №23', 'Библиотека №32'];
-        this.filterLibraryOptionsEntrance = [
-            {
-                text: 'Условия участия',
-                value: 'choiceLibrary'
-            },
-            {
-                text: 'Библиотека №23',
-                value: 'library_23'
-            },
-            {
-                text: 'Библиотека №32',
-                value: 'library_32'
-            },
-        ];
-
-        this.filterLibraryOptionsEntrance.forEach(option =>
-            this.filterChoiceEntranceSelect.options.add(
-                new Option(option.text, option.value, option.selected)
-            )
-        );
-
-        // this.filterChoiceLibrary.innerHTML = `
-        //     <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
-        //     <option value="library_23" data-filter="library_23">Библиотека №23</option>
-        //     <option value="library_32" data-filter="library_32">Библиотека №32</option>
-        // `;
-
-        this.filterChoiceLibraryArrowEntrance = document.createElement('div');
-        this.filterChoiceLibraryArrowEntrance.classList = 'fa-solid fa-chevron-down main-content__calendar_arrow';
-    }
-
-    initFilterTerms() {
-        this.filterChoiceTerms = document.createElement('div');
-        this.filterChoiceTermsSelect = document.createElement('select');
-        this.filterChoiceTerms.classList = 'main-content__calendar_select';
-        this.filterChoiceTermsSelect.id = 'calendarSelectEntrance';
-
-        // this.filterLibraryValue = ['choiceLibrary', 'library_23', 'library_32'];
-        // this.filterLibraryName = ['Выберите филиал', 'Библиотека №23', 'Библиотека №32'];
-        this.filterLibraryOptionsTerms = [
-            {
-                text: 'Форма мероприятия',
-                value: 'choiceLibrary'
-            },
-            {
-                text: 'Библиотека №23',
-                value: 'library_23'
-            },
-            {
-                text: 'Библиотека №32',
-                value: 'library_32'
-            },
-        ];
-
-        this.filterLibraryOptionsTerms.forEach(option =>
-            this.filterChoiceTermsSelect.options.add(
-                new Option(option.text, option.value, option.selected)
-            )
-        );
-
-        // this.filterChoiceLibrary.innerHTML = `
-        //     <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
-        //     <option value="library_23" data-filter="library_23">Библиотека №23</option>
-        //     <option value="library_32" data-filter="library_32">Библиотека №32</option>
-        // `;
-
-        this.filterChoiceLibraryArrowTerms = document.createElement('div');
-        this.filterChoiceLibraryArrowTerms.classList = 'fa-solid fa-chevron-down main-content__calendar_arrow';
-    }
-
-    initFilterAge() {
-        this.filterChoiceAge = document.createElement('div');
-        this.filterChoiceAgeSelect = document.createElement('select');
-        this.filterChoiceAge.classList = 'main-content__calendar_select';
-        this.filterChoiceAgeSelect.id = 'calendarSelectEntrance';
-
-        // this.filterLibraryValue = ['choiceLibrary', 'library_23', 'library_32'];
-        // this.filterLibraryName = ['Выберите филиал', 'Библиотека №23', 'Библиотека №32'];
-        this.filterLibraryOptionsAge = [
-            {
-                text: 'Возраст',
-                value: 'choiceLibrary'
-            },
-            {
-                text: 'Библиотека №23',
-                value: 'library_23'
-            },
-            {
-                text: 'Библиотека №32',
-                value: 'library_32'
-            },
-        ];
-
-        this.filterLibraryOptionsAge.forEach(option =>
-            this.filterChoiceAgeSelect.options.add(
-                new Option(option.text, option.value, option.selected)
-            )
-        );
-
-        // this.filterChoiceLibrary.innerHTML = `
-        //     <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
-        //     <option value="library_23" data-filter="library_23">Библиотека №23</option>
-        //     <option value="library_32" data-filter="library_32">Библиотека №32</option>
-        // `;
-
-        this.filterChoiceLibraryArrowAge = document.createElement('div');
-        this.filterChoiceLibraryArrowAge.classList = 'fa-solid fa-chevron-down main-content__calendar_arrow';
-    }
-
-
-    initFilterAppends() {
-        // Appends Library
-        this.calendarMonth.appendChild(this.calendarFilter);
-        this.calendarFilter.appendChild(this.filterChoiceLibrary);
-        this.filterChoiceLibrary.appendChild(this.filterChoiceLibrarySelect);
-        this.filterChoiceLibrary.appendChild(this.filterChoiceLibraryArrow);
-
-        // Appends Entrance
-        this.calendarFilter.appendChild(this.filterChoiceEntrance);
-        this.filterChoiceEntrance.appendChild(this.filterChoiceEntranceSelect);
-        this.filterChoiceEntrance.appendChild(this.filterChoiceLibraryArrowEntrance);
-
-        // Appends Terms
-        this.calendarFilter.appendChild(this.filterChoiceTerms);
-        this.filterChoiceTerms.appendChild(this.filterChoiceTermsSelect);
-        this.filterChoiceTerms.appendChild(this.filterChoiceLibraryArrowTerms);
-
-        // Appends Age
-        this.calendarFilter.appendChild(this.filterChoiceAge);
-        this.filterChoiceAge.appendChild(this.filterChoiceAgeSelect);
-        this.filterChoiceAge.appendChild(this.filterChoiceLibraryArrowAge);
-    }
-
-
-    // Init Filter
-    initFilter() {
-        const
-            calendarMonthDates = document.querySelectorAll('.calendar__month_date'),
-            calendarSelectLibrary = document.getElementById('calendarSelectLibrary'),
-            calendarEventSingleDev = document.querySelectorAll('.calendar__events_single')
-        ;
-
-        calendarSelectLibrary.addEventListener("change", () => {
-            for (let i = 0; i < this.filterLibraryOptions.length; i++) {
-                if (calendarSelectLibrary.value === this.filterLibraryOptions[i].value) {
-                    calendarEventSingleDev.forEach(el => {
-                        calendarMonthDates.forEach((dates, pos) => {
-                            if (el.getAttribute('data-lib') !== this.filterLibraryOptions[i].value) {
-                                el.style.display = 'none';
-                                el.style.visibility = 'hidden';
-                            } else {
-                                el.style.display = 'block';
-                                el.style.visibility = 'visible';
-                            }
-
-                            if (el.getAttribute('data-lib') === this.filterLibraryOptions[i].value) {
-                                dates.classList.remove('is-active');
-                                if (el.parentNode.id === dates.getAttribute('data-id')) {
-                                    setTimeout(() => {
-                                        dates.classList += ' is-active';
-                                    }, 20)
-                                } else if (el.parentNode.id !== dates.getAttribute('data-id')) {
-                                    setTimeout(() => {
-                                        dates.style.opacity = '0.5';
-                                        dates.style.userSelect = 'none';
-                                        dates.style.pointerEvents = 'none';
-                                    }, 20)
-                                }
-                            }
-                        })
-                    })
-                } else if (calendarSelectLibrary.value === this.filterLibraryOptions[0].value) {
-                    calendarEventSingleDev.forEach(elem => {
-                        calendarMonthDates.forEach((dates) => {
-                            if (elem.getAttribute('data-lib') !== this.filterLibraryOptions[0].value) {
-                                elem.style.display = 'block';
-                                elem.style.visibility = 'visible';
-                                dates.classList.remove('is-active');
-                                dates.style.userSelect = 'auto';
-                                dates.style.pointerEvents = 'auto';
-                                dates.style.opacity = '1';
-                            }
-                        })
-                    })
-                }
-            }
-        })
-    }
-
-    initFilterDev() {
-
     }
 }
 
