@@ -1,4 +1,4 @@
-import '/main.css';
+// import '/main.css';
 import '/scss/app.scss';
 import {Calendar} from "./Calendar.js";
 
