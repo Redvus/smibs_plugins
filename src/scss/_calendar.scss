@@ -184,6 +184,36 @@
 			flex-direction: column;
 		}
 
+		&_single {
+			display: block;
+			position: relative;
+			border-bottom: 0.1rem solid $primary;
+			margin-bottom: 2rem;
+			padding-bottom: 2rem;
+
+			h3 {
+				margin-top: 0.3rem;
+			}
+		}
+
+		&_terms {
+			padding: 0.15rem 0.5rem 0.2rem;
+			background-color: $secondary;
+			font-size: $font-size-h4;
+			color: $fourth;
+		}
+
+		&_entrance {
+			padding: 0.15rem 0.5rem 0.2rem;
+			background-color: $primary;
+			font-family: $heading-font;
+			font-size: $font-size-base;
+			color: $secondary;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+
 		p {
 			margin-top: 0;
 		}
