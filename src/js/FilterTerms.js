@@ -62,7 +62,7 @@ class FilterTerms {
                 value: 'termsFestivals'
             },
             {
-                text: 'беседа',
+                text: 'Беседа',
                 value: 'termsConversation'
             },
             {
@@ -94,32 +94,42 @@ class FilterTerms {
             calendarEventSingleDev = document.querySelectorAll('.calendar__events_single')
         ;
 
+        let daysActiveLib = JSON.parse(localStorage.getItem('daysActiveLib'));
+
+        // console.log(daysActive);
+
         calendarSelectTerms.addEventListener("change", () => {
             for (let i = 0; i < this.filterOptionsTerms.length; i++) {
                 if (calendarSelectTerms.value === this.filterOptionsTerms[i].value) {
                     calendarEventSingleDev.forEach(evTerms => {
                         calendarMonthDates.forEach((dTerms, pos) => {
-                            if (evTerms.getAttribute('data-terms') !== this.filterOptionsTerms[i].value) {
-                                evTerms.style.display = 'none';
-                                evTerms.style.visibility = 'hidden';
-                            } else {
-                                evTerms.style.display = 'block';
-                                evTerms.style.visibility = 'visible';
-                            }
+                            // if (evTerms.getAttribute('data-lib') !== daysActiveLib) {
+                                if (evTerms.getAttribute('data-terms') !== this.filterOptionsTerms[i].value) {
+                                    evTerms.style.display = 'none';
+                                    evTerms.style.visibility = 'hidden';
+                                } else {
+                                    evTerms.style.display = 'block';
+                                    evTerms.style.visibility = 'visible';
+                                }
+                            // }
 
                             if (evTerms.getAttribute('data-terms') === this.filterOptionsTerms[i].value) {
-                                dTerms.classList.remove('is-active');
-                                if (evTerms.parentNode.id === dTerms.getAttribute('data-id')) {
-                                    setTimeout(() => {
-                                        dTerms.classList += ' is-active';
-                                    }, 20)
-                                } else if (evTerms.parentNode.id !== dTerms.getAttribute('data-id')) {
-                                    setTimeout(() => {
-                                        dTerms.style.opacity = '0.5';
-                                        dTerms.style.userSelect = 'none';
-                                        dTerms.style.pointerEvents = 'none';
-                                    }, 20)
-                                }
+                                // if (evTerms.getAttribute('data-lib') === daysActiveLib) {
+                                    dTerms.classList.remove('is-active');
+                                    if (evTerms.parentNode.id === dTerms.getAttribute('data-id')) {
+                                        setTimeout(() => {
+                                            dTerms.classList += ' is-active';
+                                            const daysActiveTerms = this.filterOptionsTerms[i].value;
+                                            localStorage.setItem(`daysActiveTerms`, JSON.stringify(daysActiveTerms));
+                                        }, 20)
+                                    } else if (evTerms.parentNode.id !== dTerms.getAttribute('data-id')) {
+                                        setTimeout(() => {
+                                            dTerms.style.opacity = '0.5';
+                                            dTerms.style.userSelect = 'none';
+                                            dTerms.style.pointerEvents = 'none';
+                                        }, 20)
+                                    }
+                                // }
                             }
                         })
                     })
@@ -133,6 +143,7 @@ class FilterTerms {
                                 dTerms.style.userSelect = 'auto';
                                 dTerms.style.pointerEvents = 'auto';
                                 dTerms.style.opacity = '1';
+                                localStorage.setItem(`daysActiveTerms`, JSON.stringify(''));
                             }
                         })
                     })

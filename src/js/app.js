@@ -5,8 +5,6 @@ import {Calendar} from "./Calendar.js";
 class Plugins {
     constructor() {
         this.initLayout();
-        // new Anniversary2025();
-        // new BannerTop();
         new Calendar();
     }
 

@@ -1,5 +1,11 @@
 import { defineConfig } from 'vite';
 // import { InjectCssToJsPlugin } from 'vite-plugin-inject-css-to-js';
+import { fileURLToPath } from "node:url";
+
+const excludeTheseFiles = ["/main.css"];
+const filePathsToExclude = excludeTheseFiles.map((src) => {
+    return fileURLToPath(new URL(src, import.meta.url));
+});
 
 export default defineConfig({
     root: 'src/',
@@ -48,6 +54,9 @@ export default defineConfig({
                     return '[name]-[hash][extname]';
                 },
             },
+            // external: [
+            //     ...filePathsToExclude
+            // ]
         }
     },
     css: {
