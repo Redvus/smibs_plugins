@@ -16,14 +16,91 @@ class Event_08_03_25 {
         this.womanDay25.id = 'womanDay25';
         this.womanDay25.className = 'anniversary anniversary--womanDay25';
         this.container.classList = 'anniversary__container';
+
         this.womanDay25.innerHTML = `
 			<picture id="womanDay25Back">
 				<img src="assets/images/womanDay25/womanDay25Back.svg" alt="">
 			</picture>
-			<div id="womanDay25Woman1_1">
-				<img src="assets/images/womanDay25/womanDay25Woman1_1.png" id="womanDay25Woman1_1" alt="">
-			</div>
 		`;
+
+        this.container.innerHTML = `
+            <div id="womanDay25Slogan">
+                <picture id="womanDay25Slogan_1">
+                    <img src="assets/images/womanDay25/womanDay25Slogan_1.png" id="womanDay25Slogan_1" alt="">
+                </picture>
+                <picture id="womanDay25Slogan_2">
+                    <img src="assets/images/womanDay25/womanDay25Slogan_2.png" id="womanDay25Slogan_2" alt="">
+                </picture>
+                <picture id="womanDay25Slogan_3">
+                    <img src="assets/images/womanDay25/womanDay25Slogan_3.png" id="womanDay25Slogan_3" alt="">
+                </picture>
+                <picture id="womanDay25Slogan_4">
+                    <img src="assets/images/womanDay25/womanDay25Slogan_4.png" id="womanDay25Slogan_4" alt="">
+                </picture>
+            </div>
+            <div id="womanDay25Woman1">
+                <picture id="womanDay25Woman1_1">
+                    <img src="assets/images/womanDay25/womanDay25Woman1_1.png" id="womanDay25Woman1_1" alt="">
+                </picture>
+                <picture id="womanDay25Woman1_2">
+                    <img src="assets/images/womanDay25/womanDay25Woman1_2.png" id="womanDay25Woman1_2" alt="">
+                </picture>
+                <picture id="womanDay25Woman1_3">
+                    <img src="assets/images/womanDay25/womanDay25Woman1_3.png" id="womanDay25Woman1_3" alt="">
+                </picture>
+                <picture id="womanDay25Woman1_4">
+                    <img src="assets/images/womanDay25/womanDay25Woman1_4.png" id="womanDay25Woman1_4" alt="">
+                </picture>
+                <picture id="womanDay25Woman1_5">
+                    <img src="assets/images/womanDay25/womanDay25Woman1_5.png" id="womanDay25Woman1_5" alt="">
+                </picture>
+            </div>
+            <div id="womanDay25Woman2">
+                <picture id="womanDay25Woman2_1">
+                    <img src="assets/images/womanDay25/womanDay25Woman2_1.png" id="womanDay25Woman2_1" alt="">
+                </picture>
+                <picture id="womanDay25Woman2_2">
+                    <img src="assets/images/womanDay25/womanDay25Woman2_2.png" id="womanDay25Woman2_2" alt="">
+                </picture>
+                <picture id="womanDay25Woman2_3">
+                    <img src="assets/images/womanDay25/womanDay25Woman3_5.png" id="womanDay25Woman2_3" alt="">
+                </picture>
+            </div>
+            <div id="womanDay25Woman3">
+                <picture id="womanDay25Woman3_1">
+                    <img src="assets/images/womanDay25/womanDay25Woman3_1.png" id="womanDay25Woman3_1" alt="">
+                </picture>
+                <picture id="womanDay25Woman3_2">
+                    <img src="assets/images/womanDay25/womanDay25Woman3_2.png" id="womanDay25Woman3_2" alt="">
+                </picture>
+                <picture id="womanDay25Woman3_3">
+                    <img src="assets/images/womanDay25/womanDay25Woman3_3.png" id="womanDay25Woman3_3" alt="">
+                </picture>
+                <picture id="womanDay25Woman3_4">
+                    <img src="assets/images/womanDay25/womanDay25Woman3_4.png" id="womanDay25Woman3_4" alt="">
+                </picture>
+                <picture id="womanDay25Woman3_5">
+                    <img src="assets/images/womanDay25/womanDay25Woman2_3.png" id="womanDay25Woman3_5" alt="">
+                </picture>
+            </div>
+            <div id="womanDay25Woman4">
+                <picture id="womanDay25Woman4_1">
+                    <img src="assets/images/womanDay25/womanDay25Woman4_1.png" id="womanDay25Woman4_1" alt="">
+                </picture>
+                <picture id="womanDay25Woman4_2">
+                    <img src="assets/images/womanDay25/womanDay25Woman4_2.png" id="womanDay25Woman4_2" alt="">
+                </picture>
+                <picture id="womanDay25Woman4_3">
+                    <img src="assets/images/womanDay25/womanDay25Woman4_3.png" id="womanDay25Woman4_3" alt="">
+                </picture>
+                <picture id="womanDay25Woman4_4">
+                    <img src="assets/images/womanDay25/womanDay25Woman4_4.png" id="womanDay25Woman4_4" alt="">
+                </picture>
+                <picture id="womanDay25Woman4_5">
+                    <img src="assets/images/womanDay25/womanDay25Woman4_5.png" id="womanDay25Woman4_5" alt="">
+                </picture>
+            </div>
+        `;
 
         // Appends
         this.bodyBlock.appendChild(this.womanDay25);
