@@ -1,5 +1,4 @@
 import '/scss/main.scss';
-import '/main.css';
 import {Event_08_03_25} from "./Event_08_03_25.js";
 
 class Plugins {

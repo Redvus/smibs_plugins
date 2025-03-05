@@ -10,59 +10,24 @@ class Event_08_03_25 {
 
     initLayout() {
         this.bodyBlock = document.body;
-        this.anniversaryDay = document.createElement('div');
+        this.womanDay25 = document.createElement('div');
+        this.container = document.createElement('div');
 
-        this.anniversaryDay.id = 'anniversary2025';
-        this.anniversaryDay.className = 'anniversary anniversary--2025';
-        this.bodyBlock.appendChild(this.anniversaryDay);
-
-        this.anniversaryDay.innerHTML = `
-			<div id="s2025_floor"></div>
-			<picture id="s2025_pattern">
-				<img src="assets/images/anniversary/2025/anni2025_pattern.png" alt="">
+        this.womanDay25.id = 'womanDay25';
+        this.womanDay25.className = 'anniversary anniversary--womanDay25';
+        this.container.classList = 'anniversary__container';
+        this.womanDay25.innerHTML = `
+			<picture id="womanDay25Back">
+				<img src="assets/images/womanDay25/womanDay25Back.svg" alt="">
 			</picture>
-			<picture id="s2025_snow">
-				<img src="assets/images/anniversary/2025/s2025_snow.png" alt="">
-			</picture>
-			<div id="s2025_gifts">
-				<img src="assets/images/anniversary/2025/s2025_gift_5.png" id="s2025_gift1_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_6.png" id="s2025_gift1_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_7.png" id="s2025_gift1_3" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_8.png" id="s2025_gift1_4" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_6.png" id="s2025_gift1_5" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_gift_9.png" id="s2025_gift2_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_8.png" id="s2025_gift2_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_10.png" id="s2025_gift2_3" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_2.png" id="s2025_gift2_4" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_9.png" id="s2025_gift2_5" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_gift_1.png" id="s2025_gift3_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_1.png" id="s2025_gift3_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_5.png" id="s2025_gift3_3" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_gift_5.png" id="s2025_gift4_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_2.png" id="s2025_gift4_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_6.png" id="s2025_gift4_3" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_9.png" id="s2025_gift4_4" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_10.png" id="s2025_gift4_5" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_gift_7.png" id="s2025_gift5_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_8.png" id="s2025_gift5_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_2.png" id="s2025_gift5_3" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_gift_6.png" id="s2025_gift6_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_1.png" id="s2025_gift6_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_9.png" id="s2025_gift6_3" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_gift_3.png" id="s2025_gift7_1" alt="">
-				<img src="assets/images/anniversary/2025/s2025_gift_4.png" id="s2025_gift7_2" alt="">
-				<img src="assets/images/anniversary/2025/s2025_back.png" id="s2025_back" alt="">
-
-				<img src="assets/images/anniversary/2025/s2025_dream.png" id="s2025_dream" alt="">
-				<img src="assets/images/anniversary/2025/s2025_made.png" id="s2025_made" alt="">
+			<div id="womanDay25Woman1_1">
+				<img src="assets/images/womanDay25/womanDay25Woman1_1.png" id="womanDay25Woman1_1" alt="">
 			</div>
 		`;
+
+        // Appends
+        this.bodyBlock.appendChild(this.womanDay25);
+        this.womanDay25.appendChild(this.container);
     }
 
     initAnimation() {
@@ -185,9 +150,9 @@ class Event_08_03_25 {
     }
 
     initDev() {
-        this.anniversaryDay.style.opacity = 1;
-        this.anniversaryDay.style.visibility = 'visible';
-        this.anniversaryDay.style.zIndex = 9999;
+        this.womanDay25.style.opacity = 1;
+        this.womanDay25.style.visibility = 'visible';
+        this.womanDay25.style.zIndex = 9999;
     }
 }
 
