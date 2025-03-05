@@ -94,11 +94,11 @@ class FilterTerms {
             calendarEventSingleDev = document.querySelectorAll('.calendar__events_single')
         ;
 
-        let daysActiveLib = JSON.parse(localStorage.getItem('daysActiveLib'));
-
         // console.log(daysActive);
 
         calendarSelectTerms.addEventListener("change", () => {
+            let daysActiveLib = JSON.parse(localStorage.getItem('daysActiveLib'));
+
             for (let i = 0; i < this.filterOptionsTerms.length; i++) {
                 if (calendarSelectTerms.value === this.filterOptionsTerms[i].value) {
                     calendarEventSingleDev.forEach(evTerms => {
@@ -119,7 +119,7 @@ class FilterTerms {
                                     if (evTerms.parentNode.id === dTerms.getAttribute('data-id')) {
                                         setTimeout(() => {
                                             dTerms.classList += ' is-active';
-                                            const daysActiveTerms = this.filterOptionsTerms[i].value;
+                                            let daysActiveTerms = this.filterOptionsTerms[i].value;
                                             localStorage.setItem(`daysActiveTerms`, JSON.stringify(daysActiveTerms));
                                         }, 20)
                                     } else if (evTerms.parentNode.id !== dTerms.getAttribute('data-id')) {

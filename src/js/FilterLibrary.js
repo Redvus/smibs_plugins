@@ -60,9 +60,9 @@ class FilterLibrary {
             calendarEventSingleDev = document.querySelectorAll('.calendar__events_single')
         ;
 
-        let daysActiveTerms = JSON.parse(localStorage.getItem('daysActiveTerms'));
-
         calendarSelectLibrary.addEventListener("change", () => {
+            let daysActiveTerms = JSON.parse(localStorage.getItem('daysActiveTerms'));
+
             for (let i = 0; i < this.filterLibraryOptions.length; i++) {
                 if (calendarSelectLibrary.value === this.filterLibraryOptions[i].value) {
                     calendarEventSingleDev.forEach(evLib => {
@@ -83,7 +83,7 @@ class FilterLibrary {
                                     if (evLib.parentNode.id === dateLib.getAttribute('data-id')) {
                                         setTimeout(() => {
                                             dateLib.classList += ' is-active';
-                                            const daysActiveLib = this.filterLibraryOptions[i].value;
+                                            let daysActiveLib = this.filterLibraryOptions[i].value;
                                             localStorage.setItem(`daysActiveLib`, JSON.stringify(daysActiveLib));
                                         }, 20)
                                     } else if (evLib.parentNode.id !== dateLib.getAttribute('data-id')) {
