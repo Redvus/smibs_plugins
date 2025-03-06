@@ -1,4 +1,5 @@
 $containerWidth: 110vmin;
+$sloganHeight: 9vmin;
 
 .anniversary {
 	width: 100%;
@@ -51,6 +52,7 @@ $containerWidth: 110vmin;
 			left: 50%;
 			transform: translate(-50%, 0);
 			z-index: 0;
+			opacity: 0.5;
 
 			img {
 				width: 100%;
@@ -59,6 +61,17 @@ $containerWidth: 110vmin;
 				position: relative;
 				object-position: top;
 				object-fit: contain;
+			}
+
+			&Bottom {
+				width: 100vw;
+				height: auto;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: 0;
+				opacity: 0.15;
 			}
 		}
 
@@ -74,30 +87,30 @@ $containerWidth: 110vmin;
 
 			&_1 {
 				width: auto;
-				height: 10vmin;
+				height: $sloganHeight;
 				position: relative;
-				top: 1vmin;
+				top: 2vmin;
 			}
 
 			&_2 {
 				width: auto;
-				height: 8vmin;
+				height: calc(#{$sloganHeight} - 2vmin);
 				position: relative;
-				top: 0;
+				top: 1vmin;
 			}
 
 			&_3 {
 				width: auto;
-				height: 10vmin;
+				height: $sloganHeight;
 				position: relative;
-				top: 0;
+				top: 1vmin;
 			}
 
 			&_4 {
 				width: auto;
-				height: 10vmin;
+				height: $sloganHeight;
 				position: relative;
-				top: -1vmin;
+				top: 0vmin;
 			}
 		}
 
@@ -354,13 +367,17 @@ $containerWidth: 110vmin;
 
 		#womanDay25 {
 			&Back {
-				//width: 100vw;
+				width: 100vw;
 
-				img {
-					width: initial;
-					object-position: top;
-					object-fit: cover;
-				}
+				//img {
+				//	width: initial;
+				//	object-position: top;
+				//	object-fit: cover;
+				//}
+			}
+
+			&Slogan {
+				top: 40vmin;
 			}
 		}
 	}
