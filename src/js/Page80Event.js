@@ -9,9 +9,10 @@ class Page80Event {
         this.body = document.body;
         this.wrapper = document.querySelector('.wrapper');
         this.mainContent = document.querySelector('.main-content');
-        this.mainContent.id = 'v80MainContent';
-        this.mainContentInside = document.createElement('div');
-        this.mainContentInside.id = 'v80MainContentInside';
+        this.mainContentInside = document.querySelector('.main-content__inside');
+        // this.mainContent.id = 'v80MainContent';
+        // this.mainContentInside = document.createElement('div');
+        // this.mainContentInside.id = 'v80MainContentInside';
 
         this.footer = document.createElement('div');
         this.footer.className = 'footer';
@@ -32,15 +33,18 @@ class Page80Event {
     }
 
     initContent() {
-        this.footerTop = document.createElement('picture');
+        this.footerTop = document.createElement('div');
         this.footerTop.className = 'footer__top';
         this.footerTop.innerHTML = `
-            <img src="/assets/images/80victory/Page80/png/v80Soldier.png" />
-        `;
-        this.footerTopBottom = document.createElement('picture');
-        this.footerTopBottom.className = 'footer__top_bottom';
-        this.footerTopBottom.innerHTML = `
-            <img src="/assets/images/80victory/Page80/png/v80LentaMulti.png" />
+            <picture class="footer__top_main">
+                <img src="/assets/images/80victory/Page80/png/v80Soldier.png" />
+            </picture>
+            <picture class="footer__top_bottom">
+                <img src="/assets/images/80victory/Page80/png/v80LentaMulti.png" />
+            </picture>
+            <picture class="footer__top_slogan" id="v80Slogan">
+                <img src="/assets/images/80victory/Page80/png/v80Slogan.png" />
+            </picture>
         `;
 
         this.mainContentTop = document.createElement('div');
@@ -65,13 +69,6 @@ class Page80Event {
         this.imageLentaVictory.id = 'v80ImageLentaVictory';
         this.imageLentaVictory.innerHTML = `
             <img src="/assets/images/80victory/Page80/png/v80LentaVictory.png" />
-        `;
-
-        // Slogan
-        this.v80Slogan = document.createElement('picture');
-        this.v80Slogan.id = 'v80Slogan';
-        this.v80Slogan.innerHTML = `
-            <img src="/assets/images/80victory/Page80/png/v80Slogan.png" />
         `;
 
         // Brandbook
@@ -139,22 +136,21 @@ class Page80Event {
     initAppends() {
         // Appends
         if (document.body.clientWidth > 570 || screen.width > 570) {
-            this.wrapper.appendChild(this.mainContent);
-            this.mainContent.appendChild(this.imageMain);
-            // this.mainContent.appendChild(this.imageLogo);
-            this.mainContent.appendChild(this.imageLentaVictory);
+            // this.wrapper.appendChild(this.mainContent);
+            // this.mainContentInside.appendChild(this.imageMain);
+            // this.mainContentInside.appendChild(this.imageLogo);
+            // this.mainContentInside.appendChild(this.imageLentaVictory);
 
-            this.mainContent.appendChild(this.v80TextTop);
-            this.mainContent.appendChild(this.v80TextMiddle);
-            this.mainContent.appendChild(this.v80TextBottom);
-
-            this.mainContent.appendChild(this.brandBook);
-            this.brandBook.appendChild(this.imageBrandBook);
-            this.brandBook.appendChild(this.brandBookText);
-            this.brandBook.appendChild(this.v80Slogan);
+            // this.mainContent.appendChild(this.v80TextTop);
+            // this.mainContent.appendChild(this.v80TextMiddle);
+            // this.mainContent.appendChild(this.v80TextBottom);
+            //
+            // this.mainContent.appendChild(this.brandBook);
+            // this.brandBook.appendChild(this.imageBrandBook);
+            // this.brandBook.appendChild(this.brandBookText);
+            // this.brandBook.appendChild(this.v80Slogan);
 
             this.mainContent.appendChild(this.footerTop);
-            this.mainContent.appendChild(this.footerTopBottom);
 
         } else if (document.body.clientWidth > 1024 || screen.width > 1024) {
             this.brandBook.removeChild(this.v80Slogan);
