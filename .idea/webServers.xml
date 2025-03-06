@@ -9,8 +9,8 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
-      <webServer id="d305abb3-5d42-4b16-a1aa-5b21fc223486" name="SMIBS">
-        <fileTransfer accessType="SFTP" host="178.21.10.63" port="22" sshConfigId="1e26a673-4cf5-4e35-a89f-e1cf4678fae6" sshConfig="redvus@178.21.10.63:22 password">
+      <webServer id="d305abb3-5d42-4b16-a1aa-5b21fc223486" name="SMIBS" url="https://smibs.ru">
+        <fileTransfer rootFolder="/sites/new.smibs.ru/root/assets" accessType="SFTP" host="178.21.10.63" port="22" sshConfigId="1e26a673-4cf5-4e35-a89f-e1cf4678fae6" sshConfig="root@178.21.10.63:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
