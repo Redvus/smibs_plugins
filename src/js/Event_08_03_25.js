@@ -1,4 +1,4 @@
-import {gsap} from "gsap";
+// import {gsap} from "gsap";
 
 class Event_08_03_25 {
 
