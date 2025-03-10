@@ -28,8 +28,8 @@ class Page80Event {
 
         //Appends
         // this.wrapper.appendChild(this.mainContent);
-        // this.mainContentInside.appendChild(this.mainContentSubheader);
-        this.body.appendChild(this.footer);
+        this.mainContentInside.appendChild(this.mainContentSubheader);
+        // this.body.appendChild(this.footer);
     }
 
     initContent() {
@@ -48,7 +48,11 @@ class Page80Event {
         `;
 
         this.mainContentTop = document.createElement('div');
+        this.mainContentMiddle = document.createElement('div');
+        this.mainContentBottom = document.createElement('div');
         this.mainContentTop.id = 'v80mainContentTop';
+        this.mainContentMiddle.id = 'v80mainContentMiddle';
+        this.mainContentBottom.id = 'v80mainContentBottom';
 
         // Mother
         this.imageMain = document.createElement('picture');
@@ -85,9 +89,9 @@ class Page80Event {
         this.brandBookText.id = 'v80BrandBookText';
         this.brandBookText.innerHTML = `
             <p>Стоит отметить, что «Год защитника Отечества» приходит на смену «Году семьи» (2024 год), подчеркивая неразрывную связь между семейными ценностями и героическим служением Родине. «Год семьи» был посвящен вопросам демографии и поддержке материнства, дабы заложить основу для будущего страны. А «Год защитника Отечества» подчеркнет заслуги тех, кто защищал и защищает родину.</p>
-            
+
             <p>Поскольку 2025 – это юбилейный год 80-летия Великой Победы, в рамках празднования разработан <a href="https://may9.ru/Brandbook_Pobeda80.pdf" target="_blank"><strong>специальный&nbsp;брендбук.</strong></a></p>
-            
+
             <p>В его основе монумент «Родина-мать зовет!». Эмблема также содержит георгиевскую ленту, слово «Победа!» и число «80».</p>
         `;
 
@@ -108,17 +112,17 @@ class Page80Event {
         this.v80TextMiddle.id = 'v80TextMiddle';
         this.v80TextMiddle.innerHTML = `
             <p>21 июля 2023 года Владимир Путин подписал Указ «О&nbsp;подготовке и&nbsp;проведении празднования 80-й годовщины Победы в&nbsp;Великой Отечественной войне 1941–1945&nbsp;годов». Затем был сформирован оргкомитет "Победа".</p>
-            
+
             <p>2025-й год в России объявлен «Годом защитника Отечества». Предложение было принято по инициативе Президента РФ Владимира Владимировича Путина на заседании Госсовета, посвящённом вопросам поддержки семей в Российской Федерации в Кремле.
             </p>
-            
+
             <p>Официальные хештеги празднования:<br>
             <a href="https://vk.com/feed?q=%23%D0%93%D0%9E%D0%94_%D0%97%D0%90%D0%A9%D0%98%D0%A2%D0%9D%D0%98%D0%9A%D0%90_%D0%9E%D0%A2%D0%95%D0%A7%D0%95%D0%A1%D0%A2%D0%92%D0%90_2025&amp;section=search"><strong>#ГОД_ЗАЩИТНИКА_ОТЕЧЕСТВА_2025</strong><br>
             <a href="https://vk.com/feed?q=%23%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D0%B080&amp;section=search"><strong>#Победа80</strong>
             </a></p>
-            
+
             <p>Подробная информация размещена <a href="https://may9.ru/" target="_blank"><strong>на&nbsp;официальном сайте.</strong></a></p>
-            
+
         `;
 
         // Bottom text
@@ -126,9 +130,9 @@ class Page80Event {
         this.v80TextBottom.id = 'v80TextBottom';
         this.v80TextBottom.innerHTML = `
             <h3>План основных мероприятий по проведению Года Защитника Отечества</h3>
-        
+
             <p>Все основные культурно-массовые мероприятия, поддерживаемые государством в этом году будут носить патриотический характер. На федеральном и региональном уровне будут организованы проекты, посвящённые сохранению исторической памяти и увековечению подвига советского народа в Великой Отечественной войне. Кроме того, в России пройдут два фестиваля: «Салют Победы» и «Вместе мы – Россия», а также акции «Георгиевская ленточка», «Бессмертный полк» и «Диктант Победы».</p>
-            
+
             <p>Предстоящий год станет данью уважения к ратному подвигу всех, кто сражался за Родину в разные периоды истории, а также нынешним героям – участникам спецоперации. Год защитника Отечества 2025 – это не просто календарная дата, а символ национального единства и патриотизма. Это выражение глубокой признательности тем, кто защищал и продолжает защищать суверенитет и безопасность нашей страны.</p>
         `;
     }
@@ -136,19 +140,21 @@ class Page80Event {
     initAppends() {
         // Appends
         if (document.body.clientWidth > 570 || screen.width > 570) {
-            // this.wrapper.appendChild(this.mainContent);
-            // this.mainContentInside.appendChild(this.imageMain);
+            this.wrapper.appendChild(this.mainContent);
+            this.mainContentInside.appendChild(this.mainContentTop);
+            this.mainContentTop.appendChild(this.imageMain);
+            this.mainContentTop.appendChild(this.imageLentaVictory);
+            this.mainContentTop.appendChild(this.v80TextTop);
             // this.mainContentInside.appendChild(this.imageLogo);
-            // this.mainContentInside.appendChild(this.imageLentaVictory);
 
-            // this.mainContent.appendChild(this.v80TextTop);
-            // this.mainContent.appendChild(this.v80TextMiddle);
-            // this.mainContent.appendChild(this.v80TextBottom);
-            //
-            // this.mainContent.appendChild(this.brandBook);
-            // this.brandBook.appendChild(this.imageBrandBook);
-            // this.brandBook.appendChild(this.brandBookText);
-            // this.brandBook.appendChild(this.v80Slogan);
+            this.mainContentInside.appendChild(this.mainContentMiddle);
+            this.mainContentMiddle.appendChild(this.v80TextMiddle);
+            this.mainContentMiddle.appendChild(this.brandBook);
+            this.brandBook.appendChild(this.imageBrandBook);
+            this.brandBook.appendChild(this.brandBookText);
+
+            this.mainContentInside.appendChild(this.mainContentBottom);
+            this.mainContentBottom.appendChild(this.v80TextBottom);
 
             this.mainContent.appendChild(this.footerTop);
 
@@ -156,25 +162,22 @@ class Page80Event {
             this.brandBook.removeChild(this.v80Slogan);
 
         } else if (document.body.clientWidth < 570 || screen.width < 570) {
-            this.wrapper.removeChild(this.mainContent);
-            // this.wrapper.appendChild(this.mainContentTop);
-            this.wrapper.appendChild(this.mainContentInside);
-            // this.mainContentTop.appendChild(this.imageMain);
-            // this.mainContentTop.appendChild(this.imageLogo);
+            this.wrapper.appendChild(this.mainContent);
+            this.mainContentInside.appendChild(this.mainContentTop);
+            this.mainContentTop.appendChild(this.imageLentaVictory);
+            this.mainContentTop.appendChild(this.v80TextTop);
 
-            this.mainContentInside.appendChild(this.v80TextTop);
-            this.v80TextTop.appendChild(this.imageLentaVictory);
-            this.mainContentInside.appendChild(this.v80TextMiddle);
-
-            this.mainContentInside.appendChild(this.brandBook);
+            this.mainContentInside.appendChild(this.mainContentMiddle);
+            this.mainContentMiddle.appendChild(this.v80TextMiddle);
+            this.mainContentMiddle.appendChild(this.brandBook);
             this.brandBook.appendChild(this.imageBrandBook);
             this.brandBook.appendChild(this.brandBookText);
 
-            this.mainContentInside.appendChild(this.v80TextBottom);
-            this.v80TextBottom.appendChild(this.v80Slogan);
+            this.mainContentInside.appendChild(this.mainContentBottom);
+            this.mainContentBottom.appendChild(this.v80TextBottom);
 
             this.wrapper.appendChild(this.footerTop);
-            this.wrapper.appendChild(this.footerTopBottom);
+            // this.wrapper.appendChild(this.footerTopBottom);
         }
     }
 }

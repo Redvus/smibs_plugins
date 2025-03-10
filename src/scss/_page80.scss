@@ -4,12 +4,20 @@
     background-color: #ececed;
 }
 
+#v80mainContentTop {
+    width: 100%;
+    min-height: 10rem;
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
 #v80ImageMother {
     width: 100%;
     height: auto;
     display: block;
-    position: absolute;
-    top: 5rem;
+    position: relative;
+    // top: 5rem;
     left: 0;
     z-index: 0;
 
@@ -45,7 +53,7 @@
     height: auto;
     display: block;
     position: absolute;
-    top: 53vmax;
+    bottom: -3vmax;
     left: 0;
     overflow: hidden;
     z-index: 0;
@@ -60,51 +68,11 @@
     }
 }
 
-#v80BrandBook {
-    width: 22vmax;
-    height: auto;
-    display: block;
-    position: absolute;
-    top: 47vmax;
-    right: 4rem;
-    z-index: 5;
-}
-
-#v80BrandBookImage {
-    width: 100%;
-    height: auto;
-    display: block;
-    position: relative;
-
-    img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-position: top;
-        object-fit: cover;
-    }
-
-    &:hover {
-        box-shadow: 0 0 1rem rgba($secondary, 0.3);
-    }
-}
-
-#v80BrandBookText {
-    margin-bottom: 1rem;
-
-    p {
-        font-size: 1.1vmax;
-        line-height: 1.2;
-        //text-align: right;
-        color: $third;
-    }
-}
-
 #v80TextTop {
     width: 32vmax;
     display: block;
     position: absolute;
-    top: 8rem;
+    top: 4rem;
     right: 4rem;
     z-index: 3;
 
@@ -126,17 +94,26 @@
     }
 }
 
-#v80TextMiddle {
-    width: 55%;
+#v80mainContentMiddle {
+    width: 100%;
+    min-height: 10rem;
     display: block;
-    position: absolute;
-    top: 63.5vmax;
-    left: 4rem;
+    position: relative;
+    margin-top: 5rem;
+    z-index: 5;
+}
+
+#v80TextMiddle {
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
     z-index: 3;
 
     p {
-        font-size: 1.1vmax;
-        line-height: 1.2;
+        // font-size: 1.1vmax;
+        // line-height: 1.2;
         text-align: left;
         color: $third;
 
@@ -146,17 +123,72 @@
     }
 }
 
-#v80TextBottom {
-    width: 40%;
+#v80BrandBook {
+    width: 100%;
+    height: auto;
     display: block;
-    position: absolute;
-    top: 85vmax;
-    left: 4rem;
+    position: relative;
+    margin-top: 3rem;
+    left: 0;
+    z-index: 5;
+}
+
+#v80BrandBookImage {
+    width: 30%;
+    height: auto;
+    display: block;
+    position: relative;
+    float: left;
+    margin: 0 2rem 2rem 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-position: top;
+        object-fit: cover;
+    }
+
+    &:hover {
+        box-shadow: 0 0 1rem rgba($secondary, 0.3);
+    }
+}
+
+#v80BrandBookText {
+    margin-bottom: 1rem;
+
+    p {
+        // font-size: 1.1vmax;
+        // line-height: 1.2;
+        //text-align: right;
+        color: $third;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+#v80mainContentBottom {
+    width: 100%;
+    min-height: 10rem;
+    display: block;
+    position: relative;
+    margin-top: 3rem;
+    z-index: 5;
+}
+
+#v80TextBottom {
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
     z-index: 3;
 
     p {
-        font-size: 1.1vmax;
-        line-height: 1.2;
+        // font-size: 1.1vmax;
+        // line-height: 1.2;
         text-align: left;
         color: $third;
 
@@ -199,7 +231,7 @@
 
         &_bottom {
             width: 100%;
-            min-height: 30vmin;
+            min-height: 20vmin;
             display: block;
             position: absolute;
             bottom: 0;
@@ -243,228 +275,228 @@
     }
 }
 
-@include grid-media($XLarge) {
+// @include grid-media($XLarge) {
 
-    #v80MainContent {
-        min-height: calc(100vmax * 1.4);
-    }
+//     #v80MainContent {
+//         min-height: calc(100vmax * 1.4);
+//     }
 
-    #v80BrandBook {
-        width: 23vmax;
-        top: 49vmax;
+//     #v80BrandBook {
+//         width: 23vmax;
+//         top: 49vmax;
 
-        p {
-            font-size: 1.1vmax;
-        }
-    }
+//         p {
+//             font-size: 1.1vmax;
+//         }
+//     }
 
-    #v80TextMiddle {
-        top: 65.3vmax;
+//     #v80TextMiddle {
+//         top: 65.3vmax;
 
-        p {
-            font-size: 1.1vmax;
-        }
-    }
-}
+//         p {
+//             font-size: 1.1vmax;
+//         }
+//     }
+// }
 
-@include grid-media($Large) {
+// @include grid-media($Large) {
 
-    #v80BrandBook {
-        width: 23vmax;
-        top: 47vmax;
+//     #v80BrandBook {
+//         width: 23vmax;
+//         top: 47vmax;
 
-        p {
-            font-size: 1.1vmax;
-        }
-    }
-}
+//         p {
+//             font-size: 1.1vmax;
+//         }
+//     }
+// }
 
-@include grid-media($Medium) {
+// @include grid-media($Medium) {
 
-    #v80MainContent {
-        min-height: calc(100vmax * 1.43);
-    }
+//     #v80MainContent {
+//         min-height: calc(100vmax * 1.43);
+//     }
 
-    #v80ImageLogo {
-        left: 29vmax;
-    }
+//     #v80ImageLogo {
+//         left: 29vmax;
+//     }
 
-    #v80TextTop {
-        width: 30vmax;
+//     #v80TextTop {
+//         width: 30vmax;
 
-        p {
-            font-size: 1.2vmax;
-        }
-    }
+//         p {
+//             font-size: 1.2vmax;
+//         }
+//     }
 
-    #v80BrandBook {
-        width: 23vmax;
-        top: 53vmax;
+//     #v80BrandBook {
+//         width: 23vmax;
+//         top: 53vmax;
 
-        p {
-            font-size: 1.2vmax;
-        }
-    }
+//         p {
+//             font-size: 1.2vmax;
+//         }
+//     }
 
-    #v80BrandBookImage {
-        width: 100%;
-    }
+//     #v80BrandBookImage {
+//         width: 100%;
+//     }
 
-    #v80ImageLentaVictory {
-        top: 53vmax;
-    }
+//     #v80ImageLentaVictory {
+//         top: 53vmax;
+//     }
 
-    #v80TextMiddle {
-        width: 40vmax;
-        top: 69.5vmax;
+//     #v80TextMiddle {
+//         width: 40vmax;
+//         top: 69.5vmax;
 
-        p {
-            font-size: 1.2vmax;
-        }
-    }
+//         p {
+//             font-size: 1.2vmax;
+//         }
+//     }
 
-    #v80TextBottom {
-        top: 94vmax;
+//     #v80TextBottom {
+//         top: 94vmax;
 
-        p {
-            font-size: 1.2vmax;
-        }
-    }
+//         p {
+//             font-size: 1.2vmax;
+//         }
+//     }
 
-    .footer {
+//     .footer {
 
-        &__top {
-            bottom: 0;
-            z-index: 10;
+//         &__top {
+//             bottom: 0;
+//             z-index: 10;
 
-            &_bottom {
-                height: 15vmax;
-            }
-        }
-    }
-}
+//             &_bottom {
+//                 height: 15vmax;
+//             }
+//         }
+//     }
+// }
 
-@include grid-media($XSmall) {
+// @include grid-media($XSmall) {
 
-    #v80MainContent {
-        min-height: calc(100vmax * 1.75);
-    }
+//     #v80MainContent {
+//         min-height: calc(100vmax * 1.75);
+//     }
 
-    #v80ImageLentaVictory {
-        top: 66vmax;
-    }
+//     #v80ImageLentaVictory {
+//         top: 66vmax;
+//     }
 
-    #v80TextTop {
-        width: 40%;
-        
-        p {
-            font-size: $font-size-base;
-        }
+//     #v80TextTop {
+//         width: 40%;
 
-        img {
-            margin-bottom: 1rem;
-        }
-    }
+//         p {
+//             font-size: $font-size-base;
+//         }
 
-    #v80ImageLogo {
-        left: 40vmax;
-    }
+//         img {
+//             margin-bottom: 1rem;
+//         }
+//     }
 
-    #v80BrandBook {
-        width: 28vmax;
-        top: 65vmax;
+//     #v80ImageLogo {
+//         left: 40vmax;
+//     }
 
-        &Image {
-            width: 100%;
-        }
+//     #v80BrandBook {
+//         width: 28vmax;
+//         top: 65vmax;
 
-        p {
-            font-size: $font-size-base;
-        }
-    }
+//         &Image {
+//             width: 100%;
+//         }
 
-    #v80TextMiddle {
-        top: 85vmax;
+//         p {
+//             font-size: $font-size-base;
+//         }
+//     }
 
-        p {
-            font-size: $font-size-base;
-        }
-    }
+//     #v80TextMiddle {
+//         top: 85vmax;
 
-    #v80TextBottom {
-        top: 115vmax;
+//         p {
+//             font-size: $font-size-base;
+//         }
+//     }
 
-        p {
-            font-size: $font-size-base;
-        }
-    }
+//     #v80TextBottom {
+//         top: 115vmax;
 
-    .footer {
+//         p {
+//             font-size: $font-size-base;
+//         }
+//     }
 
-        &__top {
-            bottom: 0;
-            z-index: 10;
+//     .footer {
 
-            &_bottom {
-                height: 18vmax;
-            }
-        }
-    }
-}
+//         &__top {
+//             bottom: 0;
+//             z-index: 10;
 
-@include grid-media($XSmallV) {
+//             &_bottom {
+//                 height: 18vmax;
+//             }
+//         }
+//     }
+// }
 
-    #v80MainContent {
-        min-height: calc(100vmax * 1.42);
+// @include grid-media($XSmallV) {
 
-        p {
-            font-size: $font-size-small !important;
-        }
-    }
+//     #v80MainContent {
+//         min-height: calc(100vmax * 1.42);
 
-    #v80TextTop {
-        width: 42%;
-        top: 7rem;
-        right: 2rem;
+//         p {
+//             font-size: $font-size-small !important;
+//         }
+//     }
 
-        img {
-            margin-bottom: 1rem;
-        }
+//     #v80TextTop {
+//         width: 42%;
+//         top: 7rem;
+//         right: 2rem;
 
-        p {
-            font-size: $font-size-small;
-        }
-    }
+//         img {
+//             margin-bottom: 1rem;
+//         }
 
-    #v80BrandBook {
-        top: 70vmin;
-        right: 2rem;
-    }
+//         p {
+//             font-size: $font-size-small;
+//         }
+//     }
 
-    #v80TextMiddle {
-        top: 91vmin;
-    }
+//     #v80BrandBook {
+//         top: 70vmin;
+//         right: 2rem;
+//     }
 
-    #v80TextBottom {
-        top: 125vmin;
-    }
+//     #v80TextMiddle {
+//         top: 91vmin;
+//     }
 
-    #v80TextBottom {
-        width: 39%;
-    }
+//     #v80TextBottom {
+//         top: 125vmin;
+//     }
 
-    .footer {
+//     #v80TextBottom {
+//         width: 39%;
+//     }
 
-        &__top {
-            bottom: 0;
-            z-index: 10;
+//     .footer {
 
-            &_bottom {
-                height: 18vmin;
-            }
-        }
-    }
-}
+//         &__top {
+//             bottom: 0;
+//             z-index: 10;
+
+//             &_bottom {
+//                 height: 18vmin;
+//             }
+//         }
+//     }
+// }
 
 @include grid-media($Small) {
 
@@ -475,71 +507,28 @@
     .footer {
 
         &__top {
-            //position: relative;
-            bottom: 0;
-            z-index: 10;
+            float: left;
 
-            &_bottom {
-                height: 45vmin;
-                position: relative;
+            // &_bottom {
+            //     height: 45vmin;
+            //     position: relative;
+            // }
+
+            &_slogan {
+                left: 1rem;
             }
 
-            img {
-                width: 150%;
-                left: -50%;
-            }
+            // img {
+            //     width: 150%;
+            //     left: -50%;
+            // }
         }
-    }
-
-    #v80mainContentTop {
-        width: 100%;
-        height: 73vmin;
-        display: block;
-        position: relative;
-        top: 5rem;
-        left: 0;
-        z-index: 5;
-    }
-
-    #v80ImageMother {
-        top: 0;
-    }
-
-    #v80ImageLogo {
-        height: 48vmin;
-        top: 0;
-        left: initial;
-        right: 3rem;
     }
 
     #v80ImageLentaVictory {
-        top: 49vmin;
+        bottom: initial;
+        top: 28.7vmax;
         z-index: 5;
-
-        img {
-            width: 140%;
-            left: -20%;
-            transform: rotate(-6deg);
-        }
-    }
-
-    #v80MainContentInside {
-        width: calc(100% - 2rem);
-        position: relative;
-        top: 5rem;
-        padding: 0 1rem 37vmin;
-        background-color: #ececed;
-        z-index: 1;
-
-        p {
-            font-size: 1rem;
-            text-align: left;
-            line-height: 1.4 !important;
-
-            strong {
-                color: $secondary;
-            }
-        }
     }
 
     #v80TextTop {
@@ -551,31 +540,24 @@
         img {
             margin-bottom: 3rem;
         }
+
+        p {
+            font-size: $font-size-large;
+            line-height: 1.2;
+        }
     }
 
-    #v80BrandBook {
-        width: 100%;
-        position: relative;
-        top: initial;
-        right: initial;
-        margin-top: 2rem;
+    #v80mainContentMiddle {
+        margin-top: 0;
     }
 
     #v80BrandBookImage {
         width: 100%;
+        margin-bottom: 2rem;
     }
 
-    #v80TextMiddle,
-    #v80TextBottom {
-        width: 100%;
-        position: relative;
-        top: initial;
-        left: initial;
-        margin-top: 2rem;
-    }
-
-    #v80Slogan {
-        width: 100%;
-        margin: 2rem 0 1rem;
+    #v80mainContentBottom {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
