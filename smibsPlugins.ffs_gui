@@ -34,7 +34,7 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>/Volumes/RedvusWork/!siteDev/smibs_plugins</Left>
+            <Left>/Volumes/Vault/!siteDev/smibs_plugins</Left>
             <Right>/Volumes/Archive/z_Sites_work/smibs_plugins</Right>
         </Pair>
     </FolderPairs>

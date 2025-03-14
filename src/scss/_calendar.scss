@@ -205,12 +205,24 @@
 			}
 		}
 
+		&_header {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: space-between;
+		}
+
 		&_pass {
 			display: flex;
 			flex-direction: row;
-			position: absolute;
+			position: relative;
 			top: 0;
-			right: 0;
+			left: 0;
+
+			&--bottom {
+				bottom: 0;
+				right: 0;
+			}
 		}
 
 		&_terms {
@@ -221,6 +233,11 @@
 			font-family: $heading-font;
 			font-size: $font-size-base;
 			color: $fourth;
+
+			&--dark {
+				color: $secondary;
+				background-color: darken($primary, 7%);
+			}
 		}
 
 		&_entrance {
@@ -231,6 +248,10 @@
 			font-family: $heading-font;
 			font-size: $font-size-base;
 			color: $secondary;
+
+			&--dark {
+				background-color: darken($primary, 7%);
+			}
 		}
 
 		p {
