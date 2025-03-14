@@ -19,19 +19,19 @@ class FilterLibrary {
         this.filterLibraryOptions = [
             {
                 text: 'Выберите филиал',
-                value: 'choiceLibrary'
+                value: 'Выберите филиал'
             },
             {
                 text: 'Библиотека №15',
-                value: 'library_15'
+                value: 'Библиотека №15'
             },
             {
                 text: 'Библиотека №23',
-                value: 'library_23'
+                value: 'Библиотека №23'
             },
             {
                 text: 'Библиотека №32',
-                value: 'library_32'
+                value: 'Библиотека №32'
             },
         ];
 
