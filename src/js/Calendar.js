@@ -187,14 +187,15 @@ class Calendar {
                                 <span class="calendar__events_entrance">1 февраля</span>
                                 <span class="calendar__events_entrance calendar__events_entrance--dark">1${i}:${(i + 5) * 5}</span>
                             </div>
+                        </div>
+                        <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                        <div class="calendar__events_footer">
                             <div class="calendar__events_pass calendar__events_pass--bottom">
                                 <span class="calendar__events_entrance">Лекция</span>
                                 <span class="calendar__events_terms">Вход свободный</span>
                             </div>
                         </div>
-                        <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-
                     </li>
                     <li class="calendar__events_single" data-lib="Библиотека №15" data-terms="termsExhibition">
                         <div class="calendar__events_header">
@@ -203,30 +204,48 @@ class Calendar {
                                 <span class="calendar__events_entrance">1 февраля</span>
                                 <span class="calendar__events_entrance calendar__events_entrance--dark">1${i}:${(i + 5) * 5}</span>
                             </div>
+                        </div>
+                        <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
+                        <div class="calendar__events_footer">
                             <div class="calendar__events_pass calendar__events_pass--bottom">
-                                <span class="calendar__events_entrance">Выставка</span>
-                                <span class="calendar__events_terms">Вход платный</span>
+                                <span class="calendar__events_entrance">Лекция</span>
+                                <span class="calendar__events_terms">Вход свободный</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="calendar__events_single" data-lib="Библиотека №23"  data-terms="termsLecture">
+                        <div class="calendar__events_header">
+                            <div class="calendar__events_pass">
+                                <span class="calendar__events_terms">Библиотека №23</span>
+                                <span class="calendar__events_entrance">1 февраля</span>
+                                <span class="calendar__events_entrance calendar__events_entrance--dark">1${i}:${(i + 5) * 5}</span>
                             </div>
                         </div>
                         <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-                    </li>
-                    <li class="calendar__events_single" data-lib="Библиотека №23"  data-terms="termsLecture">
-                        <h4><span>1 февраля</span>&nbsp;<span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
-                        <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-                        <div class="calendar__events_pass">
-                            <span class="calendar__events_terms">Лекция</span>
-                            <span class="calendar__events_entrance">Вход по пушкинской карте</span>
+                        <div class="calendar__events_footer">
+                            <div class="calendar__events_pass calendar__events_pass--bottom">
+                                <span class="calendar__events_entrance">Мастер-класс</span>
+                                <span class="calendar__events_terms">Вход по пушкинской карте</span>
+                            </div>
                         </div>
                     </li>
                     <li class="calendar__events_single" data-lib="Библиотека №32" data-terms="termsConferences">
-                        <h4><span>1 февраля</span>&nbsp;<span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №32</h4>
+                        <div class="calendar__events_header">
+                            <div class="calendar__events_pass">
+                                <span class="calendar__events_terms">Библиотека №15</span>
+                                <span class="calendar__events_entrance">1 февраля</span>
+                                <span class="calendar__events_entrance calendar__events_entrance--dark">1${i}:${(i + 5) * 5}</span>
+                            </div>
+                        </div>
                         <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-                        <div class="calendar__events_pass">
-                            <span class="calendar__events_terms">Конференция</span>
-                            <span class="calendar__events_entrance">Вход свободный</span>
+                        <div class="calendar__events_footer">
+                            <div class="calendar__events_pass calendar__events_pass--bottom">
+                                <span class="calendar__events_entrance">Выставка</span>
+                                <span class="calendar__events_terms">Вход платный</span>
+                            </div>
                         </div>
                     </li>
                 `;
@@ -248,18 +267,22 @@ class Calendar {
                         <h4><span>2 февраля</span>&nbsp;<span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №23</h4>
                         <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-                        <div class="calendar__events_pass">
-                            <span class="calendar__events_terms">Выставка</span>
-                            <span class="calendar__events_entrance">Вход платный</span>
+                        <div class="calendar__events_footer">
+                            <div class="calendar__events_pass calendar__events_pass--bottom">
+                                <span class="calendar__events_entrance">Лекция</span>
+                                <span class="calendar__events_terms">Вход свободный</span>
+                            </div>
                         </div>
                     </li>
                     <li class="calendar__events_single" data-lib="Библиотека №32"  data-terms="termsLecture">
                         <h4><span>2 февраля</span>&nbsp;<span>1${i}:${(i + 5) * 5}</span>&nbsp;&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;&nbsp;Библиотека №32</h4>
                         <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
-                        <div class="calendar__events_pass">
-                            <span class="calendar__events_terms">Лекция</span>
-                            <span class="calendar__events_entrance">Вход по пушкинской карте</span>
+                        <div class="calendar__events_footer">
+                            <div class="calendar__events_pass calendar__events_pass--bottom">
+                                <span class="calendar__events_entrance">Лекция</span>
+                                <span class="calendar__events_terms">Вход свободный</span>
+                            </div>
                         </div>
                     </li>
                 `;

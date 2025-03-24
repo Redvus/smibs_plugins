@@ -69,6 +69,10 @@
 			right: 0;
 			color: $secondary;
 		}
+
+		@include grid-media($XSmall) {
+			visibility: visible;
+		}
 	}
 }
 
@@ -209,7 +213,14 @@
 			width: 100%;
 			height: auto;
 			display: flex;
-			justify-content: space-between;
+			// justify-content: space-between;
+		}
+
+		&_footer {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: flex-end;
 		}
 
 		&_pass {
