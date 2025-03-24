@@ -11,11 +11,13 @@ class Calendar {
         this.objectsTabs();
 
         new FilterLibrary();
-        new FilterTerms();
+        // new FilterTerms();
         // new FilterEntrance();
         // new FilterAge();
 
-        localStorage.clear();
+        // localStorage.clear();
+
+        this.initDayFirst();
     }
 
     // Common Layout
@@ -31,6 +33,19 @@ class Calendar {
 
         this.calendarMonth = document.createElement('div');
         this.calendarMonth.className = 'main-content__calendar_month';
+
+        this.calendarWeek = document.createElement('ul');
+        this.calendarWeek.className = 'calendar__week';
+        this.calendarWeek.innerHTML = `
+            <li>Пн</li>
+            <li>Вт</li>
+            <li>Ср</li>
+            <li>Чт</li>
+            <li>Пт</li>
+            <li>Сб</li>
+            <li>Вс</li>
+        `;
+
 
         this.calendarMonthList = document.createElement('ul');
         this.calendarMonthList.className = 'calendar__month';
@@ -51,6 +66,7 @@ class Calendar {
         this.mainContentInside.appendChild(this.mainContentSubheader);
         this.mainContentInside.appendChild(this.calendar);
         this.calendar.appendChild(this.calendarMonth);
+        this.calendarMonth.appendChild(this.calendarWeek);
         this.calendar.appendChild(this.calendarEvents);
         this.calendarMonth.appendChild(this.calendarMonthList);
         this.calendarMonth.appendChild(this.calendarFilter);
@@ -385,6 +401,16 @@ class Calendar {
             });
             // flag = 1
         }
+    }
+
+    initDayFirst() {
+        const calendarDay = document.getElementById('calendarDate_0');
+        calendarDay.style.marginLeft = 'calc(((100% / 7) * 3) + 0.1rem)';
+
+        const dateString = '2023-02-22T13:45:22';
+        const timestamp = new Date(dateString).getTime();
+
+        console.log(timestamp);
     }
 }
 
