@@ -5,7 +5,8 @@ import {FilterEntrance} from "./FilterEntrance.js";
 import {FilterAge} from "./FilterAge.js";
 
 class Calendar {
-    constructor() {
+    constructor(dateMargin = 4) {
+        this.dateMargin = dateMargin;
         this.initLayoutDev();
         this.initEventDev();
         this.objectsTabs();
@@ -45,7 +46,6 @@ class Calendar {
             <li>Сб</li>
             <li>Вс</li>
         `;
-
 
         this.calendarMonthList = document.createElement('ul');
         this.calendarMonthList.className = 'calendar__month';
@@ -405,12 +405,12 @@ class Calendar {
 
     initDayFirst() {
         const calendarDay = document.getElementById('calendarDate_0');
-        calendarDay.style.marginLeft = 'calc(((100% / 7) * 3) + 0.1rem)';
+        calendarDay.style.marginLeft = `calc(((100% / 7) * ${this.dateMargin}) + 0.1rem)`;
 
-        const dateString = '2023-02-22T13:45:22';
-        const timestamp = new Date(dateString).getTime();
+        // const dateString = '2023-02-22T13:45:22';
+        // const timestamp = new Date(dateString).getTime();
 
-        console.log(timestamp);
+        // console.log(timestamp);
     }
 }
 
