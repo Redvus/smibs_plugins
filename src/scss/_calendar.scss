@@ -115,6 +115,22 @@
 			margin: 0.1rem;
 			background-color: $primary;
 			cursor: pointer;
+
+			&--tuesday {
+				margin-left: calc(((100% / 7) * 1) + 0.1rem);
+			}
+
+			&--wendsday {
+				margin-left: calc(((100% / 7) * 2) + 0.1rem);
+			}
+
+			&--thirdsday {
+				margin-left: calc(((100% / 7) * 3) + 0.1rem);
+			}
+
+			&--friday {
+				margin-left: calc(((100% / 7) * 4) + 0.1rem);
+			}
 		}
 
 		&-num {
@@ -253,6 +269,14 @@
 			&--bottom {
 				bottom: 0;
 				right: 0;
+			}
+		}
+
+		&_tags {
+			margin-left: 0.15rem;
+
+			&:first-child {
+				margin-left: 0;
 			}
 		}
 

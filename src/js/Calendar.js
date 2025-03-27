@@ -18,7 +18,7 @@ class Calendar {
 
         // localStorage.clear();
 
-        this.initDayFirst();
+        // this.initDayFirst();
     }
 
     // Common Layout
@@ -199,17 +199,18 @@ class Calendar {
                     <li class="calendar__events_single" data-lib="library_2" data-terms="termsLecture">
                         <div class="calendar__events_header">
                             <div class="calendar__events_pass">
-                                <span class="calendar__events_terms">Библиотека №2</span>
-                                <span class="calendar__events_entrance">1 февраля</span>
-                                <span class="calendar__events_entrance calendar__events_entrance--dark">1${i}:${(i + 5) * 5}</span>
+                                <span class="calendar__events_tags calendar__events_terms">Библиотека №2</span>
+                                <span class="calendar__events_tags calendar__events_entrance">1 февраля</span>
+                                <span class="calendar__events_tags calendar__events_entrance calendar__events_entrance--dark">1${i}:${(i + 5) * 5}</span>
                             </div>
                         </div>
                         <h3>Название мероприятия. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                         <div class="calendar__events_footer">
                             <div class="calendar__events_pass calendar__events_pass--bottom">
-                                <span class="calendar__events_entrance">Лекция</span>
-                                <span class="calendar__events_terms">Вход свободный</span>
+                                <span class="calendar__events_tags calendar__events_entrance">Лекция</span>
+                                <span class="calendar__events_tags calendar__events_terms">Вход свободный</span>
+                                <span class="calendar__events_tags calendar__events_entrance">+16</span>
                             </div>
                         </div>
                     </li>
@@ -227,7 +228,8 @@ class Calendar {
                             <div class="calendar__events_pass calendar__events_pass--bottom">
                                 <span class="calendar__events_entrance">Лекция</span>
                                 <span class="calendar__events_terms">Вход свободный</span>
-                            </div>
+                                <span class="calendar__events_entrance">+16</span>
+                                </div>
                         </div>
                     </li>
                     <li class="calendar__events_single" data-lib="Библиотека №23"  data-terms="termsLecture">
@@ -244,6 +246,7 @@ class Calendar {
                             <div class="calendar__events_pass calendar__events_pass--bottom">
                                 <span class="calendar__events_entrance">Мастер-класс</span>
                                 <span class="calendar__events_terms">Вход по пушкинской карте</span>
+                                <span class="calendar__events_entrance">+16</span>
                             </div>
                         </div>
                     </li>

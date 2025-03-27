@@ -2,6 +2,7 @@ class FilterLibrary {
 
     constructor() {
         this.initLayout();
+        this.initLibrarySelect();
         this.initFilterLibrary();
     }
 
@@ -16,6 +17,19 @@ class FilterLibrary {
         this.filterChoiceLibrarySelect.id = 'calendarSelectLibrary';
         this.filterChoiceLibraryArrow.classList = 'fa-solid fa-chevron-down main-content__calendar_arrow';
 
+        // this.filterChoiceLibrary.innerHTML = `
+        //     <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
+        //     <option value="library_23" data-filter="library_23">Библиотека №23</option>
+        //     <option value="library_32" data-filter="library_32">Библиотека №32</option>
+        // `;
+
+        // Appends
+        this.calendarFilter.appendChild(this.filterChoiceLibrary);
+        this.filterChoiceLibrary.appendChild(this.filterChoiceLibrarySelect);
+        this.filterChoiceLibrary.appendChild(this.filterChoiceLibraryArrow);
+    }
+
+    initLibrarySelect() {
         this.filterLibraryOptions = [
             {
                 text: 'Выберите филиал',
@@ -40,17 +54,6 @@ class FilterLibrary {
                 new Option(option.text, option.value, option.selected)
             )
         );
-
-        // this.filterChoiceLibrary.innerHTML = `
-        //     <option value="choiceLibrary" data-filter="choiceLibrary">Выберите филиал</option>
-        //     <option value="library_23" data-filter="library_23">Библиотека №23</option>
-        //     <option value="library_32" data-filter="library_32">Библиотека №32</option>
-        // `;
-
-        // Appends
-        this.calendarFilter.appendChild(this.filterChoiceLibrary);
-        this.filterChoiceLibrary.appendChild(this.filterChoiceLibrarySelect);
-        this.filterChoiceLibrary.appendChild(this.filterChoiceLibraryArrow);
     }
 
     initFilterLibrary() {
@@ -84,7 +87,8 @@ class FilterLibrary {
                                         setTimeout(() => {
                                             dateLib.classList += ' is-active';
                                             let daysActiveLib = this.filterLibraryOptions[i].value;
-                                            localStorage.setItem(`daysActiveLib`, JSON.stringify(daysActiveLib));
+                                            localStorage.setItem('daysActiveLib', JSON.stringify(daysActiveLib));
+                                            // console.log(daysActiveLib);
                                         }, 20)
                                     } else if (evLib.parentNode.id !== dateLib.getAttribute('data-id')) {
                                         setTimeout(() => {
@@ -108,7 +112,7 @@ class FilterLibrary {
                                 dateLib.style.userSelect = 'auto';
                                 dateLib.style.pointerEvents = 'auto';
                                 dateLib.style.opacity = '1';
-                                localStorage.setItem(`daysActiveLib`, JSON.stringify(''));
+                                localStorage.setItem('daysActiveLib', JSON.stringify(''));
                             }
                         })
                     })
