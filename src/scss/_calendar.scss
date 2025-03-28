@@ -74,6 +74,19 @@
 			visibility: visible;
 		}
 	}
+
+	@include grid-media($Small) {
+
+		&__calendar {
+			flex-direction: column;
+
+			&_month {
+				width: 100%;
+				margin-right: 0;
+				margin-bottom: calc(#{$marginVert} / 2);
+			}
+		}
+	}
 }
 
 .calendar {
@@ -316,6 +329,31 @@
 		&--current {
 			background-color: $primary;
 			border-color: $secondary;
+		}
+	}
+
+	@include grid-media($XSmall) {
+
+		&__week {
+
+			li {
+				height: 6vmax;
+			}
+		}
+
+		&__month {
+
+			&_date {
+				height: 6vmax;
+			}
+		}
+
+		&__events {
+			width: 100%;
+			padding-left: 0;
+			padding-top: $marginVert;
+			border-left: none;
+			border-top: $border_thin solid $secondary;
 		}
 	}
 

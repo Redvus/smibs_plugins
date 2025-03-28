@@ -7,10 +7,12 @@ import {FilterAge} from "./FilterAge.js";
 class Calendar {
     constructor(dateMargin = 4) {
         this.dateMargin = dateMargin;
+
+        // Скрывать для build
         this.initLayoutDev();
         this.initEventDev();
-        this.objectsTabs();
 
+        this.objectsTabs();
         new FilterLibrary();
         // new FilterTerms();
         // new FilterEntrance();
@@ -196,7 +198,7 @@ class Calendar {
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
-                    <li class="calendar__events_single" data-lib="library_2" data-terms="termsLecture">
+                    <li class="calendar__events_single" data-lib="Библиотека №2" data-terms="termsLecture">
                         <div class="calendar__events_header">
                             <div class="calendar__events_pass">
                                 <span class="calendar__events_tags calendar__events_terms">Библиотека №2</span>
