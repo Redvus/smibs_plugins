@@ -1,10 +1,10 @@
-import '/main.css';
+// import '/main.css';
 import '/scss/app.scss';
 import {Calendar} from "./Calendar.js";
 
 class Plugins {
     constructor() {
-        this.initLayout();
+        // this.initLayout();
         new Calendar();
     }
 

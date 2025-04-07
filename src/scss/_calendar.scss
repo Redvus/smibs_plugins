@@ -82,6 +82,7 @@
 
 			&_month {
 				width: 100%;
+				height: inherit;
 				margin-right: 0;
 				margin-bottom: calc(#{$marginVert} / 2);
 			}
