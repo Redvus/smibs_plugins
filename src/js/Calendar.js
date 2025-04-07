@@ -21,6 +21,7 @@ class Calendar {
         // localStorage.clear();
 
         // this.initDayFirst();
+        // this.initTabDateNow();
     }
 
     // Common Layout
@@ -335,11 +336,11 @@ class Calendar {
                         </div>
                     </li>
                 `;
-            } else if (this.calendarDay.id === 'calendarDate_3') {
+            } else if (this.calendarDay.id === 'calendarDate_6') {
                 this.calendarDay.className = 'calendar__month_date';
-                this.calendarDay.setAttribute('data-id', 'tab_3');
+                this.calendarDay.setAttribute('data-id', 'tab_6');
                 this.calendarEvent = document.createElement('div');
-                this.calendarEvent.id = 'tab_3';
+                this.calendarEvent.id = 'tab_6';
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
@@ -362,7 +363,8 @@ class Calendar {
     objectsTabs() {
         this.tabMenuTrigger = document.querySelectorAll('.calendar__month_date');
         this.arrayPanels = document.querySelectorAll('.calendar__events_inside');
-        let flag = 0;
+        let flag;
+        let dateNow = new Date().getDate();
 
         for (let i = 0; i < this.tabMenuTrigger.length; i++) {
             this.tabMenuTrigger[i].addEventListener('click', () => {
@@ -397,25 +399,30 @@ class Calendar {
                     display: 'none'
                 });
             }
+
+            this.arrayPanels.forEach(tab => {
+                if (dateNow) {
+                    gsap.set(this.arrayPanels[`${dateNow}` - 1], {
+                        autoAlpha: 1,
+                        display: 'flex'
+                    });
+                }
+            });
         }
 
-        if (flag === 0) {
-            gsap.set(this.arrayPanels[0], {
-                autoAlpha: 1,
-                display: 'flex'
-            });
-            // flag = 1
-        }
+        // if (flag === 3) {
+        //     gsap.set(this.arrayPanels[i], {
+        //         autoAlpha: 1,
+        //         display: 'flex'
+        //     });
+        // }
     }
 
     initDayFirst() {
-        const calendarDay = document.getElementById('calendarDate_0');
-        calendarDay.style.marginLeft = `calc(((100% / 7) * ${this.dateMargin}) + 0.1rem)`;
+        // const calendarDay = document.getElementById('calendarDate_0');
+        // calendarDay.style.marginLeft = `calc(((100% / 7) * ${this.dateMargin}) + 0.1rem)`;
 
         // const dateString = '2023-02-22T13:45:22';
-        // const timestamp = new Date(dateString).getTime();
-
-        // console.log(timestamp);
     }
 }
 
