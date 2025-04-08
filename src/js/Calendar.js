@@ -192,7 +192,7 @@ class Calendar {
             this.calendarMonthList.appendChild(this.calendarDay);
 
             if (this.calendarDay.id === 'calendarDate_0') {
-                this.calendarDay.className = 'calendar__month_date is-show';
+                this.calendarDay.className = 'calendar__month_date';
                 this.calendarDay.setAttribute('data-id', 'tab_0');
                 this.calendarEvent = document.createElement('div');
                 this.calendarEvent.id = 'tab_0';
@@ -336,11 +336,11 @@ class Calendar {
                         </div>
                     </li>
                 `;
-            } else if (this.calendarDay.id === 'calendarDate_6') {
+            } else if (this.calendarDay.id === 'calendarDate_8') {
                 this.calendarDay.className = 'calendar__month_date';
-                this.calendarDay.setAttribute('data-id', 'tab_6');
+                this.calendarDay.setAttribute('data-id', 'tab_8');
                 this.calendarEvent = document.createElement('div');
-                this.calendarEvent.id = 'tab_6';
+                this.calendarEvent.id = 'tab_8';
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
@@ -406,6 +406,7 @@ class Calendar {
                         autoAlpha: 1,
                         display: 'flex'
                     });
+                    this.tabMenuTrigger[`${dateNow}` - 1].classList.add('is-show');
                 }
             });
         }
