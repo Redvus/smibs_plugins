@@ -1,5 +1,5 @@
 import '/scss/main.scss';
-// import {  } from "./";
+import { Event_090525 } from "./Event_09-05-25";
 
 class Plugins {
     constructor() {
