@@ -35,7 +35,7 @@
     <FolderPairs>
         <Pair>
             <Left>/Volumes/Vault/!siteDev/smibs_plugins</Left>
-            <Right>/Volumes/Archive/z_Sites_work/smibs_plugins</Right>
+            <Right>/Volumes/10.0.1.232/z_Sites_work/smibs_plugins</Right>
         </Pair>
     </FolderPairs>
     <Errors Ignore="false" Retry="0" Delay="5"/>
