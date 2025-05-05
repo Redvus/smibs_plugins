@@ -70,7 +70,7 @@ export class Event_090525 {
 			})
 			.from(ev090525Nine, {
 				duration: 1,
-				delay: '-0.3',
+				delay: '0.5',
 				autoAlpha: 0,
 				x: '-10%'
 			})
