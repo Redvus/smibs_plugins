@@ -1,4 +1,4 @@
-import { gsap } from 'gsap';
+import { gsap } from 'gsap'; // Убрать в продакшене
 
 export class Event_090525 {
 	constructor() {
@@ -9,187 +9,91 @@ export class Event_090525 {
 
 	initLayout() {
 		this.bodyBlock = document.body;
-		this.womanDay25 = document.createElement('div');
-		this.container = document.createElement('div');
+		this.event_090525 = document.createElement('div');
+		// this.container = document.createElement('div');
 
-		this.womanDay25.id = 'womanDay25';
-		this.womanDay25.className = 'anniversary anniversary--womanDay25';
-		this.container.classList = 'anniversary__container';
+		this.event_090525.id = 'event_090525';
+		this.event_090525.className = 'anniversary anniversary--event090525';
+		// this.container.classList = 'anniversary__container';
 
-		this.womanDay25.innerHTML = `
-			<picture id="womanDay25Back">
-				<img src="assets/images/womanDay25/womanDay25Back.svg" alt="">
+		this.event_090525.innerHTML = `
+			<picture id="ev090525Back">
+				<img src="/assets/images/event_090525/ev090525_back.png" alt="">
 			</picture>
-			<picture id="womanDay25BackBottom">
-				<img src="assets/images/womanDay25/womanDay25Back_2.png" alt="">
+			<picture id="ev090525BackM">
+				<img src="/assets/images/event_090525/ev090525_backM.png" alt="">
 			</picture>
-		`;
-
-		this.container.innerHTML = `
-			<div id="womanDay25Slogan">
-				<picture id="womanDay25Slogan_1">
-					<img src="assets/images/womanDay25/womanDay25Slogan_1.png" id="womanDay25Slogan_1" alt="">
-				</picture>
-				<picture id="womanDay25Slogan_2">
-					<img src="assets/images/womanDay25/womanDay25Slogan_2.png" id="womanDay25Slogan_2" alt="">
-				</picture>
-				<picture id="womanDay25Slogan_3">
-					<img src="assets/images/womanDay25/womanDay25Slogan_3.png" id="womanDay25Slogan_3" alt="">
-				</picture>
-				<picture id="womanDay25Slogan_4">
-					<img src="assets/images/womanDay25/womanDay25Slogan_4.png" id="womanDay25Slogan_4" alt="">
-				</picture>
-			</div>
-			<div id="womanDay25Woman1">
-				<picture id="womanDay25Woman1_1">
-					<img src="assets/images/womanDay25/womanDay25Woman1_1.png" id="womanDay25Woman1_1" alt="">
-				</picture>
-				<picture id="womanDay25Woman1_2">
-					<img src="assets/images/womanDay25/womanDay25Woman1_2.png" id="womanDay25Woman1_2" alt="">
-				</picture>
-				<picture id="womanDay25Woman1_3">
-					<img src="assets/images/womanDay25/womanDay25Woman1_3.png" id="womanDay25Woman1_3" alt="">
-				</picture>
-				<picture id="womanDay25Woman1_4">
-					<img src="assets/images/womanDay25/womanDay25Woman1_4.png" id="womanDay25Woman1_4" alt="">
-				</picture>
-				<picture id="womanDay25Woman1_5">
-					<img src="assets/images/womanDay25/womanDay25Woman1_5.png" id="womanDay25Woman1_5" alt="">
-				</picture>
-			</div>
-			<div id="womanDay25Woman2">
-				<picture id="womanDay25Woman2_1">
-					<img src="assets/images/womanDay25/womanDay25Woman2_1.png" id="womanDay25Woman2_1" alt="">
-				</picture>
-				<picture id="womanDay25Woman2_2">
-					<img src="assets/images/womanDay25/womanDay25Woman2_2.png" id="womanDay25Woman2_2" alt="">
-				</picture>
-				<picture id="womanDay25Woman2_3">
-					<img src="assets/images/womanDay25/womanDay25Woman3_5.png" id="womanDay25Woman2_3" alt="">
-				</picture>
-			</div>
-			<div id="womanDay25Woman3">
-				<picture id="womanDay25Woman3_1">
-					<img src="assets/images/womanDay25/womanDay25Woman3_1.png" id="womanDay25Woman3_1" alt="">
-				</picture>
-				<picture id="womanDay25Woman3_2">
-					<img src="assets/images/womanDay25/womanDay25Woman3_2.png" id="womanDay25Woman3_2" alt="">
-				</picture>
-				<picture id="womanDay25Woman3_3">
-					<img src="assets/images/womanDay25/womanDay25Woman3_3.png" id="womanDay25Woman3_3" alt="">
-				</picture>
-				<picture id="womanDay25Woman3_4">
-					<img src="assets/images/womanDay25/womanDay25Woman3_4.png" id="womanDay25Woman3_4" alt="">
-				</picture>
-				<picture id="womanDay25Woman3_5">
-					<img src="assets/images/womanDay25/womanDay25Woman2_3.png" id="womanDay25Woman3_5" alt="">
-				</picture>
-			</div>
-			<div id="womanDay25Woman4">
-				<picture id="womanDay25Woman4_1">
-					<img src="assets/images/womanDay25/womanDay25Woman4_1.png" id="womanDay25Woman4_1" alt="">
-				</picture>
-				<picture id="womanDay25Woman4_2">
-					<img src="assets/images/womanDay25/womanDay25Woman4_2.png" id="womanDay25Woman4_2" alt="">
-				</picture>
-				<picture id="womanDay25Woman4_3">
-					<img src="assets/images/womanDay25/womanDay25Woman4_3.png" id="womanDay25Woman4_3" alt="">
-				</picture>
-				<picture id="womanDay25Woman4_4">
-					<img src="assets/images/womanDay25/womanDay25Woman4_4.png" id="womanDay25Woman4_4" alt="">
-				</picture>
-				<picture id="womanDay25Woman4_5">
-					<img src="assets/images/womanDay25/womanDay25Woman4_5.png" id="womanDay25Woman4_5" alt="">
-				</picture>
-			</div>
+			<picture id="ev090525Nine">
+				<img src="/assets/images/event_090525/ev090525_nine.png" alt="">
+			</picture>
+			<picture id="ev090525Slogan">
+				<img src="/assets/images/event_090525/ev090525_slogan.png" alt="">
+			</picture>
+			<picture id="ev090525SloganM">
+				<img src="/assets/images/event_090525/ev090525_sloganM.png" alt="">
+			</picture>
+			<picture id="ev090525Year">
+				<img src="/assets/images/event_090525/ev090525_year.png" alt="">
+			</picture>
+			<picture id="ev090525Logo">
+				<img src="/assets/images/event_090525/ev090525_logo.png" alt="">
+			</picture>
 		`;
 
 		// Appends
-		this.bodyBlock.appendChild(this.womanDay25);
-		this.womanDay25.appendChild(this.container);
+		this.bodyBlock.appendChild(this.event_090525);
 	}
 
 	initAnimation() {
 		const
-			womanDay25 = document.getElementById('womanDay25'),
-			womanDay25Back = document.getElementById('womanDay25Back'),
-			womanDay25BackBottom = document.getElementById('womanDay25BackBottom'),
-			womanDay25Slogan_1 = document.getElementById('womanDay25Slogan_1'),
-			womanDay25Slogan_2 = document.getElementById('womanDay25Slogan_2'),
-			womanDay25Slogan_3 = document.getElementById('womanDay25Slogan_3'),
-			womanDay25Slogan_4 = document.getElementById('womanDay25Slogan_4'),
-			womanDay25Woman1_1 = document.getElementById('womanDay25Woman1_1'),
-			womanDay25Woman1_2 = document.getElementById('womanDay25Woman1_2'),
-			womanDay25Woman1_3 = document.getElementById('womanDay25Woman1_3'),
-			womanDay25Woman1_4 = document.getElementById('womanDay25Woman1_4'),
-			womanDay25Woman1_5 = document.getElementById('womanDay25Woman1_5'),
-			womanDay25Woman2_1 = document.getElementById('womanDay25Woman2_1'),
-			womanDay25Woman2_2 = document.getElementById('womanDay25Woman2_2'),
-			womanDay25Woman2_3 = document.getElementById('womanDay25Woman2_3'),
-			womanDay25Woman3_1 = document.getElementById('womanDay25Woman3_1'),
-			womanDay25Woman3_2 = document.getElementById('womanDay25Woman3_2'),
-			womanDay25Woman3_3 = document.getElementById('womanDay25Woman3_3'),
-			womanDay25Woman3_4 = document.getElementById('womanDay25Woman3_4'),
-			womanDay25Woman3_5 = document.getElementById('womanDay25Woman3_5'),
-			womanDay25Woman4_1 = document.getElementById('womanDay25Woman4_1'),
-			womanDay25Woman4_2 = document.getElementById('womanDay25Woman4_2'),
-			womanDay25Woman4_3 = document.getElementById('womanDay25Woman4_3'),
-			womanDay25Woman4_4 = document.getElementById('womanDay25Woman4_4'),
-			womanDay25Woman4_5 = document.getElementById('womanDay25Woman4_5')
+			event_090525 = document.getElementById('event_090525'),
+			ev090525Back = document.getElementById('ev090525Back'),
+			ev090525BackM = document.getElementById('ev090525BackM'),
+			ev090525Nine = document.getElementById('ev090525Nine'),
+			ev090525Slogan = document.getElementById('ev090525Slogan'),
+			ev090525SloganM = document.getElementById('ev090525SloganM'),
+			ev090525Year = document.getElementById('ev090525Year'),
+			ev090525Logo = document.getElementById('ev090525Logo')
 		;
 
 		let tl = new gsap.timeline({
-			delay: 0.5,
-			onComplete: this.initHide(9)
+			delay: 1,
+			onComplete: this.initHide(6)
 		});
 
 		tl
-			.to(womanDay25, {
+			.to(event_090525, {
 				duration: 0.3,
-				delay: '1',
 				autoAlpha: 1,
 				zIndex: 9999,
 				// easy: "elastic.in(1,0.3)"
 			})
-			.from([womanDay25Back, womanDay25BackBottom], {
+			.from(ev090525Nine, {
 				duration: 1,
-				delay: '0.1',
+				delay: '-0.3',
+				autoAlpha: 0,
+				x: '-10%'
+			})
+			.from(ev090525Back, {
+				duration: 1,
+				delay: '-0.3',
 				autoAlpha: 0
 			})
-			.from([
-				womanDay25Woman1_1,
-				womanDay25Woman1_2,
-				womanDay25Woman1_3,
-				womanDay25Woman1_4,
-				womanDay25Woman1_5,
-				womanDay25Woman2_1,
-				womanDay25Woman2_2,
-				womanDay25Woman2_3,
-				womanDay25Woman3_1,
-				womanDay25Woman3_2,
-				womanDay25Woman3_3,
-				womanDay25Woman3_4,
-				womanDay25Woman3_5,
-				womanDay25Woman4_1,
-				womanDay25Woman4_2,
-				womanDay25Woman4_3,
-				womanDay25Woman4_4,
-				womanDay25Woman4_5
-			], {
-				duration: 0.3,
-				delay: '-0.5',
+			.from(ev090525Slogan, {
+				duration: 0.6,
+				delay: '-0.3',
 				autoAlpha: 0,
-				y: '-15%',
-				stagger: 0.1,
-				// easy: 'bounce'
+				x: '5%',
+				stagger: 0.3
 			})
-			.from([womanDay25Slogan_1, womanDay25Slogan_2, womanDay25Slogan_3, womanDay25Slogan_4], {
-				duration: 1,
-				delay: '-1',
+			.from([
+				ev090525Year,
+				ev090525Logo
+			], {
+				duration: 0.6,
+				delay: '-0.4',
 				autoAlpha: 0,
-				y: '-30%',
-				stagger: 0.3,
-				// easy: 'bounce'
+				y: '10%'
 			})
 		;
 	}
@@ -199,13 +103,13 @@ export class Event_090525 {
 			delay: delay,
 			onComplete: () => {
 				setTimeout(() => {
-					this.bodyBlock.removeChild(this.womanDay25);
+					this.bodyBlock.removeChild(this.event_090525);
 				}, 1000)
 			}
 		});
 
 		tl
-			.to(this.womanDay25, {
+			.to(this.event_090525, {
 				autoAlpha: 0,
 				duration: 0.6,
 				delay: '-0.8',
@@ -217,8 +121,8 @@ export class Event_090525 {
 	}
 
 	initDev() {
-		this.womanDay25.style.opacity = 1;
-		this.womanDay25.style.visibility = 'visible';
-		this.womanDay25.style.zIndex = 9999;
+		this.event_090525.style.opacity = 1;
+		this.event_090525.style.visibility = 'visible';
+		this.event_090525.style.zIndex = 9999;
 	}
 }
