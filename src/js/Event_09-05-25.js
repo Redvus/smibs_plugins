@@ -3,8 +3,10 @@ import { gsap } from 'gsap'; // Убрать в продакшене
 export class Event_090525 {
 	constructor() {
 		this.initLayout();
-		this.initAnimation();
-		// this.initDev();
+		// this.initAnimation();
+		// this.initAnimationMobile();
+		// this.initMobile();
+		this.initDev();
 	}
 
 	initLayout() {
@@ -44,7 +46,7 @@ export class Event_090525 {
 		this.bodyBlock.appendChild(this.event_090525);
 	}
 
-	initAnimation() {
+	initAnimation(delay = 0.3) {
 		const
 			event_090525 = document.getElementById('event_090525'),
 			ev090525Back = document.getElementById('ev090525Back'),
@@ -57,7 +59,7 @@ export class Event_090525 {
 		;
 
 		let tl = new gsap.timeline({
-			delay: 1,
+			delay: delay,
 			onComplete: this.initHide(6)
 		});
 
@@ -98,6 +100,58 @@ export class Event_090525 {
 		;
 	}
 
+	initAnimationMobile(delay = 0.3) {
+		const
+			event_090525 = document.getElementById('event_090525'),
+			ev090525BackM = document.getElementById('ev090525BackM'),
+			ev090525Nine = document.getElementById('ev090525Nine'),
+			ev090525SloganM = document.getElementById('ev090525SloganM'),
+			ev090525Year = document.getElementById('ev090525Year'),
+			ev090525Logo = document.getElementById('ev090525Logo')
+		;
+
+		let tl = new gsap.timeline({
+			delay: delay,
+			onComplete: this.initHide(6)
+		});
+
+		tl
+			.to(event_090525, {
+				duration: 0.3,
+				autoAlpha: 1,
+				zIndex: 9999,
+				// easy: "elastic.in(1,0.3)"
+			})
+			.from(ev090525Nine, {
+				duration: 1,
+				delay: '0.5',
+				autoAlpha: 0,
+				// y: '-10%'
+			})
+			.from(ev090525BackM, {
+				duration: 1,
+				delay: '-0.3',
+				autoAlpha: 0
+			})
+			.from(ev090525SloganM, {
+				duration: 0.6,
+				delay: '-0.3',
+				autoAlpha: 0,
+				x: '5%',
+				stagger: 0.3
+			})
+			.from([
+				ev090525Year,
+				ev090525Logo
+			], {
+				duration: 0.6,
+				delay: '-0.4',
+				autoAlpha: 0,
+				x: '10%'
+			})
+		;
+	}
+
 	initHide(delay) {
 		let tl = new gsap.timeline({
 			delay: delay,
@@ -124,5 +178,15 @@ export class Event_090525 {
 		this.event_090525.style.opacity = 1;
 		this.event_090525.style.visibility = 'visible';
 		this.event_090525.style.zIndex = 9999;
+	}
+
+	initMobile() {
+		const clientSize = 650;
+
+		if (document.body.clientWidth < clientSize || screen.width < clientSize) {
+			this.initAnimationMobile();
+		} else if (document.body.clientWidth > clientSize || screen.width > clientSize) {
+			this.initAnimation();
+		}
 	}
 }
