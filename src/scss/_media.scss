@@ -21,9 +21,10 @@ $imac27 : 2559px;
 $imac21 : 1920px;
 $cinema : 1680px;
 $laptop : 1440px;
-$pad_g : 1024px;
-$pad_v : 650px;
-$mobile : 420px;
+$pad_g : 1000px;
+$pad_v : 768px;
+$mobileG : 680px;
+$mobile : 360px;
 
 $XXLarge: (media: "(min-width: #{$imac27})");
 $XLarge: (media: "(min-width: #{$cinema}) and (max-width: #{$imac27})");
@@ -32,7 +33,7 @@ $Medium: (media: "(min-width: #{$pad_g}) and (max-width: #{$laptop})");
 $XSmall: (media: "(max-width: #{$pad_v})");
 $Small: (media: "(max-width: #{$mobile})");
 $HSmall: (media: "(max-height: 420px)");
-$Landscape: (media: "(max-width: #{$pad_v}) and (orientation: landscape)");
-$XPortrait: (media: "(min-width: #{$pad_v}) and (max-width: calc(#{$pad_g} - 1px))");
+$Landscape: (media: "(orientation: landscape)");
+$Portrait: (media: "(orientation: portrait)");
 
 /*=====  End of Media  ======*/

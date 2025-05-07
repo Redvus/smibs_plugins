@@ -5,7 +5,7 @@ export class Event_090525 {
 		this.initLayout();
 		// this.initAnimation();
 		// this.initAnimationMobile();
-		// this.initMobile();
+		this.initMobile();
 		this.initDev();
 	}
 
@@ -181,11 +181,20 @@ export class Event_090525 {
 	}
 
 	initMobile() {
-		const clientSize = 650;
 
-		if (document.body.clientWidth < clientSize || screen.width < clientSize) {
+		screen.orientation.addEventListener('change', () => {
+			if (screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary') {
+				location.reload();
+			} else if (screen.orientation.type === 'portrait-primary' || screen.orientation.type === 'portrait-secondary') {
+				location.reload();
+			}
+		});
+
+		if (screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary') {
+			this.initAnimation();
+		} else if (screen.orientation.type === 'portrait-primary' || screen.orientation.type === 'portrait-secondary') {
 			this.initAnimationMobile();
-		} else if (document.body.clientWidth > clientSize || screen.width > clientSize) {
+		} else {
 			this.initAnimation();
 		}
 	}
