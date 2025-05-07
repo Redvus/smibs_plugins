@@ -1,5 +1,5 @@
 import '/scss/main.scss';
-import '/main.css';
+import '/main.css'; // Убрать в продакшене
 import { Event_090525 } from "./Event_09-05-25";
 
 class Plugins {
