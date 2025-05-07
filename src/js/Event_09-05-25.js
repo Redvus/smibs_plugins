@@ -20,25 +20,25 @@ export class Event_090525 {
 
 		this.event_090525.innerHTML = `
 			<picture id="ev090525Back">
-				<img src="/assets/images/event_090525/ev090525_back.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_back.png" alt="">
 			</picture>
 			<picture id="ev090525BackM">
-				<img src="/assets/images/event_090525/ev090525_backM.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_backM.png" alt="">
 			</picture>
 			<picture id="ev090525Nine">
-				<img src="/assets/images/event_090525/ev090525_nine.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_nine.png" alt="">
 			</picture>
 			<picture id="ev090525Slogan">
-				<img src="/assets/images/event_090525/ev090525_slogan.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_slogan.png" alt="">
 			</picture>
 			<picture id="ev090525SloganM">
-				<img src="/assets/images/event_090525/ev090525_sloganM.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_sloganM.png" alt="">
 			</picture>
 			<picture id="ev090525Year">
-				<img src="/assets/images/event_090525/ev090525_year.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_year.png" alt="">
 			</picture>
 			<picture id="ev090525Logo">
-				<img src="/assets/images/event_090525/ev090525_logo.png" alt="">
+				<img src="/assets/images/anniversary/event_090525/ev090525_logo.png" alt="">
 			</picture>
 		`;
 
