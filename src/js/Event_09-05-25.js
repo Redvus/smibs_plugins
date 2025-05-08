@@ -1,4 +1,4 @@
-import { gsap } from 'gsap'; // Убрать в продакшене
+// import { gsap } from 'gsap'; // Убрать в продакшене
 
 export class Event_090525 {
 	constructor() {
@@ -48,7 +48,6 @@ export class Event_090525 {
 
 	initAnimation(delay = 0.3) {
 		const
-			event_090525 = document.getElementById('event_090525'),
 			ev090525Back = document.getElementById('ev090525Back'),
 			ev090525BackM = document.getElementById('ev090525BackM'),
 			ev090525Nine = document.getElementById('ev090525Nine'),
@@ -60,12 +59,13 @@ export class Event_090525 {
 
 		let tl = new gsap.timeline({
 			delay: delay,
-			onComplete: this.initHide(6)
+			onComplete: this.initHide(7)
 		});
 
 		tl
-			.to(event_090525, {
-				duration: 0.3,
+			.to(this.event_090525, {
+				duration: 1,
+				// delay: '1',
 				autoAlpha: 1,
 				zIndex: 9999,
 				// easy: "elastic.in(1,0.3)"

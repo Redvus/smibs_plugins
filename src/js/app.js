@@ -1,10 +1,10 @@
 import '/scss/main.scss';
-import '/main.css'; // Убрать в продакшене
+// import '/main.css'; // Убрать в продакшене
 import { Event_090525 } from "./Event_09-05-25";
 
 class Plugins {
     constructor() {
-        this.initLayout();
+        // this.initLayout();
         new Event_090525();
     }
 
