@@ -6,7 +6,7 @@ export class Event_090525 {
 		// this.initAnimation();
 		// this.initAnimationMobile();
 		this.initMobile();
-		this.initDev();
+		// this.initDev();
 	}
 
 	initLayout() {
@@ -46,7 +46,7 @@ export class Event_090525 {
 		this.bodyBlock.appendChild(this.event_090525);
 	}
 
-	initAnimation(delay = 0.3) {
+	initAnimation(delay = 0.6) {
 		const
 			ev090525Back = document.getElementById('ev090525Back'),
 			ev090525BackM = document.getElementById('ev090525BackM'),
@@ -65,7 +65,6 @@ export class Event_090525 {
 		tl
 			.to(this.event_090525, {
 				duration: 1,
-				// delay: '1',
 				autoAlpha: 1,
 				zIndex: 9999,
 				// easy: "elastic.in(1,0.3)"
@@ -100,7 +99,7 @@ export class Event_090525 {
 		;
 	}
 
-	initAnimationMobile(delay = 0.3) {
+	initAnimationMobile(delay = 0.6) {
 		const
 			event_090525 = document.getElementById('event_090525'),
 			ev090525BackM = document.getElementById('ev090525BackM'),
@@ -112,7 +111,7 @@ export class Event_090525 {
 
 		let tl = new gsap.timeline({
 			delay: delay,
-			onComplete: this.initHide(6)
+			onComplete: this.initHide(7)
 		});
 
 		tl

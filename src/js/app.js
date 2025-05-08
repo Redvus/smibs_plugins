@@ -4,7 +4,7 @@ import { Event_090525 } from "./Event_09-05-25";
 
 class Plugins {
     constructor() {
-        // this.initLayout();
+        // this.initLayout(); // Убрать в продакшене
         new Event_090525();
     }
 
