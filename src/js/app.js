@@ -1,11 +1,11 @@
-import '/main.css';
+import '/main.css'; // Скрывать для build
 import '/scss/app.scss';
 import {Calendar} from "./Calendar.js";
 
 class Plugins {
     constructor() {
-        this.initLayout();
-        new Calendar();
+        this.initLayout(); // Скрывать для build
+        new Calendar(1) // Убирать в скобках для build
     }
 
     initLayout() {
@@ -42,7 +42,7 @@ class Plugins {
         this.footerTopBlock = document.createElement('div');
 
         //Appends
-        // this.body.appendChild(this.footer);
+        this.body.appendChild(this.footer);
         this.wrapper.appendChild(this.sidebar);
         this.wrapper.appendChild(this.sidebarStatic);
         this.wrapper.appendChild(this.header);

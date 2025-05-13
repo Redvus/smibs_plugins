@@ -33,8 +33,8 @@ export default defineConfig({
             output: {
                 // chunkFileNames: 'assets/js/[name]-[hash].js',
                 // entryFileNames: 'assets/js/[name]-[hash].js',
-                chunkFileNames: 'js/app-min.js',
-                entryFileNames: 'js/app-min.js',
+                chunkFileNames: 'app-min.js',
+                entryFileNames: 'app-min.js',
 
                 assetFileNames: ({names}) => {
                     if (/\.(gif|jpg|jpe?g|png|svg)$/.test(names ?? '')){
@@ -42,7 +42,7 @@ export default defineConfig({
                     }
 
                     if (/\.css$/.test(names ?? '')) {
-                        return 'css/app.css';
+                        return 'app.css';
                     }
 
                     // if (/\.(woff|woff2)$/.test(name ?? '')) {

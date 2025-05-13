@@ -145,6 +145,14 @@
 			&--friday {
 				margin-left: calc(((100% / 7) * 4) + 0.1rem);
 			}
+
+			&--saturday {
+				margin-left: calc(((100% / 7) * 5) + 0.1rem);
+			}
+
+			&--sunday {
+				margin-left: calc(((100% / 7) * 6) + 0.1rem);
+			}
 		}
 
 		&-num {
