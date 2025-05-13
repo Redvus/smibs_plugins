@@ -103,7 +103,7 @@ class FilterTerms {
                 if (calendarSelectTerms.value === this.filterOptionsTerms[i].value) {
                     calendarEventSingleDev.forEach(evTerms => {
                         calendarMonthDates.forEach((dTerms, pos) => {
-                            // if (evTerms.getAttribute('data-lib') !== daysActiveLib) {
+                            // if (dTerms.classList.contains('is-active')) {
                                 if (evTerms.getAttribute('data-terms') !== this.filterOptionsTerms[i].value) {
                                     evTerms.style.display = 'none';
                                     evTerms.style.visibility = 'hidden';
@@ -111,10 +111,8 @@ class FilterTerms {
                                     evTerms.style.display = 'block';
                                     evTerms.style.visibility = 'visible';
                                 }
-                            // }
 
-                            if (evTerms.getAttribute('data-terms') === this.filterOptionsTerms[i].value) {
-                                // if (evTerms.getAttribute('data-lib') === daysActiveLib) {
+                                if (evTerms.getAttribute('data-terms') === this.filterOptionsTerms[i].value) {
                                     dTerms.classList.remove('is-active');
                                     if (evTerms.parentNode.id === dTerms.getAttribute('data-id')) {
                                         setTimeout(() => {
@@ -129,8 +127,8 @@ class FilterTerms {
                                             dTerms.style.pointerEvents = 'none';
                                         }, 20)
                                     }
-                                // }
-                            }
+                                }
+                            // }
                         })
                     })
                 } else if (calendarSelectTerms.value === this.filterOptionsTerms[0].value) {

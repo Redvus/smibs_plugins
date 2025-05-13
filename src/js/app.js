@@ -25,10 +25,7 @@ class Plugins {
                 <div class="header__top"></div>
                 <div class="header__bottom"></div>
             </div>
-            <a href="javascript:void(0);" class="header__blind" id="blindButton">
-<!--                <i class="fa fa-eye"></i>-->
-<!--                <p>Контрастная версия</p>-->
-            </a>
+            <a href="javascript:void(0);" class="header__blind" id="blindButton"></a>
         `;
 
         this.mainContent = document.createElement('div');

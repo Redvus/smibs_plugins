@@ -19,7 +19,7 @@ class Calendar {
 
         this.objectsTabs();
         new FilterLibrary();
-        // new FilterTerms();
+        new FilterTerms();
         // new FilterEntrance();
         // new FilterAge();
 
@@ -126,13 +126,13 @@ class Calendar {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                         <div class="calendar__events_footer">
                             <div class="calendar__events_pass calendar__events_pass--bottom">
-                                <span class="calendar__events_entrance">Лекция</span>
+                                <span class="calendar__events_entrance">Выставка</span>
                                 <span class="calendar__events_terms">Вход свободный</span>
                                 <span class="calendar__events_entrance">+16</span>
                                 </div>
                         </div>
                     </li>
-                    <li class="calendar__events_single" data-lib="Библиотека №23"  data-terms="termsLecture">
+                    <li class="calendar__events_single" data-lib="Библиотека №23"  data-terms="termsMasterClass">
                         <div class="calendar__events_header">
                             <div class="calendar__events_pass">
                                 <span class="calendar__events_terms">Библиотека №23</span>
@@ -162,7 +162,7 @@ class Calendar {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque cum minima provident quas quisquam quos sit sunt temporibus veritatis voluptate. Culpa cumque deleniti dolorum facere facilis incidunt iste ratione voluptas?</p>
                         <div class="calendar__events_footer">
                             <div class="calendar__events_pass calendar__events_pass--bottom">
-                                <span class="calendar__events_entrance">Выставка</span>
+                                <span class="calendar__events_entrance">Конференция</span>
                                 <span class="calendar__events_terms">Вход платный</span>
                             </div>
                         </div>
@@ -182,7 +182,7 @@ class Calendar {
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
-                    <li class="calendar__events_single" data-lib="Библиотека №23" data-terms="termsExhibition">
+                    <li class="calendar__events_single" data-lib="Библиотека №23" data-terms="termsLecture">
                         <div class="calendar__events_header">
                             <div class="calendar__events_pass">
                                 <span class="calendar__events_terms">Библиотека №23</span>
@@ -261,11 +261,11 @@ class Calendar {
                         </div>
                     </li>
                 `;
-            } else if (this.calendarDay.id === 'calendarDate_8') {
+            } else if (this.calendarDay.id === 'calendarDate_3') {
                 this.calendarDay.className = 'calendar__month_date';
-                this.calendarDay.setAttribute('data-id', 'tab_8');
+                this.calendarDay.setAttribute('data-id', 'tab_3');
                 this.calendarEvent = document.createElement('div');
-                this.calendarEvent.id = 'tab_8';
+                this.calendarEvent.id = 'tab_3';
                 this.calendarEvent.className = 'calendar__events_inside';
 
                 this.calendarEvent.innerHTML = `
