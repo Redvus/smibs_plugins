@@ -297,7 +297,7 @@ class Calendar {
         this.tabMenuTrigger = document.querySelectorAll('.calendar__month_date');
         this.arrayPanels = document.querySelectorAll('.calendar__events_inside');
         let yearPresent;
-        const dateFirst = document.getElementById('calendarDate_0');
+        let dateFirst = document.getElementById('calendarDate_0');
 
         for (let i = 0; i < this.tabMenuTrigger.length; i++) {
             this.tabMenuTrigger[i].addEventListener('click', () => {
