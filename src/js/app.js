@@ -1,11 +1,15 @@
 import '/scss/main.scss';
 import '/main.css';
-// import { } from "./";
+import { RandomPlaceImage } from "./RandomPlaceImage.js";
 
 class Plugins {
     constructor() {
         this.initLayout();
-
+        new RandomPlaceImage(
+            'images/randomImagePlace/personPushkin.jpg',
+            'Уроки русской литературы',
+            'https://smibs.ru/lessons-of-russian-literature.html')
+        ;
     }
 
     initLayout() {
