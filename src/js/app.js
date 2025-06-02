@@ -6,7 +6,7 @@ class Plugins {
     constructor() {
         this.initLayout();
         new RandomPlaceImage(
-            'images/randomImagePlace/personPushkin.jpg',
+            '/assets/projects/randomImagePlace/images/personPushkin.jpg',
             'Уроки русской литературы',
             'https://smibs.ru/lessons-of-russian-literature.html')
         ;

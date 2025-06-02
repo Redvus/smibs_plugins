@@ -5,10 +5,10 @@ class RandomPlaceImage {
 	constructor(
 		placeImage,
 		placeImageName,
-		placLink) {
+		placeLink) {
 		this.placeImage = placeImage || 'https://picsum.photos/200/300/';
 		this.placeImageName = placeImageName || 'Random Place Image';
-		this.placeLink = placLink;
+		this.placeLink = placeLink;
 		this.initLayout();
 		this.initPosition();
 		this.initResize();
