@@ -1,4 +1,4 @@
-import {gsap} from "gsap";
+// import {gsap} from "gsap";
 
 class RandomPlaceImage {
 
@@ -28,6 +28,15 @@ class RandomPlaceImage {
 		`;
 
 		this.wrapper.appendChild(this.imageContainer);
+
+		// let timerId = setInterval(() => {
+		// 	this.wrapper.appendChild(this.imageContainer);
+		// }, 5000);
+
+		// setTimeout(() => {
+		// 	clearInterval(timerId);
+		// 	this.wrapper.removeChild(this.imageContainer);
+		//  }, 7000);
 	}
 
 	initPosition() {
