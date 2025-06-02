@@ -6,7 +6,7 @@ class RandomPlaceImage {
 		placeImage,
 		placeImageName,
 		placeLink) {
-		this.placeImage = placeImage || 'https://picsum.photos/200/300/';
+		this.placeImage = placeImage;
 		this.placeImageName = placeImageName || 'Random Place Image';
 		this.placeLink = placeLink;
 		this.initLayout();
