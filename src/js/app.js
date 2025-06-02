@@ -1,10 +1,10 @@
 import '/scss/main.scss';
-// import '/main.css';
+import '/main.css';
 // import { } from "./";
 
 class Plugins {
     constructor() {
-        // this.initLayout();
+        this.initLayout();
 
     }
 
