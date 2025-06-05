@@ -1,10 +1,10 @@
 import '/scss/main.scss';
-import '/main.css';
+// import '/main.css';
 import { RandomPlaceImage } from "./RandomPlaceImage.js";
 
 class Plugins {
     constructor() {
-        this.initLayout();
+        // this.initLayout();
         new RandomPlaceImage(
             '/assets/projects/randomPlaceImage/images/personPushkin.jpg',
             'Уроки русской литературы',
