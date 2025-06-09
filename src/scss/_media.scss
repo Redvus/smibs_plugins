@@ -33,6 +33,6 @@ $XSmall: (media: "(max-width: #{$pad_g})");
 $Small: (media: "(max-width: #{$mobile})");
 $HSmall: (media: "(max-height: 420px)");
 $Landscape: (media: "(max-width: #{$pad_v}) and (orientation: landscape)");
-$XPortrait: (media: "(min-width: #{$pad_v}) and (max-width: calc(#{$pad_g} - 1px))");
+$Portrait: (media: "(min-width: #{$pad_v}) and (max-width: calc(#{$pad_g} - 1px))");
 
 /*=====  End of Media  ======*/

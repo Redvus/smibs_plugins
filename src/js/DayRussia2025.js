@@ -15,30 +15,24 @@ export class DayRussia2025 {
 		// this.container = document.createElement('div');
 
 		this.dayRussia2025.id = 'dayRussia2025';
-		this.dayRussia2025.className = 'anniversary anniversary--event090525';
+		this.dayRussia2025.className = 'anniversary anniversary--dayRussia2025';
 		// this.container.classList = 'anniversary__container';
 
 		this.dayRussia2025.innerHTML = `
-			<picture id="ev090525Back">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_back.png" alt="">
+			<picture id="dayRussia2025Baloon">
+				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_baloon.png" alt="">
 			</picture>
-			<picture id="ev090525BackM">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_backM.png" alt="">
+			<picture id="dayRussia2025Girl">
+				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_girl.jpg" alt="">
 			</picture>
-			<picture id="ev090525Nine">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_nine.png" alt="">
+			<picture id="dayRussia2025Slogan_1">
+				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_1.png" alt="">
 			</picture>
-			<picture id="ev090525Slogan">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_slogan.png" alt="">
+			<picture id="dayRussia2025Slogan_2">
+				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_2.png" alt="">
 			</picture>
-			<picture id="ev090525SloganM">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_sloganM.png" alt="">
-			</picture>
-			<picture id="ev090525Year">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_year.png" alt="">
-			</picture>
-			<picture id="ev090525Logo">
-				<img src="/assets/images/anniversary/dayRussia2025/ev090525_logo.png" alt="">
+			<picture id="dayRussia2025Slogan_3">
+				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_3.png" alt="">
 			</picture>
 		`;
 
@@ -48,13 +42,13 @@ export class DayRussia2025 {
 
 	initAnimation(delay = 0.6) {
 		const
-			ev090525Back = document.getElementById('ev090525Back'),
-			ev090525BackM = document.getElementById('ev090525BackM'),
-			ev090525Nine = document.getElementById('ev090525Nine'),
-			ev090525Slogan = document.getElementById('ev090525Slogan'),
-			ev090525SloganM = document.getElementById('ev090525SloganM'),
-			ev090525Year = document.getElementById('ev090525Year'),
-			ev090525Logo = document.getElementById('ev090525Logo')
+			dayRussia2025Back = document.getElementById('dayRussia2025Back'),
+			dayRussia2025BackM = document.getElementById('dayRussia2025BackM'),
+			dayRussia2025Nine = document.getElementById('dayRussia2025Nine'),
+			dayRussia2025Slogan = document.getElementById('dayRussia2025Slogan'),
+			dayRussia2025SloganM = document.getElementById('dayRussia2025SloganM'),
+			dayRussia2025Year = document.getElementById('dayRussia2025Year'),
+			dayRussia2025Logo = document.getElementById('dayRussia2025Logo')
 		;
 
 		let tl = new gsap.timeline({
@@ -69,18 +63,18 @@ export class DayRussia2025 {
 				zIndex: 9999,
 				// easy: "elastic.in(1,0.3)"
 			})
-			.from(ev090525Nine, {
+			.from(dayRussia2025Nine, {
 				duration: 1,
 				delay: '0.5',
 				autoAlpha: 0,
 				x: '-10%'
 			})
-			.from(ev090525Back, {
+			.from(dayRussia2025Back, {
 				duration: 1,
 				delay: '-0.3',
 				autoAlpha: 0
 			})
-			.from(ev090525Slogan, {
+			.from(dayRussia2025Slogan, {
 				duration: 0.6,
 				delay: '-0.3',
 				autoAlpha: 0,
@@ -88,8 +82,8 @@ export class DayRussia2025 {
 				stagger: 0.3
 			})
 			.from([
-				ev090525Year,
-				ev090525Logo
+				dayRussia2025Year,
+				dayRussia2025Logo
 			], {
 				duration: 0.6,
 				delay: '-0.4',
@@ -102,11 +96,11 @@ export class DayRussia2025 {
 	initAnimationMobile(delay = 0.6) {
 		const
 			dayRussia2025 = document.getElementById('dayRussia2025'),
-			ev090525BackM = document.getElementById('ev090525BackM'),
-			ev090525Nine = document.getElementById('ev090525Nine'),
-			ev090525SloganM = document.getElementById('ev090525SloganM'),
-			ev090525Year = document.getElementById('ev090525Year'),
-			ev090525Logo = document.getElementById('ev090525Logo')
+			dayRussia2025BackM = document.getElementById('dayRussia2025BackM'),
+			dayRussia2025Nine = document.getElementById('dayRussia2025Nine'),
+			dayRussia2025SloganM = document.getElementById('dayRussia2025SloganM'),
+			dayRussia2025Year = document.getElementById('dayRussia2025Year'),
+			dayRussia2025Logo = document.getElementById('dayRussia2025Logo')
 		;
 
 		let tl = new gsap.timeline({
@@ -121,18 +115,18 @@ export class DayRussia2025 {
 				zIndex: 9999,
 				// easy: "elastic.in(1,0.3)"
 			})
-			.from(ev090525Nine, {
+			.from(dayRussia2025Nine, {
 				duration: 1,
 				delay: '0.5',
 				autoAlpha: 0,
 				// y: '-10%'
 			})
-			.from(ev090525BackM, {
+			.from(dayRussia2025BackM, {
 				duration: 1,
 				delay: '-0.3',
 				autoAlpha: 0
 			})
-			.from(ev090525SloganM, {
+			.from(dayRussia2025SloganM, {
 				duration: 0.6,
 				delay: '-0.3',
 				autoAlpha: 0,
@@ -140,8 +134,8 @@ export class DayRussia2025 {
 				stagger: 0.3
 			})
 			.from([
-				ev090525Year,
-				ev090525Logo
+				dayRussia2025Year,
+				dayRussia2025Logo
 			], {
 				duration: 0.6,
 				delay: '-0.4',

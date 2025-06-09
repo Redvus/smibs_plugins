@@ -1,0 +1,368 @@
+$containerWidth: 110vmin;
+$sloganHeight: 9vmin;
+
+.anniversary {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	user-select: none;
+	box-sizing: border-box;
+	//opacity: 0;
+	//display: none;
+	z-index: 10;
+
+	&--dayRussia2025 {
+		display: block;
+		background-color: #ffffff !important;
+		opacity: 0;
+		visibility: hidden;
+		z-index: -1;
+	}
+
+	&__container {
+		width: $containerWidth;
+		height: 100vh;
+		//height: $containerHeight;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		//border-left: 0.05rem dashed rgba(#646cff, 70%);
+		//border-right: 0.05rem dashed rgba(#646cff, 70%);
+		overflow: hidden;
+		z-index: 9999;
+	}
+
+	#dayRussia2025 {
+
+		&Baloon {
+			width: auto;
+			height: 100vh;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+
+			img {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: relative;
+				object-position: bottom;
+				object-fit: cover;
+			}
+		}
+
+		&Girl {
+			width: auto;
+			height: 95vmin;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			overflow: hidden;
+			z-index: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: relative;
+				object-position: bottom;
+				object-fit: cover;
+			}
+		}
+
+		&Slogan_1 {
+			width: auto;
+			height: 15vmin;
+			display: block;
+			position: absolute;
+			top: 17vmin;
+			left: 21vmin;
+			z-index: 10;
+
+			img {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: relative;
+				object-position: bottom;
+				object-fit: cover;
+			}
+		}
+
+		&Slogan_2 {
+			width: auto;
+			height: 15vmin;
+			display: block;
+			position: absolute;
+			top: 32vmin;
+			left: 30vmin;
+			z-index: 10;
+
+			img {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: relative;
+				object-position: bottom;
+				object-fit: cover;
+			}
+		}
+
+		&Slogan_3 {
+			width: auto;
+			height: 15vmin;
+			display: block;
+			position: absolute;
+			top: 47vmin;
+			left: 39vmin;
+			z-index: 10;
+
+			img {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: relative;
+				object-position: bottom;
+				object-fit: cover;
+			}
+		}
+	}
+
+	// @include grid-media($Medium) {
+
+	// 	#ev090525 {
+
+	// 		&Slogan, &Year {
+	// 			left: 57vmax;
+	// 		}
+	// 	}
+	// }
+
+
+
+	// @include grid-media($Small) {
+
+	// 	#ev090525 {
+
+	// 		&SloganM {
+	// 			top: 8vmin;
+	// 		}
+
+	// 		&Year {
+	// 			width: 35vmin;
+	// 			top: 22vmin;
+	// 		}
+	// 	}
+	// }
+
+	@include grid-media($Landscape) {
+
+		#ev090525 {
+
+			&Back {
+				width: 100vw;
+				height: 100vh;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: 0;
+
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					position: relative;
+					object-position: bottom;
+					object-fit: cover;
+				}
+			}
+
+			&Slogan {
+				width: 35vmax;
+				height: auto;
+				display: block;
+				position: absolute;
+				top: 5vmax;
+				left: 57vmax;
+				z-index: 2;
+
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					position: relative;
+					object-position: top;
+					object-fit: cover;
+				}
+			}
+
+			&Lenta {
+				width: 100vw;
+				height: auto;
+				display: block;
+				position: absolute;
+				bottom: 2vmax;
+				left: 0;
+				overflow: hidden;
+				z-index: 1;
+
+
+			}
+
+			&Nine {
+				width: auto;
+				height: 95vmin;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 6vmax;
+				z-index: 2;
+
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					position: relative;
+					object-position: bottom;
+					object-fit: cover;
+				}
+			}
+
+			&Year {
+				width: 20vmax;
+				height: auto;
+				display: block;
+				position: absolute;
+				bottom: 8vmax;
+				left: 57vmax;
+				z-index: 5;
+
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					position: relative;
+					object-position: top;
+					object-fit: cover;
+				}
+			}
+
+			&Logo {
+				width: auto;
+				height: 17vmax;
+				display: block;
+				position: absolute;
+				bottom: 5vmax;
+				right: 5vmax;
+				z-index: 10;
+
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					position: relative;
+					object-position: top;
+					object-fit: cover;
+				}
+			}
+
+			&BackM {
+				width: 100vw;
+				height: 100vh;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 0;
+				display: none;
+				visibility: hidden;
+
+				img {
+					width: 100%;
+					height: 200%;
+					display: block;
+					position: relative;
+					object-position: top;
+					object-fit: cover;
+					top: -10vmin;
+				}
+			}
+
+			&SloganM {
+				width: 50vmin;
+				height: auto;
+				position: absolute;
+				top: 5vmin;
+				left: 40vmin;
+				z-index: 2;
+				display: none;
+				visibility: hidden;
+
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					position: relative;
+					object-position: top;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+
+	@include grid-media($Portrait) {
+
+		#ev090525 {
+
+			&Nine {
+				left: 11.5vmin;
+			}
+
+			&Back {
+				display: none;
+				visibility: hidden;
+			}
+
+			&BackM {
+				display: block;
+				visibility: visible;
+			}
+
+			&Logo {
+				top: 5vmin;
+				left: 10vmin;
+				bottom: initial;
+				right: initial;
+			}
+
+			&Slogan {
+				display: none;
+				visibility: hidden;
+			}
+
+			&SloganM {
+				display: block;
+				visibility: visible;
+			}
+
+			&Year {
+				width: 30vmin;
+				top: 18vmin;
+				left: 40vmin;
+				bottom: initial;
+				right: initial;
+			}
+		}
+	}
+}
+
