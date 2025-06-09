@@ -29,10 +29,10 @@ $XXLarge: (media: "(min-width: #{$imac27})");
 $XLarge: (media: "(min-width: #{$cinema}) and (max-width: #{$imac27})");
 $Large: (media: "(min-width: #{$laptop}) and (max-width: #{$cinema})");
 $Medium: (media: "(min-width: #{$pad_g}) and (max-width: #{$laptop})");
-$XSmall: (media: "(max-width: #{$pad_g})");
+$XSmall: (media: "(max-width: #{$pad_v})");
 $Small: (media: "(max-width: #{$mobile})");
 $HSmall: (media: "(max-height: 420px)");
-$Landscape: (media: "(max-width: #{$pad_v}) and (orientation: landscape)");
-$Portrait: (media: "(min-width: #{$pad_v}) and (max-width: calc(#{$pad_g} - 1px))");
+$Landscape: (media: "(orientation: landscape)");
+$Portrait: (media: "(orientation: portrait)");
 
 /*=====  End of Media  ======*/

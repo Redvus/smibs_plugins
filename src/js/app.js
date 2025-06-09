@@ -1,10 +1,10 @@
 import '/scss/main.scss';
-import '/main.css';
+// import '/main.css';
 import { DayRussia2025 } from "./DayRussia2025";
 
 class Plugins {
     constructor() {
-        this.initLayout();
+        // this.initLayout();
         new DayRussia2025();
     }
 

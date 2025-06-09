@@ -1,12 +1,12 @@
-import { gsap } from 'gsap'; // Убрать в продакшене
+// import { gsap } from 'gsap'; // Убрать в продакшене
 
 export class DayRussia2025 {
 	constructor() {
 		this.initLayout();
 		// this.initAnimation();
 		// this.initAnimationMobile();
-		// this.initMobile();
-		this.initDev();
+		this.initMobile();
+		// this.initDev();
 	}
 
 	initLayout() {
@@ -42,65 +42,12 @@ export class DayRussia2025 {
 
 	initAnimation(delay = 0.6) {
 		const
-			dayRussia2025Back = document.getElementById('dayRussia2025Back'),
-			dayRussia2025BackM = document.getElementById('dayRussia2025BackM'),
-			dayRussia2025Nine = document.getElementById('dayRussia2025Nine'),
-			dayRussia2025Slogan = document.getElementById('dayRussia2025Slogan'),
-			dayRussia2025SloganM = document.getElementById('dayRussia2025SloganM'),
-			dayRussia2025Year = document.getElementById('dayRussia2025Year'),
-			dayRussia2025Logo = document.getElementById('dayRussia2025Logo')
-		;
-
-		let tl = new gsap.timeline({
-			delay: delay,
-			onComplete: this.initHide(7)
-		});
-
-		tl
-			.to(this.dayRussia2025, {
-				duration: 1,
-				autoAlpha: 1,
-				zIndex: 9999,
-				// easy: "elastic.in(1,0.3)"
-			})
-			.from(dayRussia2025Nine, {
-				duration: 1,
-				delay: '0.5',
-				autoAlpha: 0,
-				x: '-10%'
-			})
-			.from(dayRussia2025Back, {
-				duration: 1,
-				delay: '-0.3',
-				autoAlpha: 0
-			})
-			.from(dayRussia2025Slogan, {
-				duration: 0.6,
-				delay: '-0.3',
-				autoAlpha: 0,
-				x: '5%',
-				stagger: 0.3
-			})
-			.from([
-				dayRussia2025Year,
-				dayRussia2025Logo
-			], {
-				duration: 0.6,
-				delay: '-0.4',
-				autoAlpha: 0,
-				y: '10%'
-			})
-		;
-	}
-
-	initAnimationMobile(delay = 0.6) {
-		const
 			dayRussia2025 = document.getElementById('dayRussia2025'),
-			dayRussia2025BackM = document.getElementById('dayRussia2025BackM'),
-			dayRussia2025Nine = document.getElementById('dayRussia2025Nine'),
-			dayRussia2025SloganM = document.getElementById('dayRussia2025SloganM'),
-			dayRussia2025Year = document.getElementById('dayRussia2025Year'),
-			dayRussia2025Logo = document.getElementById('dayRussia2025Logo')
+			dayRussia2025Baloon = document.getElementById('dayRussia2025Baloon'),
+			dayRussia2025Girl = document.getElementById('dayRussia2025Girl'),
+			dayRussia2025Slogan_1 = document.getElementById('dayRussia2025Slogan_1'),
+			dayRussia2025Slogan_2 = document.getElementById('dayRussia2025Slogan_2'),
+			dayRussia2025Slogan_3 = document.getElementById('dayRussia2025Slogan_3')
 		;
 
 		let tl = new gsap.timeline({
@@ -115,32 +62,62 @@ export class DayRussia2025 {
 				zIndex: 9999,
 				// easy: "elastic.in(1,0.3)"
 			})
-			.from(dayRussia2025Nine, {
+			.from(dayRussia2025Girl, {
 				duration: 1,
-				delay: '0.5',
+				delay: '0.2',
 				autoAlpha: 0,
 				// y: '-10%'
 			})
-			.from(dayRussia2025BackM, {
-				duration: 1,
-				delay: '-0.3',
-				autoAlpha: 0
+			.from(dayRussia2025Baloon, {
+				duration: 0.6,
+				delay: '-0.5',
+				autoAlpha: 0,
+				x: '-10%'
 			})
-			.from(dayRussia2025SloganM, {
+			.from([dayRussia2025Slogan_1, dayRussia2025Slogan_2, dayRussia2025Slogan_3], {
 				duration: 0.6,
 				delay: '-0.3',
 				autoAlpha: 0,
-				x: '5%',
+				x: '7%',
 				stagger: 0.3
 			})
-			.from([
-				dayRussia2025Year,
-				dayRussia2025Logo
-			], {
-				duration: 0.6,
-				delay: '-0.4',
+		;
+	}
+
+	initAnimationMobile(delay = 0.6) {
+		const
+			dayRussia2025 = document.getElementById('dayRussia2025'),
+			dayRussia2025Baloon = document.getElementById('dayRussia2025Baloon'),
+			dayRussia2025Girl = document.getElementById('dayRussia2025Girl'),
+			dayRussia2025Slogan_1 = document.getElementById('dayRussia2025Slogan_1'),
+			dayRussia2025Slogan_2 = document.getElementById('dayRussia2025Slogan_2'),
+			dayRussia2025Slogan_3 = document.getElementById('dayRussia2025Slogan_3')
+		;
+
+		let tl = new gsap.timeline({
+			delay: delay,
+			onComplete: this.initHide(7)
+		});
+
+		tl
+			.to(dayRussia2025, {
+				duration: 0.3,
+				autoAlpha: 1,
+				zIndex: 9999,
+				// easy: "elastic.in(1,0.3)"
+			})
+			.from(dayRussia2025Girl, {
+				duration: 1,
+				delay: '0.2',
 				autoAlpha: 0,
-				x: '10%'
+				// y: '-10%'
+			})
+			.from([dayRussia2025Slogan_1, dayRussia2025Slogan_2, dayRussia2025Slogan_3], {
+				duration: 0.6,
+				delay: '-0.3',
+				autoAlpha: 0,
+				y: '10%',
+				stagger: 0.3
 			})
 		;
 	}
