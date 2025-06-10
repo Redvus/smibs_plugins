@@ -113,7 +113,7 @@ $sloganHeight: 9vmin;
 				height: 100%;
 				display: block;
 				position: relative;
-				object-position: bottom;
+				object-position: left bottom;
 				object-fit: cover;
 			}
 		}
@@ -158,14 +158,22 @@ $sloganHeight: 9vmin;
 			}
 
 			&Slogan_1 {
-				left: 15vmin;
-				top: 4vmin;
+				height: 20vmin;
+				left: 17vmin;
+				top: 13vmin;
 			}
 
+			// &Slogan_2 {
+			// 	left: 19vmin;
+			// 	top: 19vmin;
+			// }
+
 			&Slogan_2 {
-				left: 19vmin;
-				top: 19vmin;
+				height: 20vmin;
+				left: 22vmin;
+				top: 30vmin;
 			}
+
 
 			&Slogan_3 {
 				left: 29vmin;

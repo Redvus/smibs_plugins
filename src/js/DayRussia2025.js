@@ -1,12 +1,12 @@
-// import { gsap } from 'gsap'; // Убрать в продакшене
+import { gsap } from 'gsap'; // Убрать в продакшене
 
 export class DayRussia2025 {
 	constructor() {
 		this.initLayout();
 		// this.initAnimation();
 		// this.initAnimationMobile();
-		this.initMobile();
-		// this.initDev();
+		// this.initMobile();
+		this.initDev();
 	}
 
 	initLayout() {
@@ -17,6 +17,24 @@ export class DayRussia2025 {
 		this.dayRussia2025.id = 'dayRussia2025';
 		this.dayRussia2025.className = 'anniversary anniversary--dayRussia2025';
 		// this.container.classList = 'anniversary__container';
+
+		// this.dayRussia2025.innerHTML = `
+		// 	<picture id="dayRussia2025Baloon">
+		// 		<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_baloon.png" alt="">
+		// 	</picture>
+		// 	<picture id="dayRussia2025Girl">
+		// 		<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_girl.jpg" alt="">
+		// 	</picture>
+		// 	<picture id="dayRussia2025Slogan_1">
+		// 		<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_1.png" alt="">
+		// 	</picture>
+		// 	<picture id="dayRussia2025Slogan_2">
+		// 		<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_2.png" alt="">
+		// 	</picture>
+		// 	<picture id="dayRussia2025Slogan_3">
+		// 		<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_3.png" alt="">
+		// 	</picture>
+		// `;
 
 		this.dayRussia2025.innerHTML = `
 			<picture id="dayRussia2025Baloon">
@@ -29,10 +47,7 @@ export class DayRussia2025 {
 				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_1.png" alt="">
 			</picture>
 			<picture id="dayRussia2025Slogan_2">
-				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_2.png" alt="">
-			</picture>
-			<picture id="dayRussia2025Slogan_3">
-				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_3.png" alt="">
+				<img src="/assets/images/dayRussia/dayRussia2025/dayRussia2025_slogan_4.png" alt="">
 			</picture>
 		`;
 
