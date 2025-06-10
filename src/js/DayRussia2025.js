@@ -5,8 +5,8 @@ export class DayRussia2025 {
 		this.initLayout();
 		// this.initAnimation();
 		// this.initAnimationMobile();
-		// this.initMobile();
-		this.initDev();
+		this.initMobile();
+		// this.initDev();
 	}
 
 	initLayout() {
