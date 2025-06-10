@@ -1,4 +1,4 @@
-import { gsap } from 'gsap'; // Убрать в продакшене
+// import { gsap } from 'gsap'; // Убрать в продакшене
 
 export class DayRussia2025 {
 	constructor() {
