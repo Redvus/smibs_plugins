@@ -4,6 +4,7 @@ class BannerTop {
 
     constructor() {
         this.initLayout();
+        this.initAppends();
         if (document.body.clientWidth > 767 || screen.width > 767) {
             this.initAnim();
         }
@@ -19,9 +20,7 @@ class BannerTop {
     initLayout() {
         this.mainContent = document.querySelector('.main-content');
         this.mainContentInside = document.querySelector('.main-content__inside');
-        this.mainContentTop = document.createElement('div');
-        this.mainContentTop.className = 'main-content__top';
-        // this.mainContentTop = document.querySelector('.main-content__top');
+        this.mainContentTop = document.querySelector('.main-content__top');
 
         this.bannerTop = document.createElement('div');
         this.bannerTop.id = 'bannerTop';
@@ -76,7 +75,7 @@ class BannerTop {
         this.bannerTopLenta = document.createElement('picture');
         this.bannerTopLenta.id = 'bannerTopLenta';
         this.bannerTopLenta.innerHTML = `
-            <img src="assets/images/80victory/bannerTopLenta.png">
+            <img src="assets/images/80victory/bannerTopLenta.svg">
         `;
 
         // Slogan Right
@@ -94,10 +93,9 @@ class BannerTop {
         this.bannerTopSloganBottom.innerHTML = `
             <img src="assets/images/80victory/bannerTopSloganBottom.svg">
         `;
+    }
 
-        // Appends
-        // this.mainContentInside.insertBefore(this.mainContentTop, this.mainContentInside.firstChild);
-        this.mainContentInside.appendChild(this.mainContentTop);
+    initAppends() {
         this.mainContentTop.appendChild(this.bannerTop);
         this.bannerTop.appendChild(this.bannerTopRight);
         this.bannerTop.appendChild(this.bannerTopLenta);

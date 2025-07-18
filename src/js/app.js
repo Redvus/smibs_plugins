@@ -1,10 +1,10 @@
 import '/scss/main.scss';
-import '/main.css';
+// import '/main.css'; // Убрать перед сборкой
 import {BannerTop} from "./BannerTop.js";
 
 class Plugins {
     constructor() {
-        this.initLayout();
+        this.initLayout(); // Убрать перед сборкой
         new BannerTop();
     }
 
@@ -37,6 +37,9 @@ class Plugins {
         this.mainContentInside = document.createElement('div');
         this.mainContentInside.className = 'main-content__inside';
 
+        this.mainContentTop = document.createElement('div');
+        this.mainContentTop.className = 'main-content__top';
+
         // this.footer = document.createElement('div');
         // this.footer.className = 'footer';
         // this.footerTopBlock = document.createElement('div');
@@ -48,6 +51,7 @@ class Plugins {
         this.wrapper.appendChild(this.header);
         this.wrapper.appendChild(this.mainContent);
         this.mainContent.appendChild(this.mainContentInside);
+        this.mainContentInside.appendChild(this.mainContentTop);
     }
 }
 
