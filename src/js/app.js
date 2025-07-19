@@ -1,10 +1,12 @@
+import '/main.css'; // Исключается в конфигурации
 import '/scss/main.scss';
-// import '/main.css'; // Убрать перед сборкой
 import {BannerTop} from "./BannerTop.js";
 
 class Plugins {
     constructor() {
-        this.initLayout(); // Убрать перед сборкой
+        if (import.meta.env.DEV) {
+            this.initLayout();
+        }
         new BannerTop();
     }
 

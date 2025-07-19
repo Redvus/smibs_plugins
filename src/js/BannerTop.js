@@ -11,7 +11,7 @@ class BannerTop {
 
         if (document.body.clientWidth < 767 || screen.width < 767) {
             this.initMobile();
-            this.initAnimMobile();
+            // this.initAnimMobile();
         }
 
         // this.initDev();
