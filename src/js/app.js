@@ -1,4 +1,6 @@
-import '/main.css'; // Исключается в конфигурации
+if (import.meta.env.DEV) {
+    import('/main.css');
+}
 import '/scss/main.scss';
 import {BannerTop} from "./BannerTop.js";
 

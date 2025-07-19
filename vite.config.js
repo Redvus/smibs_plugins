@@ -48,9 +48,9 @@ export default defineConfig({
                     return '[name]-[hash][extname]';
                 },
             },
-            external: [
-                /main\.css/, // Исключаем main.css из сборки
-            ]
+            // external: [
+            //     /main\.css/ // Исключаем main.css из сборки
+            // ]
         }
     },
     css: {
