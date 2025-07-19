@@ -4,7 +4,9 @@ import {Calendar} from "./Calendar.js";
 
 class Plugins {
     constructor() {
-        this.initLayout(); // Скрывать для build
+        if (import.meta.env.DEV) {
+            this.initLayout(); // Скрывать для build
+        }
         new Calendar(1) // Убирать в скобках для build
     }
 

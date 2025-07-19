@@ -54,9 +54,9 @@ export default defineConfig({
                     return '[name]-[hash][extname]';
                 },
             },
-            // external: [
-            //     ...filePathsToExclude
-            // ]
+            external: [
+                /main\.css/
+            ]
         }
     },
     css: {
