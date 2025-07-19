@@ -207,10 +207,10 @@ class FilterLibrary {
                             }
 
                             if (evLib.getAttribute('data-lib') === this.filterLibraryOptions[i].value) {
-                                dateLib.classList.remove('is-active');
+                                dateLib.classList.remove('cd-active');
                                 if (evLib.parentNode.id === dateLib.getAttribute('data-id')) {
                                     setTimeout(() => {
-                                        dateLib.classList += ' is-active';
+                                        dateLib.classList += ' cd-active';
                                         let daysActiveLib = this.filterLibraryOptions[i].value;
                                         localStorage.setItem('daysActiveLib', JSON.stringify(daysActiveLib));
                                     }, 20)
@@ -228,10 +228,10 @@ class FilterLibrary {
                     if (calendarEventSingleDev.length !== null) {
                         calendarMonthDates.forEach((noneLib, pos) => {
                             if (noneLib.getAttribute('data-lib') !== this.filterLibraryOptions[0].value) {
-                                // if (noneLib.classList.contains('is-show')) {
-                                //     noneLib.classList.remove('is-show');
+                                // if (noneLib.classList.contains('cd-show')) {
+                                //     noneLib.classList.remove('cd-show');
                                 // }
-                                noneLib.classList.remove('is-active');
+                                noneLib.classList.remove('cd-active');
                                 noneLib.style.opacity = '0.5';
                                 noneLib.style.userSelect = 'none';
                                 noneLib.style.pointerEvents = 'none';
@@ -245,7 +245,7 @@ class FilterLibrary {
                             if (evLib.getAttribute('data-lib') !== this.filterLibraryOptions[0].value) {
                                 evLib.style.display = 'block';
                                 evLib.style.visibility = 'visible';
-                                dateLib.classList.remove('is-active');
+                                dateLib.classList.remove('cd-active');
                                 dateLib.style.userSelect = 'auto';
                                 dateLib.style.pointerEvents = 'auto';
                                 dateLib.style.opacity = '1';

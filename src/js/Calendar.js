@@ -14,8 +14,10 @@ class Calendar {
         this.monthNow = monthNow;
         this.yearNow = yearNow;
 
-        this.initLayoutDev(); // Скрывать для build
-        this.initEventDev(); // Скрывать для build
+        if (import.meta.env.DEV) {
+            this.initLayoutDev();
+            this.initEventDev();
+        }
 
         this.objectsTabs();
         new FilterLibrary();
@@ -301,8 +303,8 @@ class Calendar {
 
         for (let i = 0; i < this.tabMenuTrigger.length; i++) {
             this.tabMenuTrigger[i].addEventListener('click', () => {
-                document.getElementsByClassName('is-show')[0].classList.remove('is-show');
-                this.tabMenuTrigger[i].classList.add('is-show');
+                document.getElementsByClassName('cd-show')[0].classList.remove('cd-show');
+                this.tabMenuTrigger[i].classList.add('cd-show');
                 this.arrayTabs = Array.prototype.slice.call(this.tabMenuTrigger);
                 this.index = this.arrayTabs.indexOf(this);
 
@@ -339,7 +341,7 @@ class Calendar {
                         autoAlpha: 1,
                         display: 'flex'
                     });
-                    this.tabMenuTrigger[`${this.dateNow}` - 1].classList.add('is-show');
+                    this.tabMenuTrigger[`${this.dateNow}` - 1].classList.add('cd-show');
                 }
             });
 

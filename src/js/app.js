@@ -1,4 +1,6 @@
-import '/main.css'; // Скрывать для build
+if (import.meta.env.DEV) {
+    import('/main.css');
+}
 import '/scss/app.scss';
 import {Calendar} from "./Calendar.js";
 

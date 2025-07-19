@@ -5,9 +5,9 @@
 	}
 
 	&__calendar {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
+		width: 100% !important;
+		display: flex !important;
+		flex-direction: row !important;
 
 		&_month {
 			width: calc(40% - #{$border_thin} - (#{$marginVert} * 2));
@@ -464,17 +464,17 @@
 
 /*============  End of BannerTop Page  =============*/
 
-.is-show {
+.cd-active {
+	color: $fourth !important;
+	background-color: $secondary !important;
+	opacity: 1 !important;
+	pointer-events: auto !important;
+}
+
+.cd-show {
 	color: $fourth;
 	//background-color: darken($primary, 10%);
 	background-color: lighten($secondary, 10%) !important;
-}
-
-.is-active {
-	color: $fourth;
-	background-color: $secondary;
-	opacity: 1 !important;
-	pointer-events: auto !important;
 }
 
 .is-hide {
