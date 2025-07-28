@@ -4,8 +4,8 @@ class BannerTop {
 
     constructor() {
         this.initLayout();
-        this.initAppends();
         if (document.body.clientWidth > 767 || screen.width > 767) {
+            this.initLayoutDesktop();
             this.initAnim();
         }
 
@@ -21,7 +21,9 @@ class BannerTop {
         this.mainContent = document.querySelector('.main-content');
         this.mainContentInside = document.querySelector('.main-content__inside');
         this.mainContentTop = document.querySelector('.main-content__top');
+    }
 
+    initLayoutDesktop() {
         this.bannerTop = document.createElement('div');
         this.bannerTop.id = 'bannerTop';
 
@@ -93,9 +95,7 @@ class BannerTop {
         this.bannerTopSloganBottom.innerHTML = `
             <img src="assets/images/80victory/bannerTopSloganBottom.svg">
         `;
-    }
 
-    initAppends() {
         this.mainContentTop.appendChild(this.bannerTop);
         this.bannerTop.appendChild(this.bannerTopRight);
         this.bannerTop.appendChild(this.bannerTopLenta);
@@ -154,8 +154,10 @@ class BannerTop {
     initMobile() {
         this.bannerTop1945M = document.createElement('picture');
         this.bannerTop2025M = document.createElement('picture');
+        this.bannerTopM = document.createElement('picture');
         this.bannerTop1945M.id = 'bannerTop1945M';
         this.bannerTop2025M.id = 'bannerTop2025M';
+        this.bannerTopM.id = 'bannerTopM';
 
         this.bannerTop1945M.innerHTML = `
             <img src="assets/images/80victory/bannerTop1945M.svg">
@@ -165,8 +167,13 @@ class BannerTop {
             <img src="assets/images/80victory/bannerTop2025M.svg">
         `;
 
-        this.bannerTop.appendChild(this.bannerTop1945M);
-        this.bannerTop.appendChild(this.bannerTop2025M);
+        this.bannerTopM.innerHTML = `
+            <img src="assets/images/80victory/bannerTopM.svg">
+        `;
+
+        this.mainContentTop.appendChild(this.bannerTopM);
+        // this.bannerTop.appendChild(this.bannerTop1945M);
+        // this.bannerTop.appendChild(this.bannerTop2025M);
     }
 
     initAnimMobile() {
