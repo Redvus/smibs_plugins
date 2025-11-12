@@ -1,483 +1,482 @@
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
+
+$calendarDateBackground: var(--third-lighten-95);
+$calendarDateColor: var(--third-lighten-30);
+$calendarWeekBackground: var(--fourth);
+
 .main-content {
+    &__subheader {
+        position: relative;
+    }
 
-	&__subheader {
-		position: relative;
-	}
+    &__calendar {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
 
-	&__calendar {
-		width: 100% !important;
-		display: flex !important;
-		flex-direction: row !important;
+        &_month {
+            width: calc(40% - #{$border_thin} - (#{$marginVert} * 2));
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            //border-right: $border_thin solid var(--secondary);
+            margin-right: $marginVert;
+            //padding-right: $marginVert;
+        }
 
-		&_month {
-			width: calc(40% - #{$border_thin} - (#{$marginVert} * 2));
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			//border-right: $border_thin solid $secondary;
-			margin-right: $marginVert;
-			//padding-right: $marginVert;
-		}
+        &_filter {
+            min-width: 13rem;
+            //height: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 1rem;
 
-		&_filter {
-			min-width: 13rem;
-			//height: 2.2rem;
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			bottom: 0;
-			right: 0;
-			margin-bottom: 1rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
+        &_select {
+            width: 100%;
+            height: 2.2rem;
+            display: block;
+            position: relative;
+            z-index: 0;
+            top: 0;
+            right: 0;
+            margin-bottom: 1rem;
 
-		&_select {
-			width: 100%;
-			height: 2.2rem;
-			display: block;
-			position: relative;
-			z-index: 0;
-			top: 0;
-			right: 0;
-			margin-bottom: 1rem;
+            select {
+                width: 100%;
+                height: 100%;
+                padding: 0 calc(#{$marginVert} / 2);
+                text-align: left;
+                color: var(--secondary);
+                border: $border_thin solid var(--secondary);
+            }
 
-			select {
-				width: 100%;
-				height: 100%;
-				padding: 0 calc(#{$marginVert} / 2);
-				text-align: left;
-				color: $secondary;
-				border: $border_thin solid $secondary;
-			}
+            option {
+                color: var(--secondary);
+            }
+        }
 
-			option {
-				color: $secondary;
-			}
-		}
+        &_arrow {
+            width: 2rem !important;
+            height: 2rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: var(--secondary);
+        }
 
-		&_arrow {
-			width: 2rem;
-			height: 2rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			top: 0;
-			right: 0;
-			color: $secondary;
-		}
+        @include bp.media-up("Small") {
+            visibility: visible;
+        }
+    }
 
-		@include grid-media($XSmall) {
-			visibility: visible;
-		}
-	}
+    @include bp.media-up("Small") {
+        &__calendar {
+            flex-direction: column;
 
-	@include grid-media($Small) {
-
-		&__calendar {
-			flex-direction: column;
-
-			&_month {
-				width: 100%;
-				height: inherit;
-				margin-right: 0;
-				margin-bottom: calc(#{$marginVert} / 2);
-			}
-		}
-	}
+            &_month {
+                width: 100%;
+                height: inherit;
+                margin-right: 0;
+                margin-bottom: calc(#{$marginVert} / 2);
+            }
+        }
+    }
 }
 
 .calendar {
+    &__week {
+        width: 100%;
+        //height: 100%;
+        display: flex;
+        flex-direction: row;
+        // flex-wrap: wrap;
+        margin-bottom: 0.15rem;
 
-	&__week {
-		width: 100%;
-		//height: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		margin-bottom: 0.15rem;
+        li {
+            width: calc((100% / 7) - 0.2rem);
+            height: 5vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 0;
+            margin: 0.1rem;
+            background-color: $calendarWeekBackground;
+            color: $calendarDateColor;
+            border: $border_thin solid var(--third-lighten-50);
+            cursor: pointer;
+        }
+    }
 
-		li {
-			width: calc((100% / 7) - 0.2rem);
-			height: 5vmin;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin: 0.1rem;
-			background-color: darken($primary, 7%);
-			cursor: pointer;
-		}
-	}
+    &__month {
+        width: 100%;
+        //height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: $marginVert;
 
-	&__month {
-		width: 100%;
-		//height: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		margin-bottom: $marginVert;
+        &_date {
+            width: calc((100% / 7) - 0.2rem);
+            height: 3vmax;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.1rem;
+            background-color: $calendarDateBackground;
+            color: $calendarDateColor;
+            cursor: pointer;
 
-		&_date {
-			width: calc((100% / 7) - 0.2rem);
-			height: 3vmax;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin: 0.1rem;
-			background-color: $primary;
-			cursor: pointer;
+            &--tuesday {
+                margin-left: calc(((100% / 7) * 1) + 0.1rem);
+            }
 
-			&--tuesday {
-				margin-left: calc(((100% / 7) * 1) + 0.1rem);
-			}
+            &--wendsday {
+                margin-left: calc(((100% / 7) * 2) + 0.1rem);
+            }
 
-			&--wendsday {
-				margin-left: calc(((100% / 7) * 2) + 0.1rem);
-			}
+            &--thirdsday {
+                margin-left: calc(((100% / 7) * 3) + 0.1rem);
+            }
 
-			&--thirdsday {
-				margin-left: calc(((100% / 7) * 3) + 0.1rem);
-			}
+            &--friday {
+                margin-left: calc(((100% / 7) * 4) + 0.1rem);
+            }
 
-			&--friday {
-				margin-left: calc(((100% / 7) * 4) + 0.1rem);
-			}
+            &--saturday {
+                margin-left: calc(((100% / 7) * 5) + 0.1rem);
+            }
 
-			&--saturday {
-				margin-left: calc(((100% / 7) * 5) + 0.1rem);
-			}
+            &--sunday {
+                margin-left: calc(((100% / 7) * 6) + 0.1rem);
+            }
+        }
 
-			&--sunday {
-				margin-left: calc(((100% / 7) * 6) + 0.1rem);
-			}
-		}
+        &-num {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // border-bottom: $border_thin solid var(--secondary);
+            background-color: var(--secondary);
 
-		&-num {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			// border-bottom: $border_thin solid $secondary;
-			background-color: $secondary;
+            span {
+                font-family: var(--heading-font);
+                font-size: calc(var(--font-size-large) + 0.5);
+                color: $layoutBackground;
+            }
+        }
 
-			span {
-				font-family: $heading-font;
-				font-size: $font-size-large + 0.5;
-				color: $layoutBackground;
-			}
-		}
+        &-month {
+            width: 100%;
+            height: calc(50% - #{$border_thin});
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // border-bottom: $border_thin solid var(--secondary);
+            // padding-left: 0.5rem;
+            background-color: var(--primary);
 
-		&-month {
-			width: 100%;
-			height: calc(50% - #{$border_thin});
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			// border-bottom: $border_thin solid $secondary;
-			// padding-left: 0.5rem;
-			background-color: $primary;
+            span {
+                font-size: var(--font-size-base);
+                color: var(--secondary);
+            }
+        }
 
-			span {
-				font-size: $font-size-base;
-				color: $secondary;
-			}
-		}
+        &-week {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // padding-left: 0.5rem;
+            // background-color: $navBackground;
 
-		&-week {
-			width: 100%;
-			height: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			// padding-left: 0.5rem;
-			background-color: $navBackground;
+            span {
+                font-size: var(--font-size-base);
+                color: var(--secondary);
+            }
+        }
 
-			span {
-				font-size: $font-size-base;
-				color: $secondary;
-			}
-		}
+        &--current {
+            background-color: var(--secondary);
+            border-color: var(--primary);
 
-		&--current {
-			background-color: $secondary;
-			border-color: $primary;
+            span {
+                color: var(--primary);
+            }
+        }
 
-			span {
-				color: $primary;
-			}
-		}
+        &--active {
+            border-color: $footerDownBlock;
 
-		&--active {
-			border-color: $footerDownBlock;
+            .calendar-date__data-num {
+                background-color: $footerDownBlock;
+            }
+        }
 
-			.calendar-date__data-num {
-				background-color: $footerDownBlock;
-			}
-		}
+        @include bp.media-up("Small") {
+            &-month,
+            &-week {
+                span {
+                    font-size: var(--font-size-small);
+                }
+            }
+        }
+    }
 
-		@include grid-media($Small) {
+    &__events {
+        width: 60%;
+        height: 100%;
+        min-height: 32rem;
+        display: block;
+        float: left;
+        overflow: hidden;
+        padding-left: $marginVert;
+        border-left: $border_thin solid var(--secondary);
 
-			&-month,
-			&-week {
+        &_inside {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-				span {
-					font-size: $font-size-small;
-				}
-			}
-		}
-	}
+        &_single {
+            display: block;
+            position: relative;
+            border-bottom: 0.1rem solid var(--secondary);
+            margin-bottom: 2rem;
+            //padding-bottom: 2rem;
 
-	&__events {
-		width: 60%;
-		height: 100%;
-		min-height: 32rem;
-		display: block;
-		float: left;
-		overflow: hidden;
-		padding-left: $marginVert;
-		border-left: $border_thin solid $secondary;
+            h3 {
+                margin-top: 1rem;
+            }
 
-		&_inside {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-		}
+            h4 {
+                margin-top: 0.3rem;
+            }
 
-		&_single {
-			display: block;
-			position: relative;
-			border-bottom: 0.1rem solid $secondary;
-			margin-bottom: 2rem;
-			//padding-bottom: 2rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
 
-			h3 {
-				margin-top: 1rem;
-			}
+        &_header {
+            width: 100%;
+            height: auto;
+            display: flex;
+            // justify-content: space-between;
+        }
 
-			h4 {
-				margin-top: 0.3rem;
-			}
+        &_footer {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: flex-end;
+        }
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
+        &_pass {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            top: 0;
+            left: 0;
 
-		&_header {
-			width: 100%;
-			height: auto;
-			display: flex;
-			// justify-content: space-between;
-		}
+            &--bottom {
+                bottom: 0;
+                right: 0;
+            }
+        }
 
-		&_footer {
-			width: 100%;
-			height: auto;
-			display: flex;
-			justify-content: flex-end;
-		}
+        &_tags {
+            margin-left: 0.15rem;
 
-		&_pass {
-			display: flex;
-			flex-direction: row;
-			position: relative;
-			top: 0;
-			left: 0;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
 
-			&--bottom {
-				bottom: 0;
-				right: 0;
-			}
-		}
+        &_terms {
+            display: block;
+            position: relative;
+            padding: 0.1rem 0.5rem 0.3rem;
+            background-color: var(--secondary);
+            font-family: var(--heading-font);
+            font-size: var(--font-size-base);
+            color: var(--fourth);
 
-		&_tags {
-			margin-left: 0.15rem;
+            &--dark {
+                color: var(--secondary);
+                background-color: var(--primary-darken-7);
+            }
+        }
 
-			&:first-child {
-				margin-left: 0;
-			}
-		}
+        &_entrance {
+            display: block;
+            position: relative;
+            padding: 0.1rem 0.5rem 0.3rem;
+            background-color: var(--primary);
+            font-family: var(--heading-font);
+            font-size: var(--font-size-base);
+            color: var(--secondary);
 
-		&_terms {
-			display: block;
-			position: relative;
-			padding: 0.1rem 0.5rem 0.3rem;
-			background-color: $secondary;
-			font-family: $heading-font;
-			font-size: $font-size-base;
-			color: $fourth;
+            &--dark {
+                background-color: var(--primary-darken-7);
+            }
+        }
 
-			&--dark {
-				color: $secondary;
-				background-color: darken($primary, 7%);
-			}
-		}
+        p {
+            margin-top: 0;
+        }
 
-		&_entrance {
-			display: block;
-			position: relative;
-			padding: 0.1rem 0.5rem 0.3rem;
-			background-color: $primary;
-			font-family: $heading-font;
-			font-size: $font-size-base;
-			color: $secondary;
+        &--current {
+            background-color: var(--primary);
+            border-color: var(--secondary);
+        }
+    }
 
-			&--dark {
-				background-color: darken($primary, 7%);
-			}
-		}
+    @include bp.media-up("XSmall") {
+        &__week {
+            li {
+                height: 5vmin;
+            }
+        }
 
-		p {
-			margin-top: 0;
-		}
+        &__month {
+            &_date {
+                height: 5vmin;
+            }
+        }
+    }
 
-		&--current {
-			background-color: $primary;
-			border-color: $secondary;
-		}
-	}
+    @include bp.media-up("Small") {
+        &__week {
+            li {
+                height: 7vmax;
+            }
+        }
 
-	@include grid-media($XSmall) {
+        &__month {
+            &_date {
+                height: 7vmax;
+            }
+        }
 
-		&__week {
+        &__events {
+            width: 100%;
+            padding-left: 0;
+            padding-top: $marginVert;
+            border-left: none;
+            border-top: $border_thin solid var(--secondary);
+        }
+    }
 
-			li {
-				height: 5vmin;
-			}
-		}
+    // @include bp.media-up("XLarge") {
+    //     &__data {
+    //         width: calc(5rem - #{$border_thin});
 
-		&__month {
+    //         &-num {
+    //             span {
+    //                 font-size: var(--font-size-large);
+    //             }
+    //         }
 
-			&_date {
-				height: 5vmin;
-			}
-		}
-	}
+    //         &-month,
+    //         &-week {
+    //             span {
+    //                 font-size: var(--font-size-large);
+    //             }
+    //         }
+    //     }
 
-	@include grid-media($Small) {
+    //     &__events {
+    //         width: calc(100% - 5rem - #{$border_thin});
+    //     }
+    // }
 
-		&__week {
+    // @include grid-media($XLarge) {
 
-			li {
-				height: 7vmax;
-			}
-		}
+    // 	&__data {
+    // 		width: calc(4rem - #{$border_thin});
 
-		&__month {
+    // 		&-num {
 
-			&_date {
-				height: 7vmax;
-			}
-		}
+    // 			span {
+    // 				font-size: var(--font-size-large) + 0.5);
+    // 			}
+    // 		}
 
-		&__events {
-			width: 100%;
-			padding-left: 0;
-			padding-top: $marginVert;
-			border-left: none;
-			border-top: $border_thin solid $secondary;
-		}
-	}
+    // 		&-month,
+    // 		&-week {
 
-	//@include grid-media($XXLarge) {
-	//
-	//	&__data {
-	//		width: calc(5rem - #{$border_thin});
-	//
-	//		&-num {
-	//
-	//			span {
-	//				font-size: $font-size-large + 1;
-	//			}
-	//		}
-	//
-	//		&-month,
-	//		&-week {
-	//
-	//			span {
-	//				font-size: $font-size-large;
-	//			}
-	//		}
-	//	}
-	//
-	//	&__events {
-	//		width: calc(100% - 5rem - #{$border_thin});
-	//	}
-	//}
-	//
-	//@include grid-media($XLarge) {
-	//
-	//	&__data {
-	//		width: calc(4rem - #{$border_thin});
-	//
-	//		&-num {
-	//
-	//			span {
-	//				font-size: $font-size-large + 0.5;
-	//			}
-	//		}
-	//
-	//		&-month,
-	//		&-week {
-	//
-	//			span {
-	//				font-size: $font-size-base;
-	//			}
-	//		}
-	//	}
-	//
-	//	&__events {
-	//		width: calc(100% - 4rem - #{$border_thin});
-	//	}
-	//}
-	//
-	//@include grid-media($Large) {
-	//
-	//	&__data {
-	//		width: calc(3rem - #{$border_thin});
-	//
-	//		&-num {
-	//
-	//			span {
-	//				font-size: $font-size-large + 0.5;
-	//			}
-	//		}
-	//
-	//		&-month,
-	//		&-week {
-	//
-	//			span {
-	//				font-size: $font-size-base;
-	//			}
-	//		}
-	//	}
-	//
-	//	&__events {
-	//		width: calc(100% - 3rem - #{$border_thin});
-	//	}
-	//}
+    // 			span {
+    // 				font-size: var(--font-size-base);
+    // 			}
+    // 		}
+    // 	}
+
+    // 	&__events {
+    // 		width: calc(100% - 4rem - #{$border_thin});
+    // 	}
+    // }
+
+    // @include bp.media-up("XLarge") {
+    //     &__data {
+    //         width: calc(3rem - #{$border_thin});
+
+    //         &-num {
+    //             span {
+    //                 font-size: var(--font-size-large);
+    //             }
+    //         }
+
+    //         &-month,
+    //         &-week {
+    //             span {
+    //                 font-size: var(--font-size-base);
+    //             }
+    //         }
+    //     }
+
+    //     &__events {
+    //         width: calc(100% - 3rem - #{$border_thin});
+    //     }
+    // }
 }
 
 /*============  End of BannerTop Page  =============*/
 
+.is-active,
 .cd-active {
-	color: $fourth !important;
-	background-color: $secondary !important;
-	opacity: 1 !important;
-	pointer-events: auto !important;
+    color: var(--fourth) !important;
+    background-color: var(--secondary) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
 }
 
+.is-show,
 .cd-show {
-	color: $fourth;
-	//background-color: darken($primary, 10%);
-	background-color: lighten($secondary, 10%) !important;
+    color: var(--fourth);
+    //background-color: darken(var(--primary, 10%));
+    background-color: var(--secondary) !important;
 }
 
-.is-hide {
-	display: none;
-	visibility: hidden;
+.is-hide,
+.cd-hide {
+    display: none;
+    visibility: hidden;
 }

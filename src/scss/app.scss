@@ -2,12 +2,11 @@
 // @import "../../node_modules/sag-bourbon-neat/core/neat";
 //@import "bitters/base";
 
-@import "media";
-@import "colors";
-@import "fonts";
-@import "variables";
+@use "breakpoints";
+@use "colors";
+@use "fonts";
 
 //@import "anniversary2025";
 //@import "bannerTop";
-@import "calendar";
-@import "tabs";
+@use "calendar";
+@use "tabs";

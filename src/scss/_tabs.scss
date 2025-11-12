@@ -1,13 +1,17 @@
-.tab {
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
 
+.tab {
     &__menu {
         width: 100%;
-        //height: calc(#{$padding} * 2);
+        //height: calc(#{$marginVert} * 2);
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        background-color: $fourth;
+        background-color: var(--fourth);
 
         &--page {
             background-color: transparent;
@@ -22,7 +26,7 @@
             //display: flex;
             //align-items: center;
             //justify-content: center;
-            //padding: $padding calc(#{$padding} * 2);
+            //padding: $marginVert calc(#{$marginVert} * 2);
             //cursor: pointer;
             //
             //&.is-active{
@@ -32,12 +36,12 @@
             //&--page {
             //
             //    &.is-active{
-            //        background-color: $fourth;
-            //        border-top: $border_normal solid $secondary;
-            //        //border-bottom: $border_normal solid $fourth;
-            //        border-left: $border_normal solid $secondary;
-            //        border-right: $border_normal solid $secondary;
-            //        padding: calc(#{$padding} - #{$border_normal}) calc((#{$padding} * 2) - (#{$border_normal} * 2)) $padding;
+            //        background-color: var(--fourth);
+            //        border-top: $border_normal solid var(--secondary);
+            //        //border-bottom: $border_normal solid var(--fourth);
+            //        border-left: $border_normal solid var(--secondary);
+            //        border-right: $border_normal solid var(--secondary);
+            //        padding: calc(#{$marginVert} - #{$border_normal}) calc((#{$marginVert} * 2) - (#{$border_normal} * 2)) $marginVert;
             //    }
             //}
         }
@@ -45,17 +49,16 @@
 
     &__content {
         width: 100%;
-        padding: calc(#{$padding} * 2) 0 $padding;
+        padding: calc(#{$marginVert} * 2) 0 $marginVert;
 
         &--page {
-            border-top: $border_normal solid $secondary;
-            margin-top: calc((-#{$border_normal}) + (#{$padding} * 0.03));
+            border-top: $border_normal solid var(--secondary);
+            margin-top: calc((-#{$border_normal}) + (#{$marginVert} * 0.03));
             z-index: 1;
         }
     }
 
-    @include grid-media($XSmall) {
-
+    @include bp.media-up("Small") {
         &__menu {
             flex-direction: column;
 
@@ -64,12 +67,10 @@
             }
 
             &_trigger {
-
                 &--page {
-
-                    &.is-active{
-                        background-color: $secondary;
-                        color: $fourth;
+                    &.is-active {
+                        background-color: var(--secondary);
+                        color: var(--fourth);
                         border: none;
                     }
                 }
