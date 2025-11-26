@@ -1,0 +1,23 @@
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
+
+.retail {
+    &__content {
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    &__block {
+        flex: 1 1 auto;
+        background-color: var(--secondary-lighten-95);
+        // border: $border_normal solid var(--primary-lighten-50);
+        // padding: 1rem;
+        // margin-bottom: 2rem;
+    }
+}
