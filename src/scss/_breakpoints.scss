@@ -3,9 +3,10 @@
 $breakpoints: (
     "Small": 576px,
     "XSmall": 768px,
-    "Medium": 1080px,
-    "Large": 1680px,
-    "XLarge": 1920px,
+    "Medium": 1280px,
+    "Large": 1440px,
+    "XLarge": 1600px,
+    "XXLarge": 3820px,
 );
 
 @function breakpoint($key) {

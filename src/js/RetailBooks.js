@@ -15,25 +15,78 @@ class RetailBooks {
             <h2>Аренда книг</h2>
         `;
 
-        this.retailBooksContent = document.createElement("ul");
+        this.retailBooksContent = document.createElement("div");
         this.retailBooksContent.className = "retail__content";
 
-        let countBooks = 10; // Example count
+        let countBooks = 11; // Example count
+        this.retailBookTitles = [
+            "Непоколебимое",
+            "Властелин колец",
+            "Преступление и наказание",
+            "Мастер и Маргарита",
+            "Война и мир",
+            "Анна Каренина",
+            "1984",
+            "Улисс",
+            "Гордость и предубеждение",
+            "Гарри Поттер",
+        ];
+        this.retailBookAuthors = [
+            "Забавнов А. Т.",
+            "Иванов И. И.",
+            "Петров П. П.",
+            "Сидоров С. С.",
+            "Кузнецов К. К.",
+            "Смирнов С. С.",
+            "Попов П. П.",
+            "Васильев В. В.",
+            "Михайлов М. М.",
+            "Новиков Н. Н.",
+        ];
+        this.retailBookCovers = [
+            "assets/images/retailBook_1.jpg",
+            "assets/images/retailBook_2.jpg",
+            "assets/images/retailBook_3.jpg",
+            "assets/images/retailBook_4.jpg",
+            "assets/images/retailBook_5.jpg",
+            "assets/images/retailBook_6.jpg",
+            "assets/images/retailBook_7.jpg",
+            "assets/images/retailBook_8.jpg",
+            "assets/images/retailBook_9.jpg",
+            "assets/images/retailBook_10.jpg",
+            "assets/images/retailBook_11.jpg",
+            "assets/images/retailBook_12.jpg",
+        ];
 
-        for (let i = 0; i < countBooks.length; i++) {
-            const retailBooksBlock = document.createElement("li")[i];
+        for (let i = 0; i < countBooks; i++) {
+            const retailBooksBlock = document.createElement("div");
             retailBooksBlock.className = "retail__block";
+
+            const retailBookAuthorsRandom =
+                this.retailBookAuthors[
+                    Math.floor(Math.random() * this.retailBookAuthors.length)
+                ];
+            const retailBookTitlesRandom =
+                this.retailBookTitles[
+                    Math.floor(Math.random() * this.retailBookTitles.length)
+                ];
+            const retailBookCoversRandom =
+                this.retailBookCovers[
+                    Math.floor(Math.random() * this.retailBookCovers.length)
+                ];
+
             retailBooksBlock.innerHTML = `
-                <div class="retail__item-image">
-                    <img src="path_to_image.jpg" alt="Book Image">
+                <picture class="retail__block_image">
+                    <img src="${retailBookCoversRandom}" alt="Книга №${i + 1}">
+                </picture>
+                <div class="retail__block_info">
+                    <h3 class="retail__block_title">${retailBookTitlesRandom}</h3>
+                    <h4 class="retail__block_author">${retailBookAuthorsRandom}</h4>
+                    <p class="retail__block_description">Идейные соображения высшего порядка, а также выбранный нами инновационный путь представляет собой интересный эксперимент системы массового участия...</p>
                 </div>
-                <div class="retail__item-info">
-                    <h3 class="retail__item-title">Book Title ${i + 1}</h3>
-                    <p class="retail__item-author">Author Name</p>
-                    <p class="retail__item-description">Brief description of the book.</p>
-                </div>
+                <button class="retail__block_button">Взять читать</button>
             `;
-            this.retailBooksContent.appendChild(retailBooksBlock[i]);
+            this.retailBooksContent.appendChild(retailBooksBlock);
         }
     }
 
