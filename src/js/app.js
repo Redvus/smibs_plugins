@@ -1,6 +1,8 @@
+if (import.meta.env.DEV) {
+    import("/main.css");
+}
+
 import "/scss/app.scss";
-// import '/main.css';
-// import { } from "./";
 
 class Plugins {
     constructor() {
