@@ -3,10 +3,12 @@ if (import.meta.env.DEV) {
 }
 
 import "/scss/app.scss";
+import RetailBooks from "RetailBooks.js";
 
 class Plugins {
     constructor() {
         this.initLayout();
+        this.retailBooks = RetailBooks();
     }
 
     initLayout() {
