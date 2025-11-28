@@ -77,14 +77,19 @@ class RetailBooks {
 
             retailBooksBlock.innerHTML = `
                 <picture class="retail__block_image">
-                    <img src="${retailBookCoversRandom}" alt="Книга №${i + 1}">
+                    <img src="${retailBookCoversRandom}" load="lazy" alt="Книга №${
+                i + 1
+            }">
                 </picture>
                 <div class="retail__block_info">
-                    <h3 class="retail__block_title">${retailBookTitlesRandom}</h3>
                     <h4 class="retail__block_author">${retailBookAuthorsRandom}</h4>
-                    <p class="retail__block_description">Идейные соображения высшего порядка, а также выбранный нами инновационный путь представляет собой интересный эксперимент системы массового участия...</p>
+                    <h3 class="retail__block_title">${retailBookTitlesRandom}</h3>
+
+                    <!--<p class="retail__block_description">Идейные соображения высшего порядка, а также выбранный нами инновационный путь представляет собой интересный эксперимент системы массового участия...</p>-->
                 </div>
-                <button class="retail__block_button">Взять читать</button>
+                <div class="retail__block_footer">
+                    <button class="retail__block_button">Взять читать</button>
+                </div>
             `;
             this.retailBooksContent.appendChild(retailBooksBlock);
         }
