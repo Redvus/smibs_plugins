@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /*=================================================
 =                   Annyversary                   =
 =================================================*/
@@ -14,7 +16,7 @@
     //display: none;
     z-index: 10;
 
-    &--2025 {
+    &--2026 {
         display: block;
         background-color: #e6e6d2 !important;
         opacity: 0;
@@ -24,8 +26,7 @@
 
     /* NY Year
     -------------------------------------------------- */
-    #s2025 {
-
+    #s2026 {
         &_floor {
             width: 100vw;
             height: 7vh;
@@ -376,13 +377,10 @@
             left: 42%;
             z-index: 0;
         }
-
     }
 
-    @include grid-media($XSmall) {
-
+    @include bp.media-up("Small") {
         #s2025 {
-
             &_floor {
                 width: 100vw;
                 height: 7vh;
@@ -736,7 +734,6 @@
                 z-index: 0;
                 transform: translateX(-50%);
             }
-
         }
     }
 }

@@ -1,15 +1,15 @@
 if (import.meta.env.DEV) {
-    import "/main.css";
+    import("/main.css");
 }
 import "/scss/main.scss";
-import { Event_NY2025 } from "./Event_NY2025.js";
+import { Event_NY2026 } from "./Event_NY2026.js";
 
 class Plugins {
     constructor() {
         if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
         }
-        new Event_NY2025();
+        new Event_NY2026();
     }
 
     initLayout() {
