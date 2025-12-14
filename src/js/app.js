@@ -6,9 +6,9 @@ import { AnchorOnPage } from "./AnchorOnPage.js";
 
 class Plugins {
     constructor() {
-        // if (import.meta.env.DEV) {
+        if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
-        // }
+        }
         new AnchorOnPage();
     }
 

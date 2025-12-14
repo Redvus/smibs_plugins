@@ -5,12 +5,13 @@ class AnchorOnPage {
     constructor(parameters) {
         this.initLayout();
         this.initLayoutPage();
-        this.initAnhcorBlock();
-        // this.initAnimation();
+        this.initAnchorBlock();
+        this.initAnimation();
 
-        // if (import.meta.env.DEV) {
+        if (import.meta.env.DEV) {
             new PageContent();
-        // }
+        }
+        this.initSelectAnchor();
     }
 
     initLayout() {
@@ -44,7 +45,7 @@ class AnchorOnPage {
         this.anchorDayNum = [17, 18, 21, 22, 23, 24, 25, 26, 28, 29, 3, 4, 5, 6, 8, 9, 10, 11];
     }
 
-    initAnhcorBlock() {
+    initAnchorBlock() {
         this.anchorDayBlock = document.createElement('ul');
         this.anchorDayBlock.className = 'anchor-day-block';
         this.anchorDayCount = 18;
@@ -53,7 +54,7 @@ class AnchorOnPage {
             const anchorDayLink = document.createElement('li');
             anchorDayLink.className = 'anchor-day-block__item';
 
-            anchorDayLink.innerHTML = `<a href="#anchorDay_${i}">${this.anchorDayNum[i]}</a>`;
+            anchorDayLink.innerHTML = `<a href="#anchorDay_${i}" class="nav-link">${this.anchorDayNum[i]}</a>`;
             this.anchorDayBlock.appendChild(anchorDayLink);
         }
 
@@ -61,50 +62,65 @@ class AnchorOnPage {
     }
 
     initAnimation() {
-        const anniversary2026 = document.getElementById("anniversary2026"),
-            s2026_back = document.getElementById("s2026_back"),
-            s2026_bag = document.getElementById("s2026_bag"),
-            s2026_girl = document.getElementById("s2026_girl"),
-            s2026_slogan = document.getElementById("s2026_slogan");
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
 
-        let tl = new gsap.timeline({
-            delay: 1,
-            onComplete: this.initHide(7),
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+
+                // Smooth scroll to target
+                if (document.body.clientWidth > 576 || screen.width > 576) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Update URL without jumping
+                history.pushState(null, null, targetId);
+            });
         });
+    }
 
-        tl
-            .to(anniversary2026, {
-                duration: 0.3,
-                delay: "0.3",
-                autoAlpha: 1,
-                zIndex: 9999,
-                // easy: "elastic.in(1,0.3)"
-            })
-            .from([s2026_back], {
-                duration: 1,
-                delay: "-0.3",
-                autoAlpha: 0,
-            })
-            .from([s2026_ded, s2026_bag], {
-                duration: 0.6,
-                delay: "-0.3",
-                autoAlpha: 0,
-                left: "-=50",
-                stagger: 0.7,
-            })
-            .from(s2026_girl, {
-                duration: 0.6,
-                delay: "-0.1",
-                autoAlpha: 0,
-                left: "+=50",
-            })
-            .from(s2026_slogan, {
-                duration: 0.6,
-                delay: "-0.1",
-                autoAlpha: 0,
-                top: "-=20",
-            })
-        ;
+    initSelectAnchor() {
+        const sections = document.querySelectorAll('.section__anchor');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (document.body.clientWidth > 576 || screen.width > 576) {
+                    if (pageYOffset >= sectionTop - 10) {
+                        current = section.getAttribute('id');
+                    }
+                } else {
+                    if (pageYOffset >= sectionTop - 50) {
+                        current = section.getAttribute('id');
+                    }
+                }
+
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
     }
 }
 
