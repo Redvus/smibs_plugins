@@ -42,7 +42,7 @@ class AnchorOnPage {
             this.anchorDay_17
         ];
 
-        this.anchorDayNum = [17, 18, 21, 22, 23, 24, 25, 26, 28, 29, 3, 4, 5, 6, 8, 9, 10, 11];
+        this.anchorDayNum = ['17 / 12', '18 / 12', '21 / 12', '22 / 12', '23 / 12', '24 / 12', '25 / 12', '26 / 12', '28 / 12', '29 / 12', '3 / 01', '4 / 01', '5 / 01', '6 / 01', '8 / 01', '9 / 01', '10 / 01', '11 / 01'];
     }
 
     initAnchorBlock() {
@@ -75,18 +75,18 @@ class AnchorOnPage {
                 // Smooth scroll to target
                 if (document.body.clientWidth > 576 || screen.width > 576) {
                     window.scrollTo({
-                        top: targetElement.offsetTop,
+                        top: targetElement.offsetTop + 100,
                         behavior: 'smooth'
                     });
                 } else {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 50,
+                        top: targetElement.offsetTop + 170,
                         behavior: 'smooth'
                     });
                 }
 
                 // Update URL without jumping
-                history.pushState(null, null, targetId);
+                // history.pushState(null, null, targetId);
             });
         });
     }
@@ -103,11 +103,11 @@ class AnchorOnPage {
                 const sectionHeight = section.clientHeight;
 
                 if (document.body.clientWidth > 576 || screen.width > 576) {
-                    if (pageYOffset >= sectionTop - 10) {
+                    if (pageYOffset >= sectionTop + 100) {
                         current = section.getAttribute('id');
                     }
                 } else {
-                    if (pageYOffset >= sectionTop - 50) {
+                    if (pageYOffset >= sectionTop + 170) {
                         current = section.getAttribute('id');
                     }
                 }
