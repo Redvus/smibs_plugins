@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 class Event_NY2026 {
     constructor(parameters) {
         this.initLayout();
-        // this.initAnimation();
+        this.initAnimation();
 
-        this.initDev();
+        // this.initDev();
     }
 
     initLayout() {
@@ -18,19 +18,19 @@ class Event_NY2026 {
 
         this.anniversaryDay.innerHTML = `
 			<picture id="s2026_back">
-				<img src="assets/plugins/ny2026/images/s2026_back.webp" alt="">
+				<img src="assets/plugins/ny2026/images/s2026_back.webp" alt="Комната с новогодней ёлкой" />
 			</picture>
 			<div id="s2026_ded">
-				<img src="assets/plugins/ny2026/images/s2026_ded.svg" id="s2026_gift1_1" alt="">
+				<img src="assets/plugins/ny2026/images/s2026_ded_2.png" id="Дед Мороз" alt="">
 			</div>
             <div id="s2026_girl">
-				<img src="assets/plugins/ny2026/images/s2026_girl.svg" id="s2026_gift1_1" alt="">
+				<img src="assets/plugins/ny2026/images/s2026_girl.svg" id="Девочка" alt="">
 			</div>
             <div id="s2026_bag">
-				<img src="assets/plugins/ny2026/images/s2026_bag.svg" id="s2026_gift1_1" alt="">
+				<img src="assets/plugins/ny2026/images/s2026_bag.svg" id="Мешок с подарками" alt="">
 			</div>
             <div id="s2026_slogan">
-				<img src="assets/plugins/ny2026/images/s2026_slogan.png" id="s2026_gift1_1" alt="">
+				<img src="assets/plugins/ny2026/images/s2026_slogan.png" id="С Новым Годом!" alt="">
 			</div>
 		`;
     }
