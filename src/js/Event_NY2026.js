@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 class Event_NY2026 {
     constructor(parameters) {
         this.initLayout();
-        this.initAnimation();
+        // this.initAnimation();
 
-        // this.initDev();
+        this.initDev();
     }
 
     initLayout() {
