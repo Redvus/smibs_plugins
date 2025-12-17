@@ -30,7 +30,7 @@ class Event_NY2026 {
 				<img src="assets/plugins/ny2026/images/s2026_bag.svg" id="Мешок с подарками" alt="">
 			</div>
             <div id="s2026_slogan">
-				<img src="assets/plugins/ny2026/images/s2026_slogan.png" id="С Новым Годом!" alt="">
+				<img src="assets/plugins/ny2026/images/s2026_slogan_2.png" id="С Новым Годом!" alt="">
 			</div>
 		`;
     }
@@ -75,7 +75,7 @@ class Event_NY2026 {
             })
             .from(s2026_slogan, {
                 duration: 0.6,
-                delay: "-0.1",
+                delay: "-0.6",
                 autoAlpha: 0,
                 top: "-=20",
             })

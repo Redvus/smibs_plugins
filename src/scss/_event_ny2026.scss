@@ -100,13 +100,14 @@
         }
 
         &_slogan {
-            width: 45vmin;
+            width: 70vmin;
             height: auto;
             display: block;
             position: absolute;
             top: 2vmin;
-            // left: 50vmin;
+            left: 50%;
             z-index: 4;
+            transform: translateX(-50%);
 
             img {
                 width: 100%;
@@ -131,8 +132,8 @@
             }
 
             &_slogan {
-                width: 45vmin;
-                right: 45vmin;
+                width: 80vmin;
+                // right: 45vmin;
             }
         }
 
@@ -150,8 +151,8 @@
             }
 
             &_slogan {
-                width: 45vmin;
-                right: 12vmin;
+                width: 70vmin;
+                // right: 12vmin;
             }
         }
 
@@ -169,8 +170,8 @@
             }
 
             &_slogan {
-                width: 45vmin;
-                right: 10vmin;
+                width: 70vmin;
+                // right: 10vmin;
             }
         }
 
@@ -188,8 +189,8 @@
             }
 
             &_slogan {
-                width: 45vmin;
-                right: 5vmin;
+                width: 70vmin;
+                // right: 5vmin;
             }
         }
 
@@ -207,8 +208,8 @@
             }
 
             &_slogan {
-                width: 40vmin;
-                right: 3vmin;
+                width: 70vmin;
+                // right: 3vmin;
             }
         }
 
@@ -226,8 +227,9 @@
             }
 
             &_slogan {
-                width: 40vmax;
-                left: 6vmax;
+                width: 90vmin;
+                // left: 6vmax;
+                top: 3vmin;
             }
         }
 
@@ -248,9 +250,9 @@
             }
 
             &_slogan {
-                width: 60vmin;
-                left: 5vmin;
-                top: 2vmin;
+                width: 90vmin;
+                // left: 5vmin;
+                top: 5vmin;
             }
         }
     }
