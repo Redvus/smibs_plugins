@@ -2,14 +2,14 @@ if (import.meta.env.DEV) {
     import("/main.css");
 }
 import "/scss/main.scss";
-import { Event_NY2026 } from "./Event_NY2026.js";
+import { GameSnowman } from "./gameSnowman.js";
 
 class Plugins {
     constructor() {
         if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
         }
-        new Event_NY2026();
+        new GameSnowman();
     }
 
     initLayout() {
@@ -47,11 +47,11 @@ class Plugins {
 
         //Appends
         // this.body.appendChild(this.footer);
-        this.wrapper.appendChild(this.sidebar);
-        this.wrapper.appendChild(this.sidebarStatic);
-        this.wrapper.appendChild(this.header);
+        // this.wrapper.appendChild(this.sidebar);
+        // this.wrapper.appendChild(this.sidebarStatic);
+        // this.wrapper.appendChild(this.header);
         this.wrapper.appendChild(this.mainContent);
-        this.mainContent.appendChild(this.mainContentInside);
+        // this.mainContent.appendChild(this.mainContentInside);
     }
 }
 
