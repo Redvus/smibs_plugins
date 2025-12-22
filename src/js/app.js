@@ -41,17 +41,17 @@ class Plugins {
         this.mainContentInside = document.createElement("div");
         this.mainContentInside.className = "main-content__inside";
 
-        // this.footer = document.createElement('div');
-        // this.footer.className = 'footer';
-        // this.footerTopBlock = document.createElement('div');
+        this.footer = document.createElement('div');
+        this.footer.className = 'footer';
+        this.footerTopBlock = document.createElement('div');
 
         //Appends
-        // this.body.appendChild(this.footer);
-        // this.wrapper.appendChild(this.sidebar);
-        // this.wrapper.appendChild(this.sidebarStatic);
-        // this.wrapper.appendChild(this.header);
+        this.body.appendChild(this.footer);
+        this.wrapper.appendChild(this.sidebar);
+        this.wrapper.appendChild(this.sidebarStatic);
+        this.wrapper.appendChild(this.header);
         this.wrapper.appendChild(this.mainContent);
-        // this.mainContent.appendChild(this.mainContentInside);
+        this.mainContent.appendChild(this.mainContentInside);
     }
 }
 
