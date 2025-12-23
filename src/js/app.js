@@ -2,13 +2,15 @@ if (import.meta.env.DEV) {
     import("/main.css");
 }
 import "/scss/main.scss";
-import { GameSnowman } from "./gameSnowman.js";
+import { PageContent } from './PageContent.js';
+import { GameSnowman } from "./Snowman.js";
 
 class Plugins {
     constructor() {
         if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
         }
+        new PageContent();
         new GameSnowman();
     }
 

@@ -1,0 +1,144 @@
+@use "breakpoints" as bp;
+
+.snowman-container {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 150px;
+    height: 200px;
+    background-color: rgba(26, 58, 95, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.snowman {
+    position: relative;
+    width: 120px;
+    height: 180px;
+}
+
+.snowman-part {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.snowman-part.show {
+    opacity: 1;
+}
+
+.snowman-base {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 0;
+    left: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.snowman-middle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 70px;
+    left: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.snowman-head {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 130px;
+    left: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.snowman-hat {
+    width: 70px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    bottom: 190px;
+    left: 25px;
+}
+
+.snowman-hat-top {
+    width: 50px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 5px 5px 0 0;
+    bottom: 210px;
+    left: 35px;
+}
+
+.snowman-eyes {
+    display: flex;
+    gap: 15px;
+    bottom: 165px;
+    left: 40px;
+}
+
+.snowman-eye {
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.snowman-nose {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #ff8c00;
+    transform: rotate(90deg);
+    bottom: 155px;
+    left: 50px;
+}
+
+.snowman-mouth {
+    display: flex;
+    gap: 5px;
+    bottom: 140px;
+    left: 45px;
+}
+
+.snowman-mouth-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.snowman-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    bottom: 85px;
+    left: 58px;
+}
+
+.snowman-button {
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.snowman-arms {
+    width: 80px;
+    height: 5px;
+    background-color: #8b4513;
+    border-radius: 3px;
+    bottom: 100px;
+    left: 0;
+    transform: rotate(-30deg);
+}

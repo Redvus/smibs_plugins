@@ -1,9 +1,7 @@
 import { gsap } from "gsap";
-// import { dataQuest } from './dataQuest.js'
 
 class GameSnowman {
     constructor(parameters) {
-        // this.gameData = new dataQuest();
         this.initLayout();
         this.initLayoutGame();
         this.initQuest();
