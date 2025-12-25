@@ -1,21 +1,15 @@
 if (import.meta.env.DEV) {
-    // import("/main.css");
+    import("/main.css");
 }
 import "/scss/main.scss";
-import { PageContent } from './PageContent.js';
-import { SnowmanGame } from "./Snowman.js";
-import { QuestionModal } from "./components/QuestionModal.js";
+import { SnowmanGame } from './Snowman';
 
 class Plugins {
     constructor() {
         if (import.meta.env.DEV) {
-            // this.initLayout(); // Скрывать для build
-            // new PageContent();
+            this.initLayout(); // Скрывать для build
         }
-
-        // new SnowmanGame();
-        // new QuestionModal();
-        // this.initGame();
+        new SnowmanGame();
     }
 
     initLayout() {
@@ -58,38 +52,6 @@ class Plugins {
         this.wrapper.appendChild(this.header);
         this.wrapper.appendChild(this.mainContent);
         this.mainContent.appendChild(this.mainContentInside);
-    }
-
-    initGame() {
-        const savedGame = localStorage.getItem('snowmanGame');
-        if (savedGame) {
-            const gameState = JSON.parse(savedGame);
-            if (gameState.gameStarted) {
-                const continueDiv = document.getElementById('continueGame');
-                const continueButtons = document.getElementById('continueButtons');
-
-                continueDiv.style.display = 'block';
-
-                // Кнопка для продолжения с текущей страницы
-                const continueBtn = document.createElement('a');
-                continueBtn.href = `page${gameState.currentPage}.html`;
-                continueBtn.className = 'btn next-btn';
-                continueBtn.textContent = `Продолжить со страницы ${gameState.currentPage}`;
-                continueButtons.appendChild(continueBtn);
-
-                // Кнопка для просмотра результата
-                const answeredCount = Object.keys(gameState.answers || {}).length;
-                if (answeredCount > 0) {
-                    const resultBtn = document.createElement('a');
-                    resultBtn.href = 'result.html';
-                    resultBtn.className = 'btn';
-                    resultBtn.style.background = '#ed8936';
-                    resultBtn.style.marginLeft = '10px';
-                    resultBtn.textContent = `Посмотреть результат (${gameState.score}/10)`;
-                    continueButtons.appendChild(resultBtn);
-                }
-            }
-        }
     }
 }
 
