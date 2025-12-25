@@ -46,21 +46,7 @@ export default defineConfig({
                     // ref: https://rollupjs.org/guide/en/#outputassetfilenames
                     return "[name]-[hash][extname]";
                 },
-            },
-            input: {
-                main: 'index.html',
-                page1: 'page-snowman-1.html',
-                page2: 'page2.html',
-                page3: 'page3.html',
-                page4: 'page4.html',
-                page5: 'page5.html',
-                page6: 'page6.html',
-                page7: 'page7.html',
-                page8: 'page8.html',
-                page9: 'page9.html',
-                page10: 'page10.html',
-                result: 'result.html'
-              }
+            }
         },
     },
     css: {
