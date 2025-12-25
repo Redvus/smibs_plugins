@@ -2,16 +2,28 @@ export const GAME_CONFIG = {
     TOTAL_PAGES: 10,
 
     SNOWMAN_PARTS: [
-        { id: 'bottom', name: 'Нижний шар', emoji: '⛄', order: 1 },
-        { id: 'middle', name: 'Средний шар', emoji: '⛄', order: 2 },
-        { id: 'top', name: 'Верхний шар', emoji: '⛄', order: 3 },
-        { id: 'hat', name: 'Шляпа', emoji: '🎩', order: 4 },
-        { id: 'scarf', name: 'Шарф', emoji: '🧣', order: 5 },
-        { id: 'leftArm', name: 'Левая рука', emoji: '↙️', order: 6 },
-        { id: 'rightArm', name: 'Правая рука', emoji: '↘️', order: 7 },
-        { id: 'leftEye', name: 'Левый глаз', emoji: '⚫', order: 8 },
-        { id: 'rightEye', name: 'Правый глаз', emoji: '⚫', order: 9 },
-        { id: 'nose', name: 'Нос', emoji: '🥕', order: 10 }
+        { id: 'part-1', name: 'BottomCircle', image: 'snowman_1Circle.png', order: 1 },
+        { id: 'part-2', name: 'MiddleCircle', image: 'snowman_2Circle.png', order: 2 },
+        { id: 'part-3', name: 'TopCircle', image: 'snowman_3Circle.png', order: 3 },
+        { id: 'part-4', name: 'Bucket', image: 'snowman_bucket.png', order: 4 },
+        { id: 'part-5', name: 'Scarf', image: 'snowman_scurf.png', order: 5 },
+        { id: 'part-6', name: 'Hands', image: 'snowman_hands.png', order: 6 },
+        { id: 'part-7', name: 'Mittens', image: 'snowman_mittens.png', order: 7 },
+        { id: 'part-8', name: 'Broomstick', image: 'snowman_broomstick.png', order: 8 },
+        { id: 'part-9', name: 'Face', image: 'snowman_face.png', order: 9 },
+        { id: 'part-10', name: 'Nose', image: 'snowman_nose.png', order: 10 }
+    ],
+
+    SNOWMAN_TITLE_1: [
+        { id: 'snowman_t1_1', image: "snowman_t1_1" },
+        { id: 'snowman_t1_2', image: "snowman_t1_2" },
+        { id: 'snowman_t1_3', image: "snowman_t1_3" }
+    ],
+
+    SNOWMAN_TITLE_2: [
+        { id: 'snowman_t2_1', image: "snowman_t2_1" },
+        { id: 'snowman_t2_2', image: "snowman_t2_2" },
+        { id: 'snowman_t2_3', image: "snowman_t2_3" }
     ],
 
     QUESTIONS: {
