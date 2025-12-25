@@ -2,8 +2,7 @@ if (import.meta.env.DEV) {
     import("/main.css");
 }
 import "/scss/main.scss";
-import { SnowmanGame } from './Snowman';
-import { Snowfall } from './components/Snowfall';
+import { SnowmanGame } from './Snowman.js';
 
 class Plugins {
     constructor() {
@@ -11,10 +10,6 @@ class Plugins {
             this.initLayout(); // Скрывать для build
         }
         new SnowmanGame();
-        setTimeout(() => {
-            new Snowfall();
-        }, 1000);
-
     }
 
     initLayout() {

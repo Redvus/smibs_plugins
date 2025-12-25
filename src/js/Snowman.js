@@ -1,10 +1,12 @@
 import { gsap } from "gsap";
 import { GAME_CONFIG } from './utils/config.js'
+import { Snowfall } from './components/Snowfall.js';
 
 class SnowmanGame {
     constructor() {
         this.initSnowmanNew();
-        this.initDev();
+        this.initAnimation();
+        // this.initDev();
     }
 
     initSnowman() {
@@ -109,48 +111,45 @@ class SnowmanGame {
 
     initAnimation() {
         const
-            anniversary2026 = document.getElementById("anniversary2026"),
-            s2026_back = document.getElementById("s2026_back"),
-            s2026_bag = document.getElementById("s2026_bag"),
-            s2026_girl = document.getElementById("s2026_girl"),
-            s2026_slogan = document.getElementById("s2026_slogan");
+            snowman2026 = document.getElementById("snowman2026"),
+            snowmanParts = [...snowman2026.querySelectorAll(".snowman__part")],
+            snowmanTitleParts = [...snowman2026.querySelectorAll(".snowman__title_part")]
+        ;
 
         let tl = new gsap.timeline({
             delay: 1,
-            onComplete: this.initHide(7),
+            onStart: () => {
+                // this.bodyBlock.style.overflow = "hidden";
+                setTimeout(() => {
+                    new Snowfall();
+                }, 700);
+            },
+            // onComplete: this.initHide(8),
         });
 
         tl
-            .to(anniversary2026, {
+            .to(snowman2026, {
                 duration: 0.3,
                 delay: "0.3",
                 autoAlpha: 1,
                 zIndex: 9999,
                 // easy: "elastic.in(1,0.3)"
             })
-            .from([s2026_back], {
+            .from(snowmanParts, {
                 duration: 1,
-                delay: "-0.3",
+                delay: "0.1",
                 autoAlpha: 0,
+                stagger: 0.2,
+                y: "-=10",
+                ease: "elastic.out(1, 0.5)",
             })
-            .from([s2026_ded, s2026_bag], {
-                duration: 0.6,
-                delay: "-0.3",
+            .from(snowmanTitleParts, {
+                duration: 1,
+                delay: "-1.3",
                 autoAlpha: 0,
-                left: "-=50",
-                stagger: 0.7,
-            })
-            .from(s2026_girl, {
-                duration: 0.6,
-                delay: "-0.1",
-                autoAlpha: 0,
-                left: "+=50",
-            })
-            .from(s2026_slogan, {
-                duration: 0.6,
-                delay: "-0.6",
-                autoAlpha: 0,
-                top: "-=20",
+                stagger: 0.2,
+                y: "-=10",
+                ease: "elastic.out(1, 0.5)",
             })
         ;
     }
@@ -164,14 +163,18 @@ class SnowmanGame {
     }
 
     initHide(delay) {
+        const snowfallCanvas = document.getElementById('snowfallCanvas');
+
         let tl = new gsap.timeline({
             delay: delay,
             onComplete: () => {
-                this.bodyBlock.removeChild(this.anniversaryDay);
+                // this.bodyBlock.style.overflow = "auto";
+                // this.bodyBlock.removeChild(snowfallCanvas);
+                this.bodyBlock.removeChild(this.snowmanContainer);
             },
         });
 
-        tl.to(this.anniversaryDay, {
+        tl.to(this.snowmanContainer, {
             autoAlpha: 0,
             duration: 0.6,
             delay: "-0.8",
