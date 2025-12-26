@@ -120,9 +120,9 @@ class SnowmanGame {
             delay: 1,
             onStart: () => {
                 // this.bodyBlock.style.overflow = "hidden";
-                setTimeout(() => {
-                    new Snowfall();
-                }, 700);
+                // setTimeout(() => {
+                //     new Snowfall();
+                // }, 700);
             },
             // onComplete: this.initHide(8),
         });
