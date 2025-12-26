@@ -9,6 +9,7 @@ class Plugins {
         if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
         }
+
         new SnowmanGame();
     }
 

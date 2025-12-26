@@ -4,57 +4,21 @@ import { Snowfall } from './components/Snowfall.js';
 
 class SnowmanGame {
     constructor() {
-        this.initSnowmanNew();
-        this.initAnimation();
+        this.initSnowman();
+
+        const snowmanLoad = document.getElementById('snowmanLoad');
+        if (snowmanLoad) {
+            snowmanLoad.addEventListener('click', () => {
+                this.initAnimation();
+            });
+        }
+
         // this.initDev();
     }
 
     initSnowman() {
         this.bodyBlock = document.body;
         this.snowmanContainer = document.createElement('div');
-        this.bodyBlock.appendChild(this.snowmanContainer);
-        this.snowmanContainer.id = 'snowman2026';
-        this.snowmanContainer.classList = 'snowman-container';
-        this.snowmanContainer.innerHTML = `
-            <div class="snowman" id="snowman">
-                <picture class="snowman__part" id="part-1">
-                    <img src="/assets/games/snowman/images/snowman_1Circle.png">
-                </picture>
-                <picture class="snowman__part" id="part-2">
-                    <img src="/assets/games/snowman/images/snowman_2Circle.png">
-                </picture>
-                <picture class="snowman__part" id="part-3">
-                    <img src="/assets/games/snowman/images/snowman_3Circle.png">
-                </picture>
-                <picture class="snowman__part" id="part-4">
-                    <img src="/assets/games/snowman/images/snowman_bucket.png">
-                </picture>
-                <picture class="snowman__part" id="part-5">
-                    <img src="/assets/games/snowman/images/snowman_scurf.png">
-                </picture>
-                <picture class="snowman__part" id="part-6">
-                    <img src="/assets/games/snowman/images/snowman_hands.png">
-                </picture>
-                <picture class="snowman__part" id="part-7">
-                    <img src="/assets/games/snowman/images/snowman_mittens.png">
-                </picture>
-                <picture class="snowman__part" id="part-8">
-                    <img src="/assets/games/snowman/images/snowman_broomstick.png">
-                </picture>
-                <picture class="snowman__part" id="part-9">
-                    <img src="/assets/games/snowman/images/snowman_face.png">
-                </picture>
-                <picture class="snowman__part" id="part-10">
-                    <img src="/assets/games/snowman/images/snowman_nose.png">
-                </picture>
-            </div>
-        `;
-    }
-
-    initSnowmanNew() {
-        this.bodyBlock = document.body;
-        this.snowmanContainer = document.createElement('div');
-        this.bodyBlock.appendChild(this.snowmanContainer);
         this.snowmanContainer.id = 'snowman2026';
         this.snowmanContainer.classList = 'snowman';
 
@@ -62,7 +26,7 @@ class SnowmanGame {
         this.snowmanSnowdrift.id = 'snowmanSnowdrift';
         this.snowmanSnowdrift.innerHTML = `
             <picture>
-                <img src="/assets/games/snowman/images/snowman_snowdrift.png">
+                <img src="/assets/games/snowman/images/snowman_snowdrift.webp">
             </picture>
         `;
 
@@ -104,6 +68,7 @@ class SnowmanGame {
         })
         title_2 += '</div>'
 
+        this.bodyBlock.appendChild(this.snowmanContainer);
         this.snowmanContainer.appendChild(this.snowmanSnowdrift);
         this.snowmanContainer.appendChild(this.snowmanTitle);
         this.snowmanTitle.innerHTML = ( title_1 + title_2 );
@@ -117,14 +82,14 @@ class SnowmanGame {
         ;
 
         let tl = new gsap.timeline({
-            delay: 1,
+            delay: 0,
             onStart: () => {
                 // this.bodyBlock.style.overflow = "hidden";
                 // setTimeout(() => {
                 //     new Snowfall();
                 // }, 700);
             },
-            // onComplete: this.initHide(8),
+            onComplete: this.initHide(7),
         });
 
         tl
