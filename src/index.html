@@ -15,12 +15,10 @@
     <div class="wrapper app-container" id="app"></div>
 
     <script type="module">
-        // import { Plugins } from "./js/app.js";
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     window.plugins = new Plugins();
-        // });
         import { SnowmanGame } from "./js/main.js";
-        window.game = new SnowmanGame();
+        document.addEventListener('DOMContentLoaded', () => {
+            window.game = new SnowmanGame();
+        });
     </script>
 </body>
 

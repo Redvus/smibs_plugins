@@ -6,7 +6,7 @@ import { Modal } from './components/QuestionModal.js'
 import { Storage } from './components/Storage.js'
 import { showNotification } from './utils/helpers.js'
 
-class SnowmanGame {
+export class SnowmanGame {
     constructor() {
         this.storage = new Storage()
         this.modal = new Modal()
@@ -102,7 +102,7 @@ class SnowmanGame {
     }
 
     async init() {
-        // this.applyPageTheme()
+        this.applyPageTheme()
         this.renderPage()
         this.modal.init()
         this.setupEventListeners()
@@ -189,59 +189,6 @@ class SnowmanGame {
         // this.initPageComponents()
     }
 
-    // renderGamePage(pageNumber) {
-    //     const pageInfo = GAME_CONFIG.PAGE_INFO[pageNumber]
-    //     const hasAnswer = this.gameState.answers[pageNumber] !== undefined
-
-    //     return `
-    //         <div class="game-container">
-    //             <header class="game-header">
-    //                 <h1>${pageInfo.title}</h1>
-    //                 <p>Страница ${pageNumber} из 10</p>
-    //             </header>
-
-    //             <div class="progress">
-    //                 <div class="progress-bar" style="width: ${(Object.keys(this.gameState.answers).length / 10) * 100}%"></div>
-    //             </div>
-
-    //             <div class="snowman-display">
-    //                 ${this.renderSnowman()}
-    //             </div>
-
-    //             <div class="page-content">
-    //                 <p>${pageInfo.description}</p>
-
-    //                 ${hasAnswer ? `
-    //                     <div class="answered-message">
-    //                         ✅ Вы уже ответили на вопрос этой страницы
-    //                     </div>
-    //                 ` : `
-    //                     <div class="hint">
-    //                         🔍 Найдите на странице кнопку «Ответить на вопрос»!
-    //                     </div>
-    //                 `}
-
-    //                 <div class="navigation">
-    //                     ${pageNumber > 1 ?
-    //                         `<a href="page${pageNumber - 1}.html" class="btn">← Назад</a>` :
-    //                         `<a href="index.html" class="btn">← На главную</a>`
-    //                     }
-
-    //                     ${pageNumber < 10 ?
-    //                         `<a href="page${pageNumber + 1}.html" class="btn">Далее →</a>` :
-    //                         `<a href="result.html" class="btn">Результат →</a>`
-    //                     }
-    //                 </div>
-
-    //                 <div class="stats">
-    //                     <span>Счёт: ${this.gameState.score}/10</span>
-    //                     <span>Частей: ${this.gameState.collectedParts.length}/10</span>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     `
-    // }
-
     async renderGamePage(pageNumber) {
         const pageContent = GAME_CONFIG.PAGE_CONTENT[pageNumber]
         const hasAnswer = this.gameState.answers[pageNumber] !== undefined
@@ -256,15 +203,31 @@ class SnowmanGame {
                 <header class="game-header">
                     <div class="page-indicator">
                         <span class="page-number">${pageNumber}/10</span>
-                        <span class="page-theme">${pageContent.title}</span>
                     </div>
                     <h1 class="page-title">${pageContent.title}</h1>
                     <div class="page-subtitle">
-                        ${isVisited ? '📍 Вы уже посещали эту локацию' : '🎯 Новая локация!'}
+                        ${hasAnswer ? `
+                            <div class="answer-status success">
+                                <div class="status-icon">✅</div>
+                                <div class="status-text">
+                                    <strong>Вы ответили на вопрос этой страницы</strong>
+                                    <small></small>
+                                </div>
+                            </div>
+                        ` : `
+                            <div class="answer-status pending">
+                                <div class="status-icon">🔍</div>
+                                <div class="status-text">
+                                    <strong>Найдите кнопку на странице</strong>
+                                    <small>Кнопка «Ответить на вопрос» появляется в случайном месте</small>
+                                </div>
+                            </div>
+                        `}
+                        <!--${isVisited ? '📍 Вы уже посещали эту страницу' : '🎯 Новая страница!'}-->
                     </div>
                 </header>
 
-                <div class="progress-section">
+                <!--<div class="progress-section">
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: ${(Object.keys(this.gameState.answers).length / 10) * 100}%"></div>
                     </div>
@@ -273,23 +236,15 @@ class SnowmanGame {
                         <span class="stat">Счёт: ${this.gameState.score}</span>
                         <span class="stat">Снеговик: ${this.gameState.collectedParts.length}/10</span>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="page-content-wrapper">
                     <div class="location-visual">
                         ${pageContent.image ? `
                             <div class="location-image">
                                 <img src="${pageContent.image}" alt="${pageContent.title}">
-                                <div class="image-overlay"></div>
                             </div>
                         ` : ''}
-
-                        <div class="snowman-preview">
-                            <h3>Ваш снеговик:</h3>
-                            <div class="snowman-mini">
-                                ${this.renderSnowman()}
-                            </div>
-                        </div>
                     </div>
 
                     <div class="location-description">
@@ -303,24 +258,6 @@ class SnowmanGame {
                                 ${pageContent.facts.map(fact => `<li>${fact}</li>`).join('')}
                             </ul>
                         </div>
-
-                        ${hasAnswer ? `
-                            <div class="answer-status success">
-                                <div class="status-icon">✅</div>
-                                <div class="status-text">
-                                    <strong>Вы ответили на вопрос этой локации</strong>
-                                    <small></small>
-                                </div>
-                            </div>
-                        ` : `
-                            <div class="answer-status pending">
-                                <div class="status-icon">🔍</div>
-                                <div class="status-text">
-                                    <strong>Найдите кнопку на странице</strong>
-                                    <small>Кнопка «Ответить на вопрос» появляется в случайном месте</small>
-                                </div>
-                            </div>
-                        `}
                     </div>
                 </div>
 
@@ -329,7 +266,7 @@ class SnowmanGame {
                         ${pageNumber > 1 ?
                             `<a href="page${pageNumber - 1}.html" class="nav-btn prev">
                                 <span class="btn-icon">←</span>
-                                <span class="btn-text">Предыдущая<br>локация</span>
+                                <span class="btn-text">Предыдущая<br>страница</span>
                             </a>` :
                             `<a href="index.html" class="nav-btn prev">
                                 <span class="btn-icon">🏠</span>
@@ -344,7 +281,7 @@ class SnowmanGame {
 
                         ${pageNumber < 10 ?
                             `<a href="page${pageNumber + 1}.html" class="nav-btn next">
-                                <span class="btn-text">Следующая<br>локация</span>
+                                <span class="btn-text">Следующая<br>страница</span>
                                 <span class="btn-icon">→</span>
                             </a>` :
                             `<a href="result.html" class="nav-btn next">
@@ -365,9 +302,13 @@ class SnowmanGame {
                         </div>
                         <div class="quick-stat">
                             <span class="stat-value">${this.gameState.visitedPages.length}</span>
-                            <span class="stat-label">Локаций</span>
+                            <span class="stat-label">Страниц</span>
                         </div>
                     </div>
+                </div>
+
+                <div class="snowman-container">
+                    ${this.renderSnowman()}
                 </div>
             </div>
         `
@@ -506,7 +447,7 @@ class SnowmanGame {
         // Обновляем отображение
         setTimeout(() => {
             this.renderPage()
-        }, 1500)
+        }, 500)
     }
 
     setupEventListeners() {
@@ -525,5 +466,3 @@ class SnowmanGame {
         })
     }
 }
-
-export { SnowmanGame }

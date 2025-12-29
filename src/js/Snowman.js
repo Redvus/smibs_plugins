@@ -1,145 +1,11 @@
 import { gsap } from "gsap";
 
-// Конфигурация игры
-const GAME_CONFIG = {
-    totalPages: 10,
-    snowmanParts: ['bottom', 'middle', 'top', 'hat', 'scarf', 'leftArm', 'rightArm', 'leftEye', 'rightEye', 'nose'],
-    questions: {
-        1: {
-            text: "Какой химический элемент обозначается символом 'H'?",
-            options: ["Гелий", "Водород", "Кислород", "Азот"],
-            correct: 1,
-            part: 'bottom'
-        },
-        2: {
-            text: "Сколько планет в Солнечной системе?",
-            options: ["8", "9", "7", "10"],
-            correct: 0,
-            part: 'middle'
-        },
-        3: {
-            text: "Как называется самая длинная река в мире?",
-            options: ["Амазонка", "Нил", "Янцзы", "Миссисипи"],
-            correct: 0,
-            part: 'top'
-        },
-        4: {
-            text: "Кто написал роман 'Война и мир'?",
-            options: ["Фёдор Достоевский", "Лев Толстой", "Александр Пушкин", "Антон Чехов"],
-            correct: 1,
-            part: 'hat'
-        },
-        5: {
-            text: "Какой газ преобладает в атмосфере Земли?",
-            options: ["Кислород", "Углекислый газ", "Азот", "Водород"],
-            correct: 2,
-            part: 'scarf'
-        },
-        6: {
-            text: "Столица Австралии?",
-            options: ["Сидней", "Мельбурн", "Канберра", "Брисбен"],
-            correct: 2,
-            part: 'leftArm'
-        },
-        7: {
-            text: "Сколько дней в високосном году?",
-            options: ["365", "366", "364", "367"],
-            correct: 1,
-            part: 'rightArm'
-        },
-        8: {
-            text: "Кто открыл закон всемирного тяготения?",
-            options: ["Альберт Эйнштейн", "Исаак Ньютон", "Галилео Галилей", "Николай Коперник"],
-            correct: 1,
-            part: 'leftEye'
-        },
-        9: {
-            text: "Какая планета известна своими кольцами?",
-            options: ["Юпитер", "Сатурн", "Уран", "Нептун"],
-            correct: 1,
-            part: 'rightEye'
-        },
-        10: {
-            text: "Как называется самая высокая гора в мире?",
-            options: ["Килиманджаро", "Эверест", "Мак-Кинли", "Аконкагуа"],
-            correct: 1,
-            part: 'nose'
-        }
-    },
-    pageTitles: {
-        1: "Зимний лес",
-        2: "Снежная равнина",
-        3: "Горная вершина",
-        4: "Северное сияние",
-        5: "Ледяная пещера",
-        6: "Замёрзшее озеро",
-        7: "Полярная ночь",
-        8: "Арктический ветер",
-        9: "Снежный шторм",
-        10: "Ледяной дворец"
-    },
-    pageDescriptions: {
-        1: "Вы находитесь в зимнем лесу. Вокруг вас сосны, покрытые снегом, и тишина.",
-        2: "Перед вами бескрайняя снежная равнина. Снег блестит на солнце.",
-        3: "Вы поднялись на горную вершину. Отсюда видно всю округу.",
-        4: "Над вами танцует северное сияние. Это завораживающее зрелище!",
-        5: "Вы вошли в ледяную пещеру. Стены сверкают как бриллианты.",
-        6: "Перед вами замёрзшее озеро. Лёд такой прозрачный, что видно дно.",
-        7: "Наступила полярная ночь. Небо усыпано звёздами.",
-        8: "Дует арктический ветер. Он пронизывает до самых костей.",
-        9: "Начался снежный шторм. Видимость почти нулевая.",
-        10: "Вы обнаружили ледяной дворец. Он прекрасен и величественен."
-    }
-};
-
 class SnowmanGame {
     constructor() {
         this.currentPage = this.getCurrentPageNumber();
         this.gameState = this.loadGameState();
         this.initPage();
         // this.initSnowman();
-    }
-
-    initSnowman() {
-        this.bodyBlock = document.body;
-        this.snowmanContainer = document.createElement('div');
-        this.bodyBlock.appendChild(this.snowmanContainer);
-        // this.snowmanContainer.id = 'snowman2026';
-        this.snowmanContainer.classList = 'snowman-container';
-        this.snowmanContainer.innerHTML = `
-            <div class="snowman" id="snowman">
-                <picture class="snowman__part" id="part-1">
-                    <img src="/assets/games/snowman/images/snowman_1Circle.png">
-                </picture>
-                <picture class="snowman__part" id="part-2">
-                    <img src="/assets/games/snowman/images/snowman_2Circle.png">
-                </picture>
-                <picture class="snowman__part" id="part-3">
-                    <img src="/assets/games/snowman/images/snowman_3Circle.png">
-                </picture>
-                <picture class="snowman__part" id="part-4">
-                    <img src="/assets/games/snowman/images/snowman_bucket.png">
-                </picture>
-                <picture class="snowman__part" id="part-5">
-                    <img src="/assets/games/snowman/images/snowman_scurf.png">
-                </picture>
-                <picture class="snowman__part" id="part-6">
-                    <img src="/assets/games/snowman/images/snowman_hands.png">
-                </picture>
-                <picture class="snowman__part" id="part-7">
-                    <img src="/assets/games/snowman/images/snowman_mittens.png">
-                </picture>
-                <picture class="snowman__part" id="part-8">
-                    <img src="/assets/games/snowman/images/snowman_broomstick.png">
-                </picture>
-                <picture class="snowman__part" id="part-9">
-                    <img src="/assets/games/snowman/images/snowman_face.png">
-                </picture>
-                <picture class="snowman__part" id="part-10">
-                    <img src="/assets/games/snowman/images/snowman_nose.png">
-                </picture>
-            </div>
-        `;
     }
 
     getCurrentPageNumber() {
@@ -587,14 +453,6 @@ class SnowmanGame {
 }
 
 export { SnowmanGame };
-
-// Инициализируем игру
-let game;
-window.addEventListener('DOMContentLoaded', () => {
-    game = new SnowmanGame();
-});
-
-// Глобальные функции
 
 
 

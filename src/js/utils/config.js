@@ -87,19 +87,6 @@ export const GAME_CONFIG = {
         }
     },
 
-    // PAGE_INFO: {
-    //     1: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     2: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     3: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     4: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     5: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     6: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     7: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     8: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     9: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."},
-    //     10: {title: "Зимний лес", description: "Вы находитесь в зимнем лесу..."}
-    // }
-
     // РАЗНОЕ СОДЕРЖИМОЕ для каждой страницы
     PAGE_CONTENT: {
         1: {
@@ -130,7 +117,7 @@ export const GAME_CONFIG = {
             title: "🏡 Деревенский двор 🏡",
             description: "Вы в уютном деревенском дворе. Деревянный дом украшен резными наличниками, а во дворе дети лепят снеговика. Из трубы идет дымок.",
             background: "village-yard",
-            image: "/public/images/village.jpg",
+            image: "/assets/games/snowman/images/back/boys-sculpt-snowman.jpg",
             themeColor: "#e74c3c", // Красный
             facts: [
                 "🪵 В деревнях до сих пор топят печи дровами",
