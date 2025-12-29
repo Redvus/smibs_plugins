@@ -11,7 +11,6 @@ export class QuestionButton {
         this.button = document.createElement('button')
         this.button.className = 'question-random-button'
         this.button.innerHTML = `
-            <span class="question-icon">❓</span>
             <span class="question-text">Ответить<br>на вопрос</span>
         `
 
@@ -42,10 +41,13 @@ export class QuestionButton {
         const buttonWidth = 120
         const buttonHeight = 120
         const padding = 50
+        const pageHeight = 600
 
         // Рассчитываем доступные координаты
+        // const maxX = window.innerWidth - buttonWidth - padding * 2
+        // const maxY = window.innerHeight - buttonHeight - padding * 2
         const maxX = window.innerWidth - buttonWidth - padding * 2
-        const maxY = window.innerHeight - buttonHeight - padding * 2
+        const maxY = pageHeight - buttonHeight - padding * 2
 
         // Генерируем случайные координаты
         const x = Math.floor(Math.random() * maxX) + padding

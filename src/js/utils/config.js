@@ -19,70 +19,70 @@ export const GAME_CONFIG = {
             question: "Какой химический элемент обозначается символом 'H'?",
             options: ["Гелий", "Водород", "Кислород", "Азот"],
             correct: 1,
-            part: 'bottom',
+            part: 'part-1',
             image: '/public/images/winter-forest.jpg'
         },
         2: {
             question: "Сколько планет в Солнечной системе?",
             options: ["8", "9", "7", "10"],
             correct: 0,
-            part: 'middle',
+            part: 'part-2',
             image: '/public/images/snow-plain.jpg'
         },
         3: {
             question: "Как называется самая длинная река в мире?",
             options: ["Амазонка", "Нил", "Янцзы", "Миссисипи"],
             correct: 0,
-            part: 'top',
+            part: 'part-3',
             image: '/public/images/mountain-peak.jpg'
         },
         4: {
             question: "Кто написал роман 'Война и мир'?",
             options: ["Фёдор Достоевский", "Лев Толстой", "Александр Пушкин", "Антон Чехов"],
             correct: 1,
-            part: 'hat',
+            part: 'part-4',
             image: '/public/images/northern-lights.jpg'
         },
         5: {
             question: "Какой газ преобладает в атмосфере Земли?",
             options: ["Кислород", "Углекислый газ", "Азот", "Водород"],
             correct: 2,
-            part: 'scarf',
+            part: 'part-5',
             image: '/public/images/ice-cave.jpg'
         },
         6: {
             question: "Столица Австралии?",
             options: ["Сидней", "Мельбурн", "Канберра", "Брисбен"],
             correct: 2,
-            part: 'leftArm',
+            part: 'part-6',
             image: '/public/images/frozen-lake.jpg'
         },
         7: {
             question: "Сколько дней в високосном году?",
             options: ["365", "366", "364", "367"],
             correct: 1,
-            part: 'rightArm',
+            part: 'part-7',
             image: '/public/images/polar-night.jpg'
         },
         8: {
             question: "Кто открыл закон всемирного тяготения?",
             options: ["Альберт Эйнштейн", "Исаак Ньютон", "Галилео Галилей", "Николай Коперник"],
             correct: 1,
-            part: 'leftEye',
+            part: 'part-8',
             image: '/public/images/arctic-wind.jpg'
         },
         9: {
             question: "Какая планета известна своими кольцами?",
             options: ["Юпитер", "Сатурн", "Уран", "Нептун"],
             correct: 1,
-            part: 'rightEye',
+            part: 'part-9',
             image: '/public/images/snow-storm.jpg'
         },
         10: {
             question: "Как называется самая высокая гора в мире?",
             options: ["Килиманджаро", "Эверест", "Мак-Кинли", "Аконкагуа"],
             correct: 1,
-            part: 'nose',
+            part: 'part-10',
             image: '/public/images/ice-palace.jpg'
         }
     },
@@ -93,7 +93,7 @@ export const GAME_CONFIG = {
             title: "❄️ Зимний лес ❄️",
             description: "Вы находитесь в заснеженном зимнем лесу. Сосны стоят в белых шапках снега, а вокруг царит тишина, нарушаемая лишь хрустом снега под ногами. Воздух чист и морозен.",
             background: "winter-forest",
-            image: "/public/images/winter-forest.jpg",
+            image: "/assets/games/snowman/images/back/forest-sculpt-snowman.jpg",
             themeColor: "#2ecc71", // Зеленый
             facts: [
                 "🌲 В зимнем лесу температура может быть на 5-10°C ниже, чем в городе",
@@ -105,7 +105,7 @@ export const GAME_CONFIG = {
             title: "🏔️ Горная вершина 🏔️",
             description: "Вы поднялись на заснеженную горную вершину. Отсюда открывается потрясающий вид на долины, покрытые белым покрывалом. Воздух разрежен и холоден.",
             background: "mountain-peak",
-            image: "/public/images/mountain.jpg",
+            image: "/assets/games/snowman/images/back/mountain-sculpt-snowman.jpg",
             themeColor: "#3498db", // Синий
             facts: [
                 "⛰️ На вершинах гор снег лежит круглый год",
@@ -129,7 +129,7 @@ export const GAME_CONFIG = {
             title: "🏰 Ледяной замок 🏰",
             description: "Перед вами величественный замок, полностью сделанный изо льда. Стены переливаются всеми цветами радуги, а сосульки сверкают как бриллианты.",
             background: "ice-castle",
-            image: "/public/images/ice-castle.jpg",
+            image: "/assets/games/snowman/images/back/castle-sculpt-snowman.webp",
             themeColor: "#9b59b6", // Фиолетовый
             facts: [
                 "🧊 Ледяные замки строят при температуре ниже -10°C",
@@ -141,7 +141,7 @@ export const GAME_CONFIG = {
             title: "🌌 Северное сияние 🌌",
             description: "Ночное небо озарено магическим танцем северного сияния. Зеленые, фиолетовые и розовые лучи переливаются и движутся, как живые.",
             background: "northern-lights",
-            image: "/public/images/aurora.jpg",
+            image: "/assets/games/snowman/images/back/light-sculpt-snowman.jpg",
             themeColor: "#1abc9c", // Бирюзовый
             facts: [
                 "✨ Северное сияние вызывается солнечным ветром",
@@ -153,7 +153,7 @@ export const GAME_CONFIG = {
             title: "❄️ Снежная пустыня ❄️",
             description: "Бескрайняя снежная равнина простирается до горизонта. Ни деревца, ни холма - только белое покрывало снега под свинцовым небом.",
             background: "snow-desert",
-            image: "/public/images/tundra.jpg",
+            image: "/assets/games/snowman/images/back/desert-sculpt-snowman.jpg",
             themeColor: "#ecf0f1", // Белый
             facts: [
                 "🌪️ В снежных пустынях бывают белые бури",
@@ -165,7 +165,7 @@ export const GAME_CONFIG = {
             title: "🎿 Горнолыжный склон 🎿",
             description: "Вы на популярном горнолыжном курорте. Лыжники и сноубордисты несутся по идеально укатанным склонам. В воздухе витает дух спорта и веселья.",
             background: "ski-slope",
-            image: "/public/images/ski.jpg",
+            image: "/assets/games/snowman/images/back/ski-sculpt-snowman.jpg",
             themeColor: "#e67e22", // Оранжевый
             facts: [
                 "⛷️ Первые лыжи появились 4000 лет назад",
@@ -177,7 +177,7 @@ export const GAME_CONFIG = {
             title: "🛷 Собачья упряжка 🛷",
             description: "Вы мчитесь на собачьей упряжке по заснеженной тропе. Хаски весело бегут, звенят бубенцы, а снежная пыль летит из-под полозьев.",
             background: "dog-sled",
-            image: "/public/images/sled.jpg",
+            image: "/assets/games/snowman/images/back/dogs-sculpt-snowman.jpg",
             themeColor: "#34495e", // Темно-синий
             facts: [
                 "🐕 В упряжке обычно 6-8 собак",
@@ -189,7 +189,7 @@ export const GAME_CONFIG = {
             title: "🎣 Ледяная рыбалка 🎣",
             description: "Вы на замерзшем озере. Рыбаки сидят у лунок, над которыми поднимается пар. Тишину нарушает лишь скрип пешни и редкие возгласы улова.",
             background: "ice-fishing",
-            image: "/public/images/fishing.jpg",
+            image: "/assets/games/snowman/images/back/fishing-sculpt-snowman.jpg",
             themeColor: "#2980b9", // Темно-синий
             facts: [
                 "🎣 Лед должен быть толщиной не менее 10 см",
@@ -201,7 +201,7 @@ export const GAME_CONFIG = {
             title: "🎄 Новогодняя площадь 🎄",
             description: "Городская площадь украшена к Новому году. Огромная ель сверкает гирляндами, дети катаются на коньках, пахнет глинтвейном и мандаринами.",
             background: "new-year-square",
-            image: "/public/images/square.jpg",
+            image: "/assets/games/snowman/images/back/square-sculpt-snowman.jpg",
             themeColor: "#c0392b", // Темно-красный
             facts: [
                 "🎅 Первая публичная елка была установлена в 1510 году",

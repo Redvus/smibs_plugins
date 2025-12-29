@@ -15,6 +15,8 @@ export class SnowmanGame {
         this.currentPage = this.getCurrentPageNumber()
         this.gameState = this.loadGameState()
 
+        // this.renderSnowman();
+
         // 1. Определяем текущую страницу
         // this.currentPage = this.getCurrentPageNumber()
 
@@ -30,77 +32,6 @@ export class SnowmanGame {
         this.init()
     }
 
-    getCurrentPageNumber() {
-        const path = window.location.pathname
-        const page = path.split('/').pop()
-
-        if (page === 'index.html' || page === '') return 'home'
-        if (page === 'result.html') return 'result'
-
-        const match = page.match(/page(\d+)\.html/)
-        return match ? parseInt(match[1]) : 'home'
-    }
-
-    // Улучшенная функция определения страницы
-    // getCurrentPageNumber() {
-    //     const path = window.location.pathname
-    //     const filename = path.split('/').pop()
-
-    //     console.log('Текущий файл:', filename) // Для отладки
-
-    //     // Проверяем специальные страницы
-    //     if (!filename || filename === '' || filename === 'index.html') {
-    //         return 'home'
-    //     }
-
-    //     if (filename === 'result.html' || filename === 'rezultat.html') {
-    //         return 'result'
-    //     }
-
-    //     // Ищем номер страницы в имени файла
-    //     const patterns = [
-    //         /page(\d+)\.html/,      // page1.html
-    //         /vopros(\d+)\.html/,    // vopros1.html
-    //         /question(\d+)\.html/,  // question1.html
-    //         /stranica(\d+)\.html/,  // stranica1.html
-    //         /(\d+)\.html/           // 1.html
-    //     ]
-
-    //     for (const pattern of patterns) {
-    //         const match = filename.match(pattern)
-    //         if (match) {
-    //             const pageNum = parseInt(match[1])
-    //             // Проверяем, что номер в допустимом диапазоне
-    //             if (pageNum >= 1 && pageNum <= GAME_CONFIG.TOTAL_PAGES) {
-    //                 return pageNum
-    //             }
-    //         }
-    //     }
-
-    //     // Если ничего не нашли, возвращаем на главную
-    //     console.warn('Не удалось определить номер страницы, перенаправляем на главную')
-    //     return 'home'
-    // }
-
-    loadGameState() {
-        const saved = this.storage.get('snowmanGame')
-        if (saved) {
-            return JSON.parse(saved)
-        }
-
-        return {
-            score: 0,
-            answers: {},
-            collectedParts: [],
-            currentPage: 1,
-            visitedPages: []
-        }
-    }
-
-    saveGameState() {
-        this.storage.set('snowmanGame', JSON.stringify(this.gameState))
-    }
-
     async init() {
         this.applyPageTheme()
         this.renderPage()
@@ -114,79 +45,78 @@ export class SnowmanGame {
         }
     }
 
-    // Применяем тему страницы
-    applyPageTheme() {
-        if (typeof this.currentPage !== 'number') return
+    // Pages rendering
+    renderSnowman() {
+        this.bodyBlock = document.body;
+        this.snowmanContainer = document.createElement('div');
+        this.snowmanContainer.id = 'snowman2026';
+        this.snowmanContainer.classList = 'snowman-container';
 
-        const pageContent = GAME_CONFIG.PAGE_CONTENT[this.currentPage]
-        if (!pageContent) return
+        let html = '<div class="snowman" id="snowman">'
+        GAME_CONFIG.SNOWMAN_PARTS.forEach(part => {
+            const hasPart = this.gameState.collectedParts.includes(part.id)
+            html += `
+                <picture class="snowman__part ${hasPart ? 'visible' : ''}" data-part="${part.id}" id="${part.id}">
+                    <img src="/assets/games/snowman/images/${part.image}">
+                </picture>
+            `
+        })
+        html += '</div>'
+        return html
+        // this.snowmanContainer.innerHTML = html;
+        // this.bodyBlock.appendChild(this.snowmanContainer);
 
-        // Устанавливаем цвет темы
-        document.documentElement.style.setProperty('--theme-color', pageContent.themeColor)
 
-        // Устанавливаем фон
-        document.body.classList.add(`page-${this.currentPage}`, pageContent.background)
-
-        // Устанавливаем favicon
-        this.setFavicon(pageContent.themeColor)
+        // let html = '<div class="snowman">'
+        // GAME_CONFIG.SNOWMAN_PARTS.forEach(part => {
+        //     const hasPart = this.gameState.collectedParts.includes(part.id)
+        //     html += `
+        //         <div class="snowman-part ${hasPart ? 'visible' : ''}" data-part="${part.id}">
+        //             ${part.emoji}
+        //         </div>
+        //     `
+        // })
+        // html += '</div>'
+        // return html
     }
 
-    setFavicon(color) {
-        const canvas = document.createElement('canvas')
-        canvas.width = 32
-        canvas.height = 32
-        const ctx = canvas.getContext('2d')
+    renderHomePage() {
+        const hasProgress = Object.keys(this.gameState.answers).length > 0
 
-        // Рисуем снежинку
-        ctx.fillStyle = color
-        ctx.beginPath()
-        for (let i = 0; i < 6; i++) {
-            const angle = (i * Math.PI) / 3
-            ctx.moveTo(16, 16)
-            ctx.lineTo(16 + 12 * Math.cos(angle), 16 + 12 * Math.sin(angle))
-        }
-        ctx.stroke()
-        ctx.beginPath()
-        ctx.arc(16, 16, 4, 0, Math.PI * 2)
-        ctx.fill()
+        return `
+            <div class="game-container">
+                <header class="game-header">
+                    <h1>❄️ Собери Снеговика ❄️</h1>
+                    <p>Ответьте на 10 вопросов и соберите снеговика!</p>
+                </header>
 
-        // Создаем favicon
-        const link = document.querySelector("link[rel*='icon']") || document.createElement('link')
-        link.type = 'image/x-icon'
-        link.rel = 'shortcut icon'
-        link.href = canvas.toDataURL()
-        document.head.appendChild(link)
-    }
+                <div class="snowman-container snowman-display">
+                    ${this.renderSnowman()}
+                </div>
 
-    markPageAsVisited() {
-        if (!this.gameState.visitedPages.includes(this.currentPage)) {
-            this.gameState.visitedPages.push(this.currentPage)
-            this.saveGameState()
-        }
-    }
+                <div class="instructions">
+                    <h3>Как играть:</h3>
+                    <ol>
+                        <li>Начните игру с первой страницы</li>
+                        <li>На каждой странице найдите кнопку «Ответить на вопрос»</li>
+                        <li>Кнопка появляется в случайном месте на странице</li>
+                        <li>Ответьте правильно, чтобы получить часть снеговика</li>
+                        <li>Переходите на следующую страницу</li>
+                    </ol>
+                </div>
 
-    async renderPage() {
-        const app = document.getElementById('app')
-        if (!app) return
+                <div class="actions">
+                    <a href="page1.html" class="btn primary">🎮 Начать игру</a>
 
-        let html = ''
-
-        switch (this.currentPage) {
-            case 'home':
-                html = this.renderHomePage()
-                break
-            case 'result':
-                html = this.renderResultPage()
-                break
-            default:
-                if (typeof this.currentPage === 'number') {
-                    html = await this.renderGamePage(this.currentPage)
-                }
-                break
-        }
-
-        app.innerHTML = html
-        // this.initPageComponents()
+                    ${hasProgress ? `
+                        <a href="page${this.gameState.currentPage}.html" class="btn secondary">
+                            Продолжить (${this.gameState.score}/10)
+                        </a>
+                        <button class="btn warning" id="resetBtn">Сбросить игру</button>
+                    ` : ''}
+                </div>
+            </div>
+        `
     }
 
     async renderGamePage(pageNumber) {
@@ -208,20 +138,17 @@ export class SnowmanGame {
                     <div class="page-subtitle">
                         ${hasAnswer ? `
                             <div class="answer-status success">
-                                <div class="status-icon">✅</div>
                                 <div class="status-text">
                                     <strong>Вы ответили на вопрос этой страницы</strong>
                                     <small></small>
                                 </div>
                             </div>
                         ` : `
-                            <div class="answer-status pending">
-                                <div class="status-icon">🔍</div>
+                            <!--<div class="answer-status pending">
                                 <div class="status-text">
                                     <strong>Найдите кнопку на странице</strong>
-                                    <small>Кнопка «Ответить на вопрос» появляется в случайном месте</small>
                                 </div>
-                            </div>
+                            </div>-->
                         `}
                         <!--${isVisited ? '📍 Вы уже посещали эту страницу' : '🎯 Новая страница!'}-->
                     </div>
@@ -314,57 +241,28 @@ export class SnowmanGame {
         `
     }
 
-    renderSnowman() {
-        let html = '<div class="snowman">'
-        GAME_CONFIG.SNOWMAN_PARTS.forEach(part => {
-            const hasPart = this.gameState.collectedParts.includes(part.id)
-            html += `
-                <div class="snowman-part ${hasPart ? 'visible' : ''}" data-part="${part.id}">
-                    ${part.emoji}
-                </div>
-            `
-        })
-        html += '</div>'
-        return html
-    }
+    async renderPage() {
+        const app = document.getElementById('app')
+        if (!app) return
 
-    renderHomePage() {
-        const hasProgress = Object.keys(this.gameState.answers).length > 0
+        let html = ''
 
-        return `
-            <div class="game-container">
-                <header class="game-header">
-                    <h1>❄️ Собери Снеговика ❄️</h1>
-                    <p>Ответьте на 10 вопросов и соберите снеговика!</p>
-                </header>
+        switch (this.currentPage) {
+            case 'home':
+                html = this.renderHomePage()
+                break
+            case 'result':
+                html = this.renderResultPage()
+                break
+            default:
+                if (typeof this.currentPage === 'number') {
+                    html = await this.renderGamePage(this.currentPage)
+                }
+                break
+        }
 
-                <div class="snowman-display">
-                    ${this.renderSnowman()}
-                </div>
-
-                <div class="instructions">
-                    <h3>Как играть:</h3>
-                    <ol>
-                        <li>Начните игру с первой страницы</li>
-                        <li>На каждой странице найдите кнопку «Ответить на вопрос»</li>
-                        <li>Кнопка появляется в случайном месте на странице</li>
-                        <li>Ответьте правильно, чтобы получить часть снеговика</li>
-                        <li>Переходите на следующую страницу</li>
-                    </ol>
-                </div>
-
-                <div class="actions">
-                    <a href="page1.html" class="btn primary">🎮 Начать игру</a>
-
-                    ${hasProgress ? `
-                        <a href="page${this.gameState.currentPage}.html" class="btn secondary">
-                            Продолжить (${this.gameState.score}/10)
-                        </a>
-                        <button class="btn warning" id="resetBtn">Сбросить игру</button>
-                    ` : ''}
-                </div>
-            </div>
-        `
+        app.innerHTML = html
+        // this.initPageComponents()
     }
 
     renderResultPage() {
@@ -391,6 +289,129 @@ export class SnowmanGame {
                 </div>
             </div>
         `
+    }
+    // end Pages rendering
+
+    getCurrentPageNumber() {
+        const path = window.location.pathname
+        const page = path.split('/').pop()
+
+        if (page === 'index.html' || page === '') return 'home'
+        if (page === 'result.html') return 'result'
+
+        const match = page.match(/page(\d+)\.html/)
+        return match ? parseInt(match[1]) : 'home'
+    }
+
+    // Улучшенная функция определения страницы
+    // getCurrentPageNumber() {
+    //     const path = window.location.pathname
+    //     const filename = path.split('/').pop()
+
+    //     console.log('Текущий файл:', filename) // Для отладки
+
+    //     // Проверяем специальные страницы
+    //     if (!filename || filename === '' || filename === 'index.html') {
+    //         return 'home'
+    //     }
+
+    //     if (filename === 'result.html' || filename === 'rezultat.html') {
+    //         return 'result'
+    //     }
+
+    //     // Ищем номер страницы в имени файла
+    //     const patterns = [
+    //         /page(\d+)\.html/,      // page1.html
+    //         /vopros(\d+)\.html/,    // vopros1.html
+    //         /question(\d+)\.html/,  // question1.html
+    //         /stranica(\d+)\.html/,  // stranica1.html
+    //         /(\d+)\.html/           // 1.html
+    //     ]
+
+    //     for (const pattern of patterns) {
+    //         const match = filename.match(pattern)
+    //         if (match) {
+    //             const pageNum = parseInt(match[1])
+    //             // Проверяем, что номер в допустимом диапазоне
+    //             if (pageNum >= 1 && pageNum <= GAME_CONFIG.TOTAL_PAGES) {
+    //                 return pageNum
+    //             }
+    //         }
+    //     }
+
+    //     // Если ничего не нашли, возвращаем на главную
+    //     console.warn('Не удалось определить номер страницы, перенаправляем на главную')
+    //     return 'home'
+    // }
+
+    loadGameState() {
+        const saved = this.storage.get('snowmanGame')
+        if (saved) {
+            return JSON.parse(saved)
+        }
+
+        return {
+            score: 0,
+            answers: {},
+            collectedParts: [],
+            currentPage: 1,
+            visitedPages: []
+        }
+    }
+
+    saveGameState() {
+        this.storage.set('snowmanGame', JSON.stringify(this.gameState))
+    }
+
+    // Применяем тему страницы
+    applyPageTheme() {
+        if (typeof this.currentPage !== 'number') return
+
+        const pageContent = GAME_CONFIG.PAGE_CONTENT[this.currentPage]
+        if (!pageContent) return
+
+        // Устанавливаем цвет темы
+        document.documentElement.style.setProperty('--theme-color', pageContent.themeColor)
+
+        // Устанавливаем фон
+        document.body.classList.add(`page-${this.currentPage}`, pageContent.background)
+
+        // Устанавливаем favicon
+        this.setFavicon(pageContent.themeColor)
+    }
+
+    setFavicon(color) {
+        const canvas = document.createElement('canvas')
+        canvas.width = 32
+        canvas.height = 32
+        const ctx = canvas.getContext('2d')
+
+        // Рисуем снежинку
+        ctx.fillStyle = color
+        ctx.beginPath()
+        for (let i = 0; i < 6; i++) {
+            const angle = (i * Math.PI) / 3
+            ctx.moveTo(16, 16)
+            ctx.lineTo(16 + 12 * Math.cos(angle), 16 + 12 * Math.sin(angle))
+        }
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.arc(16, 16, 4, 0, Math.PI * 2)
+        ctx.fill()
+
+        // Создаем favicon
+        const link = document.querySelector("link[rel*='icon']") || document.createElement('link')
+        link.type = 'image/x-icon'
+        link.rel = 'shortcut icon'
+        link.href = canvas.toDataURL()
+        document.head.appendChild(link)
+    }
+
+    markPageAsVisited() {
+        if (!this.gameState.visitedPages.includes(this.currentPage)) {
+            this.gameState.visitedPages.push(this.currentPage)
+            this.saveGameState()
+        }
     }
 
     getResultMessage(score) {
