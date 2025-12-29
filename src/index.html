@@ -12,13 +12,26 @@
 </head>
 
 <body>
-    <div class="wrapper app-container" id="app"></div>
+    <div id="app" class="app-container">
+        <!-- Контент будет загружаться динамически через JavaScript -->
+        <div class="loading-screen">
+            <div class="snowflake">❄️</div>
+            <p>Загрузка игры...</p>
+        </div>
+    </div>
 
-    <script type="module">
-        import { SnowmanGame } from "./js/main.js";
-        document.addEventListener('DOMContentLoaded', () => {
-            window.game = new SnowmanGame();
-        });
+    <!-- Модальное окно для вопросов -->
+    <div id="questionModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-content" id="modalContent"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js">
+        // import { SnowmanGame } from "./js/main.js";
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     window.game = new SnowmanGame();
+        // });
     </script>
 </body>
 
