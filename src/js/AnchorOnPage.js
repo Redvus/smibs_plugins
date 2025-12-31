@@ -28,25 +28,16 @@ class AnchorOnPage {
             this.anchorDay_3,
             this.anchorDay_4,
             this.anchorDay_5,
-            this.anchorDay_6,
-            this.anchorDay_7,
-            this.anchorDay_8,
-            this.anchorDay_9,
-            this.anchorDay_10,
-            this.anchorDay_11,
-            this.anchorDay_12,
-            this.anchorDay_13,
-            this.anchorDay_14,
-            this.anchorDay_15
+            this.anchorDay_6
         ];
 
-        this.anchorDayNum = ['17 / 12', '21 / 12', '22 / 12', '23 / 12', '24 / 12', '25 / 12', '26 / 12', '28 / 12', '29 / 12', '3 / 01', '4 / 01', '5 / 01', '6 / 01', '8 / 01', '9 / 01', '11 / 01'];
+        this.anchorDayNum = ['03 / 01', '04 / 01', '05 / 01', '06 / 01', '08 / 01', '09 / 01', '11 / 01'];
     }
 
     initAnchorBlock() {
         this.anchorDayBlock = document.createElement('ul');
         this.anchorDayBlock.className = 'anchor-day-block';
-        this.anchorDayCount = 16;
+        this.anchorDayCount = 7;
 
         for (let i = 0; i < this.anchorDayCount; i++) {
             const anchorDayLink = document.createElement('li');
