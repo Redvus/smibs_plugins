@@ -1,101 +1,188 @@
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    padding: 20px;
-}
+@use "breakpoints" as bp;
+
+/* Модальное окно */
 
 .modal {
     background: white;
-    border-radius: 15px;
-    width: 100%;
+    width: 90%;
     max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+    z-index: -1;
+
+    &-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+
+            & .modal {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &-header {
+        background: linear-gradient(135deg, #4a90e2, #357abd);
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+    }
+
+    &-content {
+        padding: 25px;
+    }
 }
 
-.modal-header {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-    padding: 20px;
-    border-radius: 15px 15px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.modal-close {
+.close-btn {
     background: none;
     border: none;
     color: white;
-    font-size: 1.8rem;
+    font-size: 28px;
     cursor: pointer;
+    line-height: 1;
+    padding: 0;
     width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    transition: background 0.3s;
+
+    &:hover {
+        color: #e6f2ff;
+    }
 }
 
-.modal-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+.question-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    line-height: 1.5;
 }
 
-.modal-body {
-    padding: 30px;
-}
-
-.options {
+.options-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.option {
-    padding: 15px 20px;
-    background: #f8f9fa;
-    border: 2px solid #dee2e6;
-    border-radius: 10px;
+.option-btn {
+    padding: 12px 15px;
+    border: 2px solid #d1e7ff;
+    background: white;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
+    font-size: 16px;
     text-align: left;
+    transition: all 0.3s;
 }
 
-.option:hover {
-    border-color: #3498db;
-    background: rgba(52, 152, 219, 0.05);
-    transform: translateX(5px);
+.option-btn:hover {
+    background: #f0f9ff;
+    border-color: #4a90e2;
+    transform: translateY(-2px);
 }
 
-.option.selected {
-    border-color: #3498db;
-    background: rgba(52, 152, 219, 0.1);
+.option-btn.correct {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
 }
 
-.option.correct {
-    border-color: #2ecc71;
-    background: rgba(46, 204, 113, 0.1);
-    color: #27ae60;
+.option-btn.incorrect {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
 }
 
-.option.wrong {
-    border-color: #e74c3c;
-    background: rgba(231, 76, 60, 0.1);
-    color: #c0392b;
+.option-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.result-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.result-message.correct {
+    background: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+    display: block;
+}
+
+.result-message.incorrect {
+    background: #f8d7da;
+    border: 2px solid #dc3545;
+    color: #721c24;
+    display: block;
+}
+
+.next-btn {
+    display: none;
+    padding: 12px 25px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+.next-btn:hover {
+    background: #357abd;
+}
+
+.next-btn.show {
+    display: block;
+}
+
+/* Анимация появления части снеговика */
+@keyframes snowmanAppear {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+    70% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.snowman-part.new {
+    animation: snowmanAppear 0.5s ease-out;
 }

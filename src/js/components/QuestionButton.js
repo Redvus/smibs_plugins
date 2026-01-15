@@ -1,92 +1,59 @@
+import { QuestionModal } from "./QuestionModal.js";
+
 export class QuestionButton {
     constructor() {
-        this.button = null
-        this.isVisible = false
+        this.questionBtn = null;
+        this.createQuestionButton();
+        this.positionButtonRandomly();
+        this.openModal = new QuestionModal();
+        this.openModal = this.openModal.openModal.bind(this.openModal);
     }
 
-    create(onClick) {
-        // Удаляем старую кнопку, если есть
-        this.remove()
+    // Создание и размещение кнопки вопроса
+    createQuestionButton() {
+        // Создаем кнопку
+        this.questionBtn = document.createElement('button');
+        this.questionBtn.id = 'questionBtn';
+        this.questionBtn.className = 'floating-question-btn';
+        this.questionBtn.title = 'Нажмите, чтобы ответить на вопрос';
+        this.questionBtn.innerHTML = '?';
 
-        // Создаем новую кнопку
-        this.button = document.createElement('button')
-        this.button.className = 'question-floating-button'
-        this.button.innerHTML = `
-            <span class="button-emoji">❓</span>
-            <span class="button-text">Ответить на вопрос</span>
-        `
+        // Добавляем на страницу
+        document.body.appendChild(this.questionBtn);
 
-        // Устанавливаем случайную позицию
-        this.setRandomPosition()
+        // Размещаем кнопку в случайном месте
+        this.positionButtonRandomly();
 
-        // Добавляем обработчики
-        this.button.addEventListener('click', (e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            if (onClick) {
-                onClick()
-            }
-        })
-
-        // Добавляем анимацию появления
-        this.button.style.opacity = '0'
-        this.button.style.transform = 'scale(0.8)'
-
-        document.body.appendChild(this.button)
-
-        // Анимация появления
-        setTimeout(() => {
-            this.button.style.transition = 'opacity 0.3s, transform 0.3s'
-            this.button.style.opacity = '1'
-            this.button.style.transform = 'scale(1)'
-        }, 100)
-
-        this.isVisible = true
-
-        return this.button
+        // Обработчик для кнопки
+        this.questionBtn.addEventListener('click', () => this.openModal());
     }
 
-    setRandomPosition() {
-        if (!this.button) return
+    // Размещение кнопки в случайном месте
+    positionButtonRandomly() {
+        if (!this.questionBtn) return;
 
-        const buttonWidth = 180
-        const buttonHeight = 60
-        const padding = 50
+        // Получаем размеры окна
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
-        // Исключаем области: верхняя панель и нижняя навигация
-        const excludeTop = 100
-        const excludeBottom = 150
+        // Учитываем отступы от краев
+        const margin = 20;
+        const buttonSize = 60;
 
-        const maxX = window.innerWidth - buttonWidth - padding
-        const maxY = window.innerHeight - buttonHeight - padding - excludeBottom
+        // Генерируем случайные координаты
+        const maxX = windowWidth - buttonSize - margin;
+        const maxY = windowHeight - buttonSize - margin;
 
-        const x = Math.floor(Math.random() * maxX) + padding
-        const y = Math.floor(Math.random() * (maxY - excludeTop)) + excludeTop + padding
+        const randomX = margin + Math.random() * maxX;
+        const randomY = margin + Math.random() * maxY;
 
-        this.button.style.left = `${x}px`
-        this.button.style.top = `${y}px`
-    }
+        // Устанавливаем позицию
+        this.questionBtn.style.left = `${randomX}px`;
+        this.questionBtn.style.top = `${randomY}px`;
 
-    hide() {
-        if (this.button && this.isVisible) {
-            this.button.style.display = 'none'
-            this.isVisible = false
-        }
-    }
-
-    show() {
-        if (this.button && !this.isVisible) {
-            this.button.style.display = 'flex'
-            this.setRandomPosition()
-            this.isVisible = true
-        }
-    }
-
-    remove() {
-        if (this.button) {
-            this.button.remove()
-            this.button = null
-        }
-        this.isVisible = false
+        // Перепозиционируем при изменении размера окна
+        window.addEventListener('resize', () => {
+            this.positionButtonRandomly();
+        });
     }
 }

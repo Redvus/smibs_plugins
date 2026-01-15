@@ -1,107 +1,133 @@
-export class Modal {
+
+
+export class QuestionModal {
     constructor() {
-        this.modal = null
-        this.callback = null
+        this.selectedAnswer = null;
+        this.isAnswered = false;
     }
 
-    init() {
-        this.createModal()
-    }
+    // Открытие модального окна
+    openModal() {
+        const modalOverlay = document.getElementById('modalOverlay');
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const resultMessage = document.getElementById('resultMessage');
+        const nextBtn = document.getElementById('nextBtn');
 
-    createModal() {
-        // Создаем модальное окно
-        this.modal = document.createElement('div')
-        this.modal.className = 'modal-overlay'
-        this.modal.innerHTML = `
-            <div class="modal">
-                <div class="modal-header">
-                    <h2 id="modalTitle">Вопрос</h2>
-                    <button class="modal-close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="question-text" id="questionText"></div>
-                    <div class="options" id="optionsContainer"></div>
-                </div>
-            </div>
-        `
+        // Устанавливаем текст вопроса
+        questionText.textContent = this.config.question.text;
 
-        document.body.appendChild(this.modal)
+        // Очищаем предыдущие результаты
+        resultMessage.className = 'result-message';
+        resultMessage.style.display = 'none';
+        nextBtn.classList.remove('show');
 
-        // Обработчики событий
-        this.modal.querySelector('.modal-close').addEventListener('click', () => this.hide())
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.hide()
-            }
-        })
+        // Очищаем контейнер с вариантами
+        optionsContainer.innerHTML = '';
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.modal.style.display === 'flex') {
-                this.hide()
-            }
-        })
-    }
+        // Перемешиваем варианты ответов
+        const shuffledOptions = [...this.config.question.options].sort(() => Math.random() - 0.5);
 
-    showQuestion(question, pageNumber, callback) {
-        this.callback = callback
+        // Создаем кнопки для каждого варианта ответа
+        shuffledOptions.forEach(option => {
+            const button = document.createElement('button');
+            button.className = 'option-btn';
+            button.textContent = option;
 
-        // Обновляем заголовок
-        document.getElementById('modalTitle').textContent = `Вопрос ${pageNumber}`
-        document.getElementById('questionText').textContent = question.question
-
-        // Создаем варианты ответов
-        const optionsContainer = document.getElementById('optionsContainer')
-        optionsContainer.innerHTML = ''
-
-        question.options.forEach((option, index) => {
-            const optionElement = document.createElement('div')
-            optionElement.className = 'option'
-            optionElement.textContent = option
-            optionElement.addEventListener('click', () => {
-                this.selectOption(index, question.correct)
-            })
-            optionsContainer.appendChild(optionElement)
-        })
-
-        this.show()
-    }
-
-    selectOption(selectedIndex, correctIndex) {
-        const options = document.querySelectorAll('.option')
-        const isCorrect = selectedIndex === correctIndex
-
-        options.forEach((option, index) => {
-            option.classList.remove('selected', 'correct', 'wrong')
-
-            if (index === selectedIndex) {
-                option.classList.add('selected')
-                option.classList.add(isCorrect ? 'correct' : 'wrong')
+            // Если уже отвечали на этой странице, показываем правильный ответ
+            if (this.collectedParts.includes(this.config.question.partId)) {
+                if (option === this.config.question.correctAnswer) {
+                    button.classList.add('correct');
+                }
+                button.disabled = true;
             }
 
-            if (index === correctIndex) {
-                option.classList.add('correct')
-            }
+            button.addEventListener('click', () => this.selectAnswer(option));
+            optionsContainer.appendChild(button);
+        });
 
-            // Отключаем клики после выбора
-            option.style.pointerEvents = 'none'
-        })
+        // Показываем модальное окно
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Блокируем прокрутку
 
-        // Показываем результат
-        setTimeout(() => {
-            if (this.callback) {
-                this.callback(selectedIndex)
-            }
-            this.hide()
-        }, 400)
+        // Если уже отвечали правильно на этой странице, показываем кнопку следующей страницы
+        if (this.collectedParts.includes(this.config.question.partId) && this.config.question.nextPageUrl) {
+            nextBtn.classList.add('show');
+            nextBtn.onclick = () => {
+                window.location.href = this.config.question.nextPageUrl;
+            };
+        }
     }
 
-    show() {
-        this.modal.style.display = 'flex'
-        document.body.style.overflow = 'hidden'
+    // Закрытие модального окна
+    closeModal() {
+        const modalOverlay = document.getElementById('modalOverlay');
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Возвращаем прокрутку
     }
 
-    hide() {
-        this.modal.style.display = 'none'
-        document.body.style.overflow = 'auto'
+    // Выбор ответа
+    selectAnswer(answer) {
+        if (this.isAnswered) return;
+
+        this.selectedAnswer = answer;
+        this.isAnswered = true;
+
+        const isCorrect = answer === this.config.question.correctAnswer;
+        const resultMessage = document.getElementById('resultMessage');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const nextBtn = document.getElementById('nextBtn');
+        const optionButtons = optionsContainer.querySelectorAll('.option-btn');
+
+        // Показываем правильные/неправильные ответы
+        optionButtons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent === this.config.question.correctAnswer) {
+                btn.classList.add('correct');
+            } else if (btn.textContent === answer && !isCorrect) {
+                btn.classList.add('incorrect');
+            }
+        });
+
+        // Показываем сообщение с результатом
+        if (isCorrect) {
+            resultMessage.textContent = "Правильно! Вы получили часть снеговика!";
+            resultMessage.className = 'result-message correct';
+
+            // Добавляем часть снеговика, если её еще нет
+            if (!this.collectedParts.includes(this.config.question.partId)) {
+                this.collectedParts.push(this.config.question.partId);
+                this.saveProgress();
+                this.renderSnowman();
+                this.showSnowmanDisplay();
+            }
+
+            // Показываем кнопку перехода на следующую страницу
+            if (this.config.question.nextPageUrl) {
+                nextBtn.classList.add('show');
+                nextBtn.onclick = () => {
+                    window.location.href = this.config.question.nextPageUrl;
+                };
+            }
+
+            // Скрываем кнопку вопроса через 2 секунды
+            setTimeout(() => {
+                if (this.questionBtn) {
+                    this.questionBtn.style.display = 'none';
+                }
+            }, 2000);
+        } else {
+            resultMessage.textContent = "Неправильно! Попробуйте найти правильный ответ.";
+            resultMessage.className = 'result-message incorrect';
+
+            // Через 3 секунды позволяем выбрать снова
+            setTimeout(() => {
+                this.isAnswered = false;
+                resultMessage.textContent = "Попробуйте еще раз!";
+            }, 3000);
+        }
+
+        // Обновляем отображение прогресса
+        this.updateProgressDisplay();
     }
 }
