@@ -86,6 +86,10 @@
     margin-bottom: 1.5rem;
     color: var(--body-font-color);
     line-height: 1.5;
+
+    p {
+        margin: 0;
+    }
 }
 
 .options {
@@ -179,6 +183,10 @@
     &.show {
         display: block;
     }
+}
+
+.show {
+    display: block;
 }
 
 /* Анимация появления части снеговика */

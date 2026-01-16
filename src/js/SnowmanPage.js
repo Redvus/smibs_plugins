@@ -131,7 +131,7 @@ class SnowmanPage {
         const nextBtn = document.getElementById('nextBtn');
 
         // Устанавливаем текст вопроса
-        questionText.textContent = this.questionText;
+        questionText.innerHTML = `<p>${this.questionText}</p>`;
 
         // Очищаем предыдущие результаты
         resultMessage.className = 'result-message';
@@ -258,8 +258,9 @@ class SnowmanPage {
         this.collectedParts.forEach(partId => {
             const part = GAME_CONFIG.SNOWMAN_PARTS[partId];
             if (part) {
-                const partElement = document.createElement('picture');
-                partElement.innerHTML = `<img src="/assets/games/snowman/images/${part.image}" alt="${part.name}">`;
+                const partElement = document.createElement('a');
+                partElement.href = `${this.nextPageUrl}`
+                partElement.innerHTML = `<picture><img src="/assets/games/snowman/images/${part.image}" alt="${part.name}"></picture>`;
                 partElement.className = `snowman__part`;
                 partElement.id = `${part.id}`;
                 display.appendChild(partElement);
