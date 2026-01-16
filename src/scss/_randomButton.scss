@@ -1,36 +1,42 @@
 /* Стили для плавающей кнопки вопроса */
 .floating-question-btn {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4a90e2, #357abd);
-    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--secondary),
+        var(--secondary-darken-5)
+    );
+    color: var(--fourth);
     border: none;
     cursor: pointer;
-    font-size: 24px;
+    font-size: var(--font-size-h2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    z-index: 1100;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: pulse 2s infinite;
+    opacity: 0.3;
 
     &:hover {
         transform: scale(1.1);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        opacity: 1;
     }
 }
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7);
+        box-shadow: 0 0 0 0 rgba(131, 8, 0, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+        box-shadow: 0 0 0 10px rgba(131, 8, 0, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+        box-shadow: 0 0 0 0 rgba(131, 8, 0, 0);
     }
 }

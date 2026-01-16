@@ -39,9 +39,13 @@
     }
 
     &-header {
-        background: linear-gradient(135deg, #4a90e2, #357abd);
+        background: linear-gradient(
+            135deg,
+            var(--secondary),
+            var(--secondary-darken-5)
+        );
         color: white;
-        padding: 20px;
+        padding: 1rem 1.5rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -49,11 +53,12 @@
         h3 {
             margin: 0;
             font-size: 1.5rem;
+            color: var(--fourth);
         }
     }
 
     &-content {
-        padding: 25px;
+        padding: 1.5rem;
     }
 }
 
@@ -72,78 +77,84 @@
     justify-content: center;
 
     &:hover {
-        color: #e6f2ff;
+        color: var(--fourth);
     }
 }
 
 .question-text {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #2c3e50;
+    font-size: var(--font-size-base);
+    margin-bottom: 1.5rem;
+    color: var(--body-font-color);
     line-height: 1.5;
 }
 
-.options-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+.options {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
-.option-btn {
-    padding: 12px 15px;
-    border: 2px solid #d1e7ff;
-    background: white;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: left;
-    transition: all 0.3s;
+.option {
+    &-btn {
+        padding: 12px 15px;
+        border: 2px solid var(--secondary-lighten-60);
+        background: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: var(--font-size-base);
+        text-align: left;
+        transition: all 0.3s;
+    }
+
+    &-btn:hover {
+        background: var(--fourth);
+        border-color: var(--secondary);
+        transform: translateY(-2px);
+    }
+
+    &-btn.correct {
+        background: var(--fourth);
+        border-color: #28a745;
+        color: #155724;
+    }
+
+    &-btn.incorrect {
+        background: #f8d7da;
+        border-color: #dc3545;
+        color: #721c24;
+    }
+
+    &-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+    }
 }
 
-.option-btn:hover {
-    background: #f0f9ff;
-    border-color: #4a90e2;
-    transform: translateY(-2px);
-}
+.result {
+    &-message {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: none;
+    }
 
-.option-btn.correct {
-    background: #d4edda;
-    border-color: #28a745;
-    color: #155724;
-}
+    &-message.correct {
+        background: #d4edda;
+        border: 2px solid #28a745;
+        color: #155724;
+        display: block;
+    }
 
-.option-btn.incorrect {
-    background: #f8d7da;
-    border-color: #dc3545;
-    color: #721c24;
-}
-
-.option-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.result-message {
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    display: none;
-}
-
-.result-message.correct {
-    background: #d4edda;
-    border: 2px solid #28a745;
-    color: #155724;
-    display: block;
-}
-
-.result-message.incorrect {
-    background: #f8d7da;
-    border: 2px solid #dc3545;
-    color: #721c24;
-    display: block;
+    &-message.incorrect {
+        background: #f8d7da;
+        border: 2px solid #dc3545;
+        color: #721c24;
+        display: block;
+    }
 }
 
 .next-btn {
@@ -160,14 +171,14 @@
     text-decoration: none;
     text-align: center;
     width: 100%;
-}
 
-.next-btn:hover {
-    background: #357abd;
-}
+    &:hover {
+        background: #357abd;
+    }
 
-.next-btn.show {
-    display: block;
+    &.show {
+        display: block;
+    }
 }
 
 /* Анимация появления части снеговика */

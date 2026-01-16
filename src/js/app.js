@@ -3,16 +3,37 @@ if (import.meta.env.DEV) {
 }
 import "/scss/main.scss";
 import { PageContent } from './components/PageContent.js';
-import { SnowmanPage_1 } from "./pages/SnowmanPage_1.js";
+import { SnowmanPage } from "./SnowmanPage.js";
 
 class SnowmanGame {
-    constructor() {
+    constructor(
+        pageID,
+        questionText,
+        questionCorrect,
+        questionOptions,
+        partID,
+        nextPageUrl) {
+
         if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
             new PageContent();
         }
 
-        new SnowmanPage_1();
+        this.pageID = pageID;
+        this.questionText = questionText;
+        this.questionCorrect = questionCorrect;
+        this.questionOptions = questionOptions;
+        this.partID = partID;
+        this.nextPageUrl = nextPageUrl;
+
+        new SnowmanPage(
+            this.pageID,
+            this.questionText,
+            this.questionCorrect,
+            this.questionOptions,
+            this.partID,
+            this.nextPageUrl
+        );
     }
 
     initLayout() {

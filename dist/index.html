@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <title>СМИБС. NY2025</title>
+    <title>СМИБС. Snowman Game</title>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="mask-icon" href="/images/favicon.svg" color="#000000" />
   <script type="module" crossorigin src="./app-min.js"></script>
@@ -14,7 +14,51 @@
 </head>
 
 <body>
-    <div class="wrapper app-container" id="app"></div>
+    <div class="wrapper"></div>
+
+    <div id="snowmanGame_01-26">
+        <!-- Дисплей снеговика в правом нижнем углу -->
+        <div class="snowman-container">
+            <div class="snowman snowman-display" id="snowmanDisplay"></div>
+        </div>
+
+        <!-- Информация о прогрессе -->
+        <div class="progress-info">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p>Частей: <span id="partsCount">0</span>/10</p>
+            <button class="reset-btn" id="resetBtn">Сбросить</button>
+        </div>
+
+        <!-- Модальное окно с вопросом -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Вопрос</h3>
+                    <button class="close-btn" id="closeModal">×</button>
+                </div>
+                <div class="modal-content">
+                    <div class="question-text" id="questionText">
+                        <!-- Текст вопроса будет здесь -->
+                    </div>
+
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Варианты ответов будут здесь -->
+                    </div>
+
+                    <div class="result-message" id="resultMessage">
+                        <!-- Сообщение о результате будет здесь -->
+                    </div>
+
+                    <button class="next-btn" id="nextBtn">
+                        Перейти к следующей странице →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 

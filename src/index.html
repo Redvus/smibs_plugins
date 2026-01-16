@@ -14,43 +14,45 @@
 <body>
     <div class="wrapper"></div>
 
-    <!-- Дисплей снеговика в правом нижнем углу -->
-    <div class="snowman-container">
-        <div class="snowman snowman-display" id="snowmanDisplay"></div>
-    </div>
-
-    <!-- Информация о прогрессе -->
-    <div class="progress-info">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
+    <div id="snowmanGame_01-26">
+        <!-- Дисплей снеговика в правом нижнем углу -->
+        <div class="snowman-container">
+            <div class="snowman snowman-display" id="snowmanDisplay"></div>
         </div>
-        <p>Частей: <span id="partsCount">0</span>/10</p>
-        <button class="reset-btn" id="resetBtn">Сбросить</button>
-    </div>
 
-    <!-- Модальное окно с вопросом -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 id="modalTitle">Вопрос</h3>
-                <button class="close-btn" id="closeModal">×</button>
+        <!-- Информация о прогрессе -->
+        <div class="progress-info">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
-            <div class="modal-content">
-                <div class="question-text" id="questionText">
-                    <!-- Текст вопроса будет здесь -->
-                </div>
+            <p>Частей: <span id="partsCount">0</span>/10</p>
+            <button class="reset-btn" id="resetBtn">Сбросить</button>
+        </div>
 
-                <div class="options-container" id="optionsContainer">
-                    <!-- Варианты ответов будут здесь -->
+        <!-- Модальное окно с вопросом -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Вопрос</h3>
+                    <button class="close-btn" id="closeModal">×</button>
                 </div>
+                <div class="modal-content">
+                    <div class="question-text" id="questionText">
+                        <!-- Текст вопроса будет здесь -->
+                    </div>
 
-                <div class="result-message" id="resultMessage">
-                    <!-- Сообщение о результате будет здесь -->
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Варианты ответов будут здесь -->
+                    </div>
+
+                    <div class="result-message" id="resultMessage">
+                        <!-- Сообщение о результате будет здесь -->
+                    </div>
+
+                    <button class="next-btn" id="nextBtn">
+                        Перейти к следующей странице →
+                    </button>
                 </div>
-
-                <button class="next-btn" id="nextBtn">
-                    Перейти к следующей странице →
-                </button>
             </div>
         </div>
     </div>
@@ -58,7 +60,29 @@
     <script type="module">
         import { SnowmanGame } from "./js/app.js";
         document.addEventListener('DOMContentLoaded', () => {
-            window.game = new SnowmanGame();
+            // // Page 1
+            // window.game = new SnowmanGame(
+            //     "snowmanPage_0",
+            //     "В какой сказке встречается такое описание Снеговика?\n«Вместо глаз у него торчали два осколка кровельной черепицы, вместо рта красовался обломок старых граблей; значит, он был и с зубами.\nНа свет он появился под радостные «ура» мальчишек, под звон бубенчиков, скрип полозьев и щелканье извозчичьих кнутов».",
+            //     "«Снеговик» Ганса Христиана Андерсена",
+            //     ["«Школа снеговиков» Андрея Усачева",
+            //         "«Снеговик» Ганса Христиана Андерсена",
+            //         "«Ёлка» Владимира Сутеева"],
+            //     0,
+            //     "https://sm99.redvus.ru/nadb/"
+            // );
+
+            // Page 2
+            window.game = new SnowmanGame(
+                "snowmanPage_1",
+                "Что оказалось внутри растаявшего Снеговика, тосковавшего по печке из сказки Ганса Христиана Андерсена?",
+                "Кочерга",
+                ["Полено",
+                    "Уголек",
+                    "Кочерга"],
+                1,
+                "page2.html"
+            );
         });
     </script>
 </body>

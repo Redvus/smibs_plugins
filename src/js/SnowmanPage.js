@@ -1,23 +1,22 @@
-import { GAME_CONFIG } from '../utils/config.js';
+import { GAME_CONFIG } from './utils/config.js';
 import {gsap} from "gsap";
 
-const gameConfig = {
-    // Уникальный ID для этой страницы (менять для каждой страницы!)
-    pageId: "snowmanPage_0",
+class SnowmanPage {
+    constructor(
+        pageID,
+        questionText,
+        questionCorrect,
+        questionOptions,
+        partID,
+        nextPageUrl) {
 
-    // Данные вопроса для этой страницы
-    question: {
-        text: "Какой предмет чаще всего используют для носа снеговика?",
-        correctAnswer: "морковь",
-        options: ["огурец", "морковь", "банан", "картофель"],
-        partId: 0,
-        nextPageUrl: "page2.html"
-    }
-};
+        this.pageID = pageID;
+        this.questionText = questionText;
+        this.questionCorrect = questionCorrect;
+        this.questionOptions = questionOptions;
+        this.partID = partID;
+        this.nextPageUrl = nextPageUrl;
 
-class SnowmanPage_1 {
-    constructor() {
-        this.config = gameConfig;
         this.selectedAnswer = null;
         this.isAnswered = false;
         this.collectedParts = [];
@@ -28,6 +27,8 @@ class SnowmanPage_1 {
 
     // Инициализация игры
     init() {
+        this.snowmanGameBlock = document.getElementById('snowmanGame_01-26');
+
         // Загружаем прогресс
         this.loadProgress();
 
@@ -83,7 +84,7 @@ class SnowmanPage_1 {
         this.questionBtn.innerHTML = '?';
 
         // Добавляем на страницу
-        document.body.appendChild(this.questionBtn);
+        this.snowmanGameBlock.appendChild(this.questionBtn);
 
         // Размещаем кнопку в случайном месте
         this.positionButtonRandomly();
@@ -97,11 +98,11 @@ class SnowmanPage_1 {
         if (!this.questionBtn) return;
 
         // Получаем размеры окна
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth * 0.8;
+        const windowHeight = window.innerHeight * 0.8;
 
         // Учитываем отступы от краев
-        const margin = 20;
+        const margin = 60;
         const buttonSize = 60;
 
         // Генерируем случайные координаты
@@ -130,7 +131,7 @@ class SnowmanPage_1 {
         const nextBtn = document.getElementById('nextBtn');
 
         // Устанавливаем текст вопроса
-        questionText.textContent = this.config.question.text;
+        questionText.textContent = this.questionText;
 
         // Очищаем предыдущие результаты
         resultMessage.className = 'result-message';
@@ -141,7 +142,7 @@ class SnowmanPage_1 {
         optionsContainer.innerHTML = '';
 
         // Перемешиваем варианты ответов
-        const shuffledOptions = [...this.config.question.options].sort(() => Math.random() - 0.5);
+        const shuffledOptions = [...this.questionOptions].sort(() => Math.random() - 0.5);
 
         // Создаем кнопки для каждого варианта ответа
         shuffledOptions.forEach(option => {
@@ -150,8 +151,8 @@ class SnowmanPage_1 {
             button.textContent = option;
 
             // Если уже отвечали на этой странице, показываем правильный ответ
-            if (this.collectedParts.includes(this.config.question.partId)) {
-                if (option === this.config.question.correctAnswer) {
+            if (this.collectedParts.includes(this.partID)) {
+                if (option === this.questionCorrect) {
                     button.classList.add('correct');
                 }
                 button.disabled = true;
@@ -166,10 +167,10 @@ class SnowmanPage_1 {
         document.body.style.overflow = 'hidden'; // Блокируем прокрутку
 
         // Если уже отвечали правильно на этой странице, показываем кнопку следующей страницы
-        if (this.collectedParts.includes(this.config.question.partId) && this.config.question.nextPageUrl) {
+        if (this.collectedParts.includes(this.partID) && this.nextPageUrl) {
             nextBtn.classList.add('show');
             nextBtn.onclick = () => {
-                window.location.href = this.config.question.nextPageUrl;
+                window.location.href = this.nextPageUrl;
             };
         }
     }
@@ -188,7 +189,7 @@ class SnowmanPage_1 {
         this.selectedAnswer = answer;
         this.isAnswered = true;
 
-        const isCorrect = answer === this.config.question.correctAnswer;
+        const isCorrect = answer === this.questionCorrect;
         const resultMessage = document.getElementById('resultMessage');
         const optionsContainer = document.getElementById('optionsContainer');
         const nextBtn = document.getElementById('nextBtn');
@@ -197,7 +198,7 @@ class SnowmanPage_1 {
         // Показываем правильные/неправильные ответы
         optionButtons.forEach(btn => {
             btn.disabled = true;
-            if (btn.textContent === this.config.question.correctAnswer) {
+            if (btn.textContent === this.questionCorrect) {
                 btn.classList.add('correct');
             } else if (btn.textContent === answer && !isCorrect) {
                 btn.classList.add('incorrect');
@@ -210,18 +211,18 @@ class SnowmanPage_1 {
             resultMessage.className = 'result-message correct';
 
             // Добавляем часть снеговика, если её еще нет
-            if (!this.collectedParts.includes(this.config.question.partId)) {
-                this.collectedParts.push(this.config.question.partId);
+            if (!this.collectedParts.includes(this.partID)) {
+                this.collectedParts.push(this.partID);
                 this.saveProgress();
                 this.renderSnowman();
                 this.showSnowmanDisplay();
             }
 
             // Показываем кнопку перехода на следующую страницу
-            if (this.config.question.nextPageUrl) {
+            if (this.nextPageUrl) {
                 nextBtn.classList.add('show');
                 nextBtn.onclick = () => {
-                    window.location.href = this.config.question.nextPageUrl;
+                    window.location.href = this.nextPageUrl;
                 };
             }
 
@@ -361,7 +362,7 @@ class SnowmanPage_1 {
         });
 
         // Проверяем, был ли уже дан ответ на этой странице
-        if (this.collectedParts.includes(this.config.question.partId)) {
+        if (this.collectedParts.includes(this.partID)) {
             // Если уже отвечали правильно, скрываем кнопку вопроса
             if (this.questionBtn) {
                 this.questionBtn.style.display = 'none';
@@ -370,4 +371,4 @@ class SnowmanPage_1 {
     }
 }
 
-export { SnowmanPage_1 };
+export { SnowmanPage };
