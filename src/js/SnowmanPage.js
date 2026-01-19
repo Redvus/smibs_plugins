@@ -1,5 +1,5 @@
-import { GAME_CONFIG } from './utils/config.js';
-import {gsap} from "gsap";
+import { GAME_CONFIG } from "./utils/config.js";
+import { gsap } from "gsap";
 
 class SnowmanPage {
     constructor(
@@ -8,8 +8,8 @@ class SnowmanPage {
         questionCorrect,
         questionOptions,
         partID,
-        nextPageUrl) {
-
+        nextPageUrl,
+    ) {
         this.pageID = pageID;
         this.questionText = questionText;
         this.questionCorrect = questionCorrect;
@@ -27,7 +27,7 @@ class SnowmanPage {
 
     // Инициализация игры
     init() {
-        this.snowmanGameBlock = document.getElementById('snowmanGame_01-26');
+        this.snowmanGameBlock = document.getElementById("snowmanGame_01-26");
 
         // Загружаем прогресс
         this.loadProgress();
@@ -53,7 +53,7 @@ class SnowmanPage {
     // Загрузка прогресса из localStorage
     loadProgress() {
         try {
-            const savedProgress = localStorage.getItem('snowmanProgress');
+            const savedProgress = localStorage.getItem("snowmanProgress");
             if (savedProgress) {
                 this.collectedParts = JSON.parse(savedProgress);
                 console.log("Загружен прогресс:", this.collectedParts);
@@ -67,7 +67,10 @@ class SnowmanPage {
     // Сохранение прогресса в localStorage
     saveProgress() {
         try {
-            localStorage.setItem('snowmanProgress', JSON.stringify(this.collectedParts));
+            localStorage.setItem(
+                "snowmanProgress",
+                JSON.stringify(this.collectedParts),
+            );
             console.log("Прогресс сохранен:", this.collectedParts);
         } catch (e) {
             console.error("Ошибка при сохранении прогресса:", e);
@@ -77,11 +80,11 @@ class SnowmanPage {
     // Создание и размещение кнопки вопроса
     createQuestionButton() {
         // Создаем кнопку
-        this.questionBtn = document.createElement('button');
-        this.questionBtn.id = 'questionBtn';
-        this.questionBtn.className = 'floating-question-btn';
-        this.questionBtn.title = 'Нажмите, чтобы ответить на вопрос';
-        this.questionBtn.innerHTML = '?';
+        this.questionBtn = document.createElement("button");
+        this.questionBtn.id = "questionBtn";
+        this.questionBtn.className = "floating-question-btn";
+        this.questionBtn.title = "Нажмите, чтобы ответить на вопрос";
+        this.questionBtn.innerHTML = "?";
 
         // Добавляем на страницу
         this.snowmanGameBlock.appendChild(this.questionBtn);
@@ -90,7 +93,7 @@ class SnowmanPage {
         this.positionButtonRandomly();
 
         // Обработчик для кнопки
-        this.questionBtn.addEventListener('click', () => this.openModal());
+        this.questionBtn.addEventListener("click", () => this.openModal());
     }
 
     // Размещение кнопки в случайном месте
@@ -117,58 +120,60 @@ class SnowmanPage {
         this.questionBtn.style.top = `${randomY}px`;
 
         // Перепозиционируем при изменении размера окна
-        window.addEventListener('resize', () => {
+        window.addEventListener("resize", () => {
             this.positionButtonRandomly();
         });
     }
 
     // Открытие модального окна
     openModal() {
-        const modalOverlay = document.getElementById('modalOverlay');
-        const questionText = document.getElementById('questionText');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const resultMessage = document.getElementById('resultMessage');
-        const nextBtn = document.getElementById('nextBtn');
+        const modalOverlay = document.getElementById("modalOverlay");
+        const questionText = document.getElementById("questionText");
+        const optionsContainer = document.getElementById("optionsContainer");
+        const resultMessage = document.getElementById("resultMessage");
+        const nextBtn = document.getElementById("nextBtn");
 
         // Устанавливаем текст вопроса
         questionText.innerHTML = `<p>${this.questionText}</p>`;
 
         // Очищаем предыдущие результаты
-        resultMessage.className = 'result-message';
-        resultMessage.style.display = 'none';
-        nextBtn.classList.remove('show');
+        resultMessage.className = "result-message";
+        resultMessage.style.display = "none";
+        nextBtn.classList.remove("show");
 
         // Очищаем контейнер с вариантами
-        optionsContainer.innerHTML = '';
+        optionsContainer.innerHTML = "";
 
         // Перемешиваем варианты ответов
-        const shuffledOptions = [...this.questionOptions].sort(() => Math.random() - 0.5);
+        const shuffledOptions = [...this.questionOptions].sort(
+            () => Math.random() - 0.5,
+        );
 
         // Создаем кнопки для каждого варианта ответа
-        shuffledOptions.forEach(option => {
-            const button = document.createElement('button');
-            button.className = 'option-btn';
+        shuffledOptions.forEach((option) => {
+            const button = document.createElement("button");
+            button.className = "option-btn";
             button.textContent = option;
 
             // Если уже отвечали на этой странице, показываем правильный ответ
             if (this.collectedParts.includes(this.partID)) {
                 if (option === this.questionCorrect) {
-                    button.classList.add('correct');
+                    button.classList.add("correct");
                 }
                 button.disabled = true;
             }
 
-            button.addEventListener('click', () => this.selectAnswer(option));
+            button.addEventListener("click", () => this.selectAnswer(option));
             optionsContainer.appendChild(button);
         });
 
         // Показываем модальное окно
-        modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+        modalOverlay.classList.add("active");
+        document.body.style.overflow = "hidden"; // Блокируем прокрутку
 
         // Если уже отвечали правильно на этой странице, показываем кнопку следующей страницы
         if (this.collectedParts.includes(this.partID) && this.nextPageUrl) {
-            nextBtn.classList.add('show');
+            nextBtn.classList.add("show");
             nextBtn.onclick = () => {
                 window.location.href = this.nextPageUrl;
             };
@@ -177,9 +182,9 @@ class SnowmanPage {
 
     // Закрытие модального окна
     closeModal() {
-        const modalOverlay = document.getElementById('modalOverlay');
-        modalOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Возвращаем прокрутку
+        const modalOverlay = document.getElementById("modalOverlay");
+        modalOverlay.classList.remove("active");
+        document.body.style.overflow = "auto"; // Возвращаем прокрутку
     }
 
     // Выбор ответа
@@ -190,25 +195,26 @@ class SnowmanPage {
         this.isAnswered = true;
 
         const isCorrect = answer === this.questionCorrect;
-        const resultMessage = document.getElementById('resultMessage');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const nextBtn = document.getElementById('nextBtn');
-        const optionButtons = optionsContainer.querySelectorAll('.option-btn');
+        const resultMessage = document.getElementById("resultMessage");
+        const optionsContainer = document.getElementById("optionsContainer");
+        const nextBtn = document.getElementById("nextBtn");
+        const optionButtons = optionsContainer.querySelectorAll(".option-btn");
 
         // Показываем правильные/неправильные ответы
-        optionButtons.forEach(btn => {
+        optionButtons.forEach((btn) => {
             btn.disabled = true;
             if (btn.textContent === this.questionCorrect) {
-                btn.classList.add('correct');
+                btn.classList.add("correct");
             } else if (btn.textContent === answer && !isCorrect) {
-                btn.classList.add('incorrect');
+                btn.classList.add("incorrect");
             }
         });
 
         // Показываем сообщение с результатом
         if (isCorrect) {
-            resultMessage.textContent = "Правильно! Вы получили часть снеговика!";
-            resultMessage.className = 'result-message correct';
+            resultMessage.textContent =
+                "Правильно! Вы получили часть снеговика!";
+            resultMessage.className = "result-message correct";
 
             // Добавляем часть снеговика, если её еще нет
             if (!this.collectedParts.includes(this.partID)) {
@@ -220,7 +226,7 @@ class SnowmanPage {
 
             // Показываем кнопку перехода на следующую страницу
             if (this.nextPageUrl) {
-                nextBtn.classList.add('show');
+                nextBtn.classList.add("show");
                 nextBtn.onclick = () => {
                     window.location.href = this.nextPageUrl;
                 };
@@ -229,12 +235,13 @@ class SnowmanPage {
             // Скрываем кнопку вопроса через 2 секунды
             setTimeout(() => {
                 if (this.questionBtn) {
-                    this.questionBtn.style.display = 'none';
+                    this.questionBtn.style.display = "none";
                 }
             }, 2000);
         } else {
-            resultMessage.textContent = "Неправильно! Попробуйте найти правильный ответ.";
-            resultMessage.className = 'result-message incorrect';
+            resultMessage.textContent =
+                "Неправильно! Попробуйте найти правильный ответ.";
+            resultMessage.className = "result-message incorrect";
 
             // Через 3 секунды позволяем выбрать снова
             setTimeout(() => {
@@ -249,17 +256,17 @@ class SnowmanPage {
 
     // Отображение снеговика в правом нижнем углу
     renderSnowman() {
-        const display = document.getElementById('snowmanDisplay');
+        const display = document.getElementById("snowmanDisplay");
 
         // Очищаем дисплей
-        display.innerHTML = '';
+        display.innerHTML = "";
 
         // Добавляем части снеговика, которые уже собраны
-        this.collectedParts.forEach(partId => {
+        this.collectedParts.forEach((partId) => {
             const part = GAME_CONFIG.SNOWMAN_PARTS[partId];
             if (part) {
-                const partElement = document.createElement('a');
-                partElement.href = `${this.nextPageUrl}`
+                const partElement = document.createElement("a");
+                partElement.href = `${this.nextPageUrl}`;
                 partElement.innerHTML = `<picture><img src="/assets/games/snowman/images/${part.image}" alt="${part.name}"></picture>`;
                 partElement.className = `snowman__part`;
                 partElement.id = `${part.id}`;
@@ -270,23 +277,23 @@ class SnowmanPage {
 
     // Показ дисплея снеговика с анимацией
     showSnowmanDisplay() {
-        const display = document.getElementById('snowmanDisplay');
+        const display = document.getElementById("snowmanDisplay");
         const lastPart = display.lastElementChild;
 
         if (lastPart) {
-            lastPart.classList.add('new');
+            lastPart.classList.add("new");
 
             // Убираем класс анимации после её завершения
             setTimeout(() => {
-                lastPart.classList.remove('new');
+                lastPart.classList.remove("new");
             }, 500);
         }
     }
 
     // Обновление отображения прогресса
     updateProgressDisplay() {
-        const partsCount = document.getElementById('partsCount');
-        const progressFill = document.getElementById('progressFill');
+        const partsCount = document.getElementById("partsCount");
+        const progressFill = document.getElementById("progressFill");
 
         if (partsCount) {
             partsCount.textContent = this.collectedParts.length;
@@ -299,13 +306,17 @@ class SnowmanPage {
 
     // Сброс прогресса
     resetProgress() {
-        if (confirm("Вы уверены, что хотите сбросить весь прогресс? Все собранные части снеговика будут удалены.")) {
+        if (
+            confirm(
+                "Вы уверены, что хотите сбросить весь прогресс? Все собранные части снеговика будут удалены.",
+            )
+        ) {
             this.collectedParts = [];
             this.selectedAnswer = null;
             this.isAnswered = false;
 
             // Очищаем localStorage
-            localStorage.removeItem('snowmanProgress');
+            localStorage.removeItem("snowmanProgress");
 
             // Обновляем отображение
             this.renderSnowman();
@@ -313,18 +324,18 @@ class SnowmanPage {
 
             // Показываем кнопку вопроса
             if (this.questionBtn) {
-                this.questionBtn.style.display = 'flex';
+                this.questionBtn.style.display = "flex";
             }
 
             // Сбрасываем состояние модального окна
-            const resultMessage = document.getElementById('resultMessage');
-            const nextBtn = document.getElementById('nextBtn');
+            const resultMessage = document.getElementById("resultMessage");
+            const nextBtn = document.getElementById("nextBtn");
             if (resultMessage) {
-                resultMessage.className = 'result-message';
-                resultMessage.style.display = 'none';
+                resultMessage.className = "result-message";
+                resultMessage.style.display = "none";
             }
             if (nextBtn) {
-                nextBtn.classList.remove('show');
+                nextBtn.classList.remove("show");
             }
 
             alert("Прогресс сброшен!");
@@ -334,15 +345,15 @@ class SnowmanPage {
     // Настройка обработчиков событий
     setupEventListeners() {
         // Обработчик закрытия модального окна
-        const closeModalBtn = document.getElementById('closeModal');
-        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModalBtn = document.getElementById("closeModal");
+        const modalOverlay = document.getElementById("modalOverlay");
 
         if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', () => this.closeModal());
+            closeModalBtn.addEventListener("click", () => this.closeModal());
         }
 
         if (modalOverlay) {
-            modalOverlay.addEventListener('click', (e) => {
+            modalOverlay.addEventListener("click", (e) => {
                 if (e.target === modalOverlay) {
                     this.closeModal();
                 }
@@ -350,14 +361,14 @@ class SnowmanPage {
         }
 
         // Обработчик кнопки сброса
-        const resetBtn = document.getElementById('resetBtn');
+        const resetBtn = document.getElementById("resetBtn");
         if (resetBtn) {
-            resetBtn.addEventListener('click', () => this.resetProgress());
+            resetBtn.addEventListener("click", () => this.resetProgress());
         }
 
         // Закрытие по ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
                 this.closeModal();
             }
         });
@@ -366,7 +377,7 @@ class SnowmanPage {
         if (this.collectedParts.includes(this.partID)) {
             // Если уже отвечали правильно, скрываем кнопку вопроса
             if (this.questionBtn) {
-                this.questionBtn.style.display = 'none';
+                this.questionBtn.style.display = "none";
             }
         }
     }
