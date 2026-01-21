@@ -1,20 +1,20 @@
 @use "breakpoints" as bp;
 
 #snowmanGame_01-26 {
-    width: calc(100vw - ((100% / 12) * 2) + 4rem);
-    height: calc(100vh - 5rem);
-    display: block;
-    position: fixed;
-    top: 5rem;
-    left: calc(((100% / 12) * 2) + 4rem);
-    z-index: 1000;
+    // width: calc(100vw - ((100% / 12) * 2) + 4rem);
+    // height: calc(100vh - 5rem);
+    // display: block;
+    // position: fixed;
+    // top: 5rem;
+    // left: calc(((100% / 12) * 2) + 4rem);
+    // z-index: 1000;
 
-    @include bp.media-up("XSmall") {
-        width: 100vw;
-        height: calc(100vh - 6rem);
-        top: 6rem;
-        left: 0;
-    }
+    // @include bp.media-up("XSmall") {
+    //     width: 100vw;
+    //     height: calc(100vh - 6rem);
+    //     top: 6rem;
+    //     left: 0;
+    // }
 }
 
 .snowman {
