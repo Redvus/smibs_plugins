@@ -1,5 +1,5 @@
 @use "breakpoints" as bp;
-@use "variables";
+@use "variables" as *;
 
 .anchor-day-block {
     // width: calc(100% - (16.6666666667% + 8rem / 2));
@@ -69,6 +69,29 @@
 
             a {
                 font-size: 2.5vmax;
+            }
+        }
+    }
+}
+
+.section {
+
+    &__anchor {
+
+        table {
+            border-top: $border_normal solid var(--secondary);
+            border-bottom: $border_normal solid var(--secondary);
+            margin-bottom: calc(#{$marginVert} * 2);
+
+            tr {
+                border-color: var(--secondary);
+
+                td {
+
+                    &:first-child {
+                        width: 25%;
+                    }
+                }
             }
         }
     }
