@@ -1,24 +1,24 @@
-import '/scss/main.scss';
-import {Event_08_03_25} from "./Event_08_03_25.js";
+import "/scss/main.scss";
+import { Event_08_03_26 } from "./Event_08_03_26.js";
 
 class Plugins {
     constructor() {
         // this.initLayout();
-        new Event_08_03_25();
+        new Event_08_03_26();
     }
 
     initLayout() {
         this.body = document.body;
-        this.wrapper = document.querySelector('.wrapper');
+        this.wrapper = document.querySelector(".wrapper");
 
-        this.sidebar = document.createElement('div');
-        this.sidebar.className = 'sidebar';
+        this.sidebar = document.createElement("div");
+        this.sidebar.className = "sidebar";
 
-        this.sidebarStatic = document.createElement('div');
-        this.sidebarStatic.className = 'sidebar-static';
+        this.sidebarStatic = document.createElement("div");
+        this.sidebarStatic.className = "sidebar-static";
 
-        this.header = document.createElement('div');
-        this.header.className = 'header header--desktop';
+        this.header = document.createElement("div");
+        this.header.className = "header header--desktop";
         this.header.innerHTML = `
             <div class="header__nav">
                 <div class="header__top"></div>
@@ -30,11 +30,11 @@ class Plugins {
             </a>
         `;
 
-        this.mainContent = document.createElement('div');
-        this.mainContent.className = 'main-content';
+        this.mainContent = document.createElement("div");
+        this.mainContent.className = "main-content";
 
-        this.mainContentInside = document.createElement('div');
-        this.mainContentInside.className = 'main-content__inside';
+        this.mainContentInside = document.createElement("div");
+        this.mainContentInside.className = "main-content__inside";
 
         // this.footer = document.createElement('div');
         // this.footer.className = 'footer';
@@ -50,4 +50,4 @@ class Plugins {
     }
 }
 
-export { Plugins }
+export { Plugins };
