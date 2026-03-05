@@ -3,8 +3,14 @@ import { gsap } from "gsap";
 class Event_08_03_26 {
     constructor() {
         this.initLayout();
-        this.initAnimation();
-        // this.initDev();
+        if (import.meta.env.PROD) {
+            this.initAnimation();
+            // this.initDev();
+        }
+        if (import.meta.env.DEV) {
+            // this.initAnimation();
+            this.initDev();
+        }
     }
 
     initLayout() {
@@ -25,17 +31,23 @@ class Event_08_03_26 {
 			</picture>
 		`;
 
+        // this.container.innerHTML = `
+        //     <div id="womanDay26Slogan">
+        //         <picture id="womanDay26Slogan_1">
+        //             <img src="assets/plugins/womanDay26/images/womanDay26Slogan_1.svg" id="womanDay26Slogan_1" alt="">
+        //         </picture>
+        //         <picture id="womanDay26Slogan_2">
+        //             <img src="assets/plugins/womanDay26/images/womanDay26Slogan_2.svg" id="womanDay26Slogan_2" alt="">
+        //         </picture>
+        //         <picture id="womanDay26Slogan_3">
+        //             <img src="assets/plugins/womanDay26/images/womanDay26Slogan_3.svg" id="womanDay26Slogan_3" alt="">
+        //         </picture>
+        //     </div>
+        // `;
+
         this.container.innerHTML = `
             <div id="womanDay26Slogan">
-                <picture id="womanDay26Slogan_1">
-                    <img src="assets/plugins/womanDay26/images/womanDay26Slogan_1.svg" id="womanDay26Slogan_1" alt="">
-                </picture>
-                <picture id="womanDay26Slogan_2">
-                    <img src="assets/plugins/womanDay26/images/womanDay26Slogan_2.svg" id="womanDay26Slogan_2" alt="">
-                </picture>
-                <picture id="womanDay26Slogan_3">
-                    <img src="assets/plugins/womanDay26/images/womanDay26Slogan_3.svg" id="womanDay26Slogan_3" alt="">
-                </picture>
+                <h2 id="womanDay26Slogan_1">Тепла, любви и&nbsp;счастья!</h2>
             </div>
         `;
 
@@ -77,12 +89,14 @@ class Event_08_03_26 {
                 // easy: "bounce",
             })
             .from(
-                [womanDay26Slogan_1, womanDay26Slogan_2, womanDay26Slogan_3],
+                [
+                    womanDay26Slogan_1 /*, womanDay26Slogan_2, womanDay26Slogan_3*/,
+                ],
                 {
-                    duration: 1,
+                    duration: 3,
                     delay: "-3",
                     autoAlpha: 0,
-                    // y: "10%",
+                    y: "30%",
                     stagger: 0.3,
                     // easy: "power2",
                 },

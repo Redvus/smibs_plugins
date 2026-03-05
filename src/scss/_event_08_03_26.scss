@@ -98,24 +98,30 @@ $containerWidth: 80vw;
 
         &_1 {
             width: auto;
-            height: calc(#{var(--sloganHeight)} - 2.1vmax);
-            position: absolute;
-            bottom: calc(#{var(--sloganHeight)} / 1.3);
-        }
-
-        &_2 {
-            width: auto;
-            height: calc(#{var(--sloganHeight)} - 2vmax);
-            position: absolute;
-            bottom: calc(#{var(--sloganHeight)} / 2.3);
-        }
-
-        &_3 {
-            width: auto;
-            height: var(--sloganHeight);
+            // height: calc(#{var(--sloganHeight)} - 2.1vmax);
             position: absolute;
             bottom: 0;
+            font-family: "Manrope ExtraLight" !important;
+            color: var(--fourth) !important;
+            text-decoration: none;
+            font-size: calc(var(--font-size-base) + 3.5vmax) !important;
+            border-bottom: none;
+            margin-bottom: 2rem !important;
         }
+
+        // &_2 {
+        //     width: auto;
+        //     height: calc(#{var(--sloganHeight)} - 2vmax);
+        //     position: absolute;
+        //     bottom: calc(#{var(--sloganHeight)} / 2.3);
+        // }
+
+        // &_3 {
+        //     width: auto;
+        //     height: var(--sloganHeight);
+        //     position: absolute;
+        //     bottom: 0;
+        // }
     }
 
     &Baloon {
@@ -165,14 +171,21 @@ $containerWidth: 80vw;
         }
     }
 
-    // @include bp.media-up("Medium") {
-    //     #womanDay26 {
+    @include bp.media-up("Medium") {
+        #womanDay26 {
 
-    //         &Baloon {
-    //             right: 10vmin;
-    //         }
-    //     }
-    // }
+            &Baloon {
+                right: 22vmin;
+            }
+
+            &Slogan {
+                &_1 {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
 
     @include bp.media-up("Small") {
         #womanDay26 {
@@ -185,12 +198,14 @@ $containerWidth: 80vw;
 
             &Slogan {
                 &_1 {
-                    height: calc(#{var(--sloganHeight)} - 1.9vmin);
+                    // height: calc(#{var(--sloganHeight)} - 1.9vmin);
+                    width: 100%;
+                    text-align: center;
                 }
 
-                &_2 {
-                    height: calc(#{var(--sloganHeight)} - 1.8vmin);
-                }
+                // &_2 {
+                //     height: calc(#{var(--sloganHeight)} - 1.8vmin);
+                // }
             }
         }
     }
