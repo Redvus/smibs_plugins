@@ -3,8 +3,8 @@ import { gsap } from "gsap";
 class Event_08_03_26 {
     constructor() {
         this.initLayout();
-        // this.initAnimation();
-        this.initDev();
+        this.initAnimation();
+        // this.initDev();
     }
 
     initLayout() {
@@ -52,8 +52,8 @@ class Event_08_03_26 {
             womanDay26Slogan_2 = document.getElementById("womanDay26Slogan_2"),
             womanDay26Slogan_3 = document.getElementById("womanDay26Slogan_3");
         let tl = new gsap.timeline({
-            // delay: 0.5,
-            // onComplete: this.initHide(12),
+            delay: 0.5,
+            onComplete: this.initHide(11),
         });
 
         tl.to(womanDay26, {
@@ -70,7 +70,7 @@ class Event_08_03_26 {
             })
             .from(womanDay26Baloon, {
                 duration: 6,
-                delay: "0.3",
+                delay: "-0.2",
                 // autoAlpha: 0,
                 x: "100vmin",
                 scale: 1.5,
@@ -80,11 +80,11 @@ class Event_08_03_26 {
                 [womanDay26Slogan_1, womanDay26Slogan_2, womanDay26Slogan_3],
                 {
                     duration: 1,
-                    delay: "-5",
+                    delay: "-3",
                     autoAlpha: 0,
                     // y: "10%",
                     stagger: 0.3,
-                    easy: "power2",
+                    // easy: "power2",
                 },
             );
     }

@@ -3,7 +3,14 @@
 @use "breakpoints" as bp;
 
 $containerWidth: 80vw;
-$sloganHeight: 9vmax;
+
+:root {
+    --sloganHeight: 9vmax;
+
+    @include bp.media-up("Small") {
+        --sloganHeight: 12vmin;
+    }
+}
 
 .anniversary {
     width: 100%;
@@ -41,7 +48,7 @@ $sloganHeight: 9vmax;
         //border-left: 0.05rem dashed rgba(#646cff, 70%);
         //border-right: 0.05rem dashed rgba(#646cff, 70%);
         overflow: hidden;
-        z-index: 3;
+        z-index: 10;
     }
 
     @include bp.media-up("Small") {
@@ -87,25 +94,25 @@ $sloganHeight: 9vmax;
         position: absolute;
         top: 0;
         margin: 0 auto;
-        z-index: 5;
+        z-index: 10;
 
         &_1 {
             width: auto;
-            height: calc(#{$sloganHeight} - 2.1vmax);
+            height: calc(#{var(--sloganHeight)} - 2.1vmax);
             position: absolute;
-            bottom: calc(#{$sloganHeight} / 1.3);
+            bottom: calc(#{var(--sloganHeight)} / 1.3);
         }
 
         &_2 {
             width: auto;
-            height: calc(#{$sloganHeight} - 2vmax);
+            height: calc(#{var(--sloganHeight)} - 2vmax);
             position: absolute;
-            bottom: calc(#{$sloganHeight} / 2.3);
+            bottom: calc(#{var(--sloganHeight)} / 2.3);
         }
 
         &_3 {
             width: auto;
-            height: $sloganHeight;
+            height: var(--sloganHeight);
             position: absolute;
             bottom: 0;
         }
@@ -119,7 +126,7 @@ $sloganHeight: 9vmax;
         top: 3vmin;
         right: 25vmin;
         overflow: hidden;
-        z-index: 10;
+        z-index: 5;
 
         img {
             width: 100%;
@@ -158,5 +165,34 @@ $sloganHeight: 9vmax;
         }
     }
 
+    // @include bp.media-up("Medium") {
+    //     #womanDay26 {
+
+    //         &Baloon {
+    //             right: 10vmin;
+    //         }
+    //     }
+    // }
+
+    @include bp.media-up("Small") {
+        #womanDay26 {
+
+            &Baloon {
+                height: 90vmin;
+                top: 15vmin;
+                right: 16vmin;
+            }
+
+            &Slogan {
+                &_1 {
+                    height: calc(#{var(--sloganHeight)} - 1.9vmin);
+                }
+
+                &_2 {
+                    height: calc(#{var(--sloganHeight)} - 1.8vmin);
+                }
+            }
+        }
+    }
 
 }
