@@ -18,23 +18,23 @@ class Event_08_03_26 {
 
         this.womanDay26.innerHTML = `
 			<picture id="womanDay26Back">
-				<img src="assets/images/womanDay26/womanDay26Back.jpg" alt="">
+				<img src="assets/plugins/womanDay26/images/womanDay26Back.jpg" alt="">
 			</picture>
             <picture id="womanDay26Baloon">
-				<img src="assets/images/womanDay26/womanDay26Baloon_2.png" alt="">
+				<img src="assets/plugins/womanDay26/images/womanDay26Baloon_2.png" alt="">
 			</picture>
 		`;
 
         this.container.innerHTML = `
             <div id="womanDay26Slogan">
                 <picture id="womanDay26Slogan_1">
-                    <img src="assets/images/womanDay26/womanDay26Slogan_1.svg" id="womanDay26Slogan_1" alt="">
+                    <img src="assets/plugins/womanDay26/images/womanDay26Slogan_1.svg" id="womanDay26Slogan_1" alt="">
                 </picture>
                 <picture id="womanDay26Slogan_2">
-                    <img src="assets/images/womanDay26/womanDay26Slogan_2.svg" id="womanDay26Slogan_2" alt="">
+                    <img src="assets/plugins/womanDay26/images/womanDay26Slogan_2.svg" id="womanDay26Slogan_2" alt="">
                 </picture>
                 <picture id="womanDay26Slogan_3">
-                    <img src="assets/images/womanDay26/womanDay26Slogan_3.svg" id="womanDay26Slogan_3" alt="">
+                    <img src="assets/plugins/womanDay26/images/womanDay26Slogan_3.svg" id="womanDay26Slogan_3" alt="">
                 </picture>
             </div>
         `;
