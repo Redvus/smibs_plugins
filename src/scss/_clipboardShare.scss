@@ -1,20 +1,17 @@
-/* Добавляем стили для тултипа выделения */
+/* Тултип выделения с кнопками */
 .selection-tooltip {
     position: absolute;
-    background: #333;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 12px;
     z-index: 10000;
     opacity: 0;
+    transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: all;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transform: translateY(-10px);
+    min-width: 200px;
+    max-width: 300px;
 }
 
 .selection-tooltip.show {
@@ -22,62 +19,189 @@
     transform: translateY(0);
 }
 
-.selection-tooltip::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 20px;
-    border-width: 0 5px 5px;
-    border-style: solid;
-    border-color: transparent transparent #333 transparent;
-}
-
-.selection-tooltip-icon {
-    font-size: 16px;
-}
-
-.selection-tooltip-copy {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 4px 12px;
-    border-radius: 12px;
+/* Превью текста */
+.selection-preview {
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
     font-size: 12px;
+    color: #666;
+    max-height: 60px;
+    overflow: hidden;
+    border-left: 3px solid #007bff;
+}
+
+/* Контейнер кнопок */
+.selection-tooltip-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Позиционирование кнопок */
+.position-top {
+    flex-direction: column-reverse;
+}
+
+.position-bottom {
+    flex-direction: column;
+}
+
+.position-left {
+    flex-direction: row-reverse;
+}
+
+.position-right {
+    flex-direction: row;
+}
+
+/* Кнопки в тултипе */
+.selection-tooltip-btn {
+    border: none;
+    background: #f0f0f0;
+    color: #333;
     cursor: pointer;
-    transition: background 0.2s;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
 }
 
-.selection-tooltip-copy:hover {
-    background: #45a049;
+.selection-tooltip-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.selection-tooltip-copy:active {
-    transform: scale(0.95);
+/* Размеры кнопок */
+.size-small {
+    padding: 4px 8px;
+    font-size: 11px;
+    min-width: 30px;
 }
 
-/* Стили для выделенного текста */
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+.size-medium {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 36px;
+}
+
+.size-large {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 42px;
+}
+
+/* Цвета кнопок */
+.selection-btn-copy {
+    background: #28a745;
+    color: white;
+}
+
+.selection-btn-copy:hover {
+    background: #218838;
+}
+
+.selection-btn-vk {
+    background: #4a76a8;
+    color: white;
+}
+
+.selection-btn-telegram {
+    background: #0088cc;
+    color: white;
+}
+
+.selection-btn-twitter {
+    background: #000000;
+    color: white;
+}
+
+.selection-btn-facebook {
+    background: #3b5998;
+    color: white;
+}
+
+.selection-btn-whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.selection-btn-viber {
+    background: #665cac;
+    color: white;
+}
+
+.selection-btn-email {
+    background: #6c757d;
+    color: white;
+}
+
+.selection-btn-select-all {
+    background: #ffc107;
+    color: #333;
+}
+
+/* Подсказка о горячей клавише */
+.selection-shortcut-hint {
+    margin-top: 8px;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 6px;
 }
 
 /* Анимация подсветки */
-@keyframes highlightPulse {
-    0% {
-        background-color: #fff3cd;
+.selection-highlight {
+    background-color: #cce5ff;
+    transition: background-color 1s;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .selection-tooltip {
+        min-width: 160px;
+        max-width: 250px;
+        padding: 8px;
     }
 
-    50% {
-        background-color: #ffe69c;
+    .selection-preview {
+        font-size: 11px;
+        padding: 6px;
     }
 
-    100% {
-        background-color: transparent;
+    .selection-tooltip-btn {
+        padding: 4px 6px;
+        font-size: 10px;
     }
 }
 
-.selection-highlight {
-    animation: highlightPulse 1s ease;
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    .selection-tooltip {
+        background: #2d2d2d;
+        color: #fff;
+    }
+
+    .selection-preview {
+        background: #3d3d3d;
+        color: #ddd;
+        border-left-color: #4a9eff;
+    }
+
+    .selection-tooltip-btn {
+        background: #3d3d3d;
+        color: #fff;
+    }
+
+    .selection-shortcut-hint {
+        color: #888;
+        border-top-color: #444;
+    }
 }
 
 /* Остальные стили из предыдущей версии */
@@ -124,127 +248,4 @@
 
 .copy-tooltip-error::before {
     border-color: #dc3545 transparent transparent;
-}
-
-/* Стили для попапа шаринга */
-.share-popup {
-    position: absolute;
-    z-index: 10001;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    animation: sharePopupFadeIn 0.3s ease;
-}
-
-@keyframes sharePopupFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.share-popup-content {
-    position: relative;
-    padding: 20px;
-    min-width: 250px;
-}
-
-.share-popup-content h3 {
-    margin: 0 0 15px 0;
-    font-size: 16px;
-    color: #333;
-    text-align: center;
-}
-
-.share-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-.share-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.2s;
-}
-
-.share-btn:hover {
-    transform: scale(1.1);
-}
-
-.share-btn-vk {
-    background: #4a76a8;
-}
-
-.share-btn-telegram {
-    background: #0088cc;
-}
-
-.share-btn-twitter {
-    background: #000000;
-}
-
-.share-btn-facebook {
-    background: #3b5998;
-}
-
-.share-btn-whatsapp {
-    background: #25d366;
-}
-
-.share-btn-odnoklassniki {
-    background: #ee8208;
-}
-
-.share-popup-close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #999;
-    padding: 0;
-    line-height: 1;
-}
-
-.share-popup-close:hover {
-    color: #333;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .share-popup-content {
-        min-width: 200px;
-    }
-
-    .share-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-
-    .selection-tooltip {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .selection-tooltip-copy {
-        padding: 3px 8px;
-        font-size: 11px;
-    }
 }
