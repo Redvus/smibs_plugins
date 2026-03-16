@@ -2,14 +2,15 @@ if (import.meta.env.DEV) {
     import("/main.css");
 }
 import "/scss/main.scss";
-import { AnchorOnPage } from "./AnchorOnPage.js";
+import { ClipboardShare } from "./ClipboardShare.js";
 
 class Plugins {
     constructor() {
         if (import.meta.env.DEV) {
             this.initLayout(); // Скрывать для build
         }
-        new AnchorOnPage();
+
+        new ClipboardShare();
     }
 
     initLayout() {

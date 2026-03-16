@@ -1,0 +1,250 @@
+/* Добавляем стили для тултипа выделения */
+.selection-tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: all;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-10px);
+}
+
+.selection-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.selection-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    border-width: 0 5px 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+.selection-tooltip-icon {
+    font-size: 16px;
+}
+
+.selection-tooltip-copy {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.selection-tooltip-copy:hover {
+    background: #45a049;
+}
+
+.selection-tooltip-copy:active {
+    transform: scale(0.95);
+}
+
+/* Стили для выделенного текста */
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/* Анимация подсветки */
+@keyframes highlightPulse {
+    0% {
+        background-color: #fff3cd;
+    }
+
+    50% {
+        background-color: #ffe69c;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+.selection-highlight {
+    animation: highlightPulse 1s ease;
+}
+
+/* Остальные стили из предыдущей версии */
+.copy-tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.copy-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px 5px 0;
+    border-style: solid;
+    border-color: #333 transparent transparent;
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+}
+
+.copy-tooltip-success {
+    background: #28a745;
+}
+
+.copy-tooltip-success::before {
+    border-color: #28a745 transparent transparent;
+}
+
+.copy-tooltip-error {
+    background: #dc3545;
+}
+
+.copy-tooltip-error::before {
+    border-color: #dc3545 transparent transparent;
+}
+
+/* Стили для попапа шаринга */
+.share-popup {
+    position: absolute;
+    z-index: 10001;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: sharePopupFadeIn 0.3s ease;
+}
+
+@keyframes sharePopupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.share-popup-content {
+    position: relative;
+    padding: 20px;
+    min-width: 250px;
+}
+
+.share-popup-content h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+}
+
+.share-btn-vk {
+    background: #4a76a8;
+}
+
+.share-btn-telegram {
+    background: #0088cc;
+}
+
+.share-btn-twitter {
+    background: #000000;
+}
+
+.share-btn-facebook {
+    background: #3b5998;
+}
+
+.share-btn-whatsapp {
+    background: #25d366;
+}
+
+.share-btn-odnoklassniki {
+    background: #ee8208;
+}
+
+.share-popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    line-height: 1;
+}
+
+.share-popup-close:hover {
+    color: #333;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .share-popup-content {
+        min-width: 200px;
+    }
+
+    .share-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .selection-tooltip {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .selection-tooltip-copy {
+        padding: 3px 8px;
+        font-size: 11px;
+    }
+}
