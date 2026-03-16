@@ -195,7 +195,7 @@ class ClipboardShare {
                         ? "Копировать"
                         : this.options.shareButtonsStyle === "both"
                           ? "📋 Копировать"
-                          : "📋";
+                          : "📋 Копировать";
                 button.title = this.options.copyButtonTooltip;
 
                 button.addEventListener("click", (e) => {
@@ -221,7 +221,11 @@ class ClipboardShare {
                           ? this.getSocialIcon(buttonType) +
                             " " +
                             this.getSocialName(buttonType)
-                          : this.getSocialIcon(buttonType);
+                          : this.getSocialIcon(buttonType) +
+                            " " +
+                            "Поделиться в " +
+                            " " +
+                            this.getSocialName(buttonType);
                 button.title = `Поделиться в ${this.getSocialName(buttonType)}`;
 
                 button.addEventListener("click", (e) => {
