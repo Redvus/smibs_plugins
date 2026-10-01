@@ -3,9 +3,9 @@
 @use "breakpoints" as bp;
 @use "variables" as *;
 
-$calendarDateBackground: var(--third-lighten-95);
-$calendarDateColor: var(--third-lighten-30);
-$calendarWeekBackground: var(--fourth);
+$calendarDateBackground: var(--primary);
+$calendarDateColor: var(--secondary);
+$calendarWeekBackground: var(--primary-darken-7);
 
 .main-content {
     &__subheader {
@@ -116,7 +116,7 @@ $calendarWeekBackground: var(--fourth);
             margin: 0.1rem;
             background-color: $calendarWeekBackground;
             color: $calendarDateColor;
-            border: $border_thin solid var(--third-lighten-50);
+            // border: $border_thin solid var(--third-lighten-50);
             cursor: pointer;
         }
     }
@@ -148,8 +148,8 @@ $calendarWeekBackground: var(--fourth);
                 margin-left: calc(((100% / 7) * 2) + 0.1rem);
             }
 
-            &--thirdsday {
-                margin-left: calc(((100% / 7) * 3) + 0.1rem);
+            &--thursday {
+                margin-left: calc(((100% / 7) * 3) + 0.1rem) !important;
             }
 
             &--friday {
@@ -230,6 +230,7 @@ $calendarWeekBackground: var(--fourth);
         }
 
         @include bp.media-up("Small") {
+
             &-month,
             &-week {
                 span {
