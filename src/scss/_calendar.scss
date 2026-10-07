@@ -79,13 +79,13 @@ $calendarWeekBackground: var(--primary-darken-7);
         }
 
         @include bp.media-up("Small") {
-            visibility: visible;
+            visibility: visible !important;
         }
     }
 
     @include bp.media-up("Small") {
         &__calendar {
-            flex-direction: column;
+            flex-direction: column !important;
 
             &_month {
                 width: 100%;
